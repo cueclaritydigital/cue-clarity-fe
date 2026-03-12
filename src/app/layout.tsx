@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import { Oswald, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/common/Navbar';
+import { organizationSchema } from '@/lib/schema';
 
-// ── DISPLAY FONT: Oswald ──────────────────────────────────────────────────────
-// Bold, condensed — authoritative. Perfect for hero headings and section titles.
 const oswald = Oswald({
   subsets: ['latin'],
   variable: '--font-oswald',
@@ -12,9 +11,6 @@ const oswald = Oswald({
   weight: ['400', '500', '600', '700'],
 });
 
-// ── BODY FONT: Plus Jakarta Sans ──────────────────────────────────────────────
-// Geometric, humanist sans-serif — modern yet warm. Excellent readability at all
-// sizes. Trusted by top-tier SaaS, edutech, and professional services brands.
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-jakarta',
@@ -23,14 +19,36 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Cue Clarity | Expert Career Counseling for Students & Professionals',
+  title: {
+    default: 'CueClarity | Expert Career Counselling for Students & Professionals',
+    template: '%s | CueClarity',
+  },
   description:
-    'Discover the right career path with expert mentors. Cue Clarity helps students, parents, and professionals unlock global opportunities through personalized guidance.',
-  keywords: ['career counseling', 'student mentoring', 'college guidance', 'international education'],
+    'Discover the right career path with expert mentors. CueClarity helps students, parents, and professionals unlock global opportunities through personalized guidance.',
+  keywords: [
+    'career counselling',
+    'career counseling',
+    'student mentoring',
+    'college guidance',
+    'international education',
+    'career assessment',
+    'psychometric test',
+  ],
+  metadataBase: new URL('https://cueclarity.com'),
   openGraph: {
-    title: 'Cue Clarity — Find Your Direction',
-    description: 'Expert career counseling that transforms uncertainty into clarity.',
+    title: 'CueClarity — Find Your Direction',
+    description: 'Expert career counselling that transforms uncertainty into clarity.',
     type: 'website',
+    siteName: 'CueClarity',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CueClarity — Find Your Direction',
+    description: 'Expert career counselling that transforms uncertainty into clarity.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -44,10 +62,12 @@ export default function RootLayout({
       lang="en"
       className={`${oswald.variable} ${jakarta.variable}`}
     >
-      {/*
-        font-[family-name:var(--font-jakarta)] sets Plus Jakarta Sans as the
-        default body typeface globally. Headings override via font-[family-name:var(--font-oswald)].
-      */}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body
         className="font-[family-name:var(--font-jakarta)] antialiased"
         style={{

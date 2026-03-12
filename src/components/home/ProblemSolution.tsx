@@ -89,7 +89,7 @@ export default function ProblemSolution() {
 
 // ---------------- SUBS ----------------
 
-function FactBox({ pct, text }) {
+function FactBox({ pct, text }: { pct: string; text: string }) {
   return (
     <div className="bg-[var(--primary-white)]/5 border border-[var(--primary-white)]/10 rounded-[var(--radius-lg)] p-6 flex flex-col justify-center">
       {/* Massive, tight typography for the percentage */}
@@ -103,7 +103,7 @@ function FactBox({ pct, text }) {
   );
 }
 
-function SolutionItem({ icon, title, desc }) {
+function SolutionItem({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
   return (
     <div className="group flex gap-5 items-start bg-[var(--primary-white)]/5 border border-[var(--primary-white)]/10 rounded-[var(--radius-lg)] p-5 lg:p-6 transition-all duration-[var(--transition-base)] hover:bg-[var(--primary-white)]/10 hover:border-[var(--blob-glow)]/50 cursor-default">
       {/* Icon Container */}
