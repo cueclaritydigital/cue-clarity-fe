@@ -56,7 +56,7 @@ export default function LandingPage() {
     <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: 'var(--primary-white)' }}>
 
       {/* ── HERO SECTION ───────────────────────────────────────────── */}
-      <section className="relative hero-gradient pt-24 pb-52 lg:pt-32 lg:pb-[15rem] px-4 sm:px-6 flex flex-col items-center justify-center min-h-[90vh] lg:min-h-0 z-0 overflow-hidden">
+      <section className="relative hero-gradient pt-24 pb-52 lg:pt-32 lg:pb-[15rem] px-12 sm:px-6 flex flex-col items-center justify-center min-h-[90vh] lg:min-h-0 z-0 overflow-hidden">
 
         {/* Subtle radial glow — depth effect */}
         <div
@@ -263,11 +263,11 @@ export default function LandingPage() {
             >
               {/* Background photo */}
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=85"
+                src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773250202/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.png"
                 alt="A mentor guiding a student through career planning"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
-              
+
               {/* Dark overlay for better overall text visibility */}
               <div className="absolute inset-0 bg-[#0C1518]/40" />
 
