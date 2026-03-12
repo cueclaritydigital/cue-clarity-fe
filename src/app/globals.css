@@ -315,7 +315,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   background: var(--primary-yellow);
-  color: var(--primary-white);
+  color: var(--primary-black);
   padding: 0.875rem 2rem;
   border-radius: var(--radius-full);
   font-family: var(--font-jakarta), system-ui, sans-serif;

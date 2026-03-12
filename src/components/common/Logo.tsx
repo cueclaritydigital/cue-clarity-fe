@@ -1,12 +1,12 @@
 import * as React from "react";
-const SVGComponent = (props) => (
+const SVGComponent = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     width="100px"
     height="35px"
     viewBox="0 0 100 28"
-    {...props}
+
   >
     <g id="surface1">
       <path

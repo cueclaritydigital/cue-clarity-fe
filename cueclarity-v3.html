@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CueClarity — Career Counseling</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black:   #0D0D0D;
+  --white:   #FFFFFF;
+  --off:     #F7F7F5;
+  --g100:    #F2F2F2;
+  --g200:    #E4E4E4;
+  --g400:    #ABABAB;
+  --g600:    #666666;
+  --blue:    #1A56F0;
+  --blue-lt: #EEF2FF;
+  --green:   #16A34A;
+  --green-lt:#DCFCE7;
+  --amber:   #F59E0B;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── UTILS ─────────────────────────── */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--black);
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--g600);
+  line-height: 1.7;
+  font-weight: 400;
+  margin-top: 14px;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: none; cursor: pointer; text-decoration: none;
+  font-family: 'Roboto', sans-serif; font-weight: 700;
+  border-radius: 10px; transition: all 0.18s;
+}
+.btn-lg  { font-size: 15px; padding: 15px 30px; }
+.btn-md  { font-size: 14px; padding: 11px 22px; }
+.btn-sm  { font-size: 13px; padding: 9px 18px; }
+.btn-black   { background: var(--black); color: white; }
+.btn-black:hover { background: #222; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+.btn-blue    { background: var(--blue);  color: white; }
+.btn-blue:hover  { background: #1347d4; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,86,240,0.28); }
+.btn-outline { background: transparent; color: var(--black); border: 1.5px solid var(--g200); }
+.btn-outline:hover { border-color: var(--black); }
+.btn-outline-white { background: transparent; color: rgba(255,255,255,0.75); border: 1.5px solid rgba(255,255,255,0.2); }
+.btn-outline-white:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+/* ── LABEL BAR ─────────────────────── */
+.label-bar {
+  background: var(--black); color: white;
+  text-align: center; padding: 9px 24px;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  position: sticky; top: 0; z-index: 1000;
+}
+.label-bar b { color: var(--blue); }
+
+/* ── NAV ───────────────────────────── */
+nav {
+  position: sticky; top: 34px; z-index: 999;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--g200);
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 40px;
+  height: 68px; display: flex;
+  align-items: center; justify-content: space-between;
+}
+.logo { font-size: 22px; font-weight: 900; color: var(--black); letter-spacing: -0.5px; text-decoration: none; }
+.logo span { color: var(--blue); }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--g600); transition: color .15s; }
+.nav-links a:hover { color: var(--black); }
+.nav-actions { display: flex; gap: 10px; }
+
+/* ════════════════════════════════════
+   HERO  — WellSoul inspired
+════════════════════════════════════ */
+.hero {
+  background: var(--off);
+  padding: 60px 0 0;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+
+/* left copy */
+.hero-left { padding-bottom: 60px; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: white;
+  border: 1px solid var(--g200);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px; font-weight: 600; color: var(--black);
+  margin-bottom: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.hero-tag .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
+
+.hero-h1 {
+  font-size: clamp(42px, 5vw, 66px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -2.5px;
+  color: var(--black);
+  margin-bottom: 22px;
+}
+.hero-h1 .blue { color: var(--blue); }
+
+.hero-sub {
+  font-size: 16px; color: var(--g600);
+  line-height: 1.7; max-width: 440px;
+  margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+
+.hero-proof {
+  display: flex; align-items: center; gap: 14px;
+}
+.proof-avatars { display: flex; }
+.p-av {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 2.5px solid var(--off);
+  font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  color: white; margin-left: -10px; flex-shrink: 0;
+}
+.p-av:first-child { margin-left: 0; }
+.proof-txt { font-size: 13px; color: var(--g600); line-height: 1.4; }
+.proof-txt b { color: var(--black); font-weight: 700; }
+
+/* right — image + floating cards */
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero-img-wrap {
+  position: relative;
+  width: 380px;
+  flex-shrink: 0;
+}
+
+/* green rounded rectangle bg behind person */
+.hero-img-bg {
+  width: 340px;
+  height: 420px;
+  background: #C8D9C8;
+  border-radius: 200px 200px 0 0;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* placeholder person silhouette */
+.person-placeholder {
+  width: 100%;
+  height: 105%;
+  object-fit: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.person-svg {
+  width: 260px;
+  opacity: 0.35;
+}
+
+/* floating card — top right */
+.fc {
+  position: absolute;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  padding: 14px 18px;
+  min-width: 170px;
+}
+.fc-top-right {
+  top: 24px; right: -20px;
+}
+.fc-bottom-left {
+  bottom: 60px; left: -30px;
+}
+.fc-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--g400); margin-bottom: 8px;
+}
+.fc-big-num {
+  font-size: 26px; font-weight: 900;
+  color: var(--black); letter-spacing: -1px; line-height: 1;
+  margin-bottom: 4px;
+}
+.fc-sub { font-size: 12px; color: var(--g600); }
+
+.fc-pill-row { display: flex; flex-direction: column; gap: 6px; }
+.fc-pill {
+  background: var(--g100);
+  border: 1px solid var(--g200);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 12px; font-weight: 500;
+  color: var(--black);
+  text-align: center;
+  transition: all 0.2s; cursor: pointer;
+}
+.fc-pill:hover { background: var(--black); color: white; }
+.fc-pill.active { background: var(--black); color: white; }
+
+.fc-rating { display: flex; flex-direction: column; gap: 4px; }
+.fc-stars { color: var(--amber); font-size: 14px; letter-spacing: 1px; }
+.fc-rating-num { font-size: 22px; font-weight: 900; color: var(--black); letter-spacing: -0.5px; }
+.fc-rating-sub { font-size: 11px; color: var(--g400); }
+
+/* ── TRUST STRIP ───────────────────── */
+.trust-strip {
+  border-top: 1px solid var(--g200);
+  border-bottom: 1px solid var(--g200);
+  background: white;
+}
+.trust-inner {
+  max-width: 1180px; margin: 0 auto; padding: 16px 40px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+}
+.t-item {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 13px; font-weight: 500; color: var(--g600);
+  white-space: nowrap;
+}
+.t-ico {
+  width: 28px; height: 28px; background: var(--g100);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.t-divider { width: 1px; height: 24px; background: var(--g200); flex-shrink: 0; }
+
+/* ── STATS ─────────────────────────── */
+.stats {
+  border-bottom: 1px solid var(--g200);
+}
+.stats-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr);
+}
+.s-item {
+  padding: 48px 40px;
+  border-right: 1px solid var(--g200);
+  text-align: center;
+}
+.s-item:last-child { border-right: none; }
+.s-num {
+  font-size: 56px; font-weight: 900;
+  color: var(--black); letter-spacing: -3px; line-height: 1;
+  margin-bottom: 8px;
+}
+.s-num span { color: var(--blue); }
+.s-desc { font-size: 13px; color: var(--g600); line-height: 1.5; }
+
+/* ── SERVICES ──────────────────────── */
+.services { padding: 100px 0; }
+.section-center { text-align: center; margin-bottom: 56px; }
+.section-center .section-sub { max-width: 520px; margin: 14px auto 0; }
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2px;
+  background: var(--g200);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.svc-card {
+  background: white; padding: 40px 36px;
+  cursor: pointer; transition: all .22s; position: relative; overflow: hidden;
+}
+.svc-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--blue);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s;
+}
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-card:hover { background: #FAFAFA; }
+.svc-n {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--g400); margin-bottom: 24px;
+}
+.svc-ico {
+  width: 50px; height: 50px; border-radius: 12px;
+  background: var(--blue-lt); font-size: 24px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.svc-title { font-size: 19px; font-weight: 700; color: var(--black); margin-bottom: 11px; line-height: 1.25; }
+.svc-desc  { font-size: 14px; color: var(--g600); line-height: 1.65; margin-bottom: 22px; }
+.svc-link  {
+  font-size: 13px; font-weight: 700;
+  color: var(--blue); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: gap .2s;
+}
+.svc-link:hover { gap: 10px; }
+
+/* ── PROCESS ───────────────────────── */
+.process { padding: 100px 0; background: var(--off); }
+.steps-row {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 24px; margin-top: 64px; position: relative;
+}
+.steps-row::before {
+  content: '';
+  position: absolute; top: 22px; left: 30px;
+  width: calc(100% - 60px); height: 1px;
+  background: var(--g200); z-index: 0;
+}
+.step { position: relative; z-index: 1; padding-top: 56px; }
+.step-dot {
+  position: absolute; top: 0; left: 0;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: white; border: 2px solid var(--g200);
+  font-size: 14px; font-weight: 900; color: var(--black);
+  display: flex; align-items: center; justify-content: center;
+}
+.step.active .step-dot { background: var(--black); border-color: var(--black); color: white; }
+.step h4 { font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+.step p  { font-size: 13px; color: var(--g600); line-height: 1.6; }
+
+/* ── PROBLEM / SOLUTION ────────────── */
+.prob { padding: 100px 0; background: var(--black); color: white; }
+.prob-inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.prob .eyebrow { color: #F97316; }
+.prob .section-title { color: white; }
+.prob .section-sub   { color: rgba(255,255,255,.45); }
+.fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+.fact-box {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px; padding: 22px 18px;
+}
+.fact-pct { font-size: 38px; font-weight: 900; color: #F97316; letter-spacing: -1.5px; line-height: 1; margin-bottom: 7px; }
+.fact-txt { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+.sol-list { display: flex; flex-direction: column; gap: 14px; }
+.sol-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 14px; padding: 20px;
+  transition: all .22s;
+}
+.sol-item:hover { background: rgba(255,255,255,.08); border-color: rgba(26,86,240,.4); }
+.sol-ico {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: var(--blue); font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sol-item h4 { font-size: 14px; font-weight: 700; color: white; margin-bottom: 4px; }
+.sol-item p  { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+/* ════════════════════════════════════
+   TESTIMONIALS  — masonry / bento grid
+════════════════════════════════════ */
+.testimonials { padding: 100px 0; background: white; }
+
+.testi-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.tb {
+  border: 1px solid var(--g200);
+  border-radius: 18px;
+  padding: 30px;
+  background: white;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+.tb:hover {
+  border-color: var(--black);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* featured tall card spans 2 rows */
+.tb.featured {
+  grid-row: span 2;
+  background: var(--black);
+  border-color: var(--black);
+}
+.tb.featured .tb-text { color: rgba(255,255,255,.85); }
+.tb.featured .tb-name { color: white; }
+.tb.featured .tb-role { color: rgba(255,255,255,.45); }
+.tb.featured .tb-stars { color: var(--amber); }
+.tb.featured::before {
+  content: '"';
+  position: absolute; top: -20px; right: 16px;
+  font-size: 140px; font-weight: 900;
+  color: rgba(255,255,255,.06); line-height: 1;
+  pointer-events: none;
+}
+
+/* quote mark on normal cards */
+.tb::before {
+  content: '"';
+  position: absolute; top: -16px; right: 14px;
+  font-size: 100px; font-weight: 900;
+  color: var(--g100); line-height: 1;
+  pointer-events: none;
+}
+.tb.featured::before { color: rgba(255,255,255,.06); }
+
+.tb-stars { color: var(--amber); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
+.tb-text  { font-size: 14px; line-height: 1.7; color: var(--black); margin-bottom: 22px; position: relative; z-index: 1; }
+.tb-author { display: flex; align-items: center; gap: 11px; }
+.tb-av {
+  width: 40px; height: 40px; border-radius: 10px;
+  font-size: 15px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  color: white; flex-shrink: 0;
+}
+.tb-name { font-size: 14px; font-weight: 700; color: var(--black); }
+.tb-role { font-size: 12px; color: var(--g400); margin-top: 2px; }
+
+/* tag chip inside featured card */
+.tb-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.1);
+  color: rgba(255,255,255,.7);
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 11px; font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ── BLOG ──────────────────────────── */
+.blog { padding: 100px 0; background: var(--off); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 18px; margin-top: 56px;
+}
+.bc {
+  background: white; border: 1px solid var(--g200);
+  border-radius: 14px; overflow: hidden;
+  transition: all .25s; cursor: pointer;
+}
+.bc:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.08); border-color: var(--black); }
+.bc-thumb {
+  height: 190px;
+  display: flex; align-items: flex-start; justify-content: flex-end; padding: 14px;
+}
+.bc:first-child .bc-thumb { height: 240px; }
+.bc-cat {
+  background: white; color: var(--black);
+  padding: 4px 12px; border-radius: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+}
+.bc-body { padding: 22px; }
+.bc-title { font-size: 16px; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 9px; }
+.bc:not(:first-child) .bc-title { font-size: 14px; }
+.bc-exc  { font-size: 13px; color: var(--g600); line-height: 1.6; margin-bottom: 14px; }
+.bc-meta { font-size: 11px; color: var(--g400); font-weight: 500; display: flex; gap: 12px; }
+
+/* ── ADMIN ─────────────────────────── */
+.admin { padding: 100px 0; background: white; }
+.admin-frame {
+  border: 1px solid var(--g200); border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.07);
+  margin-top: 52px;
+}
+.browser-top {
+  background: var(--g100); padding: 11px 20px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid var(--g200);
+}
+.brow-dots { display: flex; gap: 6px; }
+.bd { width: 11px; height: 11px; border-radius: 50%; }
+.brow-url {
+  flex: 1; background: white; border: 1px solid var(--g200);
+  border-radius: 6px; padding: 5px 14px;
+  font-size: 12px; color: var(--g400); max-width: 380px; margin: 0 auto;
+}
+.admin-body { display: grid; grid-template-columns: 200px 1fr; min-height: 460px; }
+.a-sidebar { background: var(--off); border-right: 1px solid var(--g200); padding: 18px 0; }
+.a-logo { padding: 0 18px 16px; font-size: 16px; font-weight: 900; border-bottom: 1px solid var(--g200); margin-bottom: 8px; }
+.a-logo span { color: var(--blue); }
+.a-nav {
+  padding: 9px 18px; font-size: 13px; font-weight: 500;
+  color: var(--g600); display: flex; align-items: center; gap: 10px;
+  cursor: pointer; border-left: 3px solid transparent; transition: all .15s;
+}
+.a-nav:hover, .a-nav.on { background: white; color: var(--black); border-left-color: var(--blue); font-weight: 700; }
+.a-main { padding: 26px; }
+.a-hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.a-title { font-size: 17px; font-weight: 900; }
+.a-kpi { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 22px; }
+.kpi { border: 1px solid var(--g200); border-radius: 10px; padding: 16px; background: var(--off); }
+.kpi-n { font-size: 26px; font-weight: 900; color: var(--black); letter-spacing: -1px; line-height: 1; margin-bottom: 3px; }
+.kpi-n.b { color: var(--blue); } .kpi-n.g { color: var(--green); }
+.kpi-l { font-size: 10px; color: var(--g400); text-transform: uppercase; letter-spacing: .5px; font-weight: 600; }
+.t-head { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+.tbl { border: 1px solid var(--g200); border-radius: 10px; overflow: hidden; }
+.tr { display: grid; grid-template-columns: 2fr 1.5fr 1fr 1fr 90px; padding: 10px 16px; font-size: 12px; border-bottom: 1px solid var(--g200); align-items: center; }
+.tr:last-child { border-bottom: none; }
+.tr.th { background: var(--off); font-weight: 700; text-transform: uppercase; letter-spacing: .8px; font-size: 10px; color: var(--g400); }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 11px; font-weight: 700; }
+.pill.n { background: var(--blue-lt); color: var(--blue); }
+.pill.p { background: #FFF7ED; color: #D97706; }
+.pill.d { background: var(--green-lt); color: var(--green); }
+
+/* ── CTA ───────────────────────────── */
+.cta { padding: 120px 0; background: var(--black); text-align: center; position: relative; overflow: hidden; }
+.cta::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(26,86,240,.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta .eyebrow { color: var(--blue); text-align: center; }
+.cta h2 {
+  font-size: clamp(36px,5vw,62px); font-weight: 900;
+  color: white; letter-spacing: -2px; line-height: 1.05;
+  margin: 16px auto; max-width: 600px;
+}
+.cta h2 span { color: var(--blue); }
+.cta p { font-size: 16px; color: rgba(255,255,255,.45); max-width: 460px; margin: 0 auto 40px; line-height: 1.7; }
+.cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+/* ── FOOTER ────────────────────────── */
+footer { background: #060606; padding: 60px 0 28px; }
+.footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
+.f-logo { font-size: 22px; font-weight: 900; color: white; margin-bottom: 13px; }
+.f-logo span { color: var(--blue); }
+.f-desc { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 220px; }
+.f-col h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: rgba(255,255,255,.22); margin-bottom: 17px; }
+.f-col ul { list-style: none; }
+.f-col li { margin-bottom: 10px; }
+.f-col a { font-size: 13px; color: rgba(255,255,255,.5); text-decoration: none; transition: color .15s; }
+.f-col a:hover { color: white; }
+.f-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 22px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,.22); }
+
+/* ── SCROLL REVEAL ─────────────────── */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TOP LABEL -->
+<div class="label-bar">✦ CueClarity Redesign Concept — <b>v3.0</b> — Prepared by Abinash Shasini · March 2026 ✦</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Cue<span>Clarity</span></a>
+    <ul class="nav-links">
+      <li><a href="#">For Students</a></li>
+      <li><a href="#">For Professionals</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Success Stories</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-sm btn-outline">Log In</a>
+      <a href="#" class="btn btn-sm btn-black">Book Free Session →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT COPY -->
+    <div class="hero-left reveal">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        India's Trusted Career Guidance Platform
+      </div>
+
+      <h1 class="hero-h1">
+        Discover Your<br>
+        True <span class="blue">Career</span><br>
+        Direction.
+      </h1>
+      <p class="hero-sub">
+        Science-backed career counseling for students and professionals. Gain the clarity and confidence to make decisions you won't regret.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#" class="btn btn-lg btn-blue">Book Free Session →</a>
+        <a href="#" class="btn btn-lg btn-outline">Explore Services</a>
+      </div>
+
+      <div class="hero-proof">
+        <div class="proof-avatars">
+          <div class="p-av" style="background:#1A56F0;">R</div>
+          <div class="p-av" style="background:#16A34A;">A</div>
+          <div class="p-av" style="background:#F97316;">K</div>
+          <div class="p-av" style="background:#8B5CF6;">M</div>
+          <div class="p-av" style="background:#EC4899;">P</div>
+        </div>
+        <p class="proof-txt"><b>2,800+ people</b> found their<br>career direction with us</p>
+      </div>
+    </div>
+
+    <!-- RIGHT IMAGE + FLOATING CARDS -->
+    <div class="hero-right reveal" style="transition-delay:.15s">
+
+      <!-- floating card — service pills (top right) -->
+      <div class="fc fc-top-right">
+        <div class="fc-label">Our Specialties</div>
+        <div class="fc-pill-row">
+          <div class="fc-pill active">Career Counseling</div>
+          <div class="fc-pill">Career Assessment</div>
+          <div class="fc-pill">Professional Coaching</div>
+        </div>
+      </div>
+
+      <!-- person image background -->
+      <div class="hero-img-wrap">
+        <div class="hero-img-bg">
+          <!-- Counselor silhouette placeholder -->
+          <svg class="person-svg" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Head -->
+            <ellipse cx="100" cy="72" rx="38" ry="40" fill="#3a5a3a"/>
+            <!-- Neck -->
+            <rect x="86" y="108" width="28" height="24" rx="8" fill="#3a5a3a"/>
+            <!-- Body / blazer -->
+            <path d="M40 200 Q55 128 100 128 Q145 128 160 200 L170 290 H30 Z" fill="#2d472d"/>
+            <!-- Collar white -->
+            <path d="M92 132 L100 155 L108 132 Z" fill="#5a7a5a"/>
+            <!-- Arms crossed -->
+            <path d="M40 200 Q30 175 45 165 Q65 155 80 175 Q95 190 100 185" stroke="#2d472d" stroke-width="22" stroke-linecap="round" fill="none"/>
+            <path d="M160 200 Q170 175 155 165 Q135 155 120 175 Q105 190 100 185" stroke="#2d472d" stroke-width="22" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- floating card — bottom left: rating -->
+        <div class="fc fc-bottom-left">
+          <div class="fc-label">Client Rating</div>
+          <div class="fc-rating">
+            <div class="fc-stars">★★★★★</div>
+            <div class="fc-rating-num">4.9 / 5</div>
+            <div class="fc-rating-sub">from 500+ reviews</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="t-item"><div class="t-ico">🎓</div>All Career Stages</div>
+    <div class="t-divider"></div>
+    <div class="t-item"><div class="t-ico">🔒</div>100% Confidential</div>
+    <div class="t-divider"></div>
+    <div class="t-item"><div class="t-ico">⚡</div>24-Hr Response</div>
+    <div class="t-divider"></div>
+    <div class="t-item"><div class="t-ico">🌐</div>Online & In-Person</div>
+    <div class="t-divider"></div>
+    <div class="t-item"><div class="t-ico">🏆</div>12+ Years Experience</div>
+    <div class="t-divider"></div>
+    <div class="t-item"><div class="t-ico">📊</div>Science-Backed</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats reveal">
+  <div class="stats-inner">
+    <div class="s-item"><div class="s-num">2.8K<span>+</span></div><p class="s-desc">Students & professionals guided to the right path</p></div>
+    <div class="s-item"><div class="s-num">94<span>%</span></div><p class="s-desc">Client satisfaction across all counseling sessions</p></div>
+    <div class="s-item"><div class="s-num">12<span>+</span></div><p class="s-desc">Years of expert career guidance experience</p></div>
+    <div class="s-item"><div class="s-num">4.9<span>★</span></div><p class="s-desc">Average rating from verified student reviews</p></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services reveal">
+  <div class="container">
+    <div class="section-center">
+      <div class="eyebrow">Our Services</div>
+      <h2 class="section-title">Everything You Need to Move Forward</h2>
+      <p class="section-sub">From psychometric assessments to 1:1 coaching — one platform for every stage of your career journey.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-n">01</div>
+        <div class="svc-ico">🎓</div>
+        <h3 class="svc-title">Career Counseling for Students</h3>
+        <p class="svc-desc">Stream selection, course guidance, and career path planning from Class 8 through postgraduate — tailored to your individual strengths.</p>
+        <a href="#" class="svc-link">Learn More ↗</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-n">02</div>
+        <div class="svc-ico">💼</div>
+        <h3 class="svc-title">Career Counseling for Professionals</h3>
+        <p class="svc-desc">Navigate career pivots, promotions, and transitions with a strategic, expert-built roadmap aligned to your real goals.</p>
+        <a href="#" class="svc-link">Learn More ↗</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-n">03</div>
+        <div class="svc-ico">🧪</div>
+        <h3 class="svc-title">Career Assessment Services</h3>
+        <p class="svc-desc">Internationally validated psychometric tests that reveal your personality, aptitude, and best-fit careers — backed by data.</p>
+        <a href="#" class="svc-link">Learn More ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process reveal">
+  <div class="container">
+    <div class="section-center">
+      <div class="eyebrow">How It Works</div>
+      <h2 class="section-title">Four Steps to Career Clarity</h2>
+      <p class="section-sub">A structured, proven process that takes you from confusion to confidence — fast.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step active">
+        <div class="step-dot">01</div>
+        <h4>Book a Free Call</h4>
+        <p>Fill a short form and schedule your complimentary discovery session in under 2 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">02</div>
+        <h4>Career Assessment</h4>
+        <p>Complete a validated test that uncovers your strengths, interests, and top career matches.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">03</div>
+        <h4>Expert Counseling</h4>
+        <p>One-on-one sessions with a dedicated counselor building a personalized roadmap for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">04</div>
+        <h4>Ongoing Support</h4>
+        <p>Continued guidance, resources, and check-ins as you grow and progress in your career.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="prob reveal">
+  <div class="prob-inner">
+    <div>
+      <div class="eyebrow">The Problem</div>
+      <h2 class="section-title">Most People Are Flying Blind About Their Career</h2>
+      <p class="section-sub">A lack of proper guidance leads to wrong choices, wasted years, and deep regret.</p>
+      <div class="fact-grid">
+        <div class="fact-box"><div class="fact-pct">90%</div><div class="fact-txt">students pick the wrong career due to lack of proper guidance</div></div>
+        <div class="fact-box"><div class="fact-pct">93%</div><div class="fact-txt">are aware of fewer than 7 career options out of hundreds</div></div>
+        <div class="fact-box"><div class="fact-pct">68%</div><div class="fact-txt">students regret their academic stream choice after selecting it</div></div>
+        <div class="fact-box"><div class="fact-pct">77%</div><div class="fact-txt">of professionals feel unprepared for the job market they entered</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:#16A34A; margin-bottom:24px;">The CueClarity Solution</div>
+      <div class="sol-list">
+        <div class="sol-item"><div class="sol-ico">🎯</div><div><h4>Personalized Career Roadmap</h4><p>A tailored plan built around your unique strengths, not a one-size-fits-all template.</p></div></div>
+        <div class="sol-item"><div class="sol-ico">🧬</div><div><h4>Science-Backed Assessments</h4><p>Internationally validated tools — not random internet quizzes — for real insight.</p></div></div>
+        <div class="sol-item"><div class="sol-ico">👤</div><div><h4>1:1 Expert Counselors</h4><p>Experienced professionals who deeply understand the Indian career landscape.</p></div></div>
+        <div class="sol-item"><div class="sol-ico">🔄</div><div><h4>Ongoing Support & Follow-Up</h4><p>We stay with you through the whole journey, not just one session.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TESTIMONIALS — BENTO ═══════ -->
+<section class="testimonials reveal">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;">
+      <div>
+        <div class="eyebrow">Success Stories</div>
+        <h2 class="section-title">Real Results From Real People</h2>
+      </div>
+      <a href="#" class="btn btn-md btn-outline">View All Stories →</a>
+    </div>
+
+    <div class="testi-bento">
+
+      <!-- FEATURED — tall card col 1, row 1+2 -->
+      <div class="tb featured">
+        <div class="tb-tag">🏆 Top Success Story</div>
+        <div class="tb-stars">★★★★★</div>
+        <p class="tb-text" style="font-size:16px; line-height:1.75;">"After just 3 sessions with CueClarity, I had a crystal-clear roadmap to transition from software engineering into product management. The process was incredibly personalized — they actually listened to what mattered to me, not just my resume. I landed my dream PM role within 4 months."</p>
+        <div class="tb-author">
+          <div class="tb-av" style="background:#1A56F0;">A</div>
+          <div>
+            <div class="tb-name" style="color:white;">Ananya Mehta</div>
+            <div class="tb-role">Software Engineer → Product Manager · Bangalore</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- col 2 row 1 -->
+      <div class="tb">
+        <div class="tb-stars">★★★★★</div>
+        <p class="tb-text">"I was completely lost after graduating. CueClarity helped me discover UX design as my true path and gave me a concrete step-by-step plan to get there."</p>
+        <div class="tb-author">
+          <div class="tb-av" style="background:#16A34A;">K</div>
+          <div>
+            <div class="tb-name">Kartik Verma</div>
+            <div class="tb-role">B.Com Graduate → UX Designer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- col 3 row 1 -->
+      <div class="tb">
+        <div class="tb-stars">★★★★★</div>
+        <p class="tb-text">"The assessment revealed exactly why I was unhappy at work. Finally understood which role would make me thrive. Life-changing conversation."</p>
+        <div class="tb-author">
+          <div class="tb-av" style="background:#F97316;">P</div>
+          <div>
+            <div class="tb-name">Priya Nair</div>
+            <div class="tb-role">Marketing Manager · Career Clarity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- col 2 row 2 -->
+      <div class="tb" style="background:var(--off);">
+        <div class="tb-stars">★★★★★</div>
+        <p class="tb-text">"My parents kept pushing engineering. One session with CueClarity helped me — and them — see that architecture was my true calling."</p>
+        <div class="tb-author">
+          <div class="tb-av" style="background:#8B5CF6;">S</div>
+          <div>
+            <div class="tb-name">Sanya Kapoor</div>
+            <div class="tb-role">Class 12 Student · Mumbai</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- col 3 row 2 -->
+      <div class="tb" style="background:var(--blue); border-color:var(--blue);">
+        <div class="tb-stars" style="color:white; opacity:.7;">★★★★★</div>
+        <p class="tb-text" style="color:rgba(255,255,255,.9);">"Switched careers after 8 years. CueClarity made it feel possible, not terrifying. Best decision I ever made."</p>
+        <div class="tb-author">
+          <div class="tb-av" style="background:rgba(255,255,255,.2);">R</div>
+          <div>
+            <div class="tb-name" style="color:white;">Rahul Desai</div>
+            <div class="tb-role" style="color:rgba(255,255,255,.55);">Finance → Data Science</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog reveal">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;">
+      <div>
+        <div class="eyebrow">Resources & Blog</div>
+        <h2 class="section-title">Career Guidance, Written by Experts</h2>
+      </div>
+      <a href="#" class="btn btn-md btn-outline">Read All Articles →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="bc">
+        <div class="bc-thumb" style="background:linear-gradient(135deg,#0A0A0A,#1A2640)"><span class="bc-cat">Students</span></div>
+        <div class="bc-body">
+          <h3 class="bc-title">How to Choose the Right Stream After Class 12 — A Complete Framework</h3>
+          <p class="bc-exc">A science and emotion-based guide to help students and parents make this critical decision without regret.</p>
+          <div class="bc-meta"><span>March 2026</span><span>8 min read</span></div>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-thumb" style="background:linear-gradient(135deg,#16A34A,#0d7a48)"><span class="bc-cat">Professionals</span></div>
+        <div class="bc-body">
+          <h3 class="bc-title">5 Signs You're Ready for a Career Change</h3>
+          <p class="bc-exc">Feeling stuck? These signals tell you it's time for a pivot — and what to do next.</p>
+          <div class="bc-meta"><span>Feb 2026</span><span>6 min read</span></div>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="bc-thumb" style="background:linear-gradient(135deg,#1A56F0,#0d35a8)"><span class="bc-cat">Assessment</span></div>
+        <div class="bc-body">
+          <h3 class="bc-title">What Psychometric Tests Actually Reveal</h3>
+          <p class="bc-exc">How to read your results and turn them into decisions that actually stick.</p>
+          <div class="bc-meta"><span>Jan 2026</span><span>5 min read</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN PANEL -->
+<section class="admin reveal">
+  <div class="container">
+    <div class="section-center">
+      <div class="eyebrow">Admin Dashboard</div>
+      <h2 class="section-title">Powerful Backend, Zero Complexity</h2>
+      <p class="section-sub">Manage inquiries, publish content, and update your site — no technical knowledge needed.</p>
+    </div>
+    <div class="admin-frame">
+      <div class="browser-top">
+        <div class="brow-dots">
+          <div class="bd" style="background:#FF5F57"></div>
+          <div class="bd" style="background:#FEBC2E"></div>
+          <div class="bd" style="background:#28C840"></div>
+        </div>
+        <div class="brow-url">admin.cueclarity.com/dashboard</div>
+      </div>
+      <div class="admin-body">
+        <div class="a-sidebar">
+          <div class="a-logo">Cue<span>Clarity</span></div>
+          <div class="a-nav on">📊 &nbsp;Dashboard</div>
+          <div class="a-nav">📥 &nbsp;Inquiries</div>
+          <div class="a-nav">📝 &nbsp;Blog Posts</div>
+          <div class="a-nav">⭐ &nbsp;Testimonials</div>
+          <div class="a-nav">🖼️ &nbsp;Media</div>
+          <div class="a-nav">📄 &nbsp;Pages</div>
+          <div class="a-nav">⚙️ &nbsp;Settings</div>
+        </div>
+        <div class="a-main">
+          <div class="a-hd">
+            <div class="a-title">Dashboard Overview</div>
+            <a href="#" class="btn btn-sm btn-blue">+ New Post</a>
+          </div>
+          <div class="a-kpi">
+            <div class="kpi"><div class="kpi-n b">38</div><div class="kpi-l">New Inquiries</div></div>
+            <div class="kpi"><div class="kpi-n">4</div><div class="kpi-l">Blog Posts</div></div>
+            <div class="kpi"><div class="kpi-n g">12</div><div class="kpi-l">Testimonials</div></div>
+            <div class="kpi"><div class="kpi-n">96</div><div class="kpi-l">Perf. Score</div></div>
+          </div>
+          <div class="t-head">
+            <span>Recent Inquiries</span>
+            <span style="color:var(--blue);cursor:pointer;font-size:12px;">View All →</span>
+          </div>
+          <div class="tbl">
+            <div class="tr th"><span>Name</span><span>Service</span><span>Date</span><span>Status</span><span>Action</span></div>
+            <div class="tr"><span>Riya Sharma</span><span>Student Counseling</span><span>Today</span><span><span class="pill n">New</span></span><span style="color:var(--blue);font-weight:700;font-size:12px;cursor:pointer;">View →</span></div>
+            <div class="tr"><span>Vikram Patel</span><span>Career Assessment</span><span>Yesterday</span><span><span class="pill p">In Progress</span></span><span style="color:var(--blue);font-weight:700;font-size:12px;cursor:pointer;">View →</span></div>
+            <div class="tr"><span>Meera Joshi</span><span>Professional</span><span>Mar 5</span><span><span class="pill d">Completed</span></span><span style="color:var(--blue);font-weight:700;font-size:12px;cursor:pointer;">View →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+  <div class="container">
+    <div class="eyebrow">Get Started Today</div>
+    <h2>Ready to Find Your<br><span>Career Clarity?</span></h2>
+    <p>Book a free discovery call. No obligations, no pressure — just a conversation about your future.</p>
+    <div class="cta-row">
+      <a href="#" class="btn btn-lg btn-blue">Book Free Session →</a>
+      <a href="#" class="btn btn-lg btn-outline-white">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">Cue<span>Clarity</span></div>
+        <p class="f-desc">Expert career counseling for students and professionals across India. Guidance that actually works.</p>
+      </div>
+      <div class="f-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Student Counseling</a></li>
+          <li><a href="#">Professional Counseling</a></li>
+          <li><a href="#">Career Assessment</a></li>
+          <li><a href="#">Career Coaching</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Success Stories</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">hello@cueclarity.com</a></li>
+          <li><a href="#">+91 98765 XXXXX</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 CueClarity. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach((el,i) => {
+  el.style.transitionDelay = `${i*0.04}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

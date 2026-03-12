@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Oswald, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/common/Navbar';
 
 // ── DISPLAY FONT: Oswald ──────────────────────────────────────────────────────
 // Bold, condensed — authoritative. Perfect for hero headings and section titles.
