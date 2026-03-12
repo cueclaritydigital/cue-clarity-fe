@@ -78,14 +78,7 @@ export default function Testimonials() {
           />
 
           {/* 5. PARENT testimonial */}
-          <TestimonialCard
-            quote="As a parent, I was anxious about my son's future. CueClarity gave us both clarity — structured assessments, honest guidance, and a plan we could trust."
-            initial="M"
-            avatarBg="bg-teal-600"
-            name="Meera Sharma"
-            role="Parent · Class 10 Student · Delhi"
-            delay="0.35s"
-          />
+          
 
           {/* 6. Brand Card — Professional */}
           <div
