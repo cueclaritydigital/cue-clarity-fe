@@ -7,7 +7,7 @@ export default function FeaturedHero() {
   const post = getFeaturedPost();
 
   return (
-    <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
+    <section className="px-4 pt-10 sm:px-6 bg-[var(--primary-white)]">
       <div className="section-container">
         <FadeInView>
           <Link

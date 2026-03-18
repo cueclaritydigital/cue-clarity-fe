@@ -113,7 +113,7 @@ export default function ContactSection() {
                       required
                       autoComplete="name"
                       placeholder="Enter your name"
-                      className="w-full rounded-xl px-5 py-3.5 text-sm outline-none transition-all focus:ring-2 focus:ring-[var(--primary-yellow)]"
+                      className="w-full rounded-sm px-5 py-3.5 text-sm outline-none transition-all border-none"
                       style={{
                         backgroundColor: "var(--primary-white)",
                         border: "1px solid transparent",
@@ -136,7 +136,7 @@ export default function ContactSection() {
                       required
                       autoComplete="email"
                       placeholder="you@example.com"
-                      className="w-full rounded-xl px-5 py-3.5 text-sm outline-none transition-all focus:ring-2 focus:ring-[var(--primary-yellow)]"
+                      className="w-full rounded-sm px-5 py-3.5 text-sm outline-none transition-all "
                       style={{
                         backgroundColor: "var(--primary-white)",
                         border: "1px solid transparent",
@@ -159,7 +159,7 @@ export default function ContactSection() {
                     required
                     rows={5}
                     placeholder="Tell us what you're looking for..."
-                    className="w-full rounded-xl px-5 py-3.5 text-sm outline-none transition-all resize-none focus:ring-2 focus:ring-[var(--primary-yellow)]"
+                    className="w-full rounded-sm px-5 py-3.5 text-sm outline-none transition-all resize-none "
                     style={{
                       backgroundColor: "var(--primary-white)",
                       border: "1px solid transparent",

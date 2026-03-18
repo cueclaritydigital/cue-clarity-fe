@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FiMail, FiSend, FiCheck } from "react-icons/fi";
 
-function NewsletterForm() {
+function NewsletterForm({ compact = false }: { compact?: boolean }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -34,7 +34,7 @@ function NewsletterForm() {
   }
 
   return (
-    <div className="flex flex-col gap-2 max-w-sm">
+    <div className={`flex flex-col gap-2 ${compact ? "w-full" : "max-w-sm"}`}>
       <form onSubmit={handleSubmit}>
         <div className="flex items-center bg-white/[0.05] border border-white/[0.1] rounded-full p-1.5 focus-within:border-[#ffc114]/50 transition-colors">
           <span className="pl-3 text-[#fdfbed]/30 flex-shrink-0">
@@ -46,15 +46,17 @@ function NewsletterForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
-            className="flex-1 bg-transparent text-[#fdfbed] placeholder-[#fdfbed]/25 text-sm px-3 py-2 outline-none"
+            className="flex-1 bg-transparent text-[#fdfbed] placeholder-[#fdfbed]/25 text-sm px-3 py-2 outline-none min-w-0"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="flex-shrink-0 flex items-center gap-2 bg-[#ffc114] hover:bg-[#ffd25a] disabled:opacity-60 text-[#0c1518] text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-[0_4px_20px_rgba(255,193,20,0.3)]"
+            className="flex-shrink-0 flex items-center gap-2 bg-[#ffc114] hover:bg-[#ffd25a] disabled:opacity-60 text-[#0c1518] text-sm font-bold px-4 py-2.5 rounded-full transition-all duration-200 hover:shadow-[0_4px_20px_rgba(255,193,20,0.3)]"
           >
             {status === "loading" ? (
               <span className="w-4 h-4 border-2 border-[#0c1518]/30 border-t-[#0c1518] rounded-full animate-spin" />
+            ) : compact ? (
+              <FiSend size={14} />
             ) : (
               <>
                 Subscribe <FiSend size={12} />

@@ -99,7 +99,7 @@ export default function JourneyTimeline() {
                 <div
                   className="absolute hidden lg:block w-4 h-4 rounded-full z-10"
                   style={{
-                    top: "-32px",
+                    top: "-39px",
                     left: "50%",
                     transform: "translateX(-50%)",
                     backgroundColor: ch.accent,

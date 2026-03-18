@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CATEGORIES, POPULAR_POSTS } from "@/lib/data/blog";
+import NewsletterForm from "@/components/common/NewsLetterFrom";
 
 export default function BlogSidebar() {
   return (
@@ -93,47 +94,7 @@ export default function BlogSidebar() {
         <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.6)" }}>
           Bi-weekly career insights, tips, and trends — straight to your inbox.
         </p>
-        <form className="space-y-3">
-          <label htmlFor="sidebar-email" className="sr-only">
-            Email address
-          </label>
-          <input
-            id="sidebar-email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            placeholder="you@example.com"
-            className="w-full px-4 py-3 rounded-lg text-sm outline-none"
-            style={{
-              backgroundColor: "rgba(255,255,255,0.1)",
-              border: "1px solid rgba(255,255,255,0.15)",
-              color: "var(--primary-white)",
-            }}
-          />
-          <button
-            type="submit"
-            className="w-full py-3 rounded-lg font-extrabold text-sm"
-            style={{
-              backgroundColor: "var(--primary-yellow)",
-              color: "var(--primary-black)",
-            }}
-          >
-            Subscribe
-          </button>
-        </form>
-        <p
-          className="text-center mt-3"
-          style={{
-            fontSize: "10px",
-            color: "rgba(255,255,255,0.35)",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            fontWeight: 700,
-          }}
-        >
-          No spam. Only clarity.
-        </p>
+        <NewsletterForm compact />
       </div>
 
       {/* ── Tags ── */}

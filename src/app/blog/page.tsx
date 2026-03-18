@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import FeaturedHero from "@/components/blog/FeaturedHero";
 import PostGrid from "@/components/blog/PostGrid";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import RFQ from "@/components/common/RFQ";
 import Footer from "@/components/common/Footer";
 import { POSTS } from "@/lib/data/blog";
 
@@ -38,8 +37,6 @@ export default function Blog() {
           </div>
         </div>
       </section>
-
-      <RFQ />
       <Footer />
     </>
   );

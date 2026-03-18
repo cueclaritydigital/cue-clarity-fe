@@ -5,7 +5,6 @@ import ArticleContent from "@/components/blog/ArticleContent";
 import AuthorCard from "@/components/blog/AuthorCard";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import FloatingShare from "@/components/blog/FloatingShare";
-import RFQ from "@/components/common/RFQ";
 import Footer from "@/components/common/Footer";
 
 /* ── Static params for build-time generation ── */
@@ -49,7 +48,7 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       {/* Article section */}
       <section
-        className="section-padding px-4 sm:px-6"
+        className="px-4 pt-10 sm:px-6"
         style={{ backgroundColor: "var(--primary-white)" }}
       >
         <div className="section-container">
@@ -132,7 +131,7 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       <RelatedPosts posts={related} />
-      <RFQ />
+
       <Footer />
     </>
   );

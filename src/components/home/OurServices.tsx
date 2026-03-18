@@ -19,7 +19,10 @@ export default function OurServices() {
           <div>
             <span
               className="type-eyebrow mb-3 block"
-              style={{ color: "var(--primary-yellow)" }}
+              style={{
+                color: "var(--primary-yellow)",
+                fontSize: "var(--text-base)",
+              }}
             >
               Our Expertise
             </span>
@@ -147,7 +150,7 @@ export default function OurServices() {
               <Link
                 key={s.title}
                 href={s.href}
-                className={`group relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-7 overflow-hidden flex flex-col gap-4 hover:-translate-y-1 hover:ring-2 hover:ring-[rgba(41,50,110,0.30)] hover:shadow-xl transition-all duration-300${
+                className={`group relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-7 overflow-hidden flex flex-col gap-4 hover:-translate-y-1 hover:ring-2 hover:ring-[var(--primary-yellow)] hover:shadow-xl transition-all duration-300${
                   isLast ? " lg:col-span-2" : ""
                 }`}
                 style={{ boxShadow: "var(--shadow-lg)" }}
