@@ -60,17 +60,17 @@ export default function OurServices() {
             className="group relative bg-white rounded-2xl lg:rounded-3xl p-8 lg:p-10 md:col-span-2 lg:col-span-2 overflow-hidden flex flex-col justify-between gap-8 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             style={{ boxShadow: "var(--shadow-xl)" }}
           >
-            {/* Hover blue wash */}
+            {/* Hover yellow glow wash */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl lg:rounded-3xl"
               style={{
                 background:
-                  "radial-gradient(ellipse 80% 70% at 60% 50%, rgba(41,50,110,0.10) 0%, transparent 70%)",
+                  "radial-gradient(ellipse 70% 60% at 80% 50%, rgba(255,193,20,0.13) 0%, transparent 70%)",
               }}
             />
 
             {/* Decorative SVG */}
-            <div className="absolute bottom-4 right-4 w-28 h-28 opacity-[0.06] text-[var(--primary-blue)] pointer-events-none">
+            <div className="absolute bottom-4 right-4 w-28 h-28 opacity-[0.12] text-[var(--primary-blue)] pointer-events-none">
               {FEATURED_SERVICE.svg}
             </div>
 
@@ -141,82 +141,71 @@ export default function OurServices() {
           </div>
 
           {/* ── 6 STANDARD CARDS ── */}
-          {SERVICES.map((s) => (
-            <Link
-              key={s.title}
-              href={s.href}
-              className="group relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-7 overflow-hidden flex flex-col gap-4 hover:-translate-y-1 transition-all duration-300"
-              style={{ boxShadow: "var(--shadow-lg)" }}
-            >
-              {/* Hover blue fill wash */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 100% 100% at 50% 0%, rgba(41,50,110,0.09) 0%, transparent 80%)",
-                }}
-              />
-
-              {/* Decorative SVG bottom-right */}
-              <div className="absolute bottom-3 right-3 w-20 h-20 opacity-[0.06] text-[var(--primary-blue)] pointer-events-none">
-                {s.svg}
-              </div>
-
-              <div className="relative z-10 flex items-center justify-between">
+          {SERVICES.map((s, i) => {
+            const isLast = i === SERVICES.length - 1;
+            return (
+              <Link
+                key={s.title}
+                href={s.href}
+                className={`group relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-7 overflow-hidden flex flex-col gap-4 hover:-translate-y-1 hover:ring-2 hover:ring-[rgba(41,50,110,0.30)] hover:shadow-xl transition-all duration-300${
+                  isLast ? " lg:col-span-2" : ""
+                }`}
+                style={{ boxShadow: "var(--shadow-lg)" }}
+              >
+                {/* Hover yellow corner blob */}
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center group-hover:bg-[var(--primary-blue)] transition-all duration-300"
+                  className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-[45px]"
                   style={{
-                    backgroundColor: "rgba(41,50,110,0.07)",
-                    color: "var(--primary-blue)",
+                    backgroundColor: "var(--primary-yellow)",
+                    transform: "translate(35%, -35%)",
+                  }}
+                />
+
+                {/* Decorative SVG bottom-right */}
+                <div className="absolute bottom-3 right-3 w-20 h-20 opacity-[0.10] group-hover:opacity-[0.14] text-[var(--primary-blue)] pointer-events-none transition-all duration-300">
+                  {s.svg}
+                </div>
+
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 bg-[rgba(41,50,110,0.07)] group-hover:bg-[rgba(41,50,110,0.14)] text-[var(--primary-blue)]">
+                    <div className="w-5 h-5">{s.svg}</div>
+                  </div>
+                  <span className="type-label text-[var(--muted-text)] opacity-60 transition-all duration-300">
+                    {s.tag}
+                  </span>
+                </div>
+
+                <h3
+                  className="relative z-10 text-[var(--primary-black)] transition-colors duration-300"
+                  style={{
+                    fontFamily: "var(--font-oswald)",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+                    letterSpacing: "var(--tracking-tight)",
+                    textTransform: "uppercase",
+                    lineHeight: 1.1,
                   }}
                 >
-                  <div className="w-5 h-5 group-hover:text-white transition-colors duration-300">
-                    {s.svg}
-                  </div>
-                </div>
-                <span
-                  className="type-label"
-                  style={{ color: "var(--muted-text)", opacity: 0.6 }}
+                  {s.title}
+                </h3>
+
+                <p
+                  className="relative z-10 text-[var(--muted-text)] transition-colors duration-300"
+                  style={{
+                    fontSize: "var(--text-sm)",
+                    lineHeight: "var(--leading-relaxed)",
+                  }}
                 >
-                  {s.tag}
-                </span>
-              </div>
+                  {s.desc}
+                </p>
 
-              <h3
-                className="relative z-10"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
-                  color: "var(--primary-black)",
-                  letterSpacing: "var(--tracking-tight)",
-                  textTransform: "uppercase",
-                  lineHeight: 1.1,
-                }}
-              >
-                {s.title}
-              </h3>
-
-              <p
-                className="relative z-10"
-                style={{
-                  color: "var(--muted-text)",
-                  fontSize: "var(--text-sm)",
-                  lineHeight: "var(--leading-relaxed)",
-                }}
-              >
-                {s.desc}
-              </p>
-
-              <div
-                className="relative z-10 mt-auto flex items-center gap-1.5 font-bold text-sm group-hover:gap-2.5 transition-all duration-300"
-                style={{ color: "var(--primary-blue)" }}
-              >
-                Learn More
-                <FiArrowRight size={13} />
-              </div>
-            </Link>
-          ))}
+                <div className="relative z-10 mt-auto flex items-center gap-1.5 font-bold text-sm group-hover:gap-2.5 transition-all duration-300 text-[var(--primary-blue)]">
+                  Learn More
+                  <FiArrowRight size={13} />
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

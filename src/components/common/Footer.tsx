@@ -1,155 +1,316 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { getWhatsAppURL } from '@/lib/whatsapp';
-import { 
-  FiMail, 
-  FiPhone, 
-  FiMapPin, 
-  FiLinkedin, 
-  FiInstagram, 
-  FiTwitter 
-} from 'react-icons/fi';
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { getWhatsAppURL } from "@/lib/whatsapp";
+import {
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiLinkedin,
+  FiInstagram,
+  FiTwitter,
+  FiArrowUpRight,
+} from "react-icons/fi";
+import NewsletterForm from "./NewsLetterFrom";
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--primary-black)] pt-24 pb-8 px-4 sm:px-6 relative overflow-hidden">
-      
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--primary-blue)] opacity-[0.05] blur-[100px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+    <footer className="relative bg-[#0c1518] overflow-hidden">
+      {/* ── decorative background ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#29326e] opacity-20 blur-[140px]" />
+        <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-[#ffc114] opacity-[0.06] blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#ffc114]/30 to-transparent" />
+      </div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 animate-fade-in-up">
-          
-          {/* 1. Brand & Mission */}
+      {/* ── UNIFIED ACTION BAND ── */}
+      <div className="relative z-10 border-b border-white/[0.07]">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-14">
+          {/* shared eyebrow */}
+          <div className="flex items-center gap-2 mb-10">
+            <span className="w-5 h-[2px] bg-[#ffc114]" />
+            <p className="text-[#ffc114] text-xs font-bold uppercase tracking-[0.22em]">
+              Let's connect
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 lg:divide-x lg:divide-white/[0.08]">
+            {/* LEFT — Talk to us */}
+            <div className="flex flex-col gap-5 lg:pr-14">
+              <h2
+                className="text-[#fdfbed] font-bold leading-tight"
+                style={{
+                  fontFamily: "var(--font-oswald, Oswald, sans-serif)",
+                  fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
+                }}
+              >
+                Ready to get unstuck?
+                <br />
+                <span className="text-[#ffc114]">Start a conversation.</span>
+              </h2>
+              <p className="text-[#fdfbed]/45 text-sm leading-relaxed max-w-sm">
+                Our counselors reply within hours. Tell us where you are and
+                where you want to go — no commitment needed.
+              </p>
+              <a
+                href={getWhatsAppURL("general", "footer-cta")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-fit flex items-center gap-3 bg-[#ffc114] hover:bg-[#ffd25a] text-[#0c1518] font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,193,20,0.35)]"
+              >
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Chat on WhatsApp
+                <FiArrowUpRight
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  size={15}
+                />
+              </a>
+            </div>
+
+            {/* RIGHT — Newsletter */}
+            <div className="flex flex-col gap-5 lg:pl-14">
+              <h2
+                className="text-[#fdfbed] font-bold leading-tight"
+                style={{
+                  fontFamily: "var(--font-oswald, Oswald, sans-serif)",
+                  fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
+                }}
+              >
+                Stay ahead of
+                <br />
+                <span className="text-[#ffc114]">the curve.</span>
+              </h2>
+              <p className="text-[#fdfbed]/45 text-sm leading-relaxed max-w-sm">
+                Weekly career insights, industry trends, and opportunities —
+                straight to your inbox. No spam, ever.
+              </p>
+              <NewsletterForm />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── MAIN FOOTER GRID ── */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 pt-16 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-6 mb-14">
+          {/* Brand column */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            <Link href="/" className="inline-block">
-              <Image 
-                src="https://cueclarity.com/wp-content/uploads/2025/05/cropped-Artboard-1-copy-5@3x-scaled-1.png" 
-                alt="Cue Clarity Logo" 
-                width={160}
-                height={40}
-                className="h-10 w-auto brightness-0 invert opacity-90"
+            <Link href="/" className="inline-block w-fit">
+              <Image
+                src="https://cueclarity.com/wp-content/uploads/2025/05/cropped-Artboard-1-copy-5@3x-scaled-1.png"
+                alt="Cue Clarity Logo"
+                width={150}
+                height={38}
+                className="h-9 w-auto brightness-0 invert opacity-90"
               />
             </Link>
-            <p className="type-body text-[var(--primary-white)]/60 max-w-sm">
-              Empowering students and professionals to stop guessing and start growing. 
-              Data-backed career counseling for a rapidly changing world.
+            <p className="text-[#fdfbed]/50 text-sm leading-relaxed max-w-[300px]">
+              Empowering students and professionals to stop guessing and start
+              growing. Data-backed career counseling for a rapidly changing
+              world.
             </p>
-            
-            {/* WhatsApp CTA in Footer */}
-            <a
-              href={getWhatsAppURL('general', 'footer')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp w-fit text-sm"
+
+            {/* stat pills */}
+            <div className="flex flex-wrap gap-3 mt-1">
+              {[
+                ["500+", "students placed"],
+                ["15+", "countries"],
+                ["98%", "satisfaction"],
+              ].map(([num, label]) => (
+                <div
+                  key={num}
+                  className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5"
+                >
+                  <span className="text-[#ffc114] font-bold text-sm">
+                    {num}
+                  </span>
+                  <span className="text-[#fdfbed]/40 text-xs">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* socials */}
+            <div className="flex items-center gap-3 mt-2">
+              <SocialLink
+                href="#"
+                icon={<FiLinkedin size={16} />}
+                label="LinkedIn"
+              />
+              <SocialLink
+                href="#"
+                icon={<FiInstagram size={16} />}
+                label="Instagram"
+              />
+              <SocialLink
+                href="#"
+                icon={<FiTwitter size={16} />}
+                label="Twitter"
+              />
+            </div>
+          </div>
+
+          {/* Spacer */}
+          <div className="hidden lg:block lg:col-span-1" />
+
+          {/* Company links */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            <FooterHeading>Company</FooterHeading>
+            <FooterLink href="/about" text="About Us" />
+            <FooterLink href="/success-stories" text="Success Stories" />
+            <FooterLink href="/programs" text="For Institutions" />
+            <FooterLink href="/blog" text="Insights & Blog" />
+          </div>
+
+          {/* Services links */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            <FooterHeading>Services</FooterHeading>
+            <FooterLink
+              href="/services/career-counseling"
+              text="Career Counselling"
+            />
+            <FooterLink
+              href="/services/international-education"
+              text="International Education"
+            />
+            <FooterLink
+              href="/services/industrial-training"
+              text="Industrial Training"
+            />
+            <FooterLink
+              href="/services/corporate-training"
+              text="Corporate Training"
+            />
+          </div>
+
+          {/* Contact */}
+          <div className="lg:col-span-3 flex flex-col gap-4">
+            <FooterHeading>Get in touch</FooterHeading>
+            <ContactItem
+              icon={<FiMail size={14} />}
+              href="mailto:hello@cueclarity.com"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Chat on WhatsApp
-            </a>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-4 mt-2">
-              <SocialLink href="#" icon={<FiLinkedin size={20} />} label="LinkedIn" />
-              <SocialLink href="#" icon={<FiInstagram size={20} />} label="Instagram" />
-              <SocialLink href="#" icon={<FiTwitter size={20} />} label="Twitter" />
-            </div>
-          </div>
-
-          {/* 2. Quick Links */}
-          <div className="lg:col-span-2 lg:col-start-6 flex flex-col gap-5">
-            <h4 className="text-[var(--primary-white)] uppercase tracking-widest text-sm font-bold font-oswald mb-2">
-              Company
-            </h4>
-            <div className="flex flex-col gap-3">
-              <FooterLink href="/about" text="About Us" />
-              <FooterLink href="/success-stories" text="Success Stories" />
-              <FooterLink href="/programs" text="For Institutions" />
-              <FooterLink href="/blog" text="Insights & Blog" />
-            </div>
-          </div>
-
-          {/* 3. Services */}
-          <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="text-[var(--primary-white)] uppercase tracking-widest text-sm font-bold font-oswald mb-2">
-              Our Services
-            </h4>
-            <div className="flex flex-col gap-3">
-              <FooterLink href="/services/career-counseling" text="Career Counselling" />
-              <FooterLink href="/services/international-education" text="International Education" />
-              <FooterLink href="/services/industrial-training" text="Industrial Training" />
-              <FooterLink href="/services/corporate-training" text="Corporate Training" />
-            </div>
-          </div>
-
-          {/* 4. Contact Info */}
-          <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="text-[var(--primary-white)] uppercase tracking-widest text-sm font-bold font-oswald mb-2">
-              Get in Touch
-            </h4>
-            <div className="flex flex-col gap-4 mt-2">
-              <div className="flex items-start gap-3 text-[var(--primary-white)]/60 group">
-                <FiMail className="mt-1 text-[var(--primary-yellow)] group-hover:scale-110 transition-transform" />
-                <a href="mailto:hello@cueclarity.com" className="hover:text-[var(--primary-white)] transition-colors">
-                  hello@cueclarity.com
-                </a>
-              </div>
-              <div className="flex items-start gap-3 text-[var(--primary-white)]/60 group">
-                <FiPhone className="mt-1 text-[var(--primary-yellow)] group-hover:scale-110 transition-transform" />
-                <a href="tel:+918652222525" className="hover:text-[var(--primary-white)] transition-colors">
-                  +91 8652 222 525
-                </a>
-              </div>
-              <div className="flex items-start gap-3 text-[var(--primary-white)]/60 group">
-                <FiMapPin className="mt-1 text-[var(--primary-yellow)] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="leading-relaxed">
-                  Mumbai, Maharashtra<br />
-                  India
-                </span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* BOTTOM BAR */}
-        <div className="border-t border-[var(--primary-white)]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-[var(--primary-white)]/40">
-          <p>&copy; {new Date().getFullYear()} CueClarity. All rights reserved.</p>
-          
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-[var(--primary-white)] transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-[var(--primary-white)] transition-colors">
-              Terms of Service
-            </Link>
+              hello@cueclarity.com
+            </ContactItem>
+            <ContactItem icon={<FiPhone size={14} />} href="tel:+918652222525">
+              +91 8652 222 525
+            </ContactItem>
+            <ContactItem icon={<FiMapPin size={14} />}>
+              Mumbai, Maharashtra, India
+            </ContactItem>
           </div>
         </div>
 
+        {/* ── BOTTOM BAR ── */}
+        <div className="border-t border-white/[0.07] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-[#fdfbed]/30 text-xs">
+            © {new Date().getFullYear()} CueClarity. All rights reserved.
+          </p>
+          <div className="flex items-center gap-1">
+            {[
+              ["Privacy Policy", "/privacy"],
+              ["Terms of Service", "/terms"],
+            ].map(([label, href], i) => (
+              <React.Fragment key={href}>
+                {i > 0 && (
+                  <span className="text-[#fdfbed]/20 text-xs mx-2">·</span>
+                )}
+                <Link
+                  href={href}
+                  className="text-[#fdfbed]/30 hover:text-[#ffc114] transition-colors text-xs"
+                >
+                  {label}
+                </Link>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
 
+/* ── NewsletterForm ── */
+
+/* ── sub-components ── */
+
+function FooterHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h4
+      className="text-[#fdfbed]/90 text-xs font-bold uppercase tracking-[0.18em] mb-1"
+      style={{ fontFamily: "var(--font-oswald, Oswald, sans-serif)" }}
+    >
+      {children}
+    </h4>
+  );
+}
+
 function FooterLink({ href, text }: { href: string; text: string }) {
   return (
-    <Link 
-      href={href} 
-      className="text-[var(--primary-white)]/60 hover:text-[var(--primary-yellow)] hover:translate-x-1 transition-all duration-[var(--transition-fast)] text-sm font-medium w-fit"
+    <Link
+      href={href}
+      className="group flex items-center gap-1.5 text-[#fdfbed]/45 hover:text-[#ffc114] transition-colors text-sm w-fit"
     >
+      <span className="w-0 group-hover:w-2.5 overflow-hidden transition-all duration-200 text-[#ffc114]">
+        ›
+      </span>
       {text}
     </Link>
   );
 }
 
-function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+function ContactItem({
+  icon,
+  href,
+  children,
+}: {
+  icon: React.ReactNode;
+  href?: string;
+  children: React.ReactNode;
+}) {
+  const content = (
+    <div className="flex items-start gap-3 text-[#fdfbed]/45 group/item">
+      <span className="mt-0.5 text-[#ffc114] flex-shrink-0">{icon}</span>
+      <span className="text-sm leading-relaxed group-hover/item:text-[#fdfbed]/80 transition-colors">
+        {children}
+      </span>
+    </div>
+  );
+
+  return href ? (
+    <a href={href} className="hover:text-[#fdfbed]/80 transition-colors">
+      {content}
+    </a>
+  ) : (
+    <div>{content}</div>
+  );
+}
+
+function SocialLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
-    <a 
-      href={href} 
-      target="_blank" 
+    <a
+      href={href}
+      target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-10 h-10 rounded-full bg-[var(--primary-white)]/5 border border-[var(--primary-white)]/10 flex items-center justify-center text-[var(--primary-white)]/80 hover:bg-[var(--primary-yellow)] hover:text-[var(--primary-black)] hover:border-[var(--primary-yellow)] hover:-translate-y-1 transition-all duration-[var(--transition-base)]"
+      className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-[#fdfbed]/60 hover:bg-[#ffc114] hover:text-[#0c1518] hover:border-[#ffc114] hover:-translate-y-0.5 transition-all duration-200"
     >
       {icon}
     </a>
