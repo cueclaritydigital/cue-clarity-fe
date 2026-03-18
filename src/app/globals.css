@@ -8,27 +8,27 @@
 
 :root {
   /* ── BRAND PALETTE ─────────────────────────────────────── */
-  --primary-white: #FDFBED;
+  --primary-white: #fdfbed;
   /* warm cream — base bg */
-  --secondary-white: #FCF3D1;
+  --secondary-white: #fcf3d1;
   /* slightly deeper cream — cards/borders */
-  --primary-black: #0C1518;
+  --primary-black: #0c1518;
   /* deep charcoal — body text */
-  --primary-blue: #29326E;
+  --primary-blue: #29326e;
   /* midnight navy — authority + trust */
-  --accent-blue: #3B47A8;
+  --accent-blue: #3b47a8;
   /* electric indigo — hover, links */
-  --primary-yellow: #FFC114;
+  --primary-yellow: #ffc114;
   /* golden amber — CTA / accent */
-  --accent-yellow: #FFD25A;
+  --accent-yellow: #ffd25a;
   /* lighter amber — hover state */
-  --gradient-mid: #5C65A8;
+  --gradient-mid: #5c65a8;
   /* periwinkle — gradient stop */
-  --blob-glow: #8B93FF;
+  --blob-glow: #8b93ff;
   /* soft violet — blob glow */
-  --surface-card: #FFFFFF;
+  --surface-card: #ffffff;
   /* pure white — card surfaces */
-  --muted-text: #4A5568;
+  --muted-text: #4a5568;
   /* slate — secondary body text */
 
   /* ── TYPOGRAPHY SCALE ───────────────────────────────────── */
@@ -71,12 +71,16 @@
   --leading-relaxed: 1.65;
 
   /* ── SHADOWS ────────────────────────────────────────────── */
-  --shadow-sm: 0 1px 3px rgba(12, 21, 24, 0.06), 0 1px 2px rgba(12, 21, 24, 0.04);
-  --shadow-md: 0 4px 16px rgba(12, 21, 24, 0.08), 0 2px 6px rgba(12, 21, 24, 0.04);
-  --shadow-lg: 0 8px 32px rgba(12, 21, 24, 0.10), 0 4px 12px rgba(12, 21, 24, 0.06);
-  --shadow-xl: 0 20px 60px rgba(12, 21, 24, 0.12), 0 8px 24px rgba(12, 21, 24, 0.08);
-  --shadow-glow-yellow: 0 6px 24px rgba(255, 193, 20, 0.40);
-  --shadow-glow-blue: 0 6px 24px rgba(41, 50, 110, 0.30);
+  --shadow-sm:
+    0 1px 3px rgba(12, 21, 24, 0.06), 0 1px 2px rgba(12, 21, 24, 0.04);
+  --shadow-md:
+    0 4px 16px rgba(12, 21, 24, 0.08), 0 2px 6px rgba(12, 21, 24, 0.04);
+  --shadow-lg:
+    0 8px 32px rgba(12, 21, 24, 0.1), 0 4px 12px rgba(12, 21, 24, 0.06);
+  --shadow-xl:
+    0 20px 60px rgba(12, 21, 24, 0.12), 0 8px 24px rgba(12, 21, 24, 0.08);
+  --shadow-glow-yellow: 0 6px 24px rgba(255, 193, 20, 0.4);
+  --shadow-glow-blue: 0 6px 24px rgba(41, 50, 110, 0.3);
 
   /* ── BORDER RADIUS ──────────────────────────────────────── */
   --radius-sm: 0.5rem;
@@ -102,7 +106,6 @@
   --z-modal: 100;
 }
 
-
 /* ============================================================
    GLOBAL BASE STYLES
    ============================================================ */
@@ -123,7 +126,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1,
+    "calt" 1;
   color: var(--primary-black);
   background-color: var(--primary-white);
   line-height: var(--leading-normal);
@@ -135,7 +141,6 @@ body {
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
-
 
 /* ============================================================
    TYPOGRAPHY UTILITIES
@@ -211,36 +216,44 @@ body {
   letter-spacing: var(--tracking-wide);
 }
 
-
 /* ============================================================
    GRADIENT UTILITIES
    ============================================================ */
 
 .hero-gradient {
-  background: linear-gradient(to bottom, var(--primary-blue), var(--gradient-mid), var(--primary-white));
+  background: linear-gradient(
+    to bottom,
+    var(--primary-blue),
+    var(--gradient-mid),
+    var(--primary-white)
+  );
 }
 
 .blob-gradient {
-  background-image: linear-gradient(to top right,
-      var(--blob-glow),
-      var(--primary-white));
+  background-image: linear-gradient(
+    to top right,
+    var(--blob-glow),
+    var(--primary-white)
+  );
 }
 
 /* Premium text gradient for display headings */
 .text-gradient-blue {
-  background: linear-gradient(135deg, var(--accent-blue), var(--primary-yellow));
+  background: linear-gradient(
+    135deg,
+    var(--accent-blue),
+    var(--primary-yellow)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
 
 /* ============================================================
    ANIMATION UTILITIES
    ============================================================ */
 
 @keyframes morph {
-
   0%,
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -260,8 +273,13 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .animate-float {
@@ -293,7 +311,6 @@ body {
     background-position: 200% center;
   }
 }
-
 
 /* ============================================================
    COMPONENT PRIMITIVES
@@ -331,7 +348,7 @@ body {
 .btn-primary:hover {
   background: var(--accent-yellow);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 193, 20, 0.50);
+  box-shadow: 0 8px 30px rgba(255, 193, 20, 0.5);
 }
 
 .btn-outline {
@@ -404,9 +421,8 @@ body {
 .btn-whatsapp:hover {
   background: var(--accent-yellow);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 193, 20, 0.50);
+  box-shadow: 0 8px 30px rgba(255, 193, 20, 0.5);
 }
-
 
 /* ============================================================
    SECTION RHYTHM & LAYOUT UTILITIES
@@ -439,7 +455,6 @@ body {
   }
 }
 
-
 /* ============================================================
    TRUST BADGE / STAT PILL UTILITIES
    ============================================================ */
@@ -450,14 +465,14 @@ body {
   gap: 0.5rem;
   padding: 0.375rem 1rem;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  font-size: var(--text-xs);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: var(--text-base);
   font-weight: 700;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.80);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .trust-pill-dark {

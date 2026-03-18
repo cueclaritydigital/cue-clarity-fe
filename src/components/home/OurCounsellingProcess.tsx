@@ -1,74 +1,86 @@
-import React from 'react';
-import { FiPhone, FiClipboard, FiMap, FiTrendingUp } from 'react-icons/fi';
-import FadeInView from '@/components/animate/FadeInView';
-import StaggerInView from '@/components/animate/StaggerInView';
-import { fadeUp } from '@/lib/animations/variants';
+import React from "react";
+import { FiPhone, FiClipboard, FiMap, FiTrendingUp } from "react-icons/fi";
+import FadeInView from "@/components/animate/FadeInView";
+import StaggerInView from "@/components/animate/StaggerInView";
+import { fadeUp } from "@/lib/animations/variants";
 
 const STEPS = [
   {
-    number: '01',
+    number: "01",
     icon: <FiPhone className="w-5 h-5" />,
-    title: 'Free Discovery Call',
-    desc: 'A 15-minute no-obligation call to understand your goals, challenges, and where you are today.',
-    color: '#29326E',
-    colorLight: 'rgba(41,50,110,0.08)',
+    title: "Free Discovery Call",
+    desc: "A 15-minute no-obligation call to understand your goals, challenges, and where you are today.",
+    color: "#29326E",
+    colorLight: "rgba(41,50,110,0.08)",
   },
   {
-    number: '02',
+    number: "02",
     icon: <FiClipboard className="w-5 h-5" />,
-    title: 'Psychometric Assessment',
-    desc: 'Internationally validated tools measure your aptitudes, personality, and core interests with scientific precision.',
-    color: '#D97706',
-    colorLight: 'rgba(217,119,6,0.08)',
+    title: "Psychometric Assessment",
+    desc: "Internationally validated tools measure your aptitudes, personality, and core interests with scientific precision.",
+    color: "#D97706",
+    colorLight: "rgba(217,119,6,0.08)",
   },
   {
-    number: '03',
+    number: "03",
     icon: <FiMap className="w-5 h-5" />,
-    title: 'Expert Career Roadmap',
-    desc: 'A tailored action plan built around your strengths — stream selection, college shortlists, or career-switch strategy.',
-    color: '#059669',
-    colorLight: 'rgba(5,150,105,0.08)',
+    title: "Expert Career Roadmap",
+    desc: "A tailored action plan built around your strengths — stream selection, college shortlists, or career-switch strategy.",
+    color: "#059669",
+    colorLight: "rgba(5,150,105,0.08)",
   },
   {
-    number: '04',
+    number: "04",
     icon: <FiTrendingUp className="w-5 h-5" />,
-    title: 'Ongoing Mentorship',
-    desc: 'Monthly check-ins, milestone tracking, and real-time support until you reach your destination.',
-    color: '#6D28D9',
-    colorLight: 'rgba(109,40,217,0.08)',
+    title: "Ongoing Mentorship",
+    desc: "Monthly check-ins, milestone tracking, and real-time support until you reach your destination.",
+    color: "#6D28D9",
+    colorLight: "rgba(109,40,217,0.08)",
   },
 ];
 
 export default function OurCounsellingProcess() {
   return (
-    <section className="section-padding px-4 sm:px-6" style={{ backgroundColor: 'var(--secondary-white)' }}>
+    <section
+      className="section-padding px-4 sm:px-6"
+      style={{ backgroundColor: "var(--secondary-white)" }}
+    >
       <div className="section-container">
-
         {/* ─── HEADER ──────────────────────────────────────────────── */}
         <FadeInView className="mb-14 lg:mb-20">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <span className="type-eyebrow mb-3 block" style={{ color: 'var(--accent-blue)' }}>How It Works</span>
-              <h2
+              <span
+                className="type-eyebrow mb-3 block"
                 style={{
-                  fontFamily: 'var(--font-oswald)',
-                  fontWeight: 800,
-                  fontSize: 'clamp(2.75rem, 8vw, 5rem)',
-                  lineHeight: 0.92,
-                  letterSpacing: 'var(--tracking-tight)',
-                  color: 'var(--primary-black)',
-                  textTransform: 'uppercase',
+                  color: "var(--accent-blue)",
+                  fontSize: "var(--text-base)",
                 }}
               >
-                From Confusion<br />
-                <span style={{ color: 'var(--primary-blue)' }}>To Clarity</span>
+                How It Works
+              </span>
+              <h2
+                style={{
+                  fontFamily: "var(--font-oswald)",
+                  fontWeight: 800,
+                  fontSize: "clamp(2.75rem, 8vw, 5rem)",
+                  lineHeight: 0.92,
+                  letterSpacing: "var(--tracking-tight)",
+                  color: "var(--primary-black)",
+                  textTransform: "uppercase",
+                }}
+              >
+                From Confusion
+                <br />
+                <span style={{ color: "var(--primary-blue)" }}>To Clarity</span>
               </h2>
             </div>
             <p
               className="type-lead lg:text-right lg:max-w-xs"
-              style={{ color: 'var(--muted-text)' }}
+              style={{ color: "var(--muted-text)" }}
             >
-              Our structured 4-step process takes the guesswork out of career planning.
+              Our structured 4-step process takes the guesswork out of career
+              planning.
             </p>
           </div>
         </FadeInView>
@@ -80,24 +92,24 @@ export default function OurCounsellingProcess() {
               key={step.number}
               variants={fadeUp}
               className="group relative bg-[var(--surface-card)] rounded-[var(--radius-xl)] p-7 overflow-hidden flex flex-col gap-4 hover:-translate-y-1.5 hover:shadow-[var(--shadow-xl)] transition-all duration-300 cursor-pointer"
-              style={{ boxShadow: 'var(--shadow-md)' }}
+              style={{ boxShadow: "var(--shadow-md)" }}
             >
               {/* Giant watermark number */}
               <span
                 aria-hidden="true"
                 style={{
-                  fontFamily: 'var(--font-oswald)',
+                  fontFamily: "var(--font-oswald)",
                   fontWeight: 800,
-                  fontSize: '7rem',
+                  fontSize: "7rem",
                   lineHeight: 1,
-                  position: 'absolute',
-                  top: '-1rem',
-                  right: '0.75rem',
+                  position: "absolute",
+                  top: "-1rem",
+                  right: "0.75rem",
                   opacity: 0.06,
                   color: step.color,
-                  pointerEvents: 'none',
-                  userSelect: 'none',
-                  letterSpacing: 'var(--tracking-tight)',
+                  pointerEvents: "none",
+                  userSelect: "none",
+                  letterSpacing: "var(--tracking-tight)",
                 }}
               >
                 {step.number}
@@ -129,12 +141,12 @@ export default function OurCounsellingProcess() {
               <h3
                 className="relative z-10"
                 style={{
-                  fontFamily: 'var(--font-oswald)',
+                  fontFamily: "var(--font-oswald)",
                   fontWeight: 700,
-                  fontSize: 'clamp(1.15rem, 2vw, 1.4rem)',
-                  color: 'var(--primary-black)',
-                  letterSpacing: 'var(--tracking-tight)',
-                  textTransform: 'uppercase',
+                  fontSize: "clamp(1.15rem, 2vw, 1.4rem)",
+                  color: "var(--primary-black)",
+                  letterSpacing: "var(--tracking-tight)",
+                  textTransform: "uppercase",
                   lineHeight: 1.1,
                 }}
               >
@@ -144,14 +156,17 @@ export default function OurCounsellingProcess() {
               {/* Desc */}
               <p
                 className="type-body relative z-10"
-                style={{ color: 'var(--muted-text)', fontSize: 'var(--text-sm)', lineHeight: 'var(--leading-relaxed)' }}
+                style={{
+                  color: "var(--muted-text)",
+                  fontSize: "var(--text-sm)",
+                  lineHeight: "var(--leading-relaxed)",
+                }}
               >
                 {step.desc}
               </p>
             </FadeInView>
           ))}
         </StaggerInView>
-
       </div>
     </section>
   );

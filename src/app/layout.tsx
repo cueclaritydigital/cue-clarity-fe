@@ -1,50 +1,53 @@
-import type { Metadata } from 'next';
-import { Oswald, Plus_Jakarta_Sans } from 'next/font/google';
-import './globals.css';
-import Navbar from '../components/common/Navbar';
-import { organizationSchema } from '@/lib/schema';
+import type { Metadata } from "next";
+import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
+import Navbar from "../components/common/Navbar";
+import { organizationSchema } from "@/lib/schema";
 
 const oswald = Oswald({
-  subsets: ['latin'],
-  variable: '--font-oswald',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: "--font-oswald",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'CueClarity | Expert Career Counselling for Students & Professionals',
-    template: '%s | CueClarity',
+    default:
+      "CueClarity | Expert Career Counselling for Students & Professionals",
+    template: "%s | CueClarity",
   },
   description:
-    'Discover the right career path with expert mentors. CueClarity helps students, parents, and professionals unlock global opportunities through personalized guidance.',
+    "Discover the right career path with expert mentors. CueClarity helps students, parents, and professionals unlock global opportunities through personalized guidance.",
   keywords: [
-    'career counselling',
-    'career counseling',
-    'student mentoring',
-    'college guidance',
-    'international education',
-    'career assessment',
-    'psychometric test',
+    "career counselling",
+    "career counseling",
+    "student mentoring",
+    "college guidance",
+    "international education",
+    "career assessment",
+    "psychometric test",
   ],
-  metadataBase: new URL('https://cueclarity.com'),
+  metadataBase: new URL("https://cueclarity.com"),
   openGraph: {
-    title: 'CueClarity — Find Your Direction',
-    description: 'Expert career counselling that transforms uncertainty into clarity.',
-    type: 'website',
-    siteName: 'CueClarity',
+    title: "CueClarity — Find Your Direction",
+    description:
+      "Expert career counselling that transforms uncertainty into clarity.",
+    type: "website",
+    siteName: "CueClarity",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'CueClarity — Find Your Direction',
-    description: 'Expert career counselling that transforms uncertainty into clarity.',
+    card: "summary_large_image",
+    title: "CueClarity — Find Your Direction",
+    description:
+      "Expert career counselling that transforms uncertainty into clarity.",
   },
   robots: {
     index: true,
@@ -58,22 +61,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${oswald.variable} ${jakarta.variable}`}
-    >
+    <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
       </head>
       <body
         className="font-[family-name:var(--font-jakarta)] antialiased"
         style={{
-          color: 'var(--primary-black)',
-          backgroundColor: 'var(--primary-white)',
-          lineHeight: 'var(--leading-normal)',
+          color: "var(--primary-black)",
+          backgroundColor: "var(--primary-white)",
+          lineHeight: "var(--leading-normal)",
         }}
       >
         <Navbar />

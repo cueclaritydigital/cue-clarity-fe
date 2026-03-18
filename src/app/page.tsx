@@ -1,34 +1,41 @@
-import Footer from "../components/common/Footer";
-import RFQ from "../components/common/RFQ";
-import AssessmentBanner from "../components/home/AssessmentBanner";
-import FAQ from "../components/home/FAQ";
+import { Suspense, lazy } from "react";
 import HeroSection from "../components/home/HeroSection";
-import OurCounsellingProcess from "../components/home/OurCounsellingProcess";
-import OurServices from "../components/home/OurServices";
-import PartnersCarousel from "../components/home/PartnersCarousel";
-import ProblemSolution from "../components/home/ProblemSolution";
-import Testimonials from "../components/home/Testimonial";
-import WhoWeHelp from "../components/home/WhoWeHelp";
 
+const WhoWeHelp = lazy(() => import("../components/home/WhoWeHelp"));
+const ProblemSolution = lazy(
+  () => import("../components/home/ProblemSolution"),
+);
+const OurCounsellingProcess = lazy(
+  () => import("../components/home/OurCounsellingProcess"),
+);
+const OurServices = lazy(() => import("../components/home/OurServices"));
+const PartnersCarousel = lazy(
+  () => import("../components/home/PartnersCarousel"),
+);
+const Testimonials = lazy(() => import("../components/home/Testimonial"));
+const RFQ = lazy(() => import("../components/common/RFQ"));
+const FAQ = lazy(() => import("../components/home/FAQ"));
+const Footer = lazy(() => import("../components/common/Footer"));
+const AssessmentBanner = lazy(
+  () => import("../components/home/AssessmentBanner"),
+);
 
 export default function LandingPage() {
   return (
     <div>
       <HeroSection />
-      <WhoWeHelp />
-      <ProblemSolution />
-      <OurCounsellingProcess />
-      <OurServices />
-      <PartnersCarousel />
-      <Testimonials />
-      <RFQ />
-      <FAQ />
-      <Footer />
-      <AssessmentBanner />
+      <Suspense fallback={null}>
+        <WhoWeHelp />
+        <ProblemSolution />
+        <OurCounsellingProcess />
+        <OurServices />
+        <PartnersCarousel />
+        <Testimonials />
+        <RFQ />
+        <FAQ />
+        <Footer />
+        <AssessmentBanner />
+      </Suspense>
     </div>
   );
 }
-
-
-
-
