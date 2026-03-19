@@ -3,7 +3,7 @@ import HeroAbout from "@/components/about/HeroAbout";
 import FounderSection from "@/components/about/FounderSection";
 import JourneyTimeline from "@/components/about/JourneyTimeline";
 import MissionSection from "@/components/about/MissionSection";
-import ContactSection from "@/components/about/ContactSection";
+import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
 
 export const metadata: Metadata = {

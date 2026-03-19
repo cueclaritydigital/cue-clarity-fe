@@ -17,12 +17,12 @@ import NewsletterForm from "./NewsLetterFrom";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0c1518] overflow-hidden">
+    <footer className="relative bg-[var(--primary-black)] overflow-hidden">
       {/* ── decorative background ── */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#29326e] opacity-20 blur-[140px]" />
-        <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-[#ffc114] opacity-[0.06] blur-[100px]" />
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#ffc114]/30 to-transparent" />
+        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[var(--primary-blue)] opacity-20 blur-[140px]" />
+        <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-[var(--primary-yellow)] opacity-[0.06] blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--primary-yellow)]/30 to-transparent" />
       </div>
 
       {/* ── UNIFIED ACTION BAND ── */}
@@ -30,8 +30,8 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-14">
           {/* shared eyebrow */}
           <div className="flex items-center gap-2 mb-10">
-            <span className="w-5 h-[2px] bg-[#ffc114]" />
-            <p className="text-[#ffc114] text-xs font-bold uppercase tracking-[0.22em]">
+            <span className="w-5 h-[2px] bg-[var(--primary-yellow)]" />
+            <p className="text-[var(--primary-yellow)] text-xs font-bold uppercase tracking-[0.22em]">
               Let's connect
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function Footer() {
             {/* LEFT — Talk to us */}
             <div className="flex flex-col gap-5 lg:pr-14">
               <h2
-                className="text-[#fdfbed] font-bold leading-tight"
+                className="text-[var(--primary-white)] font-bold leading-tight"
                 style={{
                   fontFamily: "var(--font-oswald, Oswald, sans-serif)",
                   fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
@@ -48,9 +48,11 @@ export default function Footer() {
               >
                 Ready to get unstuck?
                 <br />
-                <span className="text-[#ffc114]">Start a conversation.</span>
+                <span className="text-[var(--primary-yellow)]">
+                  Start a conversation.
+                </span>
               </h2>
-              <p className="text-[#fdfbed]/45 text-sm leading-relaxed max-w-sm">
+              <p className="text-[var(--primary-white)]/45 text-sm leading-relaxed max-w-sm">
                 Our counselors reply within hours. Tell us where you are and
                 where you want to go — no commitment needed.
               </p>
@@ -58,7 +60,7 @@ export default function Footer() {
                 href={getWhatsAppURL("general", "footer-cta")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-fit flex items-center gap-3 bg-[#ffc114] hover:bg-[#ffd25a] text-[#0c1518] font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,193,20,0.35)]"
+                className="group w-fit flex items-center gap-3 bg-[var(--primary-yellow)] hover:bg-[var(--accent-yellow)] text-[var(--primary-black)] font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,193,20,0.35)]"
               >
                 <svg
                   width="17"
@@ -80,7 +82,7 @@ export default function Footer() {
             {/* RIGHT — Newsletter */}
             <div className="flex flex-col gap-5 lg:pl-14">
               <h2
-                className="text-[#fdfbed] font-bold leading-tight"
+                className="text-[var(--primary-white)] font-bold leading-tight"
                 style={{
                   fontFamily: "var(--font-oswald, Oswald, sans-serif)",
                   fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
@@ -88,9 +90,9 @@ export default function Footer() {
               >
                 Stay ahead of
                 <br />
-                <span className="text-[#ffc114]">the curve.</span>
+                <span className="text-[var(--primary-yellow)]">the curve.</span>
               </h2>
-              <p className="text-[#fdfbed]/45 text-sm leading-relaxed max-w-sm">
+              <p className="text-[var(--primary-white)]/45 text-sm leading-relaxed max-w-sm">
                 Weekly career insights, industry trends, and opportunities —
                 straight to your inbox. No spam, ever.
               </p>
@@ -114,7 +116,7 @@ export default function Footer() {
                 className="h-9 w-auto brightness-0 invert opacity-90"
               />
             </Link>
-            <p className="text-[#fdfbed]/50 text-sm leading-relaxed max-w-[300px]">
+            <p className="text-[var(--primary-white)]/50 text-sm leading-relaxed max-w-[300px]">
               Empowering students and professionals to stop guessing and start
               growing. Data-backed career counseling for a rapidly changing
               world.
@@ -131,10 +133,12 @@ export default function Footer() {
                   key={num}
                   className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5"
                 >
-                  <span className="text-[#ffc114] font-bold text-sm">
+                  <span className="text-[var(--primary-yellow)] font-bold text-sm">
                     {num}
                   </span>
-                  <span className="text-[#fdfbed]/40 text-xs">{label}</span>
+                  <span className="text-[var(--primary-white)]/40 text-xs">
+                    {label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -212,7 +216,7 @@ export default function Footer() {
 
         {/* ── BOTTOM BAR ── */}
         <div className="border-t border-white/[0.07] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[#fdfbed]/30 text-xs">
+          <p className="text-[var(--primary-white)]/30 text-xs">
             © {new Date().getFullYear()} CueClarity. All rights reserved.
           </p>
           <div className="flex items-center gap-1">
@@ -222,11 +226,13 @@ export default function Footer() {
             ].map(([label, href], i) => (
               <React.Fragment key={href}>
                 {i > 0 && (
-                  <span className="text-[#fdfbed]/20 text-xs mx-2">·</span>
+                  <span className="text-[var(--primary-white)]/20 text-xs mx-2">
+                    ·
+                  </span>
                 )}
                 <Link
                   href={href}
-                  className="text-[#fdfbed]/30 hover:text-[#ffc114] transition-colors text-xs"
+                  className="text-[var(--primary-white)]/30 hover:text-[var(--primary-yellow)] transition-colors text-xs"
                 >
                   {label}
                 </Link>
@@ -246,7 +252,7 @@ export default function Footer() {
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
     <h4
-      className="text-[#fdfbed]/90 text-xs font-bold uppercase tracking-[0.18em] mb-1"
+      className="text-[var(--primary-white)]/90 text-xs font-bold uppercase tracking-[0.18em] mb-1"
       style={{ fontFamily: "var(--font-oswald, Oswald, sans-serif)" }}
     >
       {children}
@@ -258,9 +264,9 @@ function FooterLink({ href, text }: { href: string; text: string }) {
   return (
     <Link
       href={href}
-      className="group flex items-center gap-1.5 text-[#fdfbed]/45 hover:text-[#ffc114] transition-colors text-sm w-fit"
+      className="group flex items-center gap-1.5 text-[var(--primary-white)]/45 hover:text-[var(--primary-yellow)] transition-colors text-sm w-fit"
     >
-      <span className="w-0 group-hover:w-2.5 overflow-hidden transition-all duration-200 text-[#ffc114]">
+      <span className="w-0 group-hover:w-2.5 overflow-hidden transition-all duration-200 text-[var(--primary-yellow)]">
         ›
       </span>
       {text}
@@ -278,16 +284,21 @@ function ContactItem({
   children: React.ReactNode;
 }) {
   const content = (
-    <div className="flex items-start gap-3 text-[#fdfbed]/45 group/item">
-      <span className="mt-0.5 text-[#ffc114] flex-shrink-0">{icon}</span>
-      <span className="text-sm leading-relaxed group-hover/item:text-[#fdfbed]/80 transition-colors">
+    <div className="flex items-start gap-3 text-[var(--primary-white)]/45 group/item">
+      <span className="mt-0.5 text-[var(--primary-yellow)] flex-shrink-0">
+        {icon}
+      </span>
+      <span className="text-sm leading-relaxed group-hover/item:text-[var(--primary-white)]/80 transition-colors">
         {children}
       </span>
     </div>
   );
 
   return href ? (
-    <a href={href} className="hover:text-[#fdfbed]/80 transition-colors">
+    <a
+      href={href}
+      className="hover:text-[var(--primary-white)]/80 transition-colors"
+    >
       {content}
     </a>
   ) : (
@@ -310,7 +321,7 @@ function SocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-[#fdfbed]/60 hover:bg-[#ffc114] hover:text-[#0c1518] hover:border-[#ffc114] hover:-translate-y-0.5 transition-all duration-200"
+      className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-[var(--primary-white)]/60 hover:bg-[var(--primary-yellow)] hover:text-[var(--primary-black)] hover:border-[var(--primary-yellow)] hover:-translate-y-0.5 transition-all duration-200"
     >
       {icon}
     </a>

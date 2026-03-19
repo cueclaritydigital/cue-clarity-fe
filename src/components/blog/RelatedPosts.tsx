@@ -10,7 +10,7 @@ export default function RelatedPosts({ posts }: { posts: BlogPost[] }) {
 
   return (
     <section
-      className="section-padding px-4 sm:px-6"
+      className="section-padding px-4 sm:px-6 mt-6"
       style={{ backgroundColor: "var(--secondary-white)" }}
     >
       <div className="section-container">

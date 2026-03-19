@@ -132,7 +132,7 @@ export default function HeroSection() {
                 alt="A mentor guiding a student through career planning"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-[#0C1518]/40" />
+              <div className="absolute inset-0 bg-[var(--primary-black)]/40" />
               <div
                 className="absolute inset-0"
                 style={{
