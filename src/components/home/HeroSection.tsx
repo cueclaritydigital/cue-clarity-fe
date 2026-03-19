@@ -128,7 +128,7 @@ export default function HeroSection() {
               style={{ boxShadow: "var(--shadow-xl)" }}
             >
               <img
-                src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773250202/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.png"
+                src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773932310/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.webp"
                 alt="A mentor guiding a student through career planning"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
