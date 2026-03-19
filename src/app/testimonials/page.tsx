@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import HeroSuccessStories from "@/components/success-stories/HeroSuccessStories";
-import VideoStories from "@/components/success-stories/VideoStories";
-import WrittenStories from "@/components/success-stories/WrittenStories";
+import HeroSuccessStories from "@/components/testimonials/HeroSuccessStories";
+import VideoStories from "@/components/testimonials/VideoStories";
+import WrittenStories from "@/components/testimonials/WrittenStories";
 import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
 

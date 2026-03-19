@@ -1,7 +1,7 @@
 "use client";
 import FadeInView from "@/components/animate/FadeInView";
 import { slideInLeft, slideInRight } from "@/lib/animations/variants";
-import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FiMail, FiMapPin, FiPhone, FiChevronDown } from "react-icons/fi";
 
 const WHO_OPTIONS = [
   "Student (8-10 Std)",
@@ -222,7 +222,7 @@ export default function ContactSection() {
                         name="role"
                         required
                         defaultValue=""
-                        className="field-input appearance-none pr-10 cursor-pointer"
+                        className="field-input appearance-none pr-10 cursor-pointer w-[90%] truncate"
                         style={{ color: "var(--primary-black)" }}
                       >
                         <option
@@ -243,21 +243,7 @@ export default function ContactSection() {
                         className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2"
                         style={{ color: "var(--primary-blue)" }}
                       >
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.5 5L7 9.5L11.5 5"
-                            stroke="currentColor"
-                            strokeWidth="1.8"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                        <FiChevronDown size={14} strokeWidth={1.8} />
                       </span>
                     </div>
                   </FieldWrap>
