@@ -6,6 +6,7 @@ import {
   FiVideo,
   FiBriefcase,
   FiArrowRight,
+  FiGlobe,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
@@ -94,6 +95,39 @@ export default function HeroSection() {
             >
               Explore Services →
             </Link>
+          </div>
+
+          {/* Quick-jump strip */}
+          <div
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5 hero-animate-fade-up"
+            style={{ animationDelay: "0.5s" }}
+          >
+            <span className="text-[var(--primary-black)]/35 text-[10px] uppercase tracking-[0.15em] shrink-0">
+              Quick links
+            </span>
+            <div className="w-px h-3 bg-[var(--primary-black)]/15 hidden sm:block" />
+            <div className="flex items-center gap-2">
+              <a
+                href="https://cueclarity.edumilestones.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+              >
+                <FiBriefcase size={12} />
+                Career Assessment
+                <FiArrowRight size={10} className="opacity-50" />
+              </a>
+              <a
+                href="https://cueclarity.edumilestones.com/abroad-studies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+              >
+                <FiGlobe size={12} />
+                Study Abroad
+                <FiArrowRight size={10} className="opacity-50" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
