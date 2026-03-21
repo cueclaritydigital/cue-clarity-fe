@@ -24,6 +24,10 @@ export const metadata: Metadata = {
       "CueClarity | Expert Career Counselling for Students & Professionals",
     template: "%s | CueClarity",
   },
+  icons: {
+    icon: "./icon.png", // Path to your icon in /public
+    apple: "./icon.png",
+  },
   description:
     "Discover the right career path with expert mentors. CueClarity helps students, parents, and professionals unlock global opportunities through personalized guidance.",
   keywords: [

@@ -1,110 +1,162 @@
-import type { Metadata } from 'next';
-import { FiCheckCircle, FiArrowRight } from 'react-icons/fi';
-import Footer from '@/components/common/Footer';
-import RFQ from '@/components/common/RFQ';
+import type { Metadata } from "next";
+import { Suspense, lazy } from "react";
+import { PROGRAMS, WEBINARS, PROGRAM_FAQS } from "@/lib/data/programs";
+import { WRITTEN_STORIES } from "@/lib/data/success-stories";
 
+import HeroPrograms from "@/components/programs/HeroPrograms";
+
+const FeaturedPrograms = lazy(
+  () => import("@/components/programs/FeaturedPrograms"),
+);
+const WhyChooseUs = lazy(() => import("@/components/programs/WhyChooseUs"));
+const WebinarShowcase = lazy(
+  () => import("@/components/programs/WebinarShowcase"),
+);
+const WrittenStories = lazy(() => import("@/components/common/WrittenStories"));
+const PartnersCarousel = lazy(
+  () => import("@/components/home/PartnersCarousel"),
+);
+const FAQ = lazy(() => import("@/components/home/FAQ"));
+const RFQ = lazy(() => import("@/components/common/RFQ"));
+const Footer = lazy(() => import("@/components/common/Footer"));
+
+/* ── SEO Metadata ─────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: 'Programs for Institutions | CueClarity',
+  title: "Career Assessment Programs & Webinars",
   description:
-    'Partner with CueClarity to deliver career counselling, psychometric assessments, and life-skills workshops to your students at scale.',
+    "Explore CueClarity's science-backed career assessment programs, expert-led counselling courses, and transformative webinars for students, parents, and working professionals. Psychometric testing, personalised career roadmaps, and 1-on-1 mentorship.",
+  keywords: [
+    "career assessment program",
+    "psychometric test for students",
+    "career counselling course",
+    "career guidance webinar",
+    "career aptitude test",
+    "student career planning",
+    "career transition program",
+    "parent career guidance workshop",
+    "career discovery assessment",
+    "online career counselling India",
+    "college career readiness",
+    "professional career coaching",
+  ],
   openGraph: {
-    title: 'CueClarity Institutional Programs',
-    description: 'Scalable career guidance programs for schools, colleges and corporates.',
+    title: "Career Assessment Programs & Webinars | CueClarity",
+    description:
+      "Science-backed career assessments, expert counselling programs, and transformative webinars. Find your clarity path with CueClarity.",
+    type: "website",
+    url: "https://cueclarity.com/programs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Career Assessment Programs & Webinars | CueClarity",
+    description:
+      "Science-backed career assessments and expert counselling for students, parents, and professionals.",
+  },
+  alternates: {
+    canonical: "https://cueclarity.com/programs",
   },
 };
 
-const PROGRAMS = [
-  {
-    title: 'School Career Guidance Program',
-    audience: 'Classes 8–12',
-    features: [
-      'Stream-selection workshops with psychometric backing',
-      'Parent–student joint counselling sessions',
-      'Individual career roadmaps for every student',
-      'Annual career fairs and industry exposure visits',
-    ],
-  },
-  {
-    title: 'College Career Readiness',
-    audience: 'UG & PG Students',
-    features: [
-      'Semester-wise career development curriculum',
-      'Resume building & interview preparation',
-      'Internship and placement support',
-      'Alumni mentorship network access',
-    ],
-  },
-  {
-    title: 'Corporate Upskilling',
-    audience: 'Organizations & Teams',
-    features: [
-      'Leadership and management development',
-      'Team psychometric profiling & role alignment',
-      'Custom training modules for industry needs',
-      'Ongoing coaching and performance tracking',
-    ],
-  },
-];
+/* ── JSON-LD Structured Data ──────────────────────────────────────── */
+const programsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "CueClarity Career Programs",
+  description:
+    "Science-backed career assessment programs for students, parents, and working professionals.",
+  numberOfItems: PROGRAMS.length,
+  itemListElement: PROGRAMS.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Course",
+      name: p.title,
+      description: p.description,
+      provider: {
+        "@type": "Organization",
+        name: "CueClarity",
+        url: "https://cueclarity.com",
+      },
+      audience: {
+        "@type": "Audience",
+        audienceType: p.audience,
+      },
+      timeRequired: p.duration,
+      courseMode: p.format,
+      offers: {
+        "@type": "Offer",
+        price: p.price,
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+      },
+    },
+  })),
+};
 
-export default function Programs() {
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: PROGRAM_FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const webinarSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "CueClarity Career Webinars",
+  itemListElement: WEBINARS.map((w, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Event",
+      name: w.title,
+      description: w.description,
+      eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+      organizer: {
+        "@type": "Organization",
+        name: "CueClarity",
+        url: "https://cueclarity.com",
+      },
+    },
+  })),
+};
+
+/* ── Page Component ───────────────────────────────────────────────── */
+export default function ProgramsPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="section-padding px-4 sm:px-6 bg-[var(--primary-black)] text-[var(--primary-white)] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--primary-blue)] opacity-[0.05] blur-[100px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
-        <div className="section-container relative z-10">
-          <span className="type-eyebrow text-[var(--primary-yellow)] mb-4 block">For Institutions</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight leading-[1.05] font-oswald max-w-3xl">
-            Scale Career Clarity<br />Across Your Campus
-          </h1>
-          <p className="type-body text-[var(--primary-white)]/70 mt-6 max-w-2xl text-lg">
-            Trusted by 200+ schools, colleges, and corporates. Our institutional programs deliver measurable
-            career outcomes — not just workshops.
-          </p>
-        </div>
-      </section>
+      {/* JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([programsSchema, faqSchema, webinarSchema]),
+        }}
+      />
 
-      {/* PROGRAM CARDS */}
-      <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {PROGRAMS.map((p) => (
-              <div
-                key={p.title}
-                className="rounded-[var(--radius-xl)] border border-[var(--primary-black)]/10 p-8 hover:border-[var(--primary-blue)] hover:-translate-y-1 hover:shadow-xl transition-all duration-[var(--transition-base)] flex flex-col"
-              >
-                <span className="type-eyebrow text-[var(--primary-blue)] mb-2">{p.audience}</span>
-                <h3 className="text-xl font-bold text-[var(--primary-black)] font-oswald uppercase tracking-tight mb-5">
-                  {p.title}
-                </h3>
-                <ul className="space-y-3 flex-1 mb-6">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[var(--primary-black)]/80">
-                      <FiCheckCircle className="text-[var(--primary-blue)] mt-0.5 shrink-0" size={16} />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <span className="text-sm font-bold text-[var(--primary-blue)] flex items-center gap-1.5">
-                  Request a Proposal
-                  <FiArrowRight size={14} />
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HeroPrograms />
 
-      {/* TRUST STRIP */}
-      <section className="py-12 px-4 sm:px-6 bg-[var(--secondary-white)] text-center">
-        <p className="type-eyebrow text-[var(--muted-text)] mb-3">Trusted by Institutions Like</p>
-        <p className="text-lg text-[var(--primary-black)]/60 font-medium">
-          Delhi Public School &bull; St. Xavier&apos;s &bull; NMIMS &bull; Symbiosis &bull; IIM Indore &bull; K.J. Somaiya &bull; Jai Hind College &bull; Podar International
-        </p>
-      </section>
-
-      <RFQ />
-      <Footer />
+      <Suspense fallback={null}>
+        <FeaturedPrograms programs={PROGRAMS} />
+        <WhyChooseUs />
+        <WebinarShowcase webinars={WEBINARS} />
+        <WrittenStories
+          stories={WRITTEN_STORIES}
+          eyebrow="Success Stories"
+          heading="Don't Take Our Word."
+          headingAccent="Take Theirs."
+          subtitle="Real results from students, parents, and professionals who invested in clarity — and transformed their careers."
+        />
+        <PartnersCarousel />
+        <FAQ />
+        <RFQ />
+        <Footer />
+      </Suspense>
     </>
   );
 }
