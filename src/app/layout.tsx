@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/common/Navbar";
-import { organizationSchema } from "@/lib/schema";
+import { organizationSchema, siteNavigationSchema } from "@/lib/schema";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -71,6 +71,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteNavigationSchema),
           }}
         />
       </head>

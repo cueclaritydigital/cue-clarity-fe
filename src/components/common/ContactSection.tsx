@@ -85,7 +85,7 @@ export default function ContactSection() {
                     className="font-bold text-lg"
                     style={{ color: "var(--primary-blue)" }}
                   >
-                    hello@cueclarity.com
+                    info@cueclarity.com
                   </p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function ContactSection() {
                     className="font-bold text-lg"
                     style={{ color: "var(--primary-blue)" }}
                   >
-                    Chandigarh · Pan India (Online)
+                    Navi Mumbai, Maharashtra, India-410209
                   </p>
                 </div>
               </div>

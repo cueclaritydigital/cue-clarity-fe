@@ -3,8 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getWhatsAppURL } from "@/lib/whatsapp";
-import { FaWhatsapp } from "react-icons/fa";
 import {
   FiMail,
   FiPhone,
@@ -12,89 +10,12 @@ import {
   FiLinkedin,
   FiInstagram,
   FiTwitter,
-  FiArrowUpRight,
 } from "react-icons/fi";
 import NewsletterForm from "./NewsLetterFrom";
 
 export default function Footer() {
   return (
     <footer className="relative bg-[var(--primary-black)] overflow-hidden">
-      {/* ── decorative background ── */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[var(--primary-blue)] opacity-20 blur-[140px]" />
-        <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-[var(--primary-yellow)] opacity-[0.06] blur-[100px]" />
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--primary-yellow)]/30 to-transparent" />
-      </div>
-
-      {/* ── UNIFIED ACTION BAND ── */}
-      <div className="relative z-10 border-b border-white/[0.07]">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-14">
-          {/* shared eyebrow */}
-          <div className="flex items-center gap-2 mb-10">
-            <span className="w-5 h-[2px] bg-[var(--primary-yellow)]" />
-            <p className="text-[var(--primary-yellow)] text-xs font-bold uppercase tracking-[0.22em]">
-              Let's connect
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 lg:divide-x lg:divide-white/[0.08]">
-            {/* LEFT — Talk to us */}
-            <div className="flex flex-col gap-5 lg:pr-14">
-              <h2
-                className="text-[var(--primary-white)] font-bold leading-tight"
-                style={{
-                  fontFamily: "var(--font-oswald, Oswald, sans-serif)",
-                  fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
-                }}
-              >
-                Ready to get unstuck?
-                <br />
-                <span className="text-[var(--primary-yellow)]">
-                  Start a conversation.
-                </span>
-              </h2>
-              <p className="text-[var(--primary-white)]/45 text-sm leading-relaxed max-w-sm">
-                Our counselors reply within hours. Tell us where you are and
-                where you want to go — no commitment needed.
-              </p>
-              <a
-                href={getWhatsAppURL("general", "footer-cta")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-fit flex items-center gap-3 bg-[var(--primary-yellow)] hover:bg-[var(--accent-yellow)] text-[var(--primary-black)] font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(255,193,20,0.35)]"
-              >
-                <FaWhatsapp size={17} aria-hidden="true" />
-                Chat on WhatsApp
-                <FiArrowUpRight
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                  size={15}
-                />
-              </a>
-            </div>
-
-            {/* RIGHT — Newsletter */}
-            <div className="flex flex-col gap-5 lg:pl-14">
-              <h2
-                className="text-[var(--primary-white)] font-bold leading-tight"
-                style={{
-                  fontFamily: "var(--font-oswald, Oswald, sans-serif)",
-                  fontSize: "clamp(1.6rem, 3vw, 2.5rem)",
-                }}
-              >
-                Stay ahead of
-                <br />
-                <span className="text-[var(--primary-yellow)]">the curve.</span>
-              </h2>
-              <p className="text-[var(--primary-white)]/45 text-sm leading-relaxed max-w-sm">
-                Weekly career insights, industry trends, and opportunities —
-                straight to your inbox. No spam, ever.
-              </p>
-              <NewsletterForm />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ── MAIN FOOTER GRID ── */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-10 pt-16 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-6 mb-14">
@@ -139,17 +60,17 @@ export default function Footer() {
             {/* socials */}
             <div className="flex items-center gap-3 mt-2">
               <SocialLink
-                href="#"
+                href="https://www.linkedin.com/company/cueclarity"
                 icon={<FiLinkedin size={16} />}
                 label="LinkedIn"
               />
               <SocialLink
-                href="#"
+                href="https://www.instagram.com/p/DLS2TjcMQGN/"
                 icon={<FiInstagram size={16} />}
                 label="Instagram"
               />
               <SocialLink
-                href="#"
+                href=""
                 icon={<FiTwitter size={16} />}
                 label="Twitter"
               />
@@ -171,8 +92,9 @@ export default function Footer() {
           {/* Services links */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <FooterHeading>Services</FooterHeading>
+            <FooterLink href="/services" text="All Services" />
             <FooterLink
-              href="/services/career-counseling"
+              href="/services/career-counselling"
               text="Career Counselling"
             />
             <FooterLink
@@ -180,12 +102,16 @@ export default function Footer() {
               text="International Education"
             />
             <FooterLink
+              href="/services/mental-health-wellness"
+              text="Mental Health & Wellness"
+            />
+            <FooterLink
               href="/services/industrial-training"
               text="Industrial Training"
             />
             <FooterLink
-              href="/services/corporate-training"
-              text="Corporate Training"
+              href="/services/workforce-development"
+              text="Workforce Development"
             />
           </div>
 
@@ -196,13 +122,13 @@ export default function Footer() {
               icon={<FiMail size={14} />}
               href="mailto:hello@cueclarity.com"
             >
-              hello@cueclarity.com
+              info@cueclarity.com
             </ContactItem>
             <ContactItem icon={<FiPhone size={14} />} href="tel:+918652222525">
               +91 8652 222 525
             </ContactItem>
             <ContactItem icon={<FiMapPin size={14} />}>
-              Mumbai, Maharashtra, India
+              Navi Mumbai, Maharashtra, India-410209
             </ContactItem>
           </div>
         </div>
