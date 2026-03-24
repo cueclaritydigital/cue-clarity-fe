@@ -5,6 +5,22 @@ export const testimonialSlider = defineType({
   title: "Testimonial Slider",
   type: "object",
   fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow Label", type: "string" }),
+    defineField({ name: "heading", title: "Heading", type: "string" }),
+    defineField({
+      name: "bgColor",
+      title: "Background Color",
+      type: "string",
+      options: {
+        list: [
+          { title: "White", value: "white" },
+          { title: "Cream", value: "cream" },
+          { title: "Black", value: "black" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "white",
+    }),
     defineField({
       name: "testimonials",
       title: "Testimonials",

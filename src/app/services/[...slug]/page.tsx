@@ -5,6 +5,17 @@ import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import RFQ from "@/components/common/RFQ";
 import ContactSection from "@/components/common/ContactSection";
+import BlockRenderer from "@/components/services/BlockRenderer";
+import { client } from "@/sanity/lib/client";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import {
+  servicePageQuery,
+  allServiceSlugsQuery,
+} from "@/sanity/queries";
+
+// Force dynamic rendering — disables SSG so every request fetches fresh Sanity data.
+// Re-enable generateStaticParams below once page building is complete.
+export const dynamic = "force-dynamic";
 
 // ── Data map ─────────────────────────────────────────────────────────────────
 
@@ -148,13 +159,24 @@ const SERVICE_DATA: Record<string, ServiceData> = {
   },
 };
 
-// ── Static params ─────────────────────────────────────────────────────────────
+const HARDCODED_SLUGS = Object.keys(SERVICE_DATA);
 
-export function generateStaticParams() {
-  return Object.keys(SERVICE_DATA).map((key) => ({
-    slug: key.split("/"),
-  }));
-}
+// ── Static params (disabled while building pages in Sanity) ──────────────────
+// Uncomment generateStaticParams once content is finalised to re-enable SSG.
+//
+// export async function generateStaticParams() {
+//   const sanityPaths: string[] = [];
+//   try {
+//     const pages = await client.fetch<{ slug: string }[]>(allServiceSlugsQuery);
+//     pages.forEach((p) => {
+//       if (p.slug) sanityPaths.push(p.slug);
+//     });
+//   } catch {
+//     // Sanity unreachable at build time — fall through to hardcoded
+//   }
+//   const all = Array.from(new Set([...HARDCODED_SLUGS, ...sanityPaths]));
+//   return all.map((key) => ({ slug: key.split("/") }));
+// }
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
@@ -164,15 +186,41 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const data = SERVICE_DATA[slug.join("/")];
+  const slugStr = slug.join("/");
+
+  // Try Sanity first
+  try {
+    const page = await client.fetch(servicePageQuery, { slug: slugStr });
+    console.log('page: ', page);
+    if (page?.seo) {
+      const { metaTitle, metaDescription, openGraphImage } = page.seo;
+      return {
+        title: metaTitle ?? page.title,
+        description: metaDescription,
+        openGraph: {
+          title: metaTitle ?? page.title,
+          description: metaDescription,
+          ...(openGraphImage?.asset?.url
+            ? {
+                images: [
+                  { url: openGraphImage.asset.url, alt: openGraphImage.alt ?? "" },
+                ],
+              }
+            : {}),
+        },
+      };
+    }
+  } catch {
+    /* fall through */
+  }
+
+  // Fallback to static
+  const data = SERVICE_DATA[slugStr];
   if (!data) return {};
   return {
     title: data.metaTitle,
     description: data.metaDesc,
-    openGraph: {
-      title: data.metaTitle,
-      description: data.metaDesc,
-    },
+    openGraph: { title: data.metaTitle, description: data.metaDesc },
   };
 }
 
@@ -184,8 +232,44 @@ export default async function ServicePage({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const data = SERVICE_DATA[slug.join("/")];
+  const slugStr = slug.join("/");
 
+  // Try Sanity-driven page first
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  let sanityPage: any = null;
+  try {
+    const { data } = await sanityFetch({
+      query: servicePageQuery,
+      params: { slug: slugStr },
+    });
+    sanityPage = data ?? null;
+  } catch {
+    /* fall through to static */
+  }
+
+  // If Sanity page has pageBuilder blocks → render dynamically
+  if (
+    sanityPage?.pageBuilder &&
+    Array.isArray(sanityPage.pageBuilder) &&
+    sanityPage.pageBuilder.length > 0
+  ) {
+    return (
+      <>
+        <Navbar />
+        <main>
+          <BlockRenderer blocks={sanityPage.pageBuilder} />
+        </main>
+        <RFQ />
+        <ContactSection />
+        <Footer />
+        <SanityLive />
+      </>
+    );
+  }
+
+  // Fallback: static hardcoded page
+  const data = SERVICE_DATA[slugStr];
+  console.log('data: ', data);
   if (!data) notFound();
 
   return (
@@ -245,6 +329,7 @@ export default async function ServicePage({
       <RFQ />
       {data.contactSection && <ContactSection />}
       <Footer />
+      <SanityLive />
     </>
   );
 }

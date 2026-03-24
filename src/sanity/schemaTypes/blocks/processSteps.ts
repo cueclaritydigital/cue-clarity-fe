@@ -5,10 +5,36 @@ export const processSteps = defineType({
   title: "Process Steps",
   type: "object",
   fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow Label", type: "string" }),
+    defineField({ name: "heading", title: "Heading", type: "string" }),
+    defineField({ name: "description", title: "Description", type: "text", rows: 2 }),
     defineField({
-      name: "heading",
-      title: "Heading",
+      name: "bgColor",
+      title: "Background Color",
       type: "string",
+      options: {
+        list: [
+          { title: "White", value: "white" },
+          { title: "Cream", value: "cream" },
+          { title: "Navy Blue", value: "blue" },
+          { title: "Black", value: "black" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "cream",
+    }),
+    defineField({
+      name: "layout",
+      title: "Layout Style",
+      type: "string",
+      options: {
+        list: [
+          { title: "Horizontal Steps (default)", value: "horizontal" },
+          { title: "Vertical Timeline", value: "vertical" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "horizontal",
     }),
     defineField({
       name: "steps",

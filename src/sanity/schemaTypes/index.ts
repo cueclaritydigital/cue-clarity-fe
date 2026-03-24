@@ -27,10 +27,10 @@ import {servicePage} from './servicePage'
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Existing
-    blockContentType,
-    categoryType,
-    postType,
-    authorType,
+      blockContentType,
+      categoryType,
+      postType,
+      authorType,
 
     // Objects
     seoMetadata,

@@ -5,10 +5,20 @@ export const faqSection = defineType({
   title: "FAQ Section",
   type: "object",
   fields: [
+    defineField({ name: "eyebrow", title: "Eyebrow Label", type: "string" }),
+    defineField({ name: "heading", title: "Heading", type: "string" }),
     defineField({
-      name: "heading",
-      title: "Heading",
+      name: "bgColor",
+      title: "Background Color",
       type: "string",
+      options: {
+        list: [
+          { title: "White", value: "white" },
+          { title: "Cream", value: "cream" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "white",
     }),
     defineField({
       name: "faqs",
@@ -22,9 +32,7 @@ export const faqSection = defineType({
             defineField({ name: "question", title: "Question", type: "string", validation: (rule) => rule.required() }),
             defineField({ name: "answer", title: "Answer", type: "text", rows: 4, validation: (rule) => rule.required() }),
           ],
-          preview: {
-            select: { title: "question" },
-          },
+          preview: { select: { title: "question" } },
         }),
       ],
     }),
