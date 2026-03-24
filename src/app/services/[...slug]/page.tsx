@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import RFQ from "@/components/common/RFQ";
 import ContactSection from "@/components/common/ContactSection";
@@ -189,6 +190,7 @@ export default async function ServicePage({
 
   return (
     <>
+      <Navbar />
       {/* ── HERO ── */}
       <section className="section-padding px-4 sm:px-6 bg-[var(--primary-black)] text-[var(--primary-white)] relative overflow-hidden">
         <div

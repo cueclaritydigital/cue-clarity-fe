@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import Navbar from "@/components/common/Navbar";
 import HeroSection from "../components/home/HeroSection";
 
 const WhoWeHelp = lazy(() => import("../components/home/WhoWeHelp"));
@@ -23,6 +24,7 @@ const AssessmentBanner = lazy(
 export default function LandingPage() {
   return (
     <div>
+      <Navbar />
       <HeroSection />
       <Suspense fallback={null}>
         <WhoWeHelp />

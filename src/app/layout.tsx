@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/common/Navbar";
 import { organizationSchema, siteNavigationSchema } from "@/lib/schema";
 
 const oswald = Oswald({
@@ -88,7 +87,6 @@ export default function RootLayout({
           lineHeight: "var(--leading-normal)",
         }}
       >
-        <Navbar />
         <main>{children}</main>
       </body>
     </html>

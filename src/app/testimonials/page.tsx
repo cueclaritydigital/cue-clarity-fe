@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/common/Navbar";
 import HeroSuccessStories from "@/components/testimonials/HeroSuccessStories";
 import VideoStories from "@/components/testimonials/VideoStories";
 import WrittenStories from "@/components/testimonials/WrittenStories";
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function SuccessStoriesPage() {
   return (
     <>
+      <Navbar />
       <HeroSuccessStories />
       <VideoStories />
       <WrittenStories />

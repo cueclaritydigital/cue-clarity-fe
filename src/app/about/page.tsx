@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/common/Navbar";
 import HeroAbout from "@/components/about/HeroAbout";
 import FounderSection from "@/components/about/FounderSection";
 import JourneyTimeline from "@/components/about/JourneyTimeline";
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
+      <Navbar />
       <HeroAbout />
       <FounderSection />
       <JourneyTimeline />

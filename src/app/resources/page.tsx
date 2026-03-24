@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/common/Navbar";
 import HeroResources from "@/components/resources/HeroResources";
 import LatestInsights from "@/components/resources/LatestInsights";
 import EbooksSection from "@/components/resources/EbooksSection";
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
 export default function ResourcesPage() {
   return (
     <main>
+      <Navbar />
       <HeroResources />
       <LatestInsights />
       <EbooksSection />

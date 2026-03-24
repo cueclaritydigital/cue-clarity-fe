@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense, lazy } from "react";
+import Navbar from "@/components/common/Navbar";
 import { PROGRAMS, WEBINARS, PROGRAM_FAQS } from "@/lib/data/programs";
 import { WRITTEN_STORIES } from "@/lib/data/success-stories";
 
@@ -139,6 +140,7 @@ export default function ProgramsPage() {
         }}
       />
 
+      <Navbar />
       <HeroPrograms />
 
       <Suspense fallback={null}>

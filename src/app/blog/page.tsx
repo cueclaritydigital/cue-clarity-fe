@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/common/Navbar";
 import FeaturedHero from "@/components/blog/FeaturedHero";
 import PostGrid from "@/components/blog/PostGrid";
 import BlogSidebar from "@/components/blog/BlogSidebar";
@@ -24,6 +25,7 @@ export default function Blog() {
 
   return (
     <>
+      <Navbar />
       <FeaturedHero />
       {/* ── Main content + sidebar ── */}
       <section

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Navbar from "@/components/common/Navbar";
 import { POSTS, getPostBySlug, getRelatedPosts } from "@/lib/data/blog";
 import ArticleContent from "@/components/blog/ArticleContent";
 import AuthorCard from "@/components/blog/AuthorCard";
@@ -46,6 +47,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <Navbar />
       {/* Article section */}
       <section
         className="px-4 pt-10 sm:px-6"
