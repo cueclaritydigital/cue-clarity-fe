@@ -18,7 +18,10 @@ export const servicePageQuery = groq`
       _type,
       ...,
       backgroundImage { asset->{url}, alt },
-      image { asset->{url}, alt }
+      image { asset->{url}, alt },
+      cards[]{
+        ...,
+      },
     }
   }
 `;

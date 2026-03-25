@@ -27,10 +27,41 @@ export const ctaSection = defineType({
       },
       initialValue: "black",
     }),
-    defineField({ name: "primaryCtaText", title: "Primary Button Text", type: "string" }),
-    defineField({ name: "primaryCtaUrl", title: "Primary Button URL", type: "string" }),
-    defineField({ name: "secondaryCtaText", title: "Secondary Button Text (optional)", type: "string" }),
-    defineField({ name: "secondaryCtaUrl", title: "Secondary Button URL (optional)", type: "string" }),
+    defineField({
+      name: "primaryCtaText",
+      title: "Primary Button Text",
+      type: "string",
+    }),
+    defineField({
+      name: "primaryCtaUrl",
+      title: "Primary Button URL",
+      type: "string",
+    }),
+    defineField({
+      name: "secondaryCtaText",
+      title: "Secondary Button Text (optional)",
+      type: "string",
+    }),
+    defineField({
+      name: "secondaryCtaUrl",
+      title: "Secondary Button URL (optional)",
+      type: "string",
+    }),
+    defineField({
+      name: "quote",
+      title: "Limited / Urgency Quote (optional)",
+      type: "text",
+      rows: 2,
+      description:
+        "Shown below buttons as a highlighted urgency note e.g. ⏳ Limited slots available...",
+    }),
+    defineField({
+      name: "image",
+      title: "Image (optional)",
+      type: "image",
+      options: { hotspot: true },
+      fields: [defineField({ name: "alt", title: "Alt Text", type: "string" })],
+    }),
   ],
   preview: {
     select: { title: "heading" },
