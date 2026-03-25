@@ -46,22 +46,22 @@ type ServiceItem = {
 /** Audience segments under Career Counselling & Guidance */
 const CAREER_SUB_ITEMS: ServiceSubItem[] = [
   {
-    href: "/services/career-counselling/students/school",
+    href: "/services/students-8-9-10",
     label: "Students — 8th, 9th & 10th",
     desc: "Stream & subject clarity before boards",
   },
   {
-    href: "/services/career-counselling/students/post-board",
+    href: "/services/after-10th-12th",
     label: "After 10th & 12th",
     desc: "College, courses & entrance exam guidance",
   },
   {
-    href: "/services/career-counselling/graduates",
+    href: "/services/for-graduates",
     label: "Graduates",
     desc: "PG options, job readiness & career pivots",
   },
   {
-    href: "/services/career-counselling/professionals",
+    href: "/services/for-professionals",
     label: "Professionals",
     desc: "Mid-career transitions & executive coaching",
   },
@@ -88,7 +88,7 @@ const SERVICE_ITEMS: ServiceItem[] = [
   {
     id: "beyond-school",
     group: "Wellness & Growth",
-    href: "/services/beyond-school-life-skills",
+    href: "/services/beyond-school-life-and-skills",
     icon: <FiStar size={16} />,
     label: "Beyond School & Life Skills",
     desc: "Real-world readiness beyond academics",
@@ -96,7 +96,7 @@ const SERVICE_ITEMS: ServiceItem[] = [
   {
     id: "mental-health",
     group: "Wellness & Growth",
-    href: "/services/mental-health-wellness",
+    href: "/services/mental-health",
     icon: <FiHeart size={16} />,
     label: "Mental Health & Wellness",
     desc: "Holistic counselling for mind & balance",

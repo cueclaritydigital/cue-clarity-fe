@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import ContactSection from "@/components/common/ContactSection";
-import BlockRenderer from "@/components/services/BlockRenderer";
-import { client } from "@/sanity/lib/client";
-import { sanityFetch, SanityLive } from "@/sanity/lib/live";
-import { servicePageQuery } from "@/sanity/queries";
+import SectionRenderer from "@/components/services/editorial/SectionRenderer";
+import { getServicePage, getAllServiceSlugs } from "@/lib/data/services";
 
-export const dynamic = "force-dynamic";
+// ── Static generation ─────────────────────────────────────────────────────────
+
+export function generateStaticParams() {
+  return getAllServiceSlugs().map((slug) => ({ slug: [slug] }));
+}
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
@@ -19,37 +21,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const slugStr = slug.join("/");
+  const page = getServicePage(slugStr);
 
-  // Try Sanity first
-  try {
-    const page = await client.fetch(servicePageQuery, { slug: slugStr });
-    console.log("page: ", page);
-    if (page?.seo) {
-      const { metaTitle, metaDescription, openGraphImage } = page.seo;
-      return {
-        title: metaTitle ?? page.title,
-        description: metaDescription,
-        openGraph: {
-          title: metaTitle ?? page.title,
-          description: metaDescription,
-          ...(openGraphImage?.asset?.url
-            ? {
-                images: [
-                  {
-                    url: openGraphImage.asset.url,
-                    alt: openGraphImage.alt ?? "",
-                  },
-                ],
-              }
-            : {}),
-        },
-      };
-    }
-  } catch {
-    /* fall through */
-  }
+  if (!page) return {};
 
-  return {};
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+    openGraph: {
+      title: page.metaTitle,
+      description: page.metaDescription,
+    },
+  };
 }
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -61,37 +44,17 @@ export default async function ServicePage({
 }) {
   const { slug } = await params;
   const slugStr = slug.join("/");
+  const page = getServicePage(slugStr);
 
-  // Try Sanity-driven page first
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  let sanityPage: any = null;
-  try {
-    const { data } = await sanityFetch({
-      query: servicePageQuery,
-      params: { slug: slugStr },
-    });
-    sanityPage = data ?? null;
-  } catch {
-    /* fall through to static */
-  }
+  if (!page) return notFound();
 
-  // If Sanity page has pageBuilder blocks → render dynamically
-  if (
-    sanityPage?.pageBuilder &&
-    Array.isArray(sanityPage.pageBuilder) &&
-    sanityPage.pageBuilder.length > 0
-  ) {
-    return (
-      <>
-        <Navbar />
-        <main>
-          <BlockRenderer blocks={sanityPage.pageBuilder} />
-        </main>
-        <ContactSection />
-        <Footer />
-        <SanityLive />
-      </>
-    );
-  }
-  return notFound();
+  return (
+    <>
+      <Navbar />
+      <main>
+        <SectionRenderer sections={page.sections} />
+      </main>
+      <Footer />
+    </>
+  );
 }

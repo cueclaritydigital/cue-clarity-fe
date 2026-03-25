@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
+import {
+  Oswald,
+  Plus_Jakarta_Sans,
+  Newsreader,
+  Manrope,
+} from "next/font/google";
 import "./globals.css";
 import { organizationSchema, siteNavigationSchema } from "@/lib/schema";
 
@@ -13,6 +18,21 @@ const oswald = Oswald({
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-jakarta",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -64,7 +84,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
+    <html
+      lang="en"
+      className={`${oswald.variable} ${jakarta.variable} ${newsreader.variable} ${manrope.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
