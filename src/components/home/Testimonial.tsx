@@ -47,9 +47,11 @@ export default function Testimonials() {
               </p>
             </div>
             <div className="flex items-center gap-3 relative z-10 border-t border-[var(--primary-white)]/10 pt-6 mt-auto">
-              <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--primary-blue)] text-[var(--primary-white)] flex items-center justify-center font-bold text-lg">
-                A
-              </div>
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
+                alt="Ananya Mehta"
+                className="w-10 h-10 rounded-[var(--radius-md)] object-cover"
+              />
               <div className="flex flex-col">
                 <span className="text-sm font-bold text-[var(--primary-white)]">
                   Ananya Mehta
@@ -64,8 +66,7 @@ export default function Testimonials() {
           {/* 2. College Grad */}
           <TestimonialCard
             quote="I was completely lost after graduating. CueClarity helped me discover UX design as my true path and gave me a concrete step-by-step plan to get there."
-            initial="K"
-            avatarBg="bg-[var(--blob-glow)]"
+            avatar="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80"
             name="Kartik Verma"
             role="B.Com Graduate → UX Designer"
             delay="0.1s"
@@ -74,8 +75,7 @@ export default function Testimonials() {
           {/* 3. Working Professional */}
           <TestimonialCard
             quote="The assessment revealed exactly why I was unhappy at work. Finally understood which role would make me thrive. Life-changing conversation."
-            initial="P"
-            avatarBg="bg-orange-500"
+            avatar="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80"
             name="Priya Nair"
             role="Marketing Manager · Career Clarity"
             delay="0.2s"
@@ -84,8 +84,7 @@ export default function Testimonials() {
           {/* 4. Student — Parent Involved */}
           <TestimonialCard
             quote="My parents kept pushing engineering. One session with CueClarity helped me — and them — see that architecture was my true calling."
-            initial="S"
-            avatarBg="bg-purple-500"
+            avatar="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80"
             name="Sanya Kapoor"
             role="Class 12 Student · Mumbai"
             delay="0.3s"
@@ -112,9 +111,11 @@ export default function Testimonials() {
               </p>
             </div>
             <div className="flex items-center gap-3 relative z-10">
-              <div className="w-10 h-10 rounded-[var(--radius-sm)] bg-[var(--primary-white)]/20 text-[var(--primary-white)] flex items-center justify-center font-bold text-[15px]">
-                R
-              </div>
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
+                alt="Rahul Desai"
+                className="w-10 h-10 rounded-[var(--radius-sm)] object-cover"
+              />
               <div className="flex flex-col">
                 <span className="text-sm font-bold text-[var(--primary-white)]">
                   Rahul Desai
@@ -133,16 +134,14 @@ export default function Testimonials() {
 
 function TestimonialCard({
   quote,
-  initial,
-  avatarBg,
+  avatar,
   name,
   role,
   delay,
   bgColor = "bg-white",
 }: {
   quote: string;
-  initial: string;
-  avatarBg: string;
+  avatar: string;
   name: string;
   role: string;
   delay: string;
@@ -165,11 +164,11 @@ function TestimonialCard({
         </p>
       </div>
       <div className="flex items-center gap-3 relative z-10">
-        <div
-          className={`w-10 h-10 rounded-[var(--radius-sm)] ${avatarBg} text-white flex items-center justify-center font-bold text-[15px]`}
-        >
-          {initial}
-        </div>
+        <img
+          src={avatar}
+          alt={name}
+          className="w-10 h-10 rounded-[var(--radius-sm)] object-cover"
+        />
         <div className="flex flex-col">
           <span className="text-[13px] font-bold text-[var(--primary-black)] leading-tight">
             {name}

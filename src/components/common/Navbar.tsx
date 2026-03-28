@@ -120,7 +120,7 @@ const SERVICE_ITEMS: ServiceItem[] = [
   {
     id: "workforce-development",
     group: "Professional",
-    href: "/services/workforce-development",
+    href: "work-force-development",
     icon: <FiUsers size={16} />,
     label: "Workforce Development",
     desc: "Corporate upskilling & team progress",
@@ -411,7 +411,7 @@ function DesktopNav() {
             {/* ── View All Services footer strip ── */}
             <div className="border-t border-[var(--secondary-white)] px-7 py-3 flex items-center justify-end bg-[var(--primary-white)]/40">
               <Link
-                href="/services"
+                href="/services/career-counselling"
                 role="menuitem"
                 className="flex items-center gap-1.5 text-[var(--primary-blue)] font-semibold hover:text-[var(--accent-blue)] transition-colors"
                 style={{ fontSize: "var(--text-sm)" }}

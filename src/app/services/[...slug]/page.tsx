@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
-import ContactSection from "@/components/common/ContactSection";
 import SectionRenderer from "@/components/services/editorial/SectionRenderer";
 import { getServicePage, getAllServiceSlugs } from "@/lib/data/services";
 

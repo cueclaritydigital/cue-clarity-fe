@@ -1,9 +1,19 @@
 import React from "react";
+import Image from "next/image";
 import { FiCheckCircle } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
 
-export default function RFQ() {
+interface RFQProps {
+  trustImage?: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  };
+}
+
+export default function RFQ({ trustImage }: RFQProps) {
   return (
     <section className="relative section-padding px-4 sm:px-6 bg-[var(--primary-blue)] overflow-hidden">
       {/* Background */}
@@ -61,6 +71,18 @@ export default function RFQ() {
             Zero obligations
           </div>
         </div>
+
+        {trustImage && (
+          <div className="mt-10">
+            <Image
+              src={trustImage.src}
+              alt={trustImage.alt}
+              width={trustImage.width ?? 400}
+              height={trustImage.height ?? 80}
+              className="mx-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

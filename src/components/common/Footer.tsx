@@ -92,7 +92,6 @@ export default function Footer() {
           {/* Services links */}
           <div className="lg:col-span-2 flex flex-col gap-4">
             <FooterHeading>Services</FooterHeading>
-            <FooterLink href="/services" text="All Services" />
             <FooterLink
               href="/services/career-counselling"
               text="Career Counselling"
@@ -102,15 +101,20 @@ export default function Footer() {
               text="International Education"
             />
             <FooterLink
-              href="/services/mental-health-wellness"
+              href="/services/beyond-school-life-and-skills"
+              text="Beyond School Life & Skills"
+            />
+            <FooterLink
+              href="/services/mental-health"
               text="Mental Health & Wellness"
             />
+            <FooterLink href="/services/khud-ki-kahani" text="Khud Ki Kahani" />
             <FooterLink
               href="/services/industrial-training"
               text="Industrial Training"
             />
             <FooterLink
-              href="/services/workforce-development"
+              href="work-force-development"
               text="Workforce Development"
             />
           </div>

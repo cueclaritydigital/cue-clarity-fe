@@ -50,16 +50,10 @@ export default function OurServices() {
           </p>
         </div>
 
-        {/* ─── BENTO GRID ─────────────────────────────────────────
-          Layout (3-col desktop):
-            Row 1: [Featured — col-span-2] [Service 1 — col-span-1]
-            Row 2: [Services 2-4 — 1 col each]
-            Row 3: [Services 5-6 — 1 col each] [empty or span]
-          7 cards: 1 featured (2-wide) + 6 standard
-        ─────────────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {/* ── FEATURED CARD (col-span 2) ── */}
-          <div
+          <Link
+            href={FEATURED_SERVICE.href}
             className="group relative bg-white rounded-2xl lg:rounded-3xl p-8 lg:p-10 md:col-span-2 lg:col-span-2 overflow-hidden flex flex-col justify-between gap-8 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             style={{ boxShadow: "var(--shadow-xl)" }}
           >
@@ -126,9 +120,8 @@ export default function OurServices() {
               </div>
             </div>
 
-            <Link
-              href={FEATURED_SERVICE.href}
-              className="relative z-10 w-fit inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-200 hover:-translate-y-px group/cta"
+            <div
+              className="relative z-10 w-fit inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-200 group-hover:-translate-y-px group/cta"
               style={{
                 backgroundColor: "var(--primary-blue)",
                 color: "white",
@@ -138,10 +131,10 @@ export default function OurServices() {
               Get Started
               <FiArrowRight
                 size={13}
-                className="group-hover/cta:translate-x-1 transition-transform"
+                className="group-hover:translate-x-1 transition-transform"
               />
-            </Link>
-          </div>
+            </div>
+          </Link>
 
           {/* ── 6 STANDARD CARDS ── */}
           {SERVICES.map((s, i) => {

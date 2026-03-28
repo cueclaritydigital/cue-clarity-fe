@@ -171,34 +171,7 @@ const careerCounselling: ServicePageData = {
       secondaryCTA: CTA_SPEAK,
     },
 
-    /* ── 2. Stats — social proof ─────────────────────────── */
-    {
-      type: "stats",
-      stats: [
-        {
-          value: "5000",
-          suffix: "+",
-          label: "Students & Professionals Guided to Clarity",
-        },
-        {
-          value: "200",
-          suffix: "+",
-          label: "Career Seminars Across Schools & Corporates",
-        },
-        {
-          value: "93",
-          suffix: "%",
-          label: "Clients Report Greater Career Confidence",
-        },
-        {
-          value: "50",
-          suffix: "+",
-          label: "Industries & Career Paths Mapped",
-        },
-      ],
-    },
-
-    /* ── 3. Questions — pain-point empathy ────────────────── */
+    /* ── 2. Questions — pain-point empathy ────────────────── */
     {
       type: "questions",
       eyebrow: "Sound Familiar?",
@@ -233,7 +206,7 @@ const careerCounselling: ServicePageData = {
       ],
     },
 
-    /* ── 4. Cards — audience pathways ────────────────────── */
+    /* ── 3. Cards — audience pathways ────────────────────── */
     {
       type: "cards",
       eyebrow: "Who We Serve",
@@ -274,7 +247,7 @@ const careerCounselling: ServicePageData = {
       ],
     },
 
-    /* ── 5. Process — how it works ───────────────────────── */
+    /* ── 4. Process — how it works ───────────────────────── */
     {
       type: "process",
       eyebrow: "Our Process",
@@ -316,7 +289,7 @@ const careerCounselling: ServicePageData = {
       },
     },
 
-    /* ── 6. Cards — core services ────────────────────────── */
+    /* ── 5. Cards — core services ────────────────────────── */
     {
       type: "cards",
       eyebrow: "What We Offer",
@@ -365,7 +338,7 @@ const careerCounselling: ServicePageData = {
       ],
     },
 
-    /* ── 7. Comparison — before / after ──────────────────── */
+    /* ── 6. Comparison — before / after ──────────────────── */
     {
       type: "comparison",
       eyebrow: "The Difference",
@@ -396,7 +369,7 @@ const careerCounselling: ServicePageData = {
       },
     },
 
-    /* ── 8. Feature list — why us ────────────────────────── */
+    /* ── 7. Feature list — why us ────────────────────────── */
     {
       type: "featureList",
       eyebrow: "Why CueClarity",
@@ -442,7 +415,7 @@ const careerCounselling: ServicePageData = {
       columns: 2,
     },
 
-    /* ── 9. Deliverables — what you get ──────────────────── */
+    /* ── 8. Deliverables — what you get ──────────────────── */
     {
       type: "deliverables",
       eyebrow: "Your Deliverables",
@@ -479,6 +452,33 @@ const careerCounselling: ServicePageData = {
           title: "Ongoing Decision Support",
           description:
             "Follow-up guidance when you face crossroads — stream selection, college choice, or job-switch dilemmas.",
+        },
+      ],
+    },
+
+    /* ── 9. Stats — social proof ─────────────────────────── */
+    {
+      type: "stats",
+      stats: [
+        {
+          value: "5000",
+          suffix: "+",
+          label: "Students & Professionals Guided to Clarity",
+        },
+        {
+          value: "200",
+          suffix: "+",
+          label: "Career Seminars Across Schools & Corporates",
+        },
+        {
+          value: "93",
+          suffix: "%",
+          label: "Clients Report Greater Career Confidence",
+        },
+        {
+          value: "50",
+          suffix: "+",
+          label: "Industries & Career Paths Mapped",
         },
       ],
     },

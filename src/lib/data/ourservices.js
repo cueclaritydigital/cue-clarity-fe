@@ -59,7 +59,7 @@ export const SERVICES = [
     ),
   },
   {
-    href: "/services/life-skills",
+    href: "/services/beyond-school-life-and-skills",
     title: "Beyond School & Life Skills",
     tag: "Life Ready",
     desc: "Real-world readiness beyond academics — communication, leadership, financial literacy, and personality development.",
@@ -160,7 +160,7 @@ export const SERVICES = [
     ),
   },
   {
-    href: "/services/emotional-wellness",
+    href: "/services/mental-health",
     title: "Emotional Wellness",
     tag: "Wellness",
     desc: "Holistic counseling for mind and balance — stress management, resilience training, and mental health support.",
@@ -251,7 +251,7 @@ export const SERVICES = [
     ),
   },
   {
-    href: "/services/workforce-development",
+    href: "work-force-development",
     title: "Workforce Development",
     tag: "Corporate",
     desc: "Corporate upskilling, employee skill development, process improvement, and team growth strategies.",
@@ -295,7 +295,7 @@ export const SERVICES = [
 ];
 
 export const FEATURED_SERVICE = {
-  href: "/services/career-counseling",
+  href: "/services/career-counselling",
   title: "Career Counselling",
   tag: "Flagship Service",
   desc: "Our most transformative offering. Personalised guidance powered by internationally validated psychometric assessments and one-on-one expert mentorship — from stream selection all the way to career pivots.",

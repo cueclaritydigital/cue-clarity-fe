@@ -24,6 +24,9 @@ const SEGMENTS = [
     accent: "var(--primary-blue)",
     accentBg: "rgba(41,50,110,0.08)",
     borderColor: "var(--primary-blue)",
+    image:
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_253mlq253mlq253m_q70txm.webp",
+    imageAlt: "School students studying together in a classroom",
   },
   {
     icon: <FiCompass strokeWidth={1.5} className="w-5 h-5" />,
@@ -39,6 +42,9 @@ const SEGMENTS = [
     accent: "#D97706",
     accentBg: "rgba(217,119,6,0.08)",
     borderColor: "#D97706",
+    image:
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_dc906idc906idc90_p0bmqv.webp",
+    imageAlt: "Students celebrating at a graduation ceremony",
   },
   {
     icon: <FiTarget strokeWidth={1.5} className="w-5 h-5" />,
@@ -54,6 +60,9 @@ const SEGMENTS = [
     accent: "#059669",
     accentBg: "rgba(5,150,105,0.08)",
     borderColor: "#059669",
+    image:
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_yhj9vtyhj9vtyhj9_q9rpwv.webp",
+    imageAlt: "College students collaborating on a group project",
   },
   {
     icon: <FiBriefcase strokeWidth={1.5} className="w-5 h-5" />,
@@ -69,6 +78,9 @@ const SEGMENTS = [
     accent: "#6D28D9",
     accentBg: "rgba(109,40,217,0.08)",
     borderColor: "#6D28D9",
+    image:
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_qqdgy8qqdgy8qqdg_stbvd2.webp",
+    imageAlt: "Professionals in a strategic career planning meeting",
   },
 ];
 
@@ -166,77 +178,96 @@ export default function WhoWeHelp() {
               <FadeInView
                 key={s.title}
                 variants={fadeUp}
-                className="group bg-[var(--surface-card)] rounded-[var(--radius-xl)] p-7 flex flex-col gap-5 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                className="group bg-[var(--surface-card)] rounded-[var(--radius-xl)] overflow-hidden flex flex-col hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                 style={{
                   boxShadow: "var(--shadow-sm)",
                   borderLeft: `3px solid ${s.borderColor}`,
                 }}
               >
-                {/* Icon + Badge row */}
-                <div className="flex items-start justify-between gap-3">
+                {/* Card image */}
+                <div className="relative w-full h-40 overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.imageAlt}
+                    className="w-full h-full object-cover  transition-transform duration-500"
+                    loading="lazy"
+                  />
                   <div
-                    className="w-11 h-11 rounded-[var(--radius-md)] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: s.accentBg, color: s.accent }}
-                  >
-                    {s.icon}
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to top, var(--surface-card) 0%, transparent 30%)",
+                    }}
+                  />
+                </div>
+
+                <div className="p-7 pt-3 flex flex-col gap-5 flex-1">
+                  {/* Icon + Badge row */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div
+                      className="w-11 h-11 rounded-[var(--radius-md)] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300"
+                      style={{ backgroundColor: s.accentBg, color: s.accent }}
+                    >
+                      {s.icon}
+                    </div>
+                    <span
+                      className="type-label px-2.5 py-1 rounded-full"
+                      style={{ backgroundColor: s.accentBg, color: s.accent }}
+                    >
+                      {s.badge}
+                    </span>
                   </div>
-                  <span
-                    className="type-label px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: s.accentBg, color: s.accent }}
-                  >
-                    {s.badge}
-                  </span>
-                </div>
 
-                {/* Title + Desc */}
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-oswald)",
-                      fontWeight: 700,
-                      fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)",
-                      color: "var(--primary-black)",
-                      letterSpacing: "var(--tracking-tight)",
-                      textTransform: "uppercase",
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p
-                    className="type-body mt-2"
-                    style={{
-                      color: "var(--muted-text)",
-                      fontSize: "var(--text-sm)",
-                    }}
-                  >
-                    {s.desc}
-                  </p>
-                </div>
-
-                {/* 3-point bullets */}
-                <ul
-                  className="flex flex-col gap-2 mt-auto pt-4"
-                  style={{ borderTop: "1px solid rgba(12,21,24,0.06)" }}
-                >
-                  {s.points.map((pt) => (
-                    <li
-                      key={pt}
-                      className="flex items-center gap-2"
+                  {/* Title + Desc */}
+                  <div>
+                    <h3
                       style={{
-                        fontSize: "var(--text-sm)",
-                        color: "var(--muted-text)",
-                        fontWeight: 500,
+                        fontFamily: "var(--font-oswald)",
+                        fontWeight: 700,
+                        fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)",
+                        color: "var(--primary-black)",
+                        letterSpacing: "var(--tracking-tight)",
+                        textTransform: "uppercase",
+                        lineHeight: 1.1,
                       }}
                     >
-                      <FiCheck
-                        size={11}
-                        style={{ color: s.accent, flexShrink: 0 }}
-                      />
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
+                      {s.title}
+                    </h3>
+                    <p
+                      className="type-body mt-2"
+                      style={{
+                        color: "var(--muted-text)",
+                        fontSize: "var(--text-sm)",
+                      }}
+                    >
+                      {s.desc}
+                    </p>
+                  </div>
+
+                  {/* 3-point bullets */}
+                  <ul
+                    className="flex flex-col gap-2 mt-auto pt-4"
+                    style={{ borderTop: "1px solid rgba(12,21,24,0.06)" }}
+                  >
+                    {s.points.map((pt) => (
+                      <li
+                        key={pt}
+                        className="flex items-center gap-2"
+                        style={{
+                          fontSize: "var(--text-sm)",
+                          color: "var(--muted-text)",
+                          fontWeight: 500,
+                        }}
+                      >
+                        <FiCheck
+                          size={11}
+                          style={{ color: s.accent, flexShrink: 0 }}
+                        />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </FadeInView>
             ))}
           </StaggerInView>
