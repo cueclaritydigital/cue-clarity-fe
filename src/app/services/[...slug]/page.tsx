@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
-import SectionRenderer from "@/components/services/editorial/SectionRenderer";
+import SectionRenderer from "@/components/services/SectionRenderer";
 import { getServicePage, getAllServiceSlugs } from "@/lib/data/services";
 
 // ── Static generation ─────────────────────────────────────────────────────────
