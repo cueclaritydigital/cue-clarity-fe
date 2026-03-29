@@ -50,7 +50,7 @@ export default function RFQ() {
         <div className="flex flex-wrap justify-center gap-6 mt-8 text-[13px] font-medium text-[var(--primary-white)]/60">
           <div className="flex items-center gap-2">
             <FiCheckCircle className="text-[var(--primary-yellow)]" />
-            No credit card required
+            No hidden costs
           </div>
           <div className="flex items-center gap-2">
             <FiCheckCircle className="text-[var(--primary-yellow)]" />

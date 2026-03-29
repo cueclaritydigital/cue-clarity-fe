@@ -79,7 +79,7 @@ export default function ProblemSolution() {
             />
             <SolutionItem
               icon={<FiActivity size={22} />}
-              title="Science-Backed Assessments"
+              title="Advanced Psychometric Assessments"
               desc="Internationally validated tools — not random internet quizzes — for real insight."
             />
             <SolutionItem
@@ -89,7 +89,7 @@ export default function ProblemSolution() {
             />
             <SolutionItem
               icon={<FiRefreshCcw size={22} />}
-              title="Ongoing Support & Follow-Up"
+              title="Continuous Support & Follow-Up"
               desc="We stay with you through the whole journey, not just one session."
             />
           </div>

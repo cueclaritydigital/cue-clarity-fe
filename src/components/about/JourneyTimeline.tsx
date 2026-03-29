@@ -7,7 +7,7 @@ const CHAPTERS = [
     year: "2018",
     chapter: "01",
     title: "The Spark",
-    desc: "Our founder watched bright students pick wrong careers — not due to lack of talent, but lack of guidance. CueClarity was born from a conviction that psychometric science and mentorship could fix that.",
+    desc: "Sunil watched bright students pick wrong careers — not due to lack of talent, but lack of guidance. CueClarity was born from a conviction that psychometric science and mentorship could fix that.",
     accent: "var(--primary-yellow)",
     glowRgb: "255, 193, 20",
   },

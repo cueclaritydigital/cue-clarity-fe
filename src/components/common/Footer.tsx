@@ -9,7 +9,7 @@ import {
   FiMapPin,
   FiLinkedin,
   FiInstagram,
-  FiTwitter,
+  FiFacebook,
 } from "react-icons/fi";
 import NewsletterForm from "./NewsLetterFrom";
 
@@ -37,7 +37,7 @@ export default function Footer() {
             </p>
 
             {/* stat pills */}
-            <div className="flex flex-wrap gap-3 mt-1">
+            {/* <div className="flex flex-wrap gap-3 mt-1">
               {[
                 ["500+", "students placed"],
                 ["15+", "countries"],
@@ -55,7 +55,7 @@ export default function Footer() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* socials */}
             <div className="flex items-center gap-3 mt-2">
@@ -71,8 +71,8 @@ export default function Footer() {
               />
               <SocialLink
                 href=""
-                icon={<FiTwitter size={16} />}
-                label="Twitter"
+                icon={<FiFacebook size={16} />}
+                label="Facebook"
               />
             </div>
           </div>

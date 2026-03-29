@@ -32,7 +32,7 @@ const STEPS = [
   {
     number: "04",
     icon: <FiTrendingUp className="w-5 h-5" />,
-    title: "Ongoing Mentorship",
+    title: "Continuous Mentorship",
     desc: "Monthly check-ins, milestone tracking, and real-time support until you reach your destination.",
     color: "#6D28D9",
     colorLight: "rgba(109,40,217,0.08)",

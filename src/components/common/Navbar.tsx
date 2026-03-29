@@ -147,7 +147,7 @@ const PROGRAM_SECTIONS = [
 
 const NAV_LINKS_LEFT = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
 ] as const;
 
 const NAV_LINKS_RIGHT = [
@@ -211,33 +211,6 @@ export default function Navbar() {
 
           {/* ── CTA BUTTONS + MOBILE TOGGLE ── */}
           <div className="flex items-center gap-3">
-            {/* Phone */}
-            <a
-              href="tel:+918652222525"
-              aria-label="Call Cue Clarity at 86522 22525"
-              className="hidden xl:flex items-center gap-1.5 text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] transition-colors duration-200 font-extrabold"
-              style={{
-                fontSize: "var(--text-sm)",
-                letterSpacing: "var(--tracking-wide)",
-              }}
-            >
-              <IoIosCall size={20} aria-hidden="true" />
-              8652222525
-            </a>
-
-            {/* WhatsApp */}
-            <a
-              href={getWhatsAppURL("general", "navbar")}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chat with Cue Clarity on WhatsApp"
-              className="hidden lg:inline-flex items-center gap-2 bg-[var(--primary-yellow)] text-[var(--primary-black)] px-6 py-2.5 rounded-full font-bold tracking-[var(--tracking-wide)] shadow-[var(--shadow-glow-yellow)] hover:bg-[var(--accent-yellow)] hover:-translate-y-px hover:shadow-[0_8px_28px_rgba(255,193,20,0.4)] transition-all duration-200"
-              style={{ fontSize: "var(--text-sm)" }}
-            >
-              <FaWhatsapp size={20} aria-hidden="true" />
-              Chat on WhatsApp
-            </a>
-
             {/* Mobile hamburger */}
             <button
               aria-label={
@@ -791,30 +764,6 @@ function MobileDrawer({
               {label}
             </MobileLink>
           ))}
-        </div>
-
-        {/* ── CTA Footer ── */}
-        <div className="px-5 pb-10 pt-4 flex flex-col gap-3 border-t border-[var(--secondary-white)] shrink-0">
-          <a
-            href={getWhatsAppURL("general", "navbar-mobile")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onClose}
-            aria-label="Chat with Cue Clarity on WhatsApp"
-            className="btn-whatsapp w-full text-center justify-center text-base"
-          >
-            <FaWhatsapp size={20} aria-hidden="true" />
-            Chat on WhatsApp
-          </a>
-          <a
-            href="tel:+918652222525"
-            aria-label="Call Cue Clarity at 86522 22525"
-            className="flex items-center justify-center gap-2 py-3 rounded-full border border-[var(--secondary-white)] font-extrabold text-[var(--primary-black)]/70 hover:border-[var(--primary-blue)] hover:text-[var(--primary-blue)] transition-colors duration-200"
-            style={{ fontSize: "var(--text-base)" }}
-          >
-            <IoIosCall size={20} aria-hidden="true" />
-            8652222525
-          </a>
         </div>
       </nav>
     </div>

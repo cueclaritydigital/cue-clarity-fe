@@ -3,9 +3,9 @@ import { slideInRight } from "@/lib/animations/variants";
 
 const STATS = [
   { value: "5,000+", label: "Careers Transformed" },
+  { value: "95%", label: "Satisfaction Rate" },
+  { value: "500+", label: "Seminars Held" },
   { value: "200+", label: "Institution Partners" },
-  { value: "15+", label: "Years Combined Experience" },
-  { value: "4.9/5", label: "Satisfaction Rating" },
 ];
 
 export default function HeroAbout() {

@@ -176,8 +176,8 @@ const careerCounselling: ServicePageData = {
     /* ── 2. Questions — pain-point empathy ────────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
-      headline: "The Career Confusion <em>Too Many</em> People Face",
+      eyebrow: "Sounds Familiar?",
+      headline: "The Hidden Career <em>Confusion No One Talks About</em>",
       description:
         "If any of these keep you up at night, you're not alone — and you don't have to figure it out by yourself.",
       questions: [
@@ -297,7 +297,7 @@ const careerCounselling: ServicePageData = {
       eyebrow: "What We Offer",
       headline: "End-to-End Career Strategy — <em>Not Just Advice</em>",
       description:
-        "We go beyond a single session. CueClarity delivers a complete career ecosystem — from scientific assessment to actionable roadmaps.",
+        "We go beyond a single session led recomendation. CueClarity delivers a complete career ecosystem — from scientific assessment to actionable roadmaps.",
       variant: "icon",
       columns: 3,
       cards: [
@@ -420,7 +420,7 @@ const careerCounselling: ServicePageData = {
     /* ── 8. Deliverables — what you get ──────────────────── */
     {
       type: "deliverables",
-      eyebrow: "Your Deliverables",
+      eyebrow: "What you get",
       headline: "What You Walk Away <em>With</em>",
       description:
         "Every CueClarity engagement produces tangible outcomes you can act on immediately.",
@@ -603,7 +603,7 @@ const students8910: ServicePageData = {
     /* ── 3. Questions — pain-point empathy ───────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "The Confusion <em>Every Family</em> Faces",
       description:
         "Between Class 8 and 10, the same questions haunt every student and parent. These aren't small worries — they shape critical life decisions.",
@@ -899,7 +899,7 @@ const after10th12th: ServicePageData = {
     /* ── 2. Questions — pain-point empathy ───────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "What <em>Every Parent</em> Should Be Asking Right Now",
       description:
         "If you haven't found clear answers to these yet, your child may be heading in the wrong direction — and the window to correct course is closing fast.",
@@ -1089,7 +1089,7 @@ const after10th12th: ServicePageData = {
     {
       type: "deliverables",
       eyebrow: "What You Get",
-      headline: "Everything Included in <em>Your Engagement</em>",
+      headline: "Everything Included in <em>Your Program</em>",
       description:
         "Every CueClarity engagement delivers a personalised package giving your child a clear, confident, and competitive edge.",
       items: [
@@ -1255,7 +1255,7 @@ const forGraduates: ServicePageData = {
     {
       type: "questions",
       eyebrow: "Degree Done — Direction Missing?",
-      headline: "Does Any of This <em>Sound Familiar?</em>",
+      headline: "Does Any of This <em>Sounds Familiar?</em>",
       description:
         "For most graduates, finishing a degree opens more questions than it answers. If these feel uncomfortably real, you're in the right place.",
       questions: [
@@ -1594,7 +1594,7 @@ const forProfessionals: ServicePageData = {
     /* ── 2. Questions — pain-point empathy ───────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "Questions That <em>Keep Professionals Up</em> at Night",
       description:
         "If you can't answer these with confidence, you're likely at a career inflection point — and the sooner you face them, the more options you'll have.",
@@ -1934,7 +1934,7 @@ const internationalEducation: ServicePageData = {
     /* ── 2. Questions — pain-point empathy ───────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "Questions Every <em>Aspiring Global Student</em> Asks",
       description:
         "If these feel unresolved, you're not alone — and getting the right answers before you apply can save you years and lakhs.",
@@ -2305,7 +2305,7 @@ const beyondSchoolLife: ServicePageData = {
     /* ── 2. Questions — pain points ─────────────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "The Skills Gap <em>Nobody Talks About</em>",
       description:
         "Academic performance tells one story. Real-world readiness tells another. If any of these feel true, the gap is bigger than a textbook can close.",
@@ -3484,7 +3484,7 @@ const industrialTraining: ServicePageData = {
     /* ── 2. Questions — pain-point empathy ───────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "The Gap Every <em>Student & Professional</em> Feels",
       description:
         "If these feel true, you're already aware of the problem — you just need the right programme to solve it.",
@@ -3868,7 +3868,7 @@ const workforceDevelopment: ServicePageData = {
     /* ── 2. questions — pain points ──────────────────────── */
     {
       type: "questions",
-      eyebrow: "Sound Familiar?",
+      eyebrow: "Sounds Familiar?",
       headline: "When Résumés Don't Tell the Full Story",
       questions: [
         {

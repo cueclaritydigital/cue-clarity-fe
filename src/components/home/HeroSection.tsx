@@ -43,12 +43,11 @@ export default function HeroSection() {
               className="text-white drop-shadow-sm font-extrabold uppercase leading-[1.08] hero-animate-headline"
               style={{
                 fontFamily: "var(--font-oswald)",
-                fontSize: "clamp(2.75rem, 7vw, 4.25rem)",
+                fontSize: "clamp(2.75rem, 7vw, 3.4rem)",
                 letterSpacing: "var(--tracking-tight)",
               }}
             >
-              Clarity For Your
-              <br />
+              Discover your Strength <br />
               <span
                 className="inline-block"
                 style={{
@@ -59,7 +58,7 @@ export default function HeroSection() {
                   backgroundClip: "text",
                 }}
               >
-                Career Growth Path.
+                Design Your Career.
               </span>
             </h1>
 
@@ -72,9 +71,9 @@ export default function HeroSection() {
                 animationDelay: "0.2s",
               }}
             >
-              Clarity, backed by science — trusted by 5,000+ learners through
-              science-backed assessments, personalised roadmaps, and real
-              mentorship.
+              Make confident career decisions with science-backed assessments,
+              expert mentoring, and a personalised roadmap designed just for
+              you.
             </p>
 
             {/* CTA Row */}
