@@ -163,6 +163,8 @@ const careerCounselling: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "Career Counselling",
       headline: "From Confusion to <em>Clarity</em>",
       description:
@@ -557,6 +559,8 @@ const students8910: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_253mlq253mlq253m_q70txm.webp",
       eyebrow: "Stream Selector Program",
       headline: "Choose Your Stream with <em>Science, Not Guesswork</em>",
       description:
@@ -882,6 +886,8 @@ const after10th12th: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "After 10th & 12th",
       headline: "Strategy, Not <em>Guesswork</em>",
       description:
@@ -1235,6 +1241,8 @@ const forGraduates: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "For Graduates",
       headline: "Stop Guessing — <em>Start Designing</em> Your Future",
       description:
@@ -1573,6 +1581,8 @@ const forProfessionals: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1774707639/Gemini_Generated_Image_fbqp6rfbqp6rfbqp_m0ifoz.webp",
       eyebrow: "For Working Professionals",
       headline: "Your Experience Deserves a <em>Better Direction</em>",
       description:
@@ -1911,6 +1921,8 @@ const internationalEducation: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "International Education",
       headline: "Build a Global Career with the <em>Right Direction</em>",
       description:
@@ -2280,6 +2292,8 @@ const beyondSchoolLife: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "Beyond School Life & Skills",
       headline: "School Taught You <em>What</em>. We'll Teach You How to Live",
       description:
@@ -2647,6 +2661,8 @@ const emotionalWellness: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "Emotional Wellness",
       headline: "Your Mind Deserves the <em>Same Strategy</em> as Your Career",
       description:
@@ -3055,6 +3071,8 @@ const khudKiKahani: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "Khud Ki Kahani — खुद की कहानी",
       headline: "खुद की कहानी, <em>खुद लिखो</em>",
       description:
@@ -3453,6 +3471,8 @@ const industrialTraining: ServicePageData = {
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "Industrial Training",
       headline: "From <em>Learning</em> to Industry-Ready",
       description:
@@ -3829,6 +3849,8 @@ const workforceDevelopment: ServicePageData = {
     /* ── 1. hero ─────────────────────────────────────────── */
     {
       type: "hero",
+      image:
+        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
       eyebrow: "Workforce Development",
       headline: "Measure What <em>Truly Matters</em>",
       description:

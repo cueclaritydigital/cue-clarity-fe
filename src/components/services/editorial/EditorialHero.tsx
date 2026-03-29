@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
@@ -46,7 +47,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
           {/* Headline */}
           <h1
             className="font-oswald font-extrabold uppercase leading-[0.95] tracking-tight text-white"
-            style={{ fontSize: "clamp(2.75rem, 8vw, 4.2rem)" }}
+            style={{ fontSize: "clamp(2.75rem, 8vw, 5.5rem)" }}
             dangerouslySetInnerHTML={{
               __html: section.headline.replace(
                 /<em>(.*?)<\/em>/g,
@@ -60,7 +61,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
             {section.description}
           </p>
 
-          {/* Hero image — mobile only (above CTA buttons) */}
+          {/* Hero image — mobile only (appears above buttons) */}
           {hasImage && (
             <div className="block lg:hidden mt-8 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -90,7 +91,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
             </a>
             <Link
               href={section.secondaryCTA.href}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+              className="btn-outline text-sm px-7 py-3.5 w-full sm:w-auto text-center"
             >
               {section.secondaryCTA.label}
               <FiArrowRight size={13} className="inline ml-1.5" />
@@ -98,7 +99,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
           </div>
         </div>
 
-        {/* Hero image — desktop only (right column) */}
+        {/* Hero image */}
         {hasImage && (
           <div className="relative hidden lg:block">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
