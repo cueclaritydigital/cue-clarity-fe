@@ -103,30 +103,30 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mt-3 hero-animate-fade-up"
               style={{ animationDelay: "0.5s" }}
             >
-              <span className="text-[var(--primary-black)]/35 text-[10px] uppercase tracking-[0.15em] shrink-0">
+              <span className="text-[var(--primary-black)]/50 text-[10px] uppercase tracking-[0.15em] shrink-0">
                 Quick links
               </span>
-              <div className="w-px h-3 bg-[var(--primary-black)]/15 hidden sm:block" />
+              <div className="w-px h-3 bg-[var(--primary-black)]/20 hidden sm:block" />
               <div className="flex items-center gap-2">
                 <a
                   href="https://cueclarity.edumilestones.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/75 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/30 hover:border-[var(--primary-blue)]/50 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/8 bg-[var(--primary-black)]/5"
                 >
                   <FiBriefcase size={12} />
                   Career Assessment
-                  <FiArrowRight size={10} className="opacity-50" />
+                  <FiArrowRight size={10} className="opacity-60" />
                 </a>
                 <a
                   href="https://cueclarity.edumilestones.com/abroad-studies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/75 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/30 hover:border-[var(--primary-blue)]/50 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/8 bg-[var(--primary-black)]/5"
                 >
                   <FiGlobe size={12} />
                   Study Abroad
-                  <FiArrowRight size={10} className="opacity-50" />
+                  <FiArrowRight size={10} className="opacity-60" />
                 </a>
               </div>
             </div>

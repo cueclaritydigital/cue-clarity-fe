@@ -29,7 +29,7 @@ export default function IconCards({ section }: { section: CardsSection }) {
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         {(section.eyebrow || section.headline) && (
-          <FadeInView className="mb-12 lg:mb-16 max-w-3xl">
+          <FadeInView className="mb-8 lg:mb-10 max-w-3xl">
             {section.eyebrow && (
               <span
                 className="type-eyebrow text-[var(--accent-blue)] mb-3 block"
@@ -73,7 +73,7 @@ export default function IconCards({ section }: { section: CardsSection }) {
               <FadeInView
                 key={i}
                 variants={fadeUp}
-                className="group bg-[var(--surface-card)] rounded-[var(--radius-xl)] p-6 lg:p-7 flex flex-col gap-4 hover:-translate-y-1 transition-all duration-300 cursor-default"
+                className="group bg-[var(--surface-card)] rounded-[var(--radius-xl)] p-5 lg:p-6 flex flex-col gap-3 hover:-translate-y-1 transition-all duration-300 cursor-default"
                 style={{
                   boxShadow: "var(--shadow-sm)",
                   borderLeft: `3px solid ${color.accent}`,

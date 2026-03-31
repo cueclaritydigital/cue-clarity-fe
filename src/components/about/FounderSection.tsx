@@ -88,22 +88,6 @@ export default function FounderSection() {
               environments into actionable career cues — so every student,
               parent, and professional can move forward with confidence.&rdquo;
             </p>
-
-            <div className="flex flex-col items-start gap-3 pt-6">
-              <span
-                className="text-4xl lg:text-6xl opacity-20 select-none"
-                style={{
-                  fontFamily: "'Mrs Saint Delafield', cursive",
-                  color: "var(--primary-blue)",
-                }}
-              >
-                Sunil Kumar Panda
-              </span>
-              <div
-                className="w-28 h-1.5 rounded-full"
-                style={{ backgroundColor: "var(--primary-yellow)" }}
-              />
-            </div>
           </FadeInView>
         </div>
       </div>

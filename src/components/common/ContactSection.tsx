@@ -1,7 +1,15 @@
 "use client";
+import { useState } from "react";
 import FadeInView from "@/components/animate/FadeInView";
 import { slideInLeft, slideInRight } from "@/lib/animations/variants";
-import { FiMail, FiMapPin, FiPhone, FiChevronDown } from "react-icons/fi";
+import {
+  FiMail,
+  FiMapPin,
+  FiPhone,
+  FiChevronDown,
+  FiCheckCircle,
+  FiAlertCircle,
+} from "react-icons/fi";
 
 const WHO_OPTIONS = [
   "Student (8-10 Std)",
@@ -20,6 +28,56 @@ const WHO_OPTIONS = [
 ];
 
 export default function ContactSection() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    role: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `New Contact Form Submission — ${form.name}`,
+          from_name: "Cue Clarity Website",
+          replyto: form.email,
+          name: form.name,
+          email: form.email,
+          phone: form.phone || "—",
+          "I am a": form.role || "—",
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success)
+        throw new Error(data.message || "Something went wrong.");
+      setStatus("success");
+      setForm({ name: "", email: "", phone: "", role: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  }
   return (
     <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
       <div className="section-container">
@@ -174,7 +232,7 @@ export default function ContactSection() {
                 </p>
               </div>
 
-              <form className="space-y-5" action="#" method="POST">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 {/* Row 1 — Name + Email */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <FieldWrap label="Full Name" htmlFor="about-name">
@@ -186,6 +244,8 @@ export default function ContactSection() {
                       autoComplete="name"
                       placeholder="Enter your name"
                       className="field-input"
+                      value={form.name}
+                      onChange={handleChange}
                     />
                   </FieldWrap>
 
@@ -198,6 +258,8 @@ export default function ContactSection() {
                       autoComplete="email"
                       placeholder="you@example.com"
                       className="field-input"
+                      value={form.email}
+                      onChange={handleChange}
                     />
                   </FieldWrap>
                 </div>
@@ -212,6 +274,8 @@ export default function ContactSection() {
                       autoComplete="tel"
                       placeholder="+91 00000 00000"
                       className="field-input"
+                      value={form.phone}
+                      onChange={handleChange}
                     />
                   </FieldWrap>
 
@@ -221,7 +285,8 @@ export default function ContactSection() {
                         id="about-role"
                         name="role"
                         required
-                        defaultValue=""
+                        value={form.role}
+                        onChange={handleChange}
                         className="field-input appearance-none pr-10 cursor-pointer w-[90%] truncate"
                         style={{ color: "var(--primary-black)" }}
                       >
@@ -258,14 +323,43 @@ export default function ContactSection() {
                     rows={4}
                     placeholder="Tell us what you're looking for…"
                     className="field-input resize-none"
+                    value={form.message}
+                    onChange={handleChange}
                   />
                 </FieldWrap>
 
+                {/* Status feedback */}
+                {status === "success" && (
+                  <div
+                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium"
+                    style={{
+                      backgroundColor: "rgba(5,150,105,0.08)",
+                      color: "#059669",
+                    }}
+                  >
+                    <FiCheckCircle size={16} className="shrink-0" />
+                    Message sent! We&apos;ll get back to you within 24 hours.
+                  </div>
+                )}
+                {status === "error" && (
+                  <div
+                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium"
+                    style={{
+                      backgroundColor: "rgba(220,38,38,0.08)",
+                      color: "#dc2626",
+                    }}
+                  >
+                    <FiAlertCircle size={16} className="shrink-0" />
+                    {errorMsg || "Failed to send. Please try again."}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="btn-primary w-full !py-4 uppercase tracking-widest text-sm mt-1"
+                  disabled={status === "loading"}
+                  className="btn-primary w-full !py-4 uppercase tracking-widest text-sm mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message →
+                  {status === "loading" ? "Sending…" : "Send Message →"}
                 </button>
               </form>
             </div>

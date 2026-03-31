@@ -130,13 +130,14 @@ export default function ProcessTimeline({
                   border: isDark
                     ? "1px solid rgba(255,255,255,0.08)"
                     : undefined,
+                  paddingTop: "3.5rem",
                 }}
               >
                 {/* Watermark number */}
                 <span
                   className="absolute -right-2 -top-2 font-oswald font-extrabold leading-none pointer-events-none select-none"
                   style={{
-                    fontSize: "7rem",
+                    fontSize: "10rem",
                     color: isDark
                       ? "rgba(255,255,255,0.04)"
                       : "var(--primary-black)",

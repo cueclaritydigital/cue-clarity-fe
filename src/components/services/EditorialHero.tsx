@@ -1,8 +1,12 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiBriefcase, FiGlobe } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  FiBriefcase,
+  FiGlobe,
+};
 import { getWhatsAppURL } from "@/lib/whatsapp";
 import type { HeroSection } from "@/lib/data/services";
 import FadeInView from "@/components/animate/FadeInView";
@@ -78,23 +82,65 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
           )}
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-3.5">
-            <a
-              href={getWhatsAppURL("general", "service-hero")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp text-sm px-7 py-3.5 w-full sm:w-auto"
+          <div className="mt-10 flex flex-col gap-3">
+            {/* Row 1: WhatsApp CTA — full width on mobile, auto on desktop */}
+            {/* When 1 quick link: row with WhatsApp + pill side by side */}
+            {/* When 2 quick links: WhatsApp alone on row 1, pills on row 2 */}
+            <div
+              className={`flex gap-3 ${
+                (section.quickLinks?.length ?? 0) === 1
+                  ? "flex-col lg:flex-row"
+                  : "flex-col"
+              }`}
             >
-              <FaWhatsapp className="w-4 h-4" />
-              {section.primaryCTA.label}
-            </a>
-            <Link
-              href={section.secondaryCTA.href}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
-            >
-              {section.secondaryCTA.label}
-              <FiArrowRight size={13} className="inline ml-1.5" />
-            </Link>
+              <a
+                href={getWhatsAppURL("general", "service-hero")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp text-sm px-7 h-11 w-full"
+              >
+                <FaWhatsapp className="w-4 h-4" />
+                {section.primaryCTA.label}
+              </a>
+              {(section.quickLinks?.length ?? 0) === 1 &&
+                section.quickLinks!.map((link) => {
+                  const Icon = ICON_MAP[link.icon];
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+                    >
+                      {Icon && <Icon size={13} />}
+                      {link.label}
+                      <FiArrowRight size={13} className="ml-1" />
+                    </a>
+                  );
+                })}
+            </div>
+            {/* Row 2: only when 2+ quick links — pills side-by-side full width */}
+            {(section.quickLinks?.length ?? 0) >= 2 && (
+              <div className="flex flex-row gap-3">
+                {section.quickLinks!.map((link) => {
+                  const Icon = ICON_MAP[link.icon];
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+                    >
+                      {Icon && <Icon size={13} />}
+                      {link.label}
+                      <FiArrowRight size={13} className="ml-1" />
+                    </a>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 

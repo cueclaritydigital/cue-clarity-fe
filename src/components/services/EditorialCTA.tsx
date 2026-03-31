@@ -1,10 +1,19 @@
 "use client";
 
-import Link from "next/link";
-import { FiCheckCircle } from "react-icons/fi";
+import {
+  FiCheckCircle,
+  FiArrowRight,
+  FiBriefcase,
+  FiGlobe,
+} from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
 import type { CTASection } from "@/lib/data/services";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  FiBriefcase,
+  FiGlobe,
+};
 
 export default function EditorialCTA({ section }: { section: CTASection }) {
   return (
@@ -55,23 +64,64 @@ export default function EditorialCTA({ section }: { section: CTASection }) {
         )}
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <a
-            href={getWhatsAppURL("general", "service-cta")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp !px-10 !py-4 !text-base !rounded-full group"
+        <div className="flex flex-col items-stretch gap-3 w-full sm:max-w-md">
+          {/* Row 1: WhatsApp CTA */}
+          {/* 1 quick link → WhatsApp + pill side by side */}
+          {/* 2 quick links → WhatsApp alone, then pills row below */}
+          <div
+            className={`flex gap-3 ${
+              (section.quickLinks?.length ?? 0) === 1
+                ? "flex-col lg:flex-row"
+                : "flex-col"
+            }`}
           >
-            <FaWhatsapp size={20} />
-            {section.primaryCTA.label}
-          </a>
-          {section.secondaryCTA && (
-            <Link
-              href={section.secondaryCTA.href}
-              className="btn-outline text-sm px-7 py-3.5 w-full sm:w-auto text-center"
+            <a
+              href={getWhatsAppURL("general", "service-cta")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp !text-base !rounded-full group w-full !px-10 h-11"
             >
-              {section.secondaryCTA.label}
-            </Link>
+              <FaWhatsapp size={20} />
+              {section.primaryCTA.label}
+            </a>
+            {(section.quickLinks?.length ?? 0) === 1 &&
+              section.quickLinks!.map((link) => {
+                const Icon = ICON_MAP[link.icon];
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 rounded-full transition-all duration-200 hover:bg-white/10 bg-white/5 backdrop-blur-sm"
+                  >
+                    {Icon && <Icon size={13} />}
+                    {link.label}
+                    <FiArrowRight size={13} className="ml-1" />
+                  </a>
+                );
+              })}
+          </div>
+          {/* Row 2: pills side-by-side full width when 2+ quick links */}
+          {(section.quickLinks?.length ?? 0) >= 2 && (
+            <div className="flex flex-row gap-3">
+              {section.quickLinks!.map((link) => {
+                const Icon = ICON_MAP[link.icon];
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 rounded-full transition-all duration-200 hover:bg-white/10 bg-white/5 backdrop-blur-sm"
+                  >
+                    {Icon && <Icon size={13} />}
+                    {link.label}
+                    <FiArrowRight size={13} className="ml-1" />
+                  </a>
+                );
+              })}
+            </div>
           )}
         </div>
 

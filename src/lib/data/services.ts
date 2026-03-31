@@ -4,13 +4,21 @@
 
 // ── Section type definitions ──────────────────────────────
 
+export interface QuickLink {
+  label: string;
+  href: string;
+  icon: string;
+  external?: boolean;
+}
+
 export interface HeroSection {
   type: "hero";
   eyebrow: string;
   headline: string; // supports <em> for italic
   description: string;
   primaryCTA: { label: string; href: string };
-  secondaryCTA: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+  quickLinks?: QuickLink[];
   image?: string;
 }
 
@@ -85,6 +93,7 @@ export interface CTASection {
   description?: string;
   primaryCTA: { label: string; href: string };
   secondaryCTA?: { label: string; href: string };
+  quickLinks?: QuickLink[];
   quote?: string;
 }
 
@@ -143,11 +152,26 @@ export interface ServicePageData {
 // ── Shared CTA links ─────────────────────────────────────
 
 const CTA_BOOK = { label: "Book Career Counselling", href: "/contact" };
-const CTA_SPEAK = { label: "Speak to a Career Expert", href: "/contact" };
 const CTA_BOOK_STRATEGY = {
   label: "Book Career Strategy Session",
   href: "/contact",
 };
+
+const QUICK_LINK_CAREER: QuickLink = {
+  label: "Career Assessment",
+  href: "https://cueclarity.edumilestones.com/",
+  icon: "FiBriefcase",
+  external: true,
+};
+const QUICK_LINK_ABROAD: QuickLink = {
+  label: "Study Abroad",
+  href: "https://cueclarity.edumilestones.com/abroad-studies/",
+  icon: "FiGlobe",
+  external: true,
+};
+
+const QUICK_LINKS_ALL = [QUICK_LINK_CAREER, QUICK_LINK_ABROAD];
+const QUICK_LINKS_NO_ABROAD = [QUICK_LINK_CAREER];
 
 // ═══════════════════════════════════════════════════════════
 // PAGE 1 — Career Counselling Home
@@ -170,7 +194,7 @@ const careerCounselling: ServicePageData = {
       description:
         "Choosing a career shapes your entire life. CueClarity brings a scientific, strategic, and deeply personalized approach so you make that decision with confidence — not guesswork.",
       primaryCTA: CTA_BOOK,
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain-point empathy ────────────────── */
@@ -473,7 +497,7 @@ const careerCounselling: ServicePageData = {
           label: "Career Seminars Across Schools & Corporates",
         },
         {
-          value: "93",
+          value: "95",
           suffix: "%",
           label: "Clients Report Greater Career Confidence",
         },
@@ -538,7 +562,7 @@ const careerCounselling: ServicePageData = {
       description:
         "With the right guidance, you don't just choose a career — you design a life of purpose, growth, and lasting success. 5,000+ students and professionals have already taken this step.",
       primaryCTA: CTA_BOOK,
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "The best time to get career clarity was 5 years ago. The second-best time is today.",
     },
@@ -566,7 +590,7 @@ const students8910: ServicePageData = {
       description:
         "One decision at Class 10 shapes your college, your career, and your confidence. CueClarity uses psychometric science to replace peer pressure and panic with clarity your child can trust.",
       primaryCTA: CTA_BOOK,
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_NO_ABROAD,
     },
 
     /* ── 2. Cards — who it's for ─────────────────────────── */
@@ -794,7 +818,7 @@ const students8910: ServicePageData = {
           label: "School Seminars & Career Awareness Programs Conducted",
         },
         {
-          value: "93",
+          value: "95",
           suffix: "%",
           label:
             "Parents Report Confidence in Stream Decision After CueClarity",
@@ -865,7 +889,7 @@ const students8910: ServicePageData = {
       description:
         "Every year, thousands of students pick the wrong stream — not because they weren't capable, but because no one gave them the right guidance. CueClarity changes that.",
       primaryCTA: CTA_BOOK,
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_NO_ABROAD,
       quote:
         "Your child's stream decision shapes their college, career, and confidence for years. The greatest gift right now isn't pressure — it's clarity.",
     },
@@ -893,7 +917,7 @@ const after10th12th: ServicePageData = {
       description:
         "Good marks are necessary — but strategy is what shapes a future. CueClarity gives Class 11–12 students the career direction, degree clarity, and profile-building plan they need before the window closes.",
       primaryCTA: { label: "Book Career Strategy Session", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain-point empathy ───────────────── */
@@ -1143,7 +1167,7 @@ const after10th12th: ServicePageData = {
           label: "Seminars & Workshops in Schools and Parent Communities",
         },
         {
-          value: "93",
+          value: "95",
           suffix: "%",
           label:
             "Families Report Confidence in Career Direction After CueClarity",
@@ -1220,7 +1244,7 @@ const after10th12th: ServicePageData = {
       description:
         "The decisions made during Class 11 & 12 echo for decades. Give your child the clarity and strategy to move forward with confidence — before it's urgent.",
       primaryCTA: { label: "Book Career Strategy Session", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "The best investment you make in your child's education is not the tuition fee — it's the clarity on which direction to invest it in.",
     },
@@ -1248,7 +1272,7 @@ const forGraduates: ServicePageData = {
       description:
         "You've earned your degree. Now comes the decision that actually shapes your career — and the right strategy makes all the difference between years wasted and years accelerated.",
       primaryCTA: { label: "Book Career Strategy Session", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain-point empathy ───────────────── */
@@ -1439,7 +1463,7 @@ const forGraduates: ServicePageData = {
     /* ── 7. Deliverables — what you get ──────────────────── */
     {
       type: "deliverables",
-      eyebrow: "What You Receive",
+      eyebrow: "What You Get",
       headline: "Everything Included in <em>Your Engagement</em>",
       description:
         "Not a pamphlet, not a generic PDF — a personalised career clarity package built entirely around who you are and where you want to go.",
@@ -1489,7 +1513,7 @@ const forGraduates: ServicePageData = {
           label: "Seminars & Workshops Conducted in Colleges and Institutions",
         },
         {
-          value: "93",
+          value: "95",
           suffix: "%",
           label:
             "Graduates Report Clear Career Direction After Their CueClarity Session",
@@ -1560,7 +1584,7 @@ const forGraduates: ServicePageData = {
       description:
         "Five years from now, you'll look back on this moment. The graduates who acted with strategy move ahead fast — the rest spend years course-correcting. Your clarity starts with one session.",
       primaryCTA: { label: "Book Career Strategy Session", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "The most expensive career mistake is spending years moving fast in the wrong direction. One hour of clarity can save you five years of correction.",
     },
@@ -1588,7 +1612,7 @@ const forProfessionals: ServicePageData = {
       description:
         "You've put in the years. But growth has stalled, the work feels hollow, or the industry is shifting under your feet. CueClarity helps professionals make the next career move with strategy — not just hope.",
       primaryCTA: CTA_BOOK_STRATEGY,
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain-point empathy ───────────────── */
@@ -1777,7 +1801,7 @@ const forProfessionals: ServicePageData = {
     /* ── 7. Deliverables — what you get ──────────────────── */
     {
       type: "deliverables",
-      eyebrow: "What You Receive",
+      eyebrow: "What You Get",
       headline: "Everything Included in <em>Your Engagement</em>",
       description:
         "Not a motivational session — a personalised career strategy package designed around your experience, your market, and your life.",
@@ -1828,7 +1852,7 @@ const forProfessionals: ServicePageData = {
             "Seminars & Workshops Delivered in Corporates and Institutions",
         },
         {
-          value: "91",
+          value: "95",
           suffix: "%",
           label:
             "Professionals Report a Clear Career Direction After Their CueClarity Engagement",
@@ -1900,7 +1924,7 @@ const forProfessionals: ServicePageData = {
       description:
         "You've already invested years building your career. One strategy session can determine whether the next 5 years look different — or exactly the same.",
       primaryCTA: CTA_BOOK_STRATEGY,
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "The professionals who move fastest aren't the ones who wait for the perfect moment — they're the ones who stopped waiting and started with a plan.",
     },
@@ -1928,7 +1952,7 @@ const internationalEducation: ServicePageData = {
       description:
         "Studying abroad is one of the biggest decisions of your life. CueClarity ensures it's also one of the best — aligning your profile, degree choice, and destination to the global career you actually want.",
       primaryCTA: { label: "Book a Global Career Audit", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain-point empathy ───────────────── */
@@ -2143,7 +2167,7 @@ const internationalEducation: ServicePageData = {
     /* ── 7. Deliverables — what you receive ──────────────── */
     {
       type: "deliverables",
-      eyebrow: "What You Receive",
+      eyebrow: "What You Get",
       headline: "Everything Included in <em>Your Engagement</em>",
       description:
         "Not a standard checklist consultation — a personalised, end-to-end international education strategy built around your career goals and your profile.",
@@ -2200,7 +2224,7 @@ const internationalEducation: ServicePageData = {
             "Partner Countries with Strategic Alliances and High Graduate Employment Rates",
         },
         {
-          value: "92",
+          value: "95",
           suffix: "%",
           label:
             "Alumni Secure Roles in Their Target Country Within 6 Months of Graduation",
@@ -2271,7 +2295,7 @@ const internationalEducation: ServicePageData = {
       description:
         "The students who build great international careers aren't always the ones with the highest grades — they're the ones who chose the right programme, in the right country, with a coherent plan. That's what CueClarity gives you.",
       primaryCTA: { label: "Book a Global Career Audit", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "Studying abroad is a 30–80 lakh decision. The cost of getting it right is a consultation. The cost of getting it wrong is years.",
     },
@@ -2299,7 +2323,7 @@ const beyondSchoolLife: ServicePageData = {
       description:
         "Degrees measure what you know. Life tests who you are. CueClarity's life skills programme builds the emotional intelligence, financial clarity, and human capability that no exam can prepare you for.",
       primaryCTA: { label: "Book a Consultation", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain points ─────────────────────── */
@@ -2513,7 +2537,7 @@ const beyondSchoolLife: ServicePageData = {
     /* ── 7. Deliverables ─────────────────────────────────── */
     {
       type: "deliverables",
-      eyebrow: "What You Receive",
+      eyebrow: "What You Get",
       headline: "A Complete <em>Life Readiness Package</em>",
       description:
         "This isn't a single workshop you forget by Thursday. Every participant leaves with a lasting toolkit built for real application.",
@@ -2640,7 +2664,7 @@ const beyondSchoolLife: ServicePageData = {
       description:
         "Real-world readiness isn't built in a day — but it is built deliberately. Start your life skills journey with a personalised consultation and a roadmap built around you.",
       primaryCTA: { label: "Book a Consultation", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "Grades got her through school. Life skills will carry her through everything that comes after.",
     },
@@ -2668,7 +2692,7 @@ const emotionalWellness: ServicePageData = {
       description:
         "Exam pressure, career anxiety, burnout, and life transitions take a real toll — and pushing through alone rarely works. CueClarity's emotional wellness support gives students, professionals, and families structured, evidence-informed tools to rebuild clarity, confidence, and calm.",
       primaryCTA: { label: "Book a Consultation", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain points ─────────────────────── */
@@ -2921,7 +2945,7 @@ const emotionalWellness: ServicePageData = {
     /* ── 8. Deliverables ─────────────────────────────────── */
     {
       type: "deliverables",
-      eyebrow: "What You Receive",
+      eyebrow: "What You Get",
       headline: "Your Complete <em>Wellness Support Package</em>",
       description:
         "Every engagement is private, personalised, and built around your specific situation — not a generic programme you're slotted into.",
@@ -2972,7 +2996,7 @@ const emotionalWellness: ServicePageData = {
             "Students, graduates, and professionals supported through wellness programmes",
         },
         {
-          value: "91",
+          value: "95",
           suffix: "%",
           label:
             "Participants report measurably reduced anxiety within the first four weeks",
@@ -3050,7 +3074,7 @@ const emotionalWellness: ServicePageData = {
       description:
         "Emotional clarity is not a luxury — it's the foundation everything else is built on. One conversation can shift the entire trajectory.",
       primaryCTA: { label: "Book a Consultation", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "Taking care of your mind is not weakness. It is the most strategic investment you will ever make in yourself.",
     },
@@ -3064,7 +3088,7 @@ const emotionalWellness: ServicePageData = {
 const khudKiKahani: ServicePageData = {
   slug: "khud-ki-kahani",
   title: "Khud Ki Kahani",
-  metaTitle: "Khud Ki Kahani — खुद की कहानी | CueClarity",
+  metaTitle: "Khud Ki Kahani | CueClarity",
   metaDescription:
     "Khud Ki Kahani — CueClarity's storytelling workshop helps students find identity, build confidence, and write their own story. For schools, colleges, and institutions across India.",
   sections: [
@@ -3073,19 +3097,19 @@ const khudKiKahani: ServicePageData = {
       type: "hero",
       image:
         "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
-      eyebrow: "Khud Ki Kahani — खुद की कहानी",
-      headline: "खुद की कहानी, <em>खुद लिखो</em>",
+      eyebrow: "Khud Ki Kahani",
+      headline: "Khud Ki Kahani, <em>Khud Likho</em>",
       description:
         "Your story is the most powerful thing you own — and nobody else can write it for you. Khud Ki Kahani is CueClarity's signature workshop series that teaches students and young adults to discover who they truly are, find their authentic voice, and write a life narrative they're proud of.",
       primaryCTA: { label: "Book a Workshop", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain points ─────────────────────── */
     {
       type: "questions",
-      eyebrow: "क्या ये सच लगता है?",
-      headline: "जब <em>अपनी ही कहानी</em> किसी और की लगे",
+      eyebrow: "Sounds Familiar?",
+      headline: "When <em>Your Own Story</em> Feels Like Someone Else's",
       description:
         "Most young people don't lack ability — they lack a clear sense of who they are and why it matters. If any of these feel familiar, it's time to reclaim the narrative.",
       questions: [
@@ -3119,7 +3143,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 3. Cards — workshop pillars ─────────────────────── */
     {
       type: "cards",
-      eyebrow: "कहानी के तीन अध्याय",
+      eyebrow: "Chapters",
       headline: "Three Chapters of <em>Your Story</em>",
       description:
         "Khud Ki Kahani unfolds across three experiential chapters — each designed to take students from disconnection to deep self-awareness, from silence to voice, from confusion to purpose.",
@@ -3128,7 +3152,7 @@ const khudKiKahani: ServicePageData = {
       cards: [
         {
           icon: "FiSearch",
-          title: "पहचान — Discover Who You Are",
+          title: "Pehchan — Discover Who You Are",
           description:
             "Guided introspection exercises that strip away external expectations and help participants connect with their authentic values, strengths, and identity — often for the first time.",
           checklist: [
@@ -3139,7 +3163,7 @@ const khudKiKahani: ServicePageData = {
         },
         {
           icon: "FiEdit3",
-          title: "आवाज़ — Find Your Voice",
+          title: "Awaaz — Find Your Voice",
           description:
             "Creative writing, storytelling, and communication exercises that transform private thoughts into powerful personal narratives. The goal: own your story and speak it with clarity.",
           checklist: [
@@ -3151,7 +3175,7 @@ const khudKiKahani: ServicePageData = {
         },
         {
           icon: "FiCompass",
-          title: "दिशा — Choose Your Direction",
+          title: "Disha — Choose Your Direction",
           description:
             "Once you know who you are and can articulate it, the final chapter aligns that identity with purpose. Students leave with a personal mission, clear goals, and the conviction to pursue them.",
           checklist: [
@@ -3166,7 +3190,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 4. Process — how the workshop unfolds ───────────── */
     {
       type: "process",
-      eyebrow: "कैसे होता है सफ़र",
+      eyebrow: "Our Process",
       headline: "How <em>Khud Ki Kahani</em> Unfolds",
       description:
         "Every session is immersive, participatory, and emotionally safe. We don't lecture — we create conditions where young people voluntarily open up, reflect, and rebuild.",
@@ -3208,7 +3232,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 5. Framework — the CueClarity method ────────────── */
     {
       type: "framework",
-      eyebrow: "हमारा तरीका",
+      eyebrow: "The CueClarity Difference",
       headline: "Why <em>Khud Ki Kahani</em> Actually Works",
       description:
         "Most schools host motivational speakers. We create permanently transformative experiences. Three principles make the difference.",
@@ -3241,7 +3265,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 6. Comparison — with vs. without ────────────────── */
     {
       type: "comparison",
-      eyebrow: "फ़र्क़ साफ़ है",
+      eyebrow: "The Stakes",
       headline: "Growing Up <em>Without</em> vs. <em>With</em> Your Story",
       description:
         "The difference between a young person who knows their own narrative and one who doesn't isn't just confidence — it's everything that follows.",
@@ -3276,7 +3300,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 7. Deliverables ─────────────────────────────────── */
     {
       type: "deliverables",
-      eyebrow: "आपको क्या मिलेगा",
+      eyebrow: "What You Get",
       headline: "What Every <em>Participant Receives</em>",
       description:
         "Khud Ki Kahani isn't just an event — it's a complete experience with tangible, lasting outcomes participants carry with them.",
@@ -3317,7 +3341,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 8. featureList — for schools/institutions ────────── */
     {
       type: "featureList",
-      eyebrow: "संस्थाओं के लिए",
+      eyebrow: "For Institutions",
       headline: "Why <em>Schools & Colleges</em> Choose Khud Ki Kahani",
       description:
         "For institutional leaders looking to give their students more than academics — this is the programme that creates visible, lasting change in student engagement, confidence, and culture.",
@@ -3365,7 +3389,7 @@ const khudKiKahani: ServicePageData = {
     /* ── 9. Stats ────────────────────────────────────────── */
     {
       type: "stats",
-      eyebrow: "हमारा असर",
+      eyebrow: "Our Track Record",
       headline: "Impact That <em>Speaks for Itself</em>",
       stats: [
         {
@@ -3450,7 +3474,7 @@ const khudKiKahani: ServicePageData = {
       description:
         "Every young person has a story worth telling — they just need someone to help them find it. Book Khud Ki Kahani for your students or your child, and watch what happens when they finally own their narrative.",
       primaryCTA: { label: "Book a Workshop", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "जब तक तुम अपनी कहानी खुद नहीं लिखोगे, कोई और लिख देगा — और वो तुम्हारी नहीं होगी।",
     },
@@ -3478,7 +3502,7 @@ const industrialTraining: ServicePageData = {
       description:
         "Degrees teach theory. Industry demands practice. CueClarity's industrial training programs give students and professionals the hands-on, expert-led exposure that turns classroom knowledge into real career value.",
       primaryCTA: { label: "Book a Consultation", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. Questions — pain-point empathy ───────────────── */
@@ -3700,7 +3724,7 @@ const industrialTraining: ServicePageData = {
     /* ── 8. Deliverables — what you receive ──────────────── */
     {
       type: "deliverables",
-      eyebrow: "What You Receive",
+      eyebrow: "What You Get",
       headline: "Everything Included in <em>Your Programme</em>",
       description:
         "Not a certificate and a handshake — a complete, practical training package designed to make you immediately competitive.",
@@ -3763,7 +3787,7 @@ const industrialTraining: ServicePageData = {
             "Hands-On Project Work Built Into Every Module — No Passive Learning",
         },
         {
-          value: "92",
+          value: "95",
           suffix: "%",
           label: "Trainees Report Measurable Improvement in Industry Readiness",
         },
@@ -3828,7 +3852,7 @@ const industrialTraining: ServicePageData = {
       description:
         "Every month without practical experience is a month your peers are pulling ahead in placement season. Secure your training programme and start building the portfolio that opens doors.",
       primaryCTA: { label: "Book a Consultation", href: "/contact" },
-      secondaryCTA: CTA_SPEAK,
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "A degree tells employers you completed a programme. A portfolio tells them what you can actually do. Industrial training is how you build one.",
     },
@@ -3859,10 +3883,7 @@ const workforceDevelopment: ServicePageData = {
         label: "Book an Assessment",
         href: "/contact",
       },
-      secondaryCTA: {
-        label: "Schedule a Demo",
-        href: "/contact",
-      },
+      quickLinks: QUICK_LINKS_ALL,
     },
 
     /* ── 2. questions — pain points ──────────────────────── */
@@ -4215,10 +4236,7 @@ const workforceDevelopment: ServicePageData = {
         label: "Book an Assessment",
         href: "/contact",
       },
-      secondaryCTA: {
-        label: "Schedule a Demo",
-        href: "/contact",
-      },
+      quickLinks: QUICK_LINKS_ALL,
       quote:
         "Understanding myself through CueClarity's assessment changed the way I approach my career — it wasn't guesswork anymore.",
     },

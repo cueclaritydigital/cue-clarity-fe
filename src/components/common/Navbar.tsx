@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
-import { getWhatsAppURL } from "@/lib/whatsapp";
 import {
   FiChevronDown,
   FiBriefcase,
@@ -17,9 +16,8 @@ import {
   FiX,
   FiMonitor,
   FiTrendingUp,
+  FiArrowRight,
 } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
-import { IoIosCall } from "react-icons/io";
 
 // ── TYPES ─────────────────────────────────────────────────────────────────────
 
@@ -211,6 +209,38 @@ export default function Navbar() {
 
           {/* ── CTA BUTTONS + MOBILE TOGGLE ── */}
           <div className="flex items-center gap-3">
+            {/* Quick-link pills — desktop only */}
+            <div className="hidden lg:flex items-center gap-2">
+              <a
+                href="https://cueclarity.edumilestones.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)]/55 hover:text-[var(--primary-blue)] border border-[var(--secondary-white)] hover:border-[var(--primary-blue)]/30 px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
+              >
+                <FiBriefcase size={11} aria-hidden="true" />
+                Career Assessment
+                <FiArrowRight
+                  size={9}
+                  className="opacity-40"
+                  aria-hidden="true"
+                />
+              </a>
+              <a
+                href="https://cueclarity.edumilestones.com/abroad-studies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)]/55 hover:text-[var(--primary-blue)] border border-[var(--secondary-white)] hover:border-[var(--primary-blue)]/30 px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
+              >
+                <FiGlobe size={11} aria-hidden="true" />
+                Study Abroad
+                <FiArrowRight
+                  size={9}
+                  className="opacity-40"
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
+
             {/* Mobile hamburger */}
             <button
               aria-label={
@@ -271,9 +301,9 @@ function DesktopNav() {
 
         {/* ────────────────── SERVICES MEGA MENU ────────────────── */}
         <li className="relative group h-[72px] flex items-center">
-          <button
+          <Link
+            href="/services/career-counselling"
             aria-haspopup="menu"
-            aria-expanded="false"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg font-semibold tracking-[var(--tracking-wide)] text-[var(--primary-black)]/80 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/60 transition-all duration-200 cursor-pointer select-none"
           >
             Services
@@ -282,7 +312,7 @@ function DesktopNav() {
               aria-hidden="true"
               className="mt-px transition-transform duration-300 group-hover:-rotate-180 text-[var(--primary-blue)]/50"
             />
-          </button>
+          </Link>
 
           {/* ── Mega panel (3-column) ── */}
           <div
@@ -400,63 +430,65 @@ function DesktopNav() {
           </div>
         </li>
 
-        {/* ────────────────── PROGRAMS DROPDOWN ────────────────── */}
-        <li className="relative group/programs h-[72px] flex items-center">
-          <Link
-            href="/programs"
-            aria-haspopup="menu"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg font-semibold tracking-[var(--tracking-wide)] text-[var(--primary-black)]/80 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/60 transition-all duration-200 select-none"
-          >
-            Programs
-            <FiChevronDown
-              size={14}
-              aria-hidden="true"
-              className="mt-px transition-transform duration-300 group-hover/programs:-rotate-180 text-[var(--primary-blue)]/50"
-            />
-          </Link>
+        {/* ────────────────── PROGRAMS DROPDOWN (hidden) ────────────────── */}
+        {false && (
+          <li className="relative group/programs h-[72px] flex items-center">
+            <Link
+              href="/programs"
+              aria-haspopup="menu"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg font-semibold tracking-[var(--tracking-wide)] text-[var(--primary-black)]/80 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/60 transition-all duration-200 select-none"
+            >
+              Programs
+              <FiChevronDown
+                size={14}
+                aria-hidden="true"
+                className="mt-px transition-transform duration-300 group-hover/programs:-rotate-180 text-[var(--primary-blue)]/50"
+              />
+            </Link>
 
-          {/* ── Programs panel (2-column side-by-side) ── */}
-          <div
-            role="menu"
-            aria-label="Programs"
-            className="absolute top-[72px] left-1/2 -translate-x-1/2 w-[320px] bg-[var(--surface-card)] shadow-[var(--shadow-xl)] border border-[var(--secondary-white)] rounded-2xl opacity-0 invisible translate-y-3 group-hover/programs:opacity-100 group-hover/programs:visible group-hover/programs:translate-y-0 transition-all duration-300 ease-out z-[var(--z-mega)] overflow-hidden"
-          >
+            {/* ── Programs panel (2-column side-by-side) ── */}
             <div
-              aria-hidden="true"
-              className="h-[3px] w-full bg-gradient-to-r from-[var(--primary-blue)] via-[var(--gradient-mid)] to-[var(--primary-yellow)]"
-            />
+              role="menu"
+              aria-label="Programs"
+              className="absolute top-[72px] left-1/2 -translate-x-1/2 w-[320px] bg-[var(--surface-card)] shadow-[var(--shadow-xl)] border border-[var(--secondary-white)] rounded-2xl opacity-0 invisible translate-y-3 group-hover/programs:opacity-100 group-hover/programs:visible group-hover/programs:translate-y-0 transition-all duration-300 ease-out z-[var(--z-mega)] overflow-hidden"
+            >
+              <div
+                aria-hidden="true"
+                className="h-[3px] w-full bg-gradient-to-r from-[var(--primary-blue)] via-[var(--gradient-mid)] to-[var(--primary-yellow)]"
+              />
 
-            <ul className="flex flex-col divide-y divide-[var(--secondary-white)]">
-              {PROGRAM_SECTIONS.map((section) => (
-                <li key={section.id}>
-                  <Link
-                    href={section.href}
-                    role="menuitem"
-                    className="group/prog flex items-start gap-4 px-6 py-4 hover:bg-[var(--secondary-white)]/50 transition-all duration-200"
-                  >
-                    <div className="mt-0.5 shrink-0 w-9 h-9 rounded-xl bg-[var(--primary-blue)]/6 flex items-center justify-center text-[var(--primary-blue)]/50 group-hover/prog:bg-[var(--primary-blue)]/12 group-hover/prog:text-[var(--primary-blue)] transition-all duration-200">
-                      {section.icon}
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span
-                        className="font-semibold leading-snug text-[var(--primary-black)]/85 group-hover/prog:text-[var(--primary-blue)] transition-colors"
-                        style={{ fontSize: "var(--text-sm)" }}
-                      >
-                        {section.label}
-                      </span>
-                      <span
-                        className="text-[var(--primary-black)]/40 font-normal leading-snug"
-                        style={{ fontSize: "var(--text-xs)" }}
-                      >
-                        {section.desc}
-                      </span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </li>
+              <ul className="flex flex-col divide-y divide-[var(--secondary-white)]">
+                {PROGRAM_SECTIONS.map((section) => (
+                  <li key={section.id}>
+                    <Link
+                      href={section.href}
+                      role="menuitem"
+                      className="group/prog flex items-start gap-4 px-6 py-4 hover:bg-[var(--secondary-white)]/50 transition-all duration-200"
+                    >
+                      <div className="mt-0.5 shrink-0 w-9 h-9 rounded-xl bg-[var(--primary-blue)]/6 flex items-center justify-center text-[var(--primary-blue)]/50 group-hover/prog:bg-[var(--primary-blue)]/12 group-hover/prog:text-[var(--primary-blue)] transition-all duration-200">
+                        {section.icon}
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        <span
+                          className="font-semibold leading-snug text-[var(--primary-black)]/85 group-hover/prog:text-[var(--primary-blue)] transition-colors"
+                          style={{ fontSize: "var(--text-sm)" }}
+                        >
+                          {section.label}
+                        </span>
+                        <span
+                          className="text-[var(--primary-black)]/40 font-normal leading-snug"
+                          style={{ fontSize: "var(--text-xs)" }}
+                        >
+                          {section.desc}
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        )}
 
         {NAV_LINKS_RIGHT.map(({ href, label }) => (
           <NavItem key={href} href={href}>
@@ -700,7 +732,7 @@ function MobileDrawer({
           </div>
 
           {/* ── PROGRAMS accordion ── */}
-          <div>
+          {/* <div>
             <button
               onClick={onTogglePrograms}
               aria-expanded={programsOpen}
@@ -757,13 +789,65 @@ function MobileDrawer({
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
 
           {NAV_LINKS_RIGHT.map(({ href, label }) => (
             <MobileLink key={href} href={href} onClick={onClose}>
               {label}
             </MobileLink>
           ))}
+
+          {/* ── Quick links ── */}
+          <div className="mt-2 pt-3 border-t border-[var(--secondary-white)]">
+            <p
+              className="px-4 mb-2 font-bold text-[var(--primary-black)]/35 uppercase tracking-widest"
+              style={{ fontSize: "10px" }}
+            >
+              Quick links
+            </p>
+            <div className="flex flex-col gap-1.5 px-1">
+              <a
+                href="https://cueclarity.edumilestones.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/70 transition-all duration-150 font-semibold"
+                style={{ fontSize: "var(--text-sm)" }}
+              >
+                <FiBriefcase
+                  size={14}
+                  aria-hidden="true"
+                  className="shrink-0 text-[var(--primary-blue)]/50"
+                />
+                Career Assessment
+                <FiArrowRight
+                  size={11}
+                  className="ml-auto opacity-40"
+                  aria-hidden="true"
+                />
+              </a>
+              <a
+                href="https://cueclarity.edumilestones.com/abroad-studies/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/70 transition-all duration-150 font-semibold"
+                style={{ fontSize: "var(--text-sm)" }}
+              >
+                <FiGlobe
+                  size={14}
+                  aria-hidden="true"
+                  className="shrink-0 text-[var(--primary-blue)]/50"
+                />
+                Study Abroad
+                <FiArrowRight
+                  size={11}
+                  className="ml-auto opacity-40"
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </nav>
     </div>

@@ -61,7 +61,7 @@ export default function ComparisonPanel({
         {/* Comparison panels */}
         <div className="grid gap-4 lg:gap-5 md:grid-cols-2">
           {/* Left — negative */}
-          <FadeInView className="bg-[var(--primary-white)]/5 border border-[var(--primary-white)]/10 rounded-[var(--radius-xl)] p-6 md:p-8">
+          <FadeInView className="bg-[var(--primary-white)]/[0.08] border border-[var(--primary-white)]/20 rounded-[var(--radius-xl)] p-6 md:p-8 backdrop-blur-sm">
             <div className="mb-5 flex items-center gap-2">
               {section.left.emoji && (
                 <span className="text-xl">{section.left.emoji}</span>
@@ -83,7 +83,7 @@ export default function ComparisonPanel({
               {section.left.items.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-sm leading-relaxed text-[var(--primary-white)]/60"
+                  className="flex items-start gap-3 text-sm leading-relaxed text-[var(--primary-white)]/75"
                 >
                   <FiX size={14} className="mt-0.5 text-red-400 shrink-0" />
                   {item}
@@ -94,10 +94,10 @@ export default function ComparisonPanel({
 
           {/* Right — positive */}
           <FadeInView
-            className="rounded-[var(--radius-xl)] p-6 md:p-8"
+            className="rounded-[var(--radius-xl)] p-6 md:p-8 backdrop-blur-sm"
             style={{
-              backgroundColor: "rgba(255,193,20,0.08)",
-              border: "1px solid rgba(255,193,20,0.15)",
+              backgroundColor: "rgba(255,193,20,0.12)",
+              border: "1px solid rgba(255,193,20,0.25)",
             }}
           >
             <div className="mb-5 flex items-center gap-2">
@@ -121,7 +121,7 @@ export default function ComparisonPanel({
               {section.right.items.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-sm leading-relaxed text-[var(--primary-white)]/80"
+                  className="flex items-start gap-3 text-sm leading-relaxed text-[var(--primary-white)]/90"
                 >
                   <FiCheck
                     size={14}
