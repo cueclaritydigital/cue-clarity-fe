@@ -127,19 +127,17 @@ export default function EditorialCTA({ section }: { section: CTASection }) {
 
         {/* Trust micro-copy */}
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10 text-[13px] font-medium text-[var(--primary-white)]/50">
-          {[
-            "No credit card required",
-            "100% Confidential",
-            "Zero obligations",
-          ].map((text) => (
-            <div key={text} className="flex items-center gap-2">
-              <FiCheckCircle
-                size={14}
-                className="text-[var(--primary-yellow)] opacity-70"
-              />
-              {text}
-            </div>
-          ))}
+          {["No hidden costs", "100% Confidential", "Zero obligations"].map(
+            (text) => (
+              <div key={text} className="flex items-center gap-2">
+                <FiCheckCircle
+                  size={14}
+                  className="text-[var(--primary-yellow)] opacity-70"
+                />
+                {text}
+              </div>
+            ),
+          )}
         </div>
 
         {/* Quote */}

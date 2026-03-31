@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/services",
+        destination: "/services/career-counselling",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

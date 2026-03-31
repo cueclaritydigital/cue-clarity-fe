@@ -7,6 +7,8 @@ import MissionSection from "@/components/about/MissionSection";
 import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "About CueClarity | Our Mission & Expert Team",
   description:

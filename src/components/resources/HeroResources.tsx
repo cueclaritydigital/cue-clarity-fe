@@ -46,7 +46,10 @@ const PILLARS = [
 
 export default function HeroResources() {
   return (
-    <section className="relative section-padding px-4 sm:px-6 bg-[var(--primary-white)] overflow-hidden">
+    <section
+      className="relative section-padding px-4 sm:px-6 bg-[var(--primary-white)] overflow-hidden"
+      aria-labelledby="resources-hero-heading"
+    >
       {/* Ambient blob – top right */}
       <div className="absolute -top-16 -right-24 w-[560px] h-[560px] bg-[var(--blob-glow)] opacity-[0.07] blur-[130px] rounded-full pointer-events-none" />
       {/* Yellow accent – bottom left */}
@@ -70,6 +73,7 @@ export default function HeroResources() {
           </div>
 
           <h1
+            id="resources-hero-heading"
             style={{
               fontFamily: "var(--font-oswald)",
               fontWeight: 800,
