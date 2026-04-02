@@ -215,7 +215,7 @@ export default function Navbar() {
                 href="https://cueclarity.edumilestones.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)]/55 hover:text-[var(--primary-blue)] border border-[var(--secondary-white)] hover:border-[var(--primary-blue)]/30 px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
+                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)]  px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
               >
                 <FiBriefcase size={11} aria-hidden="true" />
                 Career Assessment
@@ -229,7 +229,7 @@ export default function Navbar() {
                 href="https://cueclarity.edumilestones.com/abroad-studies/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)]/55 hover:text-[var(--primary-blue)] border border-[var(--secondary-white)] hover:border-[var(--primary-blue)]/30 px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
+                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] border border-[var(--secondary-white)] hover:border-[var(--primary-blue)]/30 px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
               >
                 <FiGlobe size={11} aria-hidden="true" />
                 Study Abroad
@@ -811,18 +811,18 @@ function MobileDrawer({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/70 transition-all duration-150 font-semibold"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[var(--primary-black)] hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/70 transition-all duration-150 font-semibold"
                 style={{ fontSize: "var(--text-sm)" }}
               >
                 <FiBriefcase
                   size={14}
                   aria-hidden="true"
-                  className="shrink-0 text-[var(--primary-blue)]/50"
+                  className="shrink-0 text-[var(--primary-blue)]"
                 />
                 Career Assessment
                 <FiArrowRight
                   size={11}
-                  className="ml-auto opacity-40"
+                  className="ml-auto opacity-80"
                   aria-hidden="true"
                 />
               </a>
@@ -831,18 +831,18 @@ function MobileDrawer({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/70 transition-all duration-150 font-semibold"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[var(--primary-black)] hover:text-[var(--primary-blue)] hover:bg-[var(--secondary-white)]/70 transition-all duration-150 font-semibold"
                 style={{ fontSize: "var(--text-sm)" }}
               >
                 <FiGlobe
                   size={14}
                   aria-hidden="true"
-                  className="shrink-0 text-[var(--primary-blue)]/50"
+                  className="shrink-0 text-[var(--primary-blue)]"
                 />
                 Study Abroad
                 <FiArrowRight
                   size={11}
-                  className="ml-auto opacity-40"
+                  className="ml-auto opacity-80"
                   aria-hidden="true"
                 />
               </a>

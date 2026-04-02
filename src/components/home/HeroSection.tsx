@@ -112,7 +112,7 @@ export default function HeroSection() {
                   href="https://cueclarity.edumilestones.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/75 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/30 hover:border-[var(--primary-blue)]/50 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/8 bg-[var(--primary-black)]/5"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--secondary-white)] "
                 >
                   <FiBriefcase size={12} />
                   Career Assessment
@@ -122,7 +122,7 @@ export default function HeroSection() {
                   href="https://cueclarity.edumilestones.com/abroad-studies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)]/75 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/30 hover:border-[var(--primary-blue)]/50 px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/8 bg-[var(--primary-black)]/5"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--secondary-white)] "
                 >
                   <FiGlobe size={12} />
                   Study Abroad
