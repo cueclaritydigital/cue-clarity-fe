@@ -485,6 +485,8 @@ const careerCounselling: ServicePageData = {
     /* ── 9. Stats — social proof ─────────────────────────── */
     {
       type: "stats",
+      eyebrow: "Our Track Record",
+      headline: "Impact That <em>Speaks for Itself</em>",
       stats: [
         {
           value: "5000",
@@ -584,7 +586,7 @@ const students8910: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_253mlq253mlq253m_q70txm.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150691/Gemini_Generated_Image_1yahmp1yahmp1yah_wbgyuz.webp",
       eyebrow: "Stream Selector Program",
       headline: "Choose Your Stream with <em>Science, Not Guesswork</em>",
       description:
@@ -806,6 +808,8 @@ const students8910: ServicePageData = {
     /* ── 8. Stats — social proof ─────────────────────────── */
     {
       type: "stats",
+      eyebrow: "Our Track Record",
+      headline: "Impact That <em>Speaks for Itself</em>",
       stats: [
         {
           value: "5000",
@@ -911,7 +915,7 @@ const after10th12th: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150691/Gemini_Generated_Image_b06mb6b06mb6b06m_aftyeb.webp",
       eyebrow: "After 10th & 12th",
       headline: "Strategy, Not <em>Guesswork</em>",
       description:
@@ -953,6 +957,42 @@ const after10th12th: ServicePageData = {
           text: "How do I make sure my child doesn't waste 3 years on the wrong degree?",
         },
       ],
+    },
+
+    /* ── 4. Process — how it works ───────────────────────── */
+    {
+      type: "process",
+      eyebrow: "Our Process",
+      headline: "Three Steps to <em>Complete Clarity</em>",
+      description:
+        "A structured system that takes your child from confusion to confidence — with scientific precision and expert strategy at every stage.",
+      variant: "large-numbers",
+      steps: [
+        {
+          number: "01",
+          title: "Scientific Assessment",
+          description:
+            "Validated psychometric tools uncover your child's true aptitude, personality, interests, and cognitive strengths — going far beyond marks and grades.",
+        },
+        {
+          number: "02",
+          title: "Expert Strategy Session",
+          description:
+            "A dedicated 1-on-1 session covering career direction, the right degree and college, profile gaps, and entrance exam alignment — with no generic advice.",
+        },
+        {
+          number: "03",
+          title: "Career Roadmap Delivery",
+          description:
+            "A clear, written 3–5 year plan with every step mapped: degree, exams, skills, certifications, and milestones.",
+        },
+      ],
+      testimonial: {
+        quote:
+          "We spent Class 11 assuming our son knew what he wanted. He didn't. CueClarity gave us the data, the conversation, and the plan we should have started two years earlier.",
+        author: "Rajesh M.",
+        role: "Parent, Class 12 Student, Bangalore",
+      },
     },
 
     /* ── 3. Cards — what CueClarity solves ──────────────── */
@@ -1002,42 +1042,6 @@ const after10th12th: ServicePageData = {
             "Identify which competitive exams truly match your child's strengths — JEE, NEET, CLAT, design, or none of the above.",
         },
       ],
-    },
-
-    /* ── 4. Process — how it works ───────────────────────── */
-    {
-      type: "process",
-      eyebrow: "Our Process",
-      headline: "Three Steps to <em>Complete Clarity</em>",
-      description:
-        "A structured system that takes your child from confusion to confidence — with scientific precision and expert strategy at every stage.",
-      variant: "large-numbers",
-      steps: [
-        {
-          number: "01",
-          title: "Scientific Assessment",
-          description:
-            "Validated psychometric tools uncover your child's true aptitude, personality, interests, and cognitive strengths — going far beyond marks and grades.",
-        },
-        {
-          number: "02",
-          title: "Expert Strategy Session",
-          description:
-            "A dedicated 1-on-1 session covering career direction, the right degree and college, profile gaps, and entrance exam alignment — with no generic advice.",
-        },
-        {
-          number: "03",
-          title: "Career Roadmap Delivery",
-          description:
-            "A clear, written 3–5 year plan with every step mapped: degree, exams, skills, certifications, and milestones.",
-        },
-      ],
-      testimonial: {
-        quote:
-          "We spent Class 11 assuming our son knew what he wanted. He didn't. CueClarity gave us the data, the conversation, and the plan we should have started two years earlier.",
-        author: "Rajesh M.",
-        role: "Parent, Class 12 Student, Bangalore",
-      },
     },
 
     /* ── 5. Comparison — before / after ──────────────────── */
@@ -1266,7 +1270,7 @@ const forGraduates: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150691/Gemini_Generated_Image_22hpro22hpro22hp_d4qai1.webp",
       eyebrow: "For Graduates",
       headline: "Stop Guessing — <em>Start Designing</em> Your Future",
       description:
@@ -1946,7 +1950,7 @@ const internationalEducation: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150691/eydulm5wch8kvy7h0szx_jy2bm9.webp",
       eyebrow: "International Education",
       headline: "Build a Global Career with the <em>Right Direction</em>",
       description:
@@ -2317,7 +2321,7 @@ const beyondSchoolLife: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150691/oyt4y8rr8ddblxm00qyh_jdlkvu.webp",
       eyebrow: "Beyond School Life & Skills",
       headline: "School Taught You <em>What</em>. We'll Teach You How to Live",
       description:
@@ -3496,7 +3500,7 @@ const industrialTraining: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150693/Gemini_Generated_Image_lqey7blqey7blqey_klmgdz.png",
       eyebrow: "Industrial Training",
       headline: "From <em>Learning</em> to Industry-Ready",
       description:

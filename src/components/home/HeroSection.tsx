@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { CountUpValue } from "./CountUpValue";
 import {
   FiAward,
   FiSmile,
@@ -273,7 +274,7 @@ function StatCard({
             letterSpacing: "var(--tracking-tight)",
           }}
         >
-          {value}
+          <CountUpValue value={value} />
         </p>
         <p
           className="font-bold mt-1 text-[var(--primary-black)] leading-snug"

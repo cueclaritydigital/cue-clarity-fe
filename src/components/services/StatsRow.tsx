@@ -4,6 +4,7 @@ import type { StatsSection } from "@/lib/data/services";
 import FadeInView from "@/components/animate/FadeInView";
 import StaggerInView from "@/components/animate/StaggerInView";
 import { fadeUp } from "@/lib/animations/variants";
+import { CountUpValue } from "@/components/home/CountUpValue";
 
 const STAT_ACCENTS = [
   { accent: "var(--primary-blue)", bg: "rgba(41,50,110,0.07)" },
@@ -84,10 +85,7 @@ export default function StatsRow({ section }: { section: StatsSection }) {
                     letterSpacing: "var(--tracking-tight)",
                   }}
                 >
-                  {stat.value}
-                  {stat.suffix && (
-                    <span style={{ opacity: 0.7 }}>{stat.suffix}</span>
-                  )}
+                  <CountUpValue value={stat.value + (stat.suffix ?? "")} />
                 </p>
                 <p
                   className="font-bold text-[var(--primary-black)] leading-snug"

@@ -35,6 +35,7 @@ export default function QuestionsPanel({
                 {section.eyebrow}
               </span>
             )}
+
             {section.headline && (
               <h2
                 style={{
@@ -54,6 +55,7 @@ export default function QuestionsPanel({
                 }}
               />
             )}
+
             {section.description && (
               <p className="type-lead mt-4 text-[var(--muted-text)] max-w-2xl">
                 {section.description}
@@ -62,29 +64,26 @@ export default function QuestionsPanel({
           </FadeInView>
         )}
 
-        {/* Desktop: 2-column (timeline + decorative right) / Mobile: single column */}
-        <div className="lg:grid lg:grid-cols-[1fr_auto] lg:gap-12 xl:gap-16">
-          {/* Timeline column */}
-          <div className="relative space-y-10 sm:space-y-12 lg:max-w-2xl">
-            {/* Connecting line */}
-            <div
-              className="absolute left-6 top-8 bottom-8 w-[2px] -z-10"
-              style={{ background: "var(--primary-black)", opacity: 0.12 }}
-            />
+        {/* 🔥 STORY LAYOUT */}
+        <div className="lg:grid lg:grid-cols-[2.2fr_1fr] lg:gap-16">
+          {/* LEFT — Timeline / Problems */}
+          <div className="relative space-y-16 lg:space-y-20 lg:pr-6">
+            {/* Vertical line */}
+            <div className="absolute left-6 top-8 bottom-0 w-[2px] bg-black/10" />
 
             {section.questions.map((q, i) => {
               const color = ACCENT_COLORS[i % ACCENT_COLORS.length];
+
               return (
                 <FadeInView
                   key={i}
                   variants={fadeUp}
-                  className="flex gap-5 sm:gap-6 group"
+                  className="flex gap-6 group items-start"
                 >
-                  {/* Timeline node */}
+                  {/* Node */}
                   <div
-                    className="flex-shrink-0 w-12 h-12 rounded-full bg-[var(--primary-white)] flex items-center justify-center z-10"
+                    className="w-12 h-12 rounded-full flex items-center justify-center z-10 bg-white"
                     style={{
-                      border: "4px solid var(--primary-white)",
                       boxShadow: `0 0 0 2px ${color.ring}, 0 8px 20px rgba(0,0,0,0.06)`,
                       color: color.accent,
                     }}
@@ -96,97 +95,79 @@ export default function QuestionsPanel({
                     )}
                   </div>
 
-                  {/* Card */}
-                  <div
-                    className="flex-1 rounded-xl p-5 sm:p-6 bg-[var(--primary-white)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg"
-                    style={{
-                      border: "1px solid rgba(0,0,0,0.06)",
-                      borderLeftWidth: "4px",
-                      borderLeftColor: color.accent,
-                      boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
-                    }}
-                  >
+                  {/* Content */}
+                  <div className="flex-1 max-w-xl">
                     <p
-                      className="text-base sm:text-lg font-medium leading-snug text-[var(--primary-black)]"
+                      className="text-xl lg:text-2xl leading-snug font-semibold text-[var(--primary-black)]"
                       style={{
                         fontFamily: "var(--font-oswald)",
-                        textTransform: "uppercase",
                         letterSpacing: "var(--tracking-tight)",
                       }}
                     >
                       {q.text}
                     </p>
+
+                    {/* Accent divider */}
+                    <div className="mt-4 h-[2px] w-12 bg-[var(--primary-yellow)] opacity-60 group-hover:w-20 transition-all duration-300" />
                   </div>
                 </FadeInView>
               );
             })}
           </div>
 
-          {/* Right column — desktop only: reassurance content */}
-          <div className="hidden lg:flex lg:flex-col  relative w-[320px] xl:w-[400px] pl-8 xl:pl-12 border-l-2 border-[var(--primary-blue)]/10">
-            {/* Eyebrow */}
-            <span
-              className="text-sm font-semibold uppercase tracking-widest mb-4"
-              style={{ color: "var(--accent-blue)" }}
-            >
-              How We Help
-            </span>
+          {/* RIGHT — Sticky Guidance Panel */}
+          <div className="hidden lg:block">
+            <div className="sticky top-24 pl-10 border-l border-black/10">
+              {/* Label */}
+              <p className="text-xs tracking-widest uppercase text-[var(--accent-blue)] mb-4">
+                Your Turning Point
+              </p>
 
-            {/* Heading */}
-            <h3
-              className="mb-4"
-              style={{
-                fontFamily: "var(--font-oswald)",
-                fontWeight: 800,
-                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                lineHeight: 1.15,
-                letterSpacing: "var(--tracking-tight)",
-                color: "var(--primary-black)",
-                textTransform: "uppercase",
-              }}
-            >
-              We Turn These{" "}
-              <span style={{ color: "var(--primary-yellow)" }}>Doubts</span>{" "}
-              Into A Clear Roadmap
-            </h3>
-
-            {/* Description */}
-            <p
-              className="text-base leading-relaxed mb-8"
-              style={{ color: "var(--muted-text)" }}
-            >
-              Through psychometric assessments, one-on-one counselling, and
-              real-world career mapping, we replace confusion with clarity — so
-              every decision is backed by data, not fear.
-            </p>
-
-            {/* Decorative divider */}
-            <div
-              className="w-12 h-[3px] rounded-full mb-6"
-              style={{ background: "var(--primary-yellow)" }}
-            />
-
-            {/* Quote */}
-            <blockquote className="relative pl-0">
-              <p
-                className="text-lg italic leading-relaxed"
+              {/* Main Heading */}
+              <h3
+                className="mb-6"
                 style={{
                   fontFamily: "var(--font-oswald)",
-                  fontWeight: 400,
+                  fontWeight: 800,
+                  fontSize: "2rem",
+                  lineHeight: 1.2,
+                  letterSpacing: "var(--tracking-tight)",
                   color: "var(--primary-black)",
-                  opacity: 0.7,
+                  textTransform: "uppercase",
                 }}
               >
-                &ldquo;The only way to do great work is to love what you do. If
-                you haven&rsquo;t found it yet, keep looking.&rdquo;
+                This isn’t confusion. <br />
+                <span style={{ color: "var(--primary-yellow)" }}>
+                  It’s lack of clarity.
+                </span>
+              </h3>
+
+              {/* Description */}
+              <p className="text-base leading-relaxed text-[var(--muted-text)] mb-8">
+                You were never taught how to understand yourself — your
+                strengths, your direction, your identity. That’s where we come
+                in.
               </p>
-              <footer
-                className="mt-3 text-sm font-medium"
-                style={{ color: "var(--accent-blue)" }}
-              >
-                — Steve Jobs
-              </footer>
-            </blockquote>
+
+              {/* Divider */}
+              <div className="w-16 h-[3px] bg-[var(--primary-yellow)] mb-8" />
+
+              {/* Quotes */}
+              <div className="space-y-6">
+                <p className="text-lg italic opacity-80 border-l-4 border-[var(--primary-blue)] pl-4">
+                  “Your story isn’t missing — it’s just waiting to be
+                  understood.”
+                </p>
+
+                <p className="text-lg italic opacity-80 border-l-4 border-[var(--primary-blue)] pl-4">
+                  “You don’t need more options. You need direction.”
+                </p>
+
+                <p className="text-lg italic opacity-80 border-l-4 border-[var(--primary-blue)] pl-4">
+                  “Once you understand yourself, decisions become easy.”
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

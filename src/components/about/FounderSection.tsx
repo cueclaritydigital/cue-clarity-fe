@@ -18,7 +18,7 @@ export default function FounderSection() {
               />
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://cueclarity.com/wp-content/uploads/2025/05/Untitled-design-3.webp"
+                  src="https://res.cloudinary.com/dcudnuu04/image/upload/v1775149942/f4dc0f1d-dfb4-4086-a28d-abe1842aae68.JPG_1_la51u1.jpg"
                   alt="Founder of CueClarity — career counselling pioneer"
                   width={480}
                   height={600}

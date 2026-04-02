@@ -215,7 +215,8 @@ export default function Navbar() {
                 href="https://cueclarity.edumilestones.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)]  px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
+                style={{ fontSize: "var(--text-sm)" }}
+                className="inline-flex items-center gap-1.5  font-bold  text-[var(--primary-blue)]  px-3.5 py-1.5 rounded-full transition-all duration-200 bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80 "
               >
                 <FiBriefcase size={11} aria-hidden="true" />
                 Career Assessment
@@ -229,7 +230,8 @@ export default function Navbar() {
                 href="https://cueclarity.edumilestones.com/abroad-studies/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] border border-[var(--secondary-white)] hover:border-[var(--primary-blue)]/30 px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
+                style={{ fontSize: "var(--text-sm)" }}
+                className="inline-flex items-center gap-1.5  font-bold  text-[var(--primary-blue)] px-3.5 py-1.5 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-[var(--primary-white)]/80"
               >
                 <FiGlobe size={11} aria-hidden="true" />
                 Study Abroad
@@ -818,12 +820,14 @@ function MobileDrawer({
                   size={14}
                   aria-hidden="true"
                   className="shrink-0 text-[var(--primary-blue)]"
+                  style={{ fontSize: "var(--text-sm)" }}
                 />
                 Career Assessment
                 <FiArrowRight
                   size={11}
                   className="ml-auto opacity-80"
                   aria-hidden="true"
+                  style={{ fontSize: "var(--text-sm)" }}
                 />
               </a>
               <a
@@ -838,6 +842,7 @@ function MobileDrawer({
                   size={14}
                   aria-hidden="true"
                   className="shrink-0 text-[var(--primary-blue)]"
+                  style={{ fontSize: "var(--text-sm)" }}
                 />
                 Study Abroad
                 <FiArrowRight

@@ -50,7 +50,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
           {/* Headline */}
           <h1
             className="font-oswald font-extrabold uppercase leading-[0.95] tracking-tight text-white"
-            style={{ fontSize: "clamp(2.75rem, 8vw, 4.2rem)" }}
+            style={{ fontSize: "clamp(2.75rem, 8vw, 3.7rem)" }}
             dangerouslySetInnerHTML={{
               __html: section.headline.replace(
                 /<em>(.*?)<\/em>/g,
@@ -111,7 +111,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+                      className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 rounded-full transition-all duration-200 hover:bg-[var(--primary-white)] bg-white backdrop-blur-sm"
                     >
                       {Icon && <Icon size={13} />}
                       {link.label}
@@ -131,7 +131,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-[var(--primary-black)]/60 hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 rounded-full transition-all duration-200 hover:bg-[var(--primary-blue)]/5 bg-white/60 backdrop-blur-sm"
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] border border-[var(--primary-black)]/15 hover:border-[var(--primary-blue)]/40 px-4 rounded-full transition-all duration-200 hover:bg-[var(--primary-white)] bg-white backdrop-blur-sm"
                     >
                       {Icon && <Icon size={13} />}
                       {link.label}

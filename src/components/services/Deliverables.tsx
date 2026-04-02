@@ -1,27 +1,21 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { useRef } from "react";
 import type { DeliverableSection } from "@/lib/data/services";
-import FadeInView from "@/components/animate/FadeInView";
-import StaggerInView from "@/components/animate/StaggerInView";
-import { fadeUp } from "@/lib/animations/variants";
-
-const COLORS = [
-  { accent: "var(--primary-blue)", bg: "rgba(41,50,110,0.08)" },
-  { accent: "#D97706", bg: "rgba(217,119,6,0.08)" },
-  { accent: "#059669", bg: "rgba(5,150,105,0.08)" },
-  { accent: "#6D28D9", bg: "rgba(109,40,217,0.08)" },
-];
 
 export default function Deliverables({
   section,
 }: {
   section: DeliverableSection;
 }) {
+  const ref = useRef(null);
+
   return (
     <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
-      <div className="max-w-[1200px] mx-auto">
-        {/* Header */}
-        <FadeInView className="mb-12 lg:mb-16 max-w-3xl">
+      <div className="max-w-[1240px] mx-auto">
+        {/* HEADER */}
+        <div className="max-w-3xl mb-20">
           {section.eyebrow && (
             <span
               className="type-eyebrow text-[var(--accent-blue)] mb-3 block"
@@ -30,15 +24,15 @@ export default function Deliverables({
               {section.eyebrow}
             </span>
           )}
+
           <h2
             style={{
               fontFamily: "var(--font-oswald)",
               fontWeight: 800,
-              fontSize: "clamp(2.25rem, 6vw, 3.5rem)",
-              lineHeight: 1,
+              fontSize: "clamp(2.5rem, 6vw, 4rem)",
+              textTransform: "uppercase",
               letterSpacing: "var(--tracking-tight)",
               color: "var(--primary-black)",
-              textTransform: "uppercase",
             }}
             dangerouslySetInnerHTML={{
               __html: section.headline.replace(
@@ -47,50 +41,97 @@ export default function Deliverables({
               ),
             }}
           />
-          {section.description && (
-            <p className="type-lead mt-4 text-[var(--muted-text)] max-w-2xl">
-              {section.description}
-            </p>
-          )}
-        </FadeInView>
 
-        {/* Items */}
-        <StaggerInView className="space-y-4">
-          {section.items.map((item, i) => {
-            const color = COLORS[i % COLORS.length];
-            return (
-              <FadeInView
-                key={i}
-                variants={fadeUp}
-                className="group flex gap-5 items-start bg-[var(--surface-card)] border border-[var(--primary-black)]/10 rounded-[var(--radius-lg)] p-5 lg:p-6 transition-all duration-[var(--transition-base)] hover:border-[var(--primary-blue)]/30 hover:shadow-sm"
+          <p className="mt-6 text-lg text-[var(--muted-text)] leading-relaxed">
+            These aren’t just outputs. These are the tools, clarity, and
+            direction you’ll carry forward long after the session ends.
+          </p>
+        </div>
+
+        {/* MAIN GRID */}
+        <div className="lg:grid lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          {/* LEFT — STICKY */}
+          <div className="hidden lg:block">
+            <div className="sticky top-28 space-y-6">
+              <p className="text-xs uppercase tracking-widest text-[var(--accent-blue)]">
+                Your Outcome
+              </p>
+
+              <h3
+                className="text-3xl leading-tight"
+                style={{
+                  fontFamily: "var(--font-oswald)",
+                  fontWeight: 800,
+                  letterSpacing: "var(--tracking-tight)",
+                }}
               >
-                {/* Number */}
-                <div
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] font-bold text-sm"
-                  style={{ backgroundColor: color.bg, color: color.accent }}
+                You don’t leave with advice.
+                <br />
+                <span className="text-[var(--primary-yellow)]">
+                  You leave with clarity.
+                </span>
+              </h3>
+
+              <p className="text-[var(--muted-text)] leading-relaxed">
+                Everything you receive is designed to help you make confident,
+                informed decisions — not guesses.
+              </p>
+
+              <div className="w-16 h-[3px] bg-[var(--primary-yellow)]" />
+
+              <div className="space-y-4">
+                <p className="italic opacity-80">
+                  “Clarity removes hesitation.”
+                </p>
+                <p className="italic opacity-80">
+                  “Direction builds confidence.”
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT — SCROLL STORY */}
+          <div ref={ref} className="space-y-20">
+            {section.items.map((item, i) => {
+              return (
+                <motion.div
+                  key={i}
+                  className="group will-change-transform transition-all duration-500"
                 >
-                  {item.number ?? String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="flex flex-col gap-1.5 mt-0.5">
+                  {/* Label */}
+                  <p className="text-xs uppercase tracking-widest text-[var(--accent-blue)] mb-3">
+                    Deliverable {String(i + 1).padStart(2, "0")}
+                  </p>
+
+                  {/* Title */}
                   <h3
-                    className="text-[var(--primary-black)] uppercase tracking-tight"
+                    className="text-2xl lg:text-3xl mb-4 transition-all duration-300 group-hover:translate-x-1"
                     style={{
-                      fontFamily: "var(--font-oswald), system-ui, sans-serif",
-                      fontSize: "var(--text-lg)",
+                      fontFamily: "var(--font-oswald)",
                       fontWeight: 700,
-                      lineHeight: "var(--leading-tight)",
+                      letterSpacing: "var(--tracking-tight)",
                     }}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[14px] text-[var(--muted-text)] leading-relaxed">
+
+                  {/* Description */}
+                  <p className="text-base text-[var(--muted-text)] leading-relaxed max-w-xl">
                     {item.description}
                   </p>
-                </div>
-              </FadeInView>
-            );
-          })}
-        </StaggerInView>
+
+                  {/* Line */}
+                  <motion.div
+                    className="mt-6 h-[2px] bg-[var(--primary-yellow)]"
+                    initial={{ width: 40 }}
+                    whileHover={{ width: 80 }}
+                    transition={{ duration: 0.25 }}
+                  />
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

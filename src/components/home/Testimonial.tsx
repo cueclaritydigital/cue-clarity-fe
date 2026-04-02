@@ -228,8 +228,8 @@ function MarqueeRow({
       onTouchEnd={handleRelease}
     >
       {/* fade edges */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-24 bg-gradient-to-r from-[var(--primary-black)] to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-24 bg-gradient-to-l from-[var(--primary-black)] to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-24 bg-gradient-to-r from-[var(--primary-white)] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-24 bg-gradient-to-l from-[var(--primary-white)] to-transparent" />
 
       <div
         className={`flex gap-5 shrink-0 ${animClass}`}
@@ -246,9 +246,9 @@ function MarqueeRow({
 /* ─── Single Card ─── */
 function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }) {
   return (
-    <div className="testimonial-marquee-card group/card relative w-[320px] sm:w-[350px] shrink-0 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 flex flex-col justify-between transition-all duration-300 cursor-default select-none">
+    <div className="testimonial-marquee-card group/card relative w-[320px] sm:w-[350px] shrink-0 rounded-2xl border border-black/8 bg-white p-6 flex flex-col justify-between cursor-default select-none">
       {/* decorative quote */}
-      <div className="absolute top-1 right-3 text-[72px] font-black text-white/[0.04] leading-none font-oswald pointer-events-none select-none">
+      <div className="absolute top-1 right-3 text-[72px] font-black text-[var(--primary-black)]/[0.04] leading-none font-oswald pointer-events-none select-none">
         &ldquo;
       </div>
 
@@ -256,22 +256,24 @@ function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }) {
         <div className="text-[var(--primary-yellow)] text-xs tracking-widest mb-3">
           ★★★★★
         </div>
-        <p className="text-[13.5px] leading-relaxed text-white/80 mb-5 line-clamp-4">
+        <p className="text-[13.5px] leading-relaxed text-[var(--primary-black)]/75 mb-5 line-clamp-4">
           &ldquo;{t.quote}&rdquo;
         </p>
       </div>
 
-      <div className="flex items-center gap-3 border-t border-white/10 pt-4 mt-auto">
+      <div className="flex items-center gap-3 border-t border-black/8 pt-4 mt-auto">
         <img
           src={t.avatar}
           alt={t.name}
-          className="w-9 h-9 rounded-full object-cover ring-2 ring-white/10 transition-all duration-300 group-hover/card:ring-[var(--primary-yellow)]"
+          className="w-9 h-9 rounded-full object-cover ring-2 ring-black/10 transition-all duration-300 group-hover/card:ring-[var(--primary-yellow)]"
         />
         <div className="flex flex-col">
-          <span className="text-[13px] font-bold text-white leading-tight">
+          <span className="text-[13px] font-bold text-[var(--primary-black)] leading-tight">
             {t.name}
           </span>
-          <span className="text-[11px] text-white/45 mt-0.5">{t.role}</span>
+          <span className="text-[11px] text-[var(--primary-black)]/45 mt-0.5">
+            {t.role}
+          </span>
         </div>
       </div>
     </div>
@@ -281,10 +283,10 @@ function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }) {
 /* ─── Main Section ─── */
 export default function Testimonials() {
   return (
-    <section className="relative py-20 sm:py-28 bg-[var(--primary-black)] overflow-hidden">
+    <section className="relative py-20 sm:py-28 bg-[var(--primary-white)] overflow-hidden">
       {/* subtle radial glow behind */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[var(--primary-yellow)]/[0.04] blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[var(--primary-yellow)]/[0.06] blur-[120px]" />
       </div>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 mb-14">
@@ -294,13 +296,13 @@ export default function Testimonials() {
             <span className="text-[var(--primary-yellow)] text-sm font-bold tracking-widest uppercase mb-3 block">
               Success Stories
             </span>
-            <h2 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight text-white leading-[1] font-oswald">
+            <h2 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight text-[var(--primary-black)] leading-[1] font-oswald">
               Real Results From <br className="hidden sm:block" /> Real People
             </h2>
           </div>
           <a
             href="/testimonials"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/30 text-white text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-white hover:text-[var(--primary-black)] group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--primary-black)]/30 text-[var(--primary-black)] text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[var(--primary-black)] hover:text-white group"
           >
             View All Stories
             <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
