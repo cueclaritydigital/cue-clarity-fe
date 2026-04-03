@@ -25,7 +25,7 @@ const SEGMENTS = [
     accentBg: "rgba(41,50,110,0.08)",
     borderColor: "var(--primary-blue)",
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_253mlq253mlq253m_q70txm.webp",
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225983/Gemini_Generated_Image_253mlq253mlq253m_q70txm_dtqkuf.webp",
     imageAlt: "School students studying together in a classroom",
   },
   {
@@ -43,7 +43,7 @@ const SEGMENTS = [
     accentBg: "rgba(217,119,6,0.08)",
     borderColor: "#D97706",
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_dc906idc906idc90_p0bmqv.webp",
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225983/Gemini_Generated_Image_dc906idc906idc90_p0bmqv_r9fiz1.webp",
     imageAlt: "Students celebrating at a graduation ceremony",
   },
   {
@@ -61,7 +61,7 @@ const SEGMENTS = [
     accentBg: "rgba(5,150,105,0.08)",
     borderColor: "#059669",
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_yhj9vtyhj9vtyhj9_q9rpwv.webp",
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225983/Gemini_Generated_Image_yhj9vtyhj9vtyhj9_q9rpwv_da9law.webp",
     imageAlt: "College students collaborating on a group project",
   },
   {
@@ -79,7 +79,7 @@ const SEGMENTS = [
     accentBg: "rgba(109,40,217,0.08)",
     borderColor: "#6D28D9",
     image:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774682158/Gemini_Generated_Image_qqdgy8qqdgy8qqdg_stbvd2.webp",
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225983/Gemini_Generated_Image_qqdgy8qqdgy8qqdg_stbvd2_k5cont.webp",
     imageAlt: "Professionals in a strategic career planning meeting",
   },
 ];

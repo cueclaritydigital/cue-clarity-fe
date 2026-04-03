@@ -1,5 +1,6 @@
 import FadeInView from "@/components/animate/FadeInView";
 import { slideInLeft, slideInRight } from "@/lib/animations/variants";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function FounderSection() {
   return (
@@ -18,7 +19,7 @@ export default function FounderSection() {
               />
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://res.cloudinary.com/dcudnuu04/image/upload/v1775149942/f4dc0f1d-dfb4-4086-a28d-abe1842aae68.JPG_1_la51u1.jpg"
+                  src="https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225982/f4dc0f1d-dfb4-4086-a28d-abe1842aae68.JPG_1_la51u1_mv1a2f.jpg"
                   alt="Founder of CueClarity — career counselling pioneer"
                   width={480}
                   height={600}
@@ -56,15 +57,26 @@ export default function FounderSection() {
               Sunil Kumar Panda
             </h2>
 
-            <p
-              className="type-label mt-2 mb-10"
-              style={{
-                color: "var(--muted-text)",
-                letterSpacing: "var(--tracking-wider)",
-              }}
-            >
-              Founder &amp; Chief Career Strategist, CueClarity
-            </p>
+            <div className="flex items-center gap-4 mt-2 mb-10">
+              <p
+                className="type-label"
+                style={{
+                  color: "var(--muted-text)",
+                  letterSpacing: "var(--tracking-wider)",
+                }}
+              >
+                Founder &amp; Chief Career Strategist, CueClarity
+              </p>
+              <a
+                href="https://www.linkedin.com/in/sunil-kumar-panda-consultant/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sunil Kumar Panda on LinkedIn"
+                className="text-[#0A66C2] hover:opacity-75 transition-opacity duration-200"
+              >
+                <FaLinkedin size={24} />
+              </a>
+            </div>
 
             <blockquote
               className="text-xl sm:text-2xl lg:text-3xl font-medium leading-snug pl-8 lg:pl-10 mb-8"

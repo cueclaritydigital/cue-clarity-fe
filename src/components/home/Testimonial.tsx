@@ -9,7 +9,6 @@ type Testimonial = {
   quote: string;
   name: string;
   role: string;
-  avatar: string;
 };
 
 const ROW_1: Testimonial[] = [
@@ -19,8 +18,6 @@ const ROW_1: Testimonial[] = [
       "After 3 sessions I had a crystal-clear roadmap to pivot from engineering to product management. Landed my dream role in 4 months.",
     name: "Ananya Mehta",
     role: "Software Engineer → PM",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 2,
@@ -28,8 +25,6 @@ const ROW_1: Testimonial[] = [
       "Completely lost after graduation. CueClarity helped me discover UX design as my true path with a concrete step-by-step plan.",
     name: "Kartik Verma",
     role: "B.Com Grad → UX Designer",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 3,
@@ -37,8 +32,6 @@ const ROW_1: Testimonial[] = [
       "The mentorship clarity alone is worth a lifetime of investment. Got the exact roadmap to go from middle management to VP.",
     name: "Julian Banks",
     role: "Manager → VP of Strategy",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 4,
@@ -46,8 +39,6 @@ const ROW_1: Testimonial[] = [
       "As a parent, I was anxious about my son's future. The structured assessment gave both of us real confidence — not vague options.",
     name: "Meera Sharma",
     role: "Parent of Class 10 Student",
-    avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 5,
@@ -55,8 +46,6 @@ const ROW_1: Testimonial[] = [
       "Switched careers after 8 years in finance. CueClarity made it feel possible, not terrifying. Best decision I ever made.",
     name: "Rahul Desai",
     role: "Finance → Data Scientist",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 6,
@@ -64,8 +53,6 @@ const ROW_1: Testimonial[] = [
       "Their psychometric assessment was uncannily accurate. Revealed exactly why my current role drained me and what would make me thrive.",
     name: "Priya Nair",
     role: "Marketing → Founder",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 7,
@@ -73,8 +60,6 @@ const ROW_1: Testimonial[] = [
       "I never thought I could transition to tech at 35. CueClarity showed me which transferable skills I already had. Now I'm a data analyst!",
     name: "Deepak Joshi",
     role: "Teacher → Data Analyst",
-    avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 8,
@@ -82,8 +67,6 @@ const ROW_1: Testimonial[] = [
       "The career clarity session was the best 90 minutes I've ever invested. Within weeks, I had a plan that actually excited me.",
     name: "Isha Patel",
     role: "HR Manager · Career Pivot",
-    avatar:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 9,
@@ -91,8 +74,6 @@ const ROW_1: Testimonial[] = [
       "My daughter was confused between medicine and biotech. One session helped her see the perfect intersection. She's thriving now.",
     name: "Vikram Rao",
     role: "Parent · Hyderabad",
-    avatar:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 10,
@@ -100,8 +81,6 @@ const ROW_1: Testimonial[] = [
       "From burnout to building my own startup — the mentorship framework turned my frustration into a focused business plan.",
     name: "Arjun Sinha",
     role: "Engineer → Founder",
-    avatar:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&h=100&q=80",
   },
 ];
 
@@ -112,8 +91,6 @@ const ROW_2: Testimonial[] = [
       "My parents pushed engineering. One session with CueClarity helped me — and them — see that architecture was my true calling.",
     name: "Sanya Kapoor",
     role: "Class 12 → Architecture",
-    avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 12,
@@ -121,8 +98,6 @@ const ROW_2: Testimonial[] = [
       "The assessment revealed strengths I didn't know I had. Changed the way I saw my own potential and gave me real direction.",
     name: "Neeraj Gupta",
     role: "Class 12 Student · Pune",
-    avatar:
-      "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 13,
@@ -130,8 +105,6 @@ const ROW_2: Testimonial[] = [
       "Went from feeling stuck in a dead-end job to getting promoted twice in one year. The clarity was everything.",
     name: "Aditi Kulkarni",
     role: "Operations → Senior Manager",
-    avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 14,
@@ -139,8 +112,6 @@ const ROW_2: Testimonial[] = [
       "CueClarity doesn't just tell you what to do — they help you understand who you are. That's the difference.",
     name: "Rohan Malhotra",
     role: "MBA Graduate · Consulting",
-    avatar:
-      "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 15,
@@ -148,8 +119,6 @@ const ROW_2: Testimonial[] = [
       "My son was anxious about choosing a stream. After the session he was calm, confident, and excited about his future.",
     name: "Sunita Reddy",
     role: "Parent · Chennai",
-    avatar:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 16,
@@ -157,8 +126,6 @@ const ROW_2: Testimonial[] = [
       "Pivoted from journalism to content strategy with their guidance. The roadmap was so clear I felt like I'd already arrived.",
     name: "Kavya Iyer",
     role: "Journalist → Content Strategist",
-    avatar:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 17,
@@ -166,8 +133,6 @@ const ROW_2: Testimonial[] = [
       "I was torn between abroad studies and staying in India. CueClarity gave me a framework to decide — not just an opinion.",
     name: "Aditya Menon",
     role: "Class 12 → UK University",
-    avatar:
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 18,
@@ -175,8 +140,6 @@ const ROW_2: Testimonial[] = [
       "After 12 years in banking, I thought switching was impossible. CueClarity proved me wrong in one powerful session.",
     name: "Tarun Bhatia",
     role: "Banking → EdTech Lead",
-    avatar:
-      "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 19,
@@ -184,8 +147,6 @@ const ROW_2: Testimonial[] = [
       "The team understood my cultural context perfectly. As a first-gen professional, that sensitivity meant the world to me.",
     name: "Fatima Sheikh",
     role: "First-Gen Professional",
-    avatar:
-      "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?auto=format&fit=crop&w=100&h=100&q=80",
   },
   {
     id: 20,
@@ -193,8 +154,6 @@ const ROW_2: Testimonial[] = [
       "Recommended CueClarity to three friends already. Every single one said it was the most useful conversation they've ever had.",
     name: "Nikhil Varma",
     role: "Product Designer · Bangalore",
-    avatar:
-      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=100&h=100&q=80",
   },
 ];
 
@@ -262,11 +221,6 @@ function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }) {
       </div>
 
       <div className="flex items-center gap-3 border-t border-black/8 pt-4 mt-auto">
-        <img
-          src={t.avatar}
-          alt={t.name}
-          className="w-9 h-9 rounded-full object-cover ring-2 ring-black/10 transition-all duration-300 group-hover/card:ring-[var(--primary-yellow)]"
-        />
         <div className="flex flex-col">
           <span className="text-[13px] font-bold text-[var(--primary-black)] leading-tight">
             {t.name}

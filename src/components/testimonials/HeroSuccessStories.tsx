@@ -109,7 +109,7 @@ export default function HeroSuccessStories() {
         <FadeInView variants={slideInRight} className="relative">
           <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl -rotate-1 hover:rotate-0 transition-transform duration-700">
             <Image
-              src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp"
+              src="https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225983/Gemini_Generated_Image_943jxg943jxg943j_sbdoen_cnpkn9.webp"
               alt="CueClarity students and professionals celebrating career success after mentorship sessions"
               fill
               priority

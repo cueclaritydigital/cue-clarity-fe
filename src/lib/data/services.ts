@@ -128,6 +128,18 @@ export interface DeliverableSection {
   items: { number?: string; title: string; description: string }[];
 }
 
+export interface FlagsSection {
+  type: "flags";
+  eyebrow: string;
+  headline: string;
+  description?: string;
+  countries: {
+    image: string;
+    name: string;
+    tag: string;
+  }[];
+}
+
 export type ServiceSection =
   | HeroSection
   | StatsSection
@@ -139,7 +151,8 @@ export type ServiceSection =
   | CTASection
   | QuestionsSection
   | FrameworkSection
-  | DeliverableSection;
+  | DeliverableSection
+  | FlagsSection;
 
 export interface ServicePageData {
   slug: string;
@@ -188,7 +201,7 @@ const careerCounselling: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775227193/Gemini_Generated_Image_mr74b2mr74b2mr74_k2wn1k.webp",
       eyebrow: "Career Counselling",
       headline: "From Confusion to <em>Clarity</em>",
       description:
@@ -1994,51 +2007,67 @@ const internationalEducation: ServicePageData = {
       ],
     },
 
-    /* ── 3. Cards — study destinations ──────────────────── */
+    /* ── 3. Flags — study destinations ──────────────────── */
     {
-      type: "cards",
+      type: "flags",
       eyebrow: "Top Destinations",
       headline: "Where <em>Your Global Career</em> Can Begin",
       description:
         "We guide students to destinations chosen for academic excellence, post-study career outcomes, and realistic pathways to work and residency.",
-      variant: "bordered",
-      columns: 3,
-      cards: [
+      countries: [
         {
-          icon: "FiMapPin",
-          title: "United Kingdom",
-          description:
-            "World-class research universities, 2-year post-study work visa, and a financial and creative hub that attracts top global employers.",
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235075/gb_r7ivvj.webp",
+          name: "United Kingdom",
+          tag: "2yr Post-Study Visa",
         },
         {
-          icon: "FiMapPin",
-          title: "Canada",
-          description:
-            "Immigration-friendly PGWP pathways, globally ranked institutions, and one of the highest-retention destinations for Indian graduates.",
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235075/ca_ehljov.webp",
+          name: "Canada",
+          tag: "PGWP Pathway",
         },
         {
-          icon: "FiMapPin",
-          title: "Australia",
-          description:
-            "Thriving innovation ecosystem, 2–4 year post-study work rights, and strong permanent residency pathways across multiple industries.",
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235076/au_awyxat.webp",
+          name: "Australia",
+          tag: "2–4yr Work Rights",
         },
         {
-          icon: "FiMapPin",
-          title: "United States",
-          description:
-            "The world's highest density of top-ranked universities, OPT work authorisation, and unmatched access to Silicon Valley and Wall Street careers.",
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235184/us_kxvvse.webp",
+          name: "United States",
+          tag: "OPT Authorisation",
         },
         {
-          icon: "FiMapPin",
-          title: "Germany",
-          description:
-            "Tuition-free education at public universities, a thriving engineering and manufacturing economy, and growing English-taught programme options.",
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235076/de_wahwcy.webp",
+          name: "Germany",
+          tag: "Tuition-Free Options",
         },
         {
-          icon: "FiMapPin",
-          title: "Ireland & Europe",
-          description:
-            "EU residency access, tech-forward economies, and a rapidly growing roster of internationally ranked universities with strong industry links.",
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235075/ie_k6fzio.webp",
+          name: "Ireland",
+          tag: "EU Access",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235075/sg_vifuoa.webp",
+          name: "Singapore",
+          tag: "Asia-Pacific Hub",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235075/nz_xk3y46.webp",
+          name: "New Zealand",
+          tag: "Work & PR Pathways",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775235075/ae_rxxczk.webp",
+          name: "UAE",
+          tag: "Global Business Hub",
         },
       ],
     },
@@ -2690,7 +2719,7 @@ const emotionalWellness: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225412/bt4exptruu2p9rojkvvs_elzbqx.webp",
       eyebrow: "Emotional Wellness",
       headline: "Your Mind Deserves the <em>Same Strategy</em> as Your Career",
       description:
@@ -3100,7 +3129,7 @@ const khudKiKahani: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225412/bt4exptruu2p9rojkvvs_elzbqx.webp",
       eyebrow: "Khud Ki Kahani",
       headline: "Khud Ki Kahani, <em>Khud Likho</em>",
       description:
@@ -3500,7 +3529,7 @@ const industrialTraining: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775150693/Gemini_Generated_Image_lqey7blqey7blqey_klmgdz.png",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225413/uquvgichbcjqntzppayo_dxpefd.webp",
       eyebrow: "Industrial Training",
       headline: "From <em>Learning</em> to Industry-Ready",
       description:
@@ -3878,7 +3907,7 @@ const workforceDevelopment: ServicePageData = {
     {
       type: "hero",
       image:
-        "https://res.cloudinary.com/dcudnuu04/image/upload/v1773931237/Gemini_Generated_Image_943jxg943jxg943j_sbdoen.webp",
+        "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225413/muqhyalzgzqdvb8l2qp0_fg0f9o.webp",
       eyebrow: "Workforce Development",
       headline: "Measure What <em>Truly Matters</em>",
       description:

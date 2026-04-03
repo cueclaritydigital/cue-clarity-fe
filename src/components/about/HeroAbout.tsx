@@ -90,7 +90,7 @@ export default function HeroAbout() {
         <FadeInView variants={slideInRight} className="relative">
           <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
             <img
-              src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773857945/Gemini_Generated_Image_fdp1q8fdp1q8fdp1_fded7r.webp"
+              src="https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225982/Gemini_Generated_Image_fdp1q8fdp1q8fdp1_fded7r_mitxjm.webp"
               alt="CueClarity team in a career counselling workshop with students"
               width={640}
               height={640}

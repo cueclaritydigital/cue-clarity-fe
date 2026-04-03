@@ -69,7 +69,7 @@ export default function QuestionsPanel({
           {/* LEFT — Timeline / Problems */}
           <div className="relative space-y-16 lg:space-y-20 lg:pr-6">
             {/* Vertical line */}
-            <div className="absolute left-6 top-8 bottom-0 w-[2px] bg-black/10" />
+            <div className="absolute left-6 top-8 -bottom-[40px] w-[2px] bg-black/10" />
 
             {section.questions.map((q, i) => {
               const color = ACCENT_COLORS[i % ACCENT_COLORS.length];

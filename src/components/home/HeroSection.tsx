@@ -139,7 +139,7 @@ export default function HeroSection() {
             style={{ boxShadow: "var(--shadow-xl)", animationDelay: "0.3s" }}
           >
             <img
-              src="https://res.cloudinary.com/dcudnuu04/image/upload/v1773932310/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.webp"
+              src="https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225984/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety_eri1bm.webp"
               alt="A mentor guiding a student through career planning"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />

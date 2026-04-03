@@ -10,6 +10,7 @@ import FrameworkGrid from "./FrameworkGrid";
 import Deliverables from "./Deliverables";
 import FAQAccordion from "./FAQAccordion";
 import EditorialCTA from "./EditorialCTA";
+import CountryFlags from "./CountryFlags";
 
 export default function SectionRenderer({
   sections,
@@ -42,6 +43,8 @@ export default function SectionRenderer({
             return <FAQAccordion key={i} section={section} />;
           case "cta":
             return <EditorialCTA key={i} section={section} />;
+          case "flags":
+            return <CountryFlags key={i} section={section} />;
           default:
             return null;
         }
