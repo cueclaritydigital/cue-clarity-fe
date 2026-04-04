@@ -28,11 +28,8 @@ export default function Blog() {
       <Navbar />
       <FeaturedHero />
       {/* ── Main content + sidebar ── */}
-      <section
-        className="section-padding px-4 sm:px-6"
-        style={{ backgroundColor: "var(--primary-white)" }}
-      >
-        <div className="section-container">
+      <section className="py-24 px-4 sm:px-6 bg-[var(--primary-white)]">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-14">
             <PostGrid posts={nonFeatured} />
             <BlogSidebar />

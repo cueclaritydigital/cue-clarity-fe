@@ -13,12 +13,7 @@ export default function PostGrid({ posts }: { posts: BlogPost[] }) {
           <article className="group h-full">
             <Link
               href={`/blog/${post.slug}`}
-              className="flex flex-col h-full overflow-hidden rounded-xl lg:rounded-2xl transition-all duration-300 hover:-translate-y-1"
-              style={{
-                backgroundColor: "var(--surface-card)",
-                border: "1px solid var(--secondary-white)",
-                boxShadow: "var(--shadow-sm)",
-              }}
+              className="flex flex-col h-full overflow-hidden rounded-2xl bg-white/70 backdrop-blur-xl border border-gray-100 shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-gray-200"
             >
               {/* Thumbnail */}
               <div className="aspect-video overflow-hidden">
@@ -35,51 +30,24 @@ export default function PostGrid({ posts }: { posts: BlogPost[] }) {
               {/* Body */}
               <div className="p-5 sm:p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-3 mb-3">
-                  <span
-                    className="type-label"
-                    style={{ color: "var(--primary-yellow)" }}
-                  >
+                  <span className="text-yellow-500 text-xs font-bold tracking-widest uppercase">
                     {post.category}
                   </span>
-                  <span
-                    className="w-1 h-1 rounded-full"
-                    style={{ backgroundColor: "var(--primary-yellow)" }}
-                  />
-                  <span
-                    className="text-xs font-medium"
-                    style={{ color: "var(--muted-text)" }}
-                  >
+                  <span className="w-1 h-1 rounded-full bg-yellow-400" />
+                  <span className="text-xs font-medium text-gray-400">
                     {post.readTime}
                   </span>
                 </div>
 
-                <h3
-                  className="mb-3 group-hover:text-[var(--primary-blue)] transition-colors leading-snug"
-                  style={{
-                    fontFamily: "var(--font-oswald)",
-                    fontWeight: 700,
-                    fontSize: "clamp(1.05rem, 2vw, 1.25rem)",
-                    color: "var(--primary-black)",
-                    textTransform: "uppercase",
-                  }}
-                >
+                <h3 className="heading-font text-blue-950 text-base sm:text-lg leading-snug mb-3 group-hover:text-[var(--primary-blue)] transition-colors">
                   {post.title}
                 </h3>
 
-                <p
-                  className="text-sm line-clamp-3 mb-5 flex-1"
-                  style={{
-                    color: "var(--muted-text)",
-                    lineHeight: "var(--leading-relaxed)",
-                  }}
-                >
+                <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-5 flex-1">
                   {post.excerpt}
                 </p>
 
-                <span
-                  className="inline-flex items-center gap-1.5 font-bold text-sm group-hover:gap-2.5 transition-all"
-                  style={{ color: "var(--primary-blue)" }}
-                >
+                <span className="inline-flex items-center gap-1.5 font-bold text-sm text-blue-950 group-hover:gap-2.5 transition-all">
                   Read More
                   <FiArrowRight size={13} />
                 </span>

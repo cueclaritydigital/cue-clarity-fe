@@ -10,49 +10,30 @@ export default function LatestInsights() {
 
   return (
     <section
-      className="section-padding px-4 sm:px-6"
-      style={{ backgroundColor: "var(--secondary-white)" }}
+      className="py-24 px-4 sm:px-6 bg-gray-50/80"
       aria-labelledby="insights-heading"
     >
-      <div className="section-container">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <FadeInView>
           <div className="flex items-end justify-between gap-6 mb-12">
             <div>
               <div className="flex items-center gap-4 mb-3">
-                <span className="w-12 h-[2px] bg-[var(--primary-yellow)]" />
-                <span
-                  className="type-eyebrow"
-                  style={{
-                    color: "var(--primary-yellow)",
-                    fontSize: "var(--text-base)",
-                  }}
-                >
+                <span className="w-12 h-[2px] bg-yellow-400" />
+                <span className="text-yellow-500 text-base font-bold tracking-widest uppercase">
                   Articles & Insights
                 </span>
               </div>
               <h2
                 id="insights-heading"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 800,
-                  fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                  lineHeight: 0.95,
-                  letterSpacing: "var(--tracking-tight)",
-                  color: "var(--primary-blue)",
-                  textTransform: "uppercase",
-                }}
+                className="heading-font text-[var(--primary-blue)] text-4xl sm:text-5xl lg:text-6xl"
               >
                 Latest from the Blog
               </h2>
             </div>
             <Link
               href="/blog"
-              className="hidden sm:inline-flex items-center gap-2 font-bold shrink-0 hover:gap-3 transition-all duration-200"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--primary-blue)",
-              }}
+              className="hidden sm:inline-flex items-center gap-2 font-bold text-sm text-blue-950 shrink-0 hover:gap-3 transition-all duration-200"
             >
               View All <FiArrowRight size={14} />
             </Link>
@@ -65,11 +46,8 @@ export default function LatestInsights() {
             {/* Featured post */}
             <Link
               href={`/blog/${featured.slug}`}
-              className="group lg:col-span-7 relative rounded-[var(--radius-xl)] overflow-hidden flex flex-col"
-              style={{
-                boxShadow: "var(--shadow-lg)",
-                minHeight: "440px",
-              }}
+              className="group lg:col-span-7 relative rounded-3xl overflow-hidden flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+              style={{ minHeight: "440px" }}
               aria-label={`Read featured article: ${featured.title}`}
             >
               <div className="relative flex-1 min-h-[300px]">
@@ -81,72 +59,36 @@ export default function LatestInsights() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 58vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-black)] via-[var(--primary-black)]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/30 to-transparent" />
 
                 {/* Featured badge */}
                 <div className="absolute top-5 left-5">
-                  <span
-                    className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
-                    style={{
-                      backgroundColor: "var(--primary-yellow)",
-                      color: "var(--primary-black)",
-                    }}
-                  >
+                  <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full bg-yellow-400 text-blue-950">
                     Featured
                   </span>
                 </div>
 
                 {/* Arrow icon on hover */}
                 <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span
-                    className="w-9 h-9 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: "var(--primary-yellow)" }}
-                  >
-                    <FiArrowUpRight
-                      size={16}
-                      style={{ color: "var(--primary-black)" }}
-                    />
+                  <span className="w-9 h-9 rounded-full flex items-center justify-center bg-yellow-400">
+                    <FiArrowUpRight size={16} className="text-blue-950" />
                   </span>
                 </div>
 
                 {/* Text overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <span
-                    className="type-eyebrow mb-2 block"
-                    style={{ color: "var(--primary-yellow)" }}
-                  >
+                  <span className="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2 block">
                     {featured.category}
                   </span>
-                  <h3
-                    className="font-bold text-[var(--primary-white)] leading-snug mb-3"
-                    style={{
-                      fontFamily: "var(--font-oswald)",
-                      fontSize: "clamp(1.3rem, 2.5vw, 1.75rem)",
-                      letterSpacing: "var(--tracking-snug)",
-                      textTransform: "uppercase",
-                    }}
-                  >
+                  <h3 className="heading-font text-white text-xl sm:text-2xl leading-snug mb-3">
                     {featured.title}
                   </h3>
                   <div className="flex items-center gap-3">
-                    <FiClock
-                      size={12}
-                      style={{ color: "rgba(253,251,237,0.5)" }}
-                    />
-                    <span
-                      style={{
-                        fontSize: "var(--text-xs)",
-                        color: "rgba(253,251,237,0.5)",
-                      }}
-                    >
+                    <FiClock size={12} className="text-white/50" />
+                    <span className="text-xs text-white/50">
                       {featured.readTime}
                     </span>
-                    <span
-                      style={{
-                        fontSize: "var(--text-xs)",
-                        color: "rgba(253,251,237,0.3)",
-                      }}
-                    >
+                    <span className="text-xs text-white/30">
                       · {featured.date}
                     </span>
                   </div>
@@ -167,8 +109,7 @@ export default function LatestInsights() {
         <div className="sm:hidden mt-8 text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 font-bold"
-            style={{ fontSize: "var(--text-sm)", color: "var(--primary-blue)" }}
+            className="inline-flex items-center gap-2 font-bold text-sm text-blue-950"
           >
             View All Articles <FiArrowRight size={14} />
           </Link>
@@ -182,8 +123,7 @@ function InsightCard({ post }: { post: (typeof POSTS)[number] }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex items-center gap-4 bg-[var(--surface-card)] rounded-2xl p-4 border border-transparent hover:border-[rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-200"
-      style={{ boxShadow: "var(--shadow-sm)" }}
+      className="group flex items-center gap-4 bg-white/70 backdrop-blur-xl border border-gray-100 rounded-2xl p-4 shadow-[0_4px_16px_rgba(0,0,0,0.04)] hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-200"
       aria-label={`Read: ${post.title}`}
     >
       {/* Thumbnail */}
@@ -200,35 +140,21 @@ function InsightCard({ post }: { post: (typeof POSTS)[number] }) {
 
       {/* Text */}
       <div className="flex-1 min-w-0">
-        <span
-          className="type-eyebrow block mb-1"
-          style={{ color: "var(--primary-yellow)" }}
-        >
+        <span className="text-yellow-500 text-xs font-bold tracking-widest uppercase block mb-1">
           {post.category}
         </span>
-        <p
-          className="font-bold leading-snug line-clamp-2 group-hover:text-[var(--primary-blue)] transition-colors"
-          style={{
-            fontSize: "var(--text-sm)",
-            color: "var(--primary-black)",
-          }}
-        >
+        <p className="font-bold text-sm text-blue-950 leading-snug line-clamp-2 group-hover:text-[var(--primary-blue)] transition-colors">
           {post.title}
         </p>
         <div className="flex items-center gap-2 mt-1.5">
-          <FiClock size={10} style={{ color: "var(--muted-text)" }} />
-          <span
-            style={{ fontSize: "var(--text-xs)", color: "var(--muted-text)" }}
-          >
-            {post.readTime}
-          </span>
+          <FiClock size={10} className="text-gray-400" />
+          <span className="text-xs text-gray-400">{post.readTime}</span>
         </div>
       </div>
 
       <FiArrowUpRight
         size={16}
-        className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-        style={{ color: "var(--primary-blue)" }}
+        className="shrink-0 text-blue-950 opacity-0 group-hover:opacity-100 transition-opacity"
       />
     </Link>
   );

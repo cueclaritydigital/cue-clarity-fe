@@ -557,3 +557,21 @@ body {
   text-transform: uppercase;
   color: var(--primary-black);
 }
+
+/** Hero heading */
+.hero-heading {
+  font-family: var(--font-oswald);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 8vw, 4.5rem);
+  line-height: 0.92;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+}
+
+.heading-font {
+  font-family: var(--font-oswald);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+}

@@ -12,37 +12,27 @@ export default function Deliverables({
   const ref = useRef(null);
 
   return (
-    <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
+    <section className="py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-[1240px] mx-auto">
         {/* HEADER */}
-        <div className="max-w-3xl mb-20">
+        <div className=" mb-20">
           {section.eyebrow && (
-            <span
-              className="type-eyebrow text-[var(--accent-blue)] mb-3 block"
-              style={{ fontSize: "var(--text-base)" }}
-            >
+            <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
               {section.eyebrow}
             </span>
           )}
 
           <h2
-            style={{
-              fontFamily: "var(--font-oswald)",
-              fontWeight: 800,
-              fontSize: "clamp(2.5rem, 6vw, 4rem)",
-              textTransform: "uppercase",
-              letterSpacing: "var(--tracking-tight)",
-              color: "var(--primary-black)",
-            }}
+            className="heading-font text-4xl sm:text-5xl lg:text-7xl text-[var(--primary-blue)]"
             dangerouslySetInnerHTML={{
               __html: section.headline.replace(
                 /<em>(.*?)<\/em>/g,
-                '<span style="color:var(--primary-yellow)">$1</span>',
+                '<span style="color:#ffc114">$1</span>',
               ),
             }}
           />
 
-          <p className="mt-6 text-lg text-[var(--muted-text)] leading-relaxed">
+          <p className="mt-6 text-lg text-gray-500 leading-relaxed">
             These aren’t just outputs. These are the tools, clarity, and
             direction you’ll carry forward long after the session ends.
           </p>
@@ -53,31 +43,24 @@ export default function Deliverables({
           {/* LEFT — STICKY */}
           <div className="hidden lg:block">
             <div className="sticky top-28 space-y-6">
-              <p className="text-xs uppercase tracking-widest text-[var(--accent-blue)]">
+              <p className="text-xs uppercase tracking-widest text-blue-700">
                 Your Outcome
               </p>
 
-              <h3
-                className="text-3xl leading-tight"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 800,
-                  letterSpacing: "var(--tracking-tight)",
-                }}
-              >
-                You don’t leave with advice.
+              <h3 className="font-oswald font-extrabold text-3xl uppercase tracking-tight text-blue-950 leading-tight">
+                You don't leave with advice.
                 <br />
-                <span className="text-[var(--primary-yellow)]">
+                <span style={{ color: "#ffc114" }}>
                   You leave with clarity.
                 </span>
               </h3>
 
-              <p className="text-[var(--muted-text)] leading-relaxed">
+              <p className="text-gray-500 leading-relaxed">
                 Everything you receive is designed to help you make confident,
                 informed decisions — not guesses.
               </p>
 
-              <div className="w-16 h-[3px] bg-[var(--primary-yellow)]" />
+              <div className="w-16 h-[3px] bg-yellow-400" />
 
               <div className="space-y-4">
                 <p className="italic opacity-80">
@@ -99,30 +82,23 @@ export default function Deliverables({
                   className="group will-change-transform transition-all duration-500"
                 >
                   {/* Label */}
-                  <p className="text-xs uppercase tracking-widest text-[var(--accent-blue)] mb-3">
-                    Deliverable {String(i + 1).padStart(2, "0")}
+                  <p className="text-xs uppercase tracking-widest text-blue-700 mb-3">
+                    Deliverable {String(i + 1).padStart(2, "00")}
                   </p>
 
                   {/* Title */}
-                  <h3
-                    className="text-2xl lg:text-3xl mb-4 transition-all duration-300 group-hover:translate-x-1"
-                    style={{
-                      fontFamily: "var(--font-oswald)",
-                      fontWeight: 700,
-                      letterSpacing: "var(--tracking-tight)",
-                    }}
-                  >
+                  <h3 className="font-oswald font-bold text-2xl lg:text-3xl uppercase tracking-tight text-blue-950 mb-4 transition-all duration-300 group-hover:translate-x-1">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-base text-[var(--muted-text)] leading-relaxed max-w-xl">
+                  <p className="text-base text-gray-500 leading-relaxed max-w-xl">
                     {item.description}
                   </p>
 
                   {/* Line */}
                   <motion.div
-                    className="mt-6 h-[2px] bg-[var(--primary-yellow)]"
+                    className="mt-6 h-[2px] bg-yellow-400"
                     initial={{ width: 40 }}
                     whileHover={{ width: 80 }}
                     transition={{ duration: 0.25 }}

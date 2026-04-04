@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import Navbar from "@/components/common/Navbar";
 import HeroAbout from "@/components/about/HeroAbout";
 import FounderSection from "@/components/about/FounderSection";
-import JourneyTimeline from "@/components/about/JourneyTimeline";
-import MissionSection from "@/components/about/MissionSection";
+import OurStory from "@/components/about/OurStory";
+import ExpertiseValues from "@/components/about/ExpertiseValues";
+import DecisionEcosystem from "@/components/about/DecisionEcosystem";
+import PromiseSection from "@/components/about/PromiseSection";
+import MissionVision from "@/components/about/MissionVision";
+import WhoWeServe from "@/components/about/WhoWeServe";
+import BuildLives from "@/components/about/BuildLives";
 import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
 
@@ -25,9 +30,14 @@ export default function About() {
     <>
       <Navbar />
       <HeroAbout />
+      <OurStory />
       <FounderSection />
-      <JourneyTimeline />
-      <MissionSection />
+      <ExpertiseValues />
+      <DecisionEcosystem />
+      <PromiseSection />
+      <MissionVision />
+      <WhoWeServe />
+      <BuildLives />
       <ContactSection />
       <Footer />
     </>

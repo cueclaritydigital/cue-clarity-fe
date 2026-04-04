@@ -207,27 +207,25 @@ function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }) {
   return (
     <div className="testimonial-marquee-card group/card relative w-[320px] sm:w-[350px] shrink-0 rounded-2xl border border-black/8 bg-white p-6 flex flex-col justify-between cursor-default select-none">
       {/* decorative quote */}
-      <div className="absolute top-1 right-3 text-[72px] font-black text-[var(--primary-black)]/[0.04] leading-none font-oswald pointer-events-none select-none">
+      <div className="absolute top-1 right-3 text-[72px] font-black text-blue-950/[0.04] leading-none font-oswald pointer-events-none select-none">
         &ldquo;
       </div>
 
       <div>
-        <div className="text-[var(--primary-yellow)] text-xs tracking-widest mb-3">
+        <div className="text-yellow-500 text-xs tracking-widest mb-3">
           ★★★★★
         </div>
-        <p className="text-[13.5px] leading-relaxed text-[var(--primary-black)]/75 mb-5 line-clamp-4">
+        <p className="text-[13.5px] leading-relaxed text-blue-950/75 mb-5 line-clamp-4">
           &ldquo;{t.quote}&rdquo;
         </p>
       </div>
 
-      <div className="flex items-center gap-3 border-t border-black/8 pt-4 mt-auto">
+      <div className="flex items-center gap-3 border-t border-gray-100 pt-4 mt-auto">
         <div className="flex flex-col">
-          <span className="text-[13px] font-bold text-[var(--primary-black)] leading-tight">
+          <span className="text-[13px] font-bold text-blue-950 leading-tight">
             {t.name}
           </span>
-          <span className="text-[11px] text-[var(--primary-black)]/45 mt-0.5">
-            {t.role}
-          </span>
+          <span className="text-[11px] text-gray-400 mt-0.5">{t.role}</span>
         </div>
       </div>
     </div>
@@ -240,23 +238,23 @@ export default function Testimonials() {
     <section className="relative py-20 sm:py-28 bg-[var(--primary-white)] overflow-hidden">
       {/* subtle radial glow behind */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-[var(--primary-yellow)]/[0.06] blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full bg-yellow-400/[0.06] blur-[120px]" />
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 mb-14">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-14">
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 animate-fade-in-up">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
-            <span className="text-[var(--primary-yellow)] text-sm font-bold tracking-widest uppercase mb-3 block">
+            <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">
               Success Stories
             </span>
-            <h2 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight text-[var(--primary-black)] leading-[1] font-oswald">
+            <h2 className="heading-font text-[var(--primary-blue)] text-4xl sm:text-5xl">
               Real Results From <br className="hidden sm:block" /> Real People
             </h2>
           </div>
           <a
             href="/testimonials"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--primary-black)]/30 text-[var(--primary-black)] text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[var(--primary-black)] hover:text-white group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-blue-950/30 text-blue-950 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-blue-950 hover:text-white group"
           >
             View All Stories
             <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />

@@ -8,23 +8,19 @@ import { METRICS } from "@/lib/data/success-stories";
 
 export default function HeroSuccessStories() {
   return (
-    <section className="relative section-padding px-4 sm:px-6 bg-[var(--primary-white)] overflow-hidden">
-      {/* Ambient blob */}
-      <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-[var(--blob-glow)] opacity-[0.07] blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--primary-yellow)] opacity-[0.04] blur-[100px] rounded-full pointer-events-none" />
+    <section className="relative py-28 px-4 sm:px-6 bg-[var(--primary-white)] overflow-hidden">
+      {/* Background glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-80px] right-[-60px] w-[550px] h-[550px] bg-yellow-200/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-40px] left-[-40px] w-[400px] h-[400px] bg-blue-200/15 blur-[120px] rounded-full" />
+      </div>
 
-      <div className="section-container relative z-10 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div className="relative max-w-6xl mx-auto z-10 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         {/* ── Text column ── */}
         <FadeInView>
           <div className="flex items-center gap-4 mb-8">
-            <span className="w-16 h-[2px] bg-[var(--primary-yellow)]" />
-            <span
-              className="type-eyebrow"
-              style={{
-                color: "var(--primary-yellow)",
-                fontSize: "var(--text-base)",
-              }}
-            >
+            <span className="w-14 h-[2px] bg-yellow-500" />
+            <span className="text-yellow-500 text-base font-bold tracking-widest uppercase">
               Verified Transformations
             </span>
           </div>
@@ -40,18 +36,12 @@ export default function HeroSuccessStories() {
               textTransform: "uppercase",
             }}
           >
-            Real Results
+            Real Results,
             <br />
             <span style={{ color: "var(--primary-yellow)" }}>Real People.</span>
           </h1>
 
-          <p
-            className="type-lead mt-8 max-w-lg"
-            style={{
-              color: "var(--muted-text)",
-              lineHeight: "var(--leading-relaxed)",
-            }}
-          >
+          <p className="mt-8 max-w-lg text-lg text-gray-500 leading-relaxed">
             Every story here started with confusion and ended with clarity. Read
             how CueClarity has guided students, parents, and professionals to
             careers they love — backed by science, delivered with empathy.
@@ -63,14 +53,14 @@ export default function HeroSuccessStories() {
               href={getWhatsAppURL("general", "success-stories-hero")}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-whatsapp text-sm px-7 py-3.5 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-xl bg-green-600 text-white hover:bg-green-700 transition-colors duration-300 w-full sm:w-auto"
             >
               <FaWhatsapp className="w-4 h-4" aria-hidden="true" />
               Start Your Journey
             </a>
             <Link
               href="/services"
-              className="btn-outline text-sm px-7 py-3.5 w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center text-sm font-semibold px-7 py-3.5 rounded-xl border-2 border-blue-950 text-blue-950 hover:bg-blue-950 hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
               Explore Services →
             </Link>
@@ -81,23 +71,12 @@ export default function HeroSuccessStories() {
             {METRICS.map((m) => (
               <div
                 key={m.label}
-                className="flex flex-col px-4 py-4 rounded-2xl"
-                style={{ backgroundColor: "var(--secondary-white)" }}
+                className="flex flex-col px-4 py-4 rounded-2xl bg-gray-50/80 border border-gray-100"
               >
-                <span
-                  className="font-extrabold leading-none"
-                  style={{
-                    fontFamily: "var(--font-oswald)",
-                    fontSize: "clamp(1.3rem, 3vw, 1.75rem)",
-                    color: "var(--primary-blue)",
-                  }}
-                >
+                <span className="text-2xl font-extrabold tracking-tight text-blue-950 leading-none">
                   {m.value}
                 </span>
-                <span
-                  className="text-[11px] font-medium mt-1 leading-snug"
-                  style={{ color: "var(--muted-text)" }}
-                >
+                <span className="text-[11px] font-medium mt-1.5 leading-snug text-gray-500">
                   {m.label}
                 </span>
               </div>
@@ -107,7 +86,7 @@ export default function HeroSuccessStories() {
 
         {/* ── Image column ── */}
         <FadeInView variants={slideInRight} className="relative">
-          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl -rotate-1 hover:rotate-0 transition-transform duration-700">
+          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] -rotate-1 hover:rotate-0 transition-transform duration-700">
             <Image
               src="https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225983/Gemini_Generated_Image_943jxg943jxg943j_sbdoen_cnpkn9.webp"
               alt="CueClarity students and professionals celebrating career success after mentorship sessions"
@@ -116,49 +95,24 @@ export default function HeroSuccessStories() {
               className="object-cover scale-105 hover:scale-100 transition-transform duration-700"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            {/* Gradient overlay for text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-black)]/50 to-transparent" />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/60 to-transparent" />
 
             {/* Floating trust badge */}
-            <div
-              className="absolute bottom-8 left-8 right-8 p-5 rounded-2xl backdrop-blur-md"
-              style={{
-                background: "rgba(12,21,24,0.55)",
-                border: "1px solid rgba(255,193,20,0.2)",
-              }}
-            >
-              <p
-                className="text-[var(--primary-white)] font-bold leading-snug"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontSize: "var(--text-lg)",
-                  letterSpacing: "var(--tracking-snug)",
-                  textTransform: "uppercase",
-                }}
-              >
+            <div className="absolute bottom-8 left-8 right-8 p-5 rounded-2xl backdrop-blur-md bg-blue-950/60 border border-yellow-400/20">
+              <p className="text-white font-bold text-lg leading-snug tracking-tight">
                 Realistic Guidance.
                 <br />
-                <span style={{ color: "var(--primary-yellow)" }}>
-                  Realistic Outcomes.
-                </span>
+                <span className="text-yellow-400">Realistic Outcomes.</span>
               </p>
-              <p
-                className="mt-2"
-                style={{
-                  color: "rgba(253,251,237,0.6)",
-                  fontSize: "var(--text-xs)",
-                }}
-              >
+              <p className="mt-2 text-xs text-white/50">
                 Every session is personalised — no templates, no guesswork.
               </p>
             </div>
           </div>
 
           {/* Decorative accent block */}
-          <div
-            className="absolute -bottom-8 -right-8 w-44 h-44 rounded-3xl rotate-6 -z-10 opacity-20"
-            style={{ backgroundColor: "var(--primary-yellow)" }}
-          />
+          <div className="absolute -bottom-8 -right-8 w-44 h-44 rounded-3xl rotate-6 -z-10 bg-yellow-400/20" />
         </FadeInView>
       </div>
     </section>

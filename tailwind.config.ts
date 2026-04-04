@@ -10,7 +10,11 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        oswald: ["var(--font-oswald)", "system-ui", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

@@ -7,7 +7,7 @@ import { fadeUp } from "@/lib/animations/variants";
 import { CountUpValue } from "@/components/home/CountUpValue";
 
 const STAT_ACCENTS = [
-  { accent: "var(--primary-blue)", bg: "rgba(41,50,110,0.07)" },
+  { accent: "#29326e", bg: "rgba(41,50,110,0.07)" },
   { accent: "#059669", bg: "rgba(5,150,105,0.07)" },
   { accent: "#D97706", bg: "rgba(217,119,6,0.07)" },
   { accent: "#6D28D9", bg: "rgba(109,40,217,0.07)" },
@@ -17,40 +17,29 @@ export default function StatsRow({ section }: { section: StatsSection }) {
   const hasHeader = section.eyebrow || section.headline;
 
   return (
-    <section className="section-padding px-4 sm:px-6 bg-[var(--secondary-white)]">
+    <section className="py-24 px-4 sm:px-6 bg-gray-50">
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         {hasHeader && (
           <FadeInView className="mb-12 lg:mb-16 text-center">
             {section.eyebrow && (
-              <span
-                className="type-eyebrow text-[var(--accent-blue)] mb-3 block"
-                style={{ fontSize: "var(--text-base)" }}
-              >
+              <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
                 {section.eyebrow}
               </span>
             )}
             {section.headline && (
               <h2
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 800,
-                  fontSize: "clamp(2.25rem, 6vw, 3.5rem)",
-                  lineHeight: 1,
-                  letterSpacing: "var(--tracking-tight)",
-                  color: "var(--primary-black)",
-                  textTransform: "uppercase",
-                }}
+                className="heading-font text-4xl sm:text-5xl lg:text-6xl text-[var(--primary-blue)]"
                 dangerouslySetInnerHTML={{
                   __html: section.headline.replace(
                     /<em>(.*?)<\/em>/g,
-                    '<span style="color:var(--primary-yellow)">$1</span>',
+                    '<span style="color:#ffc114">$1</span>',
                   ),
                 }}
               />
             )}
             {section.description && (
-              <p className="type-lead mt-4 text-[var(--muted-text)] max-w-2xl mx-auto">
+              <p className="text-lg mt-4 text-gray-500 max-w-2xl mx-auto leading-relaxed">
                 {section.description}
               </p>
             )}
@@ -73,24 +62,15 @@ export default function StatsRow({ section }: { section: StatsSection }) {
               <FadeInView
                 key={i}
                 variants={fadeUp}
-                className="group bg-white flex flex-col gap-3 p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-transparent hover:border-[rgba(0,0,0,0.06)] text-center"
-                style={{ boxShadow: "var(--shadow-md)" }}
+                className="group bg-white flex flex-col gap-3 p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-transparent hover:border-gray-200 text-center shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
               >
                 <p
-                  className="font-extrabold leading-none"
-                  style={{
-                    fontFamily: "var(--font-oswald)",
-                    fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                    color: color.accent,
-                    letterSpacing: "var(--tracking-tight)",
-                  }}
+                  className="font-oswald font-extrabold leading-none text-4xl lg:text-5xl"
+                  style={{ color: color.accent }}
                 >
                   <CountUpValue value={stat.value + (stat.suffix ?? "")} />
                 </p>
-                <p
-                  className="font-bold text-[var(--primary-black)] leading-snug"
-                  style={{ fontSize: "var(--text-sm)" }}
-                >
+                <p className="font-bold text-blue-950 leading-snug text-sm">
                   {stat.label}
                 </p>
               </FadeInView>

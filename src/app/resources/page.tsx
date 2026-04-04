@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Navbar from "@/components/common/Navbar";
 import HeroResources from "@/components/resources/HeroResources";
 import LatestInsights from "@/components/resources/LatestInsights";
-import EbooksSection from "@/components/resources/EbooksSection";
 import VideoInsights from "@/components/resources/VideoInsights";
 import GallerySection from "@/components/resources/GallerySection";
 import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
-import { EBOOKS, RESOURCE_VIDEOS } from "@/lib/data/resources";
+import { RESOURCE_VIDEOS } from "@/lib/data/resources";
 
 /* ── SEO Metadata ─────────────────────────────────────────────────── */
 const BASE_URL = "https://cueclarity.com";
@@ -103,44 +102,18 @@ const collectionPageSchema = {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Free Career E-books & Guides",
-        url: `${BASE_URL}/resources#ebooks`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
         name: "Career Counselling Videos",
         url: `${BASE_URL}/resources#videos`,
       },
       {
         "@type": "ListItem",
-        position: 4,
+        position: 3,
         name: "Counselling Gallery",
         url: `${BASE_URL}/resources#gallery`,
       },
     ],
   },
 };
-
-const ebookSchemas = EBOOKS.map((book) => ({
-  "@context": "https://schema.org",
-  "@type": "Book",
-  name: book.title,
-  description: book.description,
-  author: {
-    "@type": "Organization",
-    name: "CueClarity",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "CueClarity",
-    url: BASE_URL,
-  },
-  inLanguage: "en",
-  isAccessibleForFree: true,
-  genre: "Career Counselling",
-  bookEdition: book.edition,
-}));
 
 const videoSchemas = RESOURCE_VIDEOS.map((video) => ({
   "@context": "https://schema.org",
@@ -192,7 +165,6 @@ export default function ResourcesPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
             collectionPageSchema,
-            ...ebookSchemas,
             ...videoSchemas,
             breadcrumbSchema,
           ]),
@@ -203,7 +175,6 @@ export default function ResourcesPage() {
       <main>
         <HeroResources />
         <LatestInsights />
-        <EbooksSection />
         <VideoInsights />
         <GallerySection />
         <ContactSection />

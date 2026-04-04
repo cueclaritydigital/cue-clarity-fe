@@ -19,45 +19,31 @@ export default function QuestionsPanel({
   section: QuestionsSection;
 }) {
   return (
-    <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)] relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 bg-white relative overflow-hidden">
       <div className="max-w-[1240px] mx-auto relative z-10">
         {/* Header */}
         {(section.eyebrow || section.headline) && (
           <FadeInView className="mb-12 lg:mb-16">
             {section.eyebrow && (
-              <span
-                className="type-eyebrow mb-3 block"
-                style={{
-                  fontSize: "var(--text-base)",
-                  color: "var(--accent-blue)",
-                }}
-              >
+              <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
                 {section.eyebrow}
               </span>
             )}
 
             {section.headline && (
               <h2
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 800,
-                  fontSize: "clamp(2.25rem, 6vw, 3.5rem)",
-                  lineHeight: 1,
-                  letterSpacing: "var(--tracking-tight)",
-                  color: "var(--primary-black)",
-                  textTransform: "uppercase",
-                }}
+                className="heading-font text-4xl sm:text-5xl lg:text-6xl text-[var(--primary-blue)]"
                 dangerouslySetInnerHTML={{
                   __html: section.headline.replace(
                     /<em>(.*?)<\/em>/g,
-                    '<span style="color:var(--primary-yellow)">$1</span>',
+                    '<span style="color:#ffc114">$1</span>',
                   ),
                 }}
               />
             )}
 
             {section.description && (
-              <p className="type-lead mt-4 text-[var(--muted-text)] max-w-2xl">
+              <p className="text-lg mt-4 text-gray-500 max-w-2xl leading-relaxed">
                 {section.description}
               </p>
             )}
@@ -97,18 +83,12 @@ export default function QuestionsPanel({
 
                   {/* Content */}
                   <div className="flex-1 max-w-xl">
-                    <p
-                      className="text-xl lg:text-2xl leading-snug font-semibold text-[var(--primary-black)]"
-                      style={{
-                        fontFamily: "var(--font-oswald)",
-                        letterSpacing: "var(--tracking-tight)",
-                      }}
-                    >
+                    <p className="font-oswald font-semibold text-xl lg:text-2xl leading-snug tracking-tight text-blue-950">
                       {q.text}
                     </p>
 
                     {/* Accent divider */}
-                    <div className="mt-4 h-[2px] w-12 bg-[var(--primary-yellow)] opacity-60 group-hover:w-20 transition-all duration-300" />
+                    <div className="mt-4 h-[2px] w-12 bg-yellow-400 opacity-60 group-hover:w-20 transition-all duration-300" />
                   </div>
                 </FadeInView>
               );
@@ -119,51 +99,38 @@ export default function QuestionsPanel({
           <div className="hidden lg:block">
             <div className="sticky top-24 pl-10 border-l border-black/10">
               {/* Label */}
-              <p className="text-xs tracking-widest uppercase text-[var(--accent-blue)] mb-4">
+              <p className="text-xs tracking-widest uppercase text-blue-700 mb-4">
                 Your Turning Point
               </p>
 
               {/* Main Heading */}
-              <h3
-                className="mb-6"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 800,
-                  fontSize: "2rem",
-                  lineHeight: 1.2,
-                  letterSpacing: "var(--tracking-tight)",
-                  color: "var(--primary-black)",
-                  textTransform: "uppercase",
-                }}
-              >
-                This isn’t confusion. <br />
-                <span style={{ color: "var(--primary-yellow)" }}>
-                  It’s lack of clarity.
-                </span>
+              <h3 className="font-oswald font-extrabold text-3xl uppercase tracking-tight text-blue-950 leading-snug mb-6">
+                This isn't confusion. <br />
+                <span style={{ color: "#ffc114" }}>It’s lack of clarity.</span>
               </h3>
 
               {/* Description */}
-              <p className="text-base leading-relaxed text-[var(--muted-text)] mb-8">
+              <p className="text-base leading-relaxed text-gray-500 mb-8">
                 You were never taught how to understand yourself — your
                 strengths, your direction, your identity. That’s where we come
                 in.
               </p>
 
               {/* Divider */}
-              <div className="w-16 h-[3px] bg-[var(--primary-yellow)] mb-8" />
+              <div className="w-16 h-[3px] bg-yellow-400 mb-8" />
 
               {/* Quotes */}
               <div className="space-y-6">
-                <p className="text-lg italic opacity-80 border-l-4 border-[var(--primary-blue)] pl-4">
-                  “Your story isn’t missing — it’s just waiting to be
-                  understood.”
+                <p className="text-lg italic opacity-80 border-l-4 border-blue-950 pl-4">
+                  "Your story isn't missing — it's just waiting to be
+                  understood."
                 </p>
 
-                <p className="text-lg italic opacity-80 border-l-4 border-[var(--primary-blue)] pl-4">
-                  “You don’t need more options. You need direction.”
+                <p className="text-lg italic opacity-80 border-l-4 border-blue-950 pl-4">
+                  "You don't need more options. You need direction."
                 </p>
 
-                <p className="text-lg italic opacity-80 border-l-4 border-[var(--primary-blue)] pl-4">
+                <p className="text-lg italic opacity-80 border-l-4 border-blue-950 pl-4">
                   “Once you understand yourself, decisions become easy.”
                 </p>
               </div>

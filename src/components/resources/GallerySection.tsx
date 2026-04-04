@@ -8,55 +8,34 @@ export default function GallerySection() {
   return (
     <section
       id="gallery"
-      className="section-padding px-4 sm:px-6 relative overflow-hidden"
-      style={{ backgroundColor: "var(--primary-black)" }}
+      className="py-24 px-4 sm:px-6 relative overflow-hidden bg-[var(--primary-white)]"
       aria-labelledby="gallery-heading"
     >
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-[0.06] blur-[120px] pointer-events-none bg-[var(--primary-yellow)]" />
+      {/* Ambient glows */}
+      <div className="absolute -top-20 right-0 w-[500px] h-[500px] bg-blue-200/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-yellow-200/15 blur-[120px] pointer-events-none" />
 
-      <div className="section-container relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <FadeInView>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <span className="w-8 h-[2px] bg-[var(--primary-yellow)]" />
-                <span
-                  className="type-eyebrow"
-                  style={{
-                    color: "var(--primary-yellow)",
-                    fontSize: "var(--text-base)",
-                  }}
-                >
+                <span className="w-8 h-[2px] bg-yellow-400" />
+                <span className="text-yellow-500 text-base font-bold tracking-widest uppercase">
                   In the Field
                 </span>
               </div>
               <h2
                 id="gallery-heading"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontWeight: 800,
-                  fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-                  lineHeight: 0.95,
-                  letterSpacing: "var(--tracking-tight)",
-                  color: "var(--primary-white)",
-                  textTransform: "uppercase",
-                }}
+                className="heading-font text-[var(--primary-blue)] text-4xl sm:text-5xl lg:text-6xl"
               >
                 Counselling in
                 <br />
-                <span style={{ color: "var(--primary-yellow)" }}>Action</span>
+                <span className="text-yellow-500">Action</span>
               </h2>
             </div>
-            <p
-              className="max-w-xs sm:text-right"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "rgba(253,251,237,0.55)",
-                lineHeight: "var(--leading-relaxed)",
-              }}
-            >
+            <p className="max-w-xs sm:text-right text-sm text-gray-500 leading-relaxed">
               Real sessions, real workshops, real moments of clarity — a glimpse
               into how CueClarity works.
             </p>
@@ -95,7 +74,7 @@ function GalleryCard({
   priority?: boolean;
 }) {
   return (
-    <div className="group relative w-full h-full overflow-hidden rounded-[var(--radius-lg)]">
+    <div className="group relative w-full h-full overflow-hidden rounded-2xl">
       <Image
         src={image.src}
         alt={image.alt}
@@ -110,15 +89,7 @@ function GalleryCard({
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Caption */}
-      <p
-        className="absolute bottom-0 left-0 right-0 px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500"
-        style={{
-          fontSize: "var(--text-xs)",
-          color: "rgba(255,255,255,0.9)",
-          lineHeight: "var(--leading-snug)",
-          fontWeight: 600,
-        }}
-      >
+      <p className="absolute bottom-0 left-0 right-0 px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-xs text-white/90 font-semibold leading-snug">
         {image.alt}
       </p>
     </div>

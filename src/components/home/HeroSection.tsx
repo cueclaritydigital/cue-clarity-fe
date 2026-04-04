@@ -15,11 +15,8 @@ import "./HeroSection.css";
 
 export default function HeroSection() {
   return (
-    <div
-      className="overflow-x-hidden"
-      style={{ backgroundColor: "var(--primary-white)" }}
-    >
-      {/* ── HERO SECTION ───────────────────────────────────────────── */}
+    <div className="overflow-x-hidden bg-[var(--primary-white)]">
+      {/* ── HERO SECTION ── */}
       <section className="relative hero-gradient pt-24 pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 z-0 overflow-hidden">
         {/* Subtle radial glow */}
         <div
@@ -30,47 +27,29 @@ export default function HeroSection() {
           }}
         />
 
-        {/* ── DESKTOP: side-by-side  |  MOBILE: stacked ── */}
-        <div className="relative z-10 max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 ">
           {/* LEFT: HERO TEXT */}
-          <div className="flex flex-col items-center lg:items-start gap-6 lg:gap-7 text-center lg:text-left font-md">
-            {/* Eyebrow label */}
-            <div className="trust-pill text-lg hero-animate-scale-in">
+          <div className="flex flex-col items-center lg:items-start gap-6 lg:gap-7 text-center lg:text-left hero-animate-scale-in">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-sm font-bold tracking-widest uppercase">
               Expert Career Counselling
             </div>
 
             {/* H1 */}
             <h1
-              className="text-white drop-shadow-sm font-extrabold uppercase leading-[1.08] hero-animate-headline"
-              style={{
-                fontFamily: "var(--font-oswald)",
-                fontSize: "clamp(2.75rem, 7vw, 3.4rem)",
-                letterSpacing: "var(--tracking-tight)",
-              }}
+              className="heading-font text-white hero-animate-headline"
+              style={{ fontSize: "clamp(2.75rem, 7vw, 4.2rem)" }}
             >
               Discover your Strength <br />
-              <span
-                className="inline-block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #FFD25A 0%, #FFC114 50%, #FFA040 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400">
                 Design Your Career.
               </span>
             </h1>
 
             {/* Lead paragraph */}
             <p
-              className="type-lead max-w-lg px-2 lg:px-0 hero-animate-fade-up"
-              style={{
-                color: "rgba(255,255,255,0.88)",
-                fontSize: "clamp(1.05rem, 2.5vw, 1.25rem)",
-                animationDelay: "0.2s",
-              }}
+              className="text-lg text-white/85 max-w-lg leading-relaxed hero-animate-fade-up"
+              style={{ animationDelay: "0.2s" }}
             >
               Make confident career decisions with science-backed assessments,
               expert mentoring, and a personalised roadmap designed just for
@@ -86,14 +65,14 @@ export default function HeroSection() {
                 href={getWhatsAppURL("general", "hero")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-whatsapp text-base lg:text-sm px-8 py-4 lg:py-3 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-950 px-8 py-4 lg:py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-yellow-300 transition-all duration-200 hover:-translate-y-px shadow-[0_6px_24px_rgba(255,193,20,0.4)] w-full sm:w-auto"
               >
-                <FaWhatsapp size={20} />
+                <FaWhatsapp size={18} />
                 Chat With Us — It&apos;s Free
               </a>
               <Link
                 href="/services"
-                className="btn-outline text-base lg:text-sm px-8 py-4 lg:py-3 w-full sm:w-auto text-center"
+                className="inline-flex items-center justify-center gap-2 bg-transparent text-white px-8 py-4 lg:py-3.5 rounded-full font-semibold text-sm border-[1.5px] border-white/60 hover:bg-white/10 hover:border-white transition-all duration-200 w-full sm:w-auto text-center"
               >
                 Explore Services →
               </Link>
@@ -104,16 +83,16 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mt-3 hero-animate-fade-up"
               style={{ animationDelay: "0.5s" }}
             >
-              <span className="text-[var(--primary-black)]/50 text-[10px] uppercase tracking-[0.15em] shrink-0">
+              <span className="text-white/40 text-[10px] uppercase tracking-[0.15em] shrink-0">
                 Quick links
               </span>
-              <div className="w-px h-3 bg-[var(--primary-black)]/20 hidden sm:block" />
+              <div className="w-px h-3 bg-white/20 hidden sm:block" />
               <div className="flex items-center gap-2">
                 <a
                   href="https://cueclarity.edumilestones.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--secondary-white)] "
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-950 hover:text-blue-800 bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-amber-50"
                 >
                   <FiBriefcase size={12} />
                   Career Assessment
@@ -123,7 +102,7 @@ export default function HeroSection() {
                   href="https://cueclarity.edumilestones.com/abroad-studies/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--primary-black)] hover:text-[var(--primary-blue)] bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-[var(--secondary-white)] "
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-950 hover:text-blue-800 bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-amber-50"
                 >
                   <FiGlobe size={12} />
                   Study Abroad
@@ -135,54 +114,30 @@ export default function HeroSection() {
 
           {/* RIGHT: HERO IMAGE CARD (desktop) */}
           <div
-            className="relative overflow-hidden rounded-2xl lg:rounded-3xl w-full aspect-[4/3] lg:aspect-[3/4] lg:max-h-[580px] hero-animate-fade-up"
-            style={{ boxShadow: "var(--shadow-xl)", animationDelay: "0.3s" }}
+            className="relative overflow-hidden rounded-2xl lg:rounded-3xl w-full aspect-[4/3] lg:aspect-[3/4] lg:max-h-[580px] hero-animate-fade-up shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+            style={{ animationDelay: "0.3s" }}
           >
             <img
               src="https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225984/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety_eri1bm.webp"
               alt="A mentor guiding a student through career planning"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-[var(--primary-black)]/30" />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(12,21,24,0.85) 0%, rgba(12,21,24,0.25) 45%, transparent 70%)",
-              }}
-            />
+            <div className="absolute inset-0 bg-blue-950/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/85 via-blue-950/25 to-transparent" />
 
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-              <h3
-                className="font-extrabold uppercase text-white leading-tight mb-2"
-                style={{
-                  fontFamily: "var(--font-oswald)",
-                  fontSize: "clamp(1.4rem, 3vw, 2rem)",
-                  letterSpacing: "var(--tracking-tight)",
-                }}
-              >
+              <h3 className="font-oswald font-extrabold uppercase text-white leading-tight mb-2 text-2xl lg:text-3xl tracking-tight">
                 Realistic Guidance.
                 <br />
                 Realistic Outcomes.
               </h3>
-              <p
-                className="text-white/75 font-medium max-w-sm"
-                style={{
-                  fontSize: "var(--text-sm)",
-                  lineHeight: "var(--leading-relaxed)",
-                }}
-              >
+              <p className="text-white/75 text-sm font-medium max-w-sm leading-relaxed">
                 Every session is personalised — no templates, no guesswork —
                 just a clear path built around your unique strengths and goals.
               </p>
               <a
                 href="/about"
-                className="mt-4 inline-flex items-center gap-2 bg-[var(--primary-yellow)] text-[var(--primary-black)] px-5 py-2.5 rounded-full font-bold transition-all duration-200 hover:bg-[var(--accent-yellow)] hover:-translate-y-px"
-                style={{
-                  fontSize: "var(--text-xs)",
-                  letterSpacing: "var(--tracking-wide)",
-                  boxShadow: "var(--shadow-glow-yellow)",
-                }}
+                className="mt-4 inline-flex items-center gap-2 bg-yellow-400 text-blue-950 px-5 py-2.5 rounded-full text-xs font-bold tracking-wide hover:bg-yellow-300 transition-all duration-200 hover:-translate-y-px shadow-[0_4px_14px_rgba(255,193,20,0.35)]"
               >
                 Our Story
                 <FiArrowRight size={12} strokeWidth={2.5} />
@@ -192,18 +147,18 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* ── STATS BAR ────────────────────────────────────────────── */}
+      {/* ── STATS BAR ── */}
       <section
         className="relative z-20 w-full px-4 sm:px-6 pb-16 lg:pb-24"
         style={{ marginTop: "-3rem" }}
       >
-        <div className="max-w-[1240px] mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             <StatCard
               value="5,000+"
               label="Students Mentored"
               sublabel="Across India & Abroad"
-              accent="var(--primary-blue)"
+              accent="#29326e"
               bgAccent="rgba(41,50,110,0.07)"
               icon={<FiAward className="w-5 h-5" />}
             />
@@ -254,10 +209,7 @@ function StatCard({
   icon: React.ReactNode;
 }) {
   return (
-    <div
-      className="group bg-white flex flex-col gap-3 p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-transparent hover:border-[rgba(0,0,0,0.06)] h-full"
-      style={{ boxShadow: "var(--shadow-md)" }}
-    >
+    <div className="group bg-white flex flex-col gap-3 p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-transparent hover:border-gray-100 h-full shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
       <div
         className="w-10 h-10 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
         style={{ backgroundColor: bgAccent, color: accent }}
@@ -266,26 +218,15 @@ function StatCard({
       </div>
       <div>
         <p
-          className="font-extrabold leading-none"
-          style={{
-            fontFamily: "var(--font-oswald)",
-            fontSize: "clamp(1.75rem, 4vw, 2.25rem)",
-            color: accent,
-            letterSpacing: "var(--tracking-tight)",
-          }}
+          className="font-oswald font-extrabold leading-none tracking-tight"
+          style={{ fontSize: "clamp(1.75rem, 4vw, 2.25rem)", color: accent }}
         >
           <CountUpValue value={value} />
         </p>
-        <p
-          className="font-bold mt-1 text-[var(--primary-black)] leading-snug"
-          style={{ fontSize: "var(--text-sm)" }}
-        >
+        <p className="font-bold mt-1 text-blue-950 leading-snug text-sm">
           {label}
         </p>
-        <p
-          className="font-medium mt-0.5 leading-snug"
-          style={{ fontSize: "var(--text-xs)", color: "var(--muted-text)" }}
-        >
+        <p className="text-gray-400 text-[11px] mt-0.5 leading-snug">
           {sublabel}
         </p>
       </div>

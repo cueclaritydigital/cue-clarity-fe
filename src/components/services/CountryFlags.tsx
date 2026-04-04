@@ -25,10 +25,7 @@ function FlagItem({
         />
       </div>
       <div className="text-center">
-        <p
-          className="text-white font-bold leading-tight text-sm sm:text-[15px]"
-          style={{ fontFamily: "var(--font-oswald)", letterSpacing: "0.03em" }}
-        >
+        <p className="text-white font-oswald font-bold leading-tight text-sm sm:text-[15px] tracking-[0.03em]">
           {name}
         </p>
         <p className="text-white/45 text-[11px] mt-0.5 tracking-wide uppercase font-medium">
@@ -64,8 +61,8 @@ function FlagStrip({
       onTouchEnd={resume}
     >
       {/* fade edges */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-r from-[var(--primary-blue)] to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-l from-[var(--primary-blue)] to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-r from-blue-950 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-l from-blue-950 to-transparent" />
 
       <div
         className="flex gap-10 sm:gap-14 shrink-0 animate-marquee-left"
@@ -85,48 +82,27 @@ function FlagStrip({
 /* ─── Main exported section ─── */
 export default function CountryFlags({ section }: { section: FlagsSection }) {
   return (
-    <section
-      className="section-padding overflow-hidden"
-      style={{ backgroundColor: "var(--primary-blue)" }}
-    >
+    <section className="py-24 overflow-hidden bg-blue-950">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 mb-12">
         <FadeInView>
           {section.eyebrow && (
-            <span
-              className="type-eyebrow mb-3 block"
-              style={{
-                color: "var(--primary-yellow)",
-                fontSize: "var(--text-base)",
-              }}
-            >
+            <span className="text-yellow-400 text-base font-bold tracking-widest uppercase mb-3 block">
               {section.eyebrow}
             </span>
           )}
           {section.headline && (
             <h2
-              className="mb-4"
-              style={{
-                fontFamily: "var(--font-oswald)",
-                fontWeight: 800,
-                fontSize: "clamp(2.25rem, 6vw, 3.5rem)",
-                lineHeight: 1,
-                letterSpacing: "var(--tracking-tight)",
-                color: "white",
-                textTransform: "uppercase",
-              }}
+              className="heading-font text-4xl sm:text-5xl lg:text-6xl text-white mb-4"
               dangerouslySetInnerHTML={{
                 __html: section.headline.replace(
                   /<em>(.*?)<\/em>/g,
-                  '<span style="color:var(--primary-yellow)">$1</span>',
+                  '<span style="color:#ffc114">$1</span>',
                 ),
               }}
             />
           )}
           {section.description && (
-            <p
-              className="type-lead max-w-2xl"
-              style={{ color: "rgba(255,255,255,0.6)" }}
-            >
+            <p className="text-lg text-white/60 max-w-2xl leading-relaxed">
               {section.description}
             </p>
           )}

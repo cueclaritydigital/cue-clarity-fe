@@ -56,30 +56,31 @@ export default function FAQ() {
   };
 
   return (
-    <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
-      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+    <section className="relative py-24 px-4 sm:px-6 bg-[var(--primary-white)] overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-blue-200/10 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24">
         {/* LEFT COLUMN */}
-        <div className="w-full lg:w-1/3 lg:sticky lg:top-32 h-fit animate-fade-in-up">
-          <span
-            className="type-eyebrow text-[var(--accent-blue)] mb-3 block"
-            style={{ fontSize: "var(--text-base)" }}
-          >
+        <div className="w-full lg:w-1/3 lg:sticky lg:top-32 h-fit">
+          <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">
             Clear Your Doubts
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold uppercase tracking-tight text-[var(--primary-black)] leading-[1] font-oswald mb-6">
+          <h2 className="heading-font text-[var(--primary-blue)] text-4xl sm:text-5xl mb-6">
             Frequently <br className="hidden lg:block" />
             Asked Questions
           </h2>
-          <p className="type-body text-[var(--muted-text)] mb-8">
+          <p className="text-gray-500 leading-relaxed mb-8">
             Can&apos;t find the answer you&apos;re looking for? Reach out to our
             team and we&apos;ll be happy to help clarify our process.
           </p>
-          {/* WhatsApp CTA in sidebar */}
           <a
             href={getWhatsAppURL("general", "faq")}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp text-sm"
+            className="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-950 px-7 py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-yellow-300 transition-all duration-200 hover:-translate-y-px shadow-[0_6px_24px_rgba(255,193,20,0.4)]"
           >
             <FaWhatsapp className="w-4 h-4" />
             Ask Us on WhatsApp
@@ -87,45 +88,49 @@ export default function FAQ() {
         </div>
 
         {/* RIGHT COLUMN */}
-        <div
-          className="w-full lg:w-2/3 flex flex-col gap-4 animate-fade-in-up"
-          style={{ animationDelay: "0.2s", animationFillMode: "both" }}
-        >
+        <div className="w-full lg:w-2/3 flex flex-col gap-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <div
                 key={index}
-                className={`
-                  border rounded-[var(--radius-lg)] transition-all duration-[var(--transition-base)] overflow-hidden
-                  ${isOpen ? "border-[var(--primary-blue)] bg-[var(--secondary-white)]/40 shadow-sm" : "border-[var(--primary-black)]/10 bg-white hover:border-[var(--primary-black)]/30"}
-                `}
+                className={`border rounded-2xl transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "border-blue-950 bg-gray-50/40 shadow-sm"
+                    : "border-gray-200 bg-white hover:border-gray-400"
+                }`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-center justify-between p-6 lg:p-8 text-left focus:outline-none"
                 >
                   <h3
-                    className={`text-lg lg:text-xl uppercase font-bold transition-colors duration-[var(--transition-base)] ${isOpen ? "text-[var(--primary-blue)]" : "text-[var(--primary-black)]"}`}
-                    style={{
-                      fontFamily: "var(--font-oswald), system-ui, sans-serif",
-                      letterSpacing: "var(--tracking-tight)",
-                    }}
+                    className={`font-oswald font-bold text-lg lg:text-xl uppercase tracking-tight transition-colors duration-300 ${
+                      isOpen ? "text-blue-950" : "text-blue-950/80"
+                    }`}
                   >
                     {faq.question}
                   </h3>
                   <div
-                    className={`shrink-0 ml-4 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-[var(--transition-base)] ${isOpen ? "bg-[var(--primary-blue)] text-white" : "bg-[var(--primary-black)]/5 text-[var(--primary-black)]"}`}
+                    className={`shrink-0 ml-4 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                      isOpen
+                        ? "bg-blue-950 text-white"
+                        : "bg-blue-950/5 text-blue-950"
+                    }`}
                   >
                     {isOpen ? <FiMinus /> : <FiPlus />}
                   </div>
                 </button>
                 <div
-                  className={`grid transition-all duration-[var(--transition-slow)] ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                  className={`grid transition-all duration-300 ${
+                    isOpen
+                      ? "grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0"
+                  }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="type-body text-[var(--muted-text)] px-6 lg:px-8 pb-6 lg:pb-8 pt-0">
+                    <p className="text-gray-500 leading-relaxed px-6 lg:px-8 pb-6 lg:pb-8 pt-0">
                       {faq.answer}
                     </p>
                   </div>

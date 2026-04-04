@@ -7,7 +7,7 @@ import { fadeUp } from "@/lib/animations/variants";
 
 const STEP_COLORS = [
   {
-    accent: "var(--primary-blue)",
+    accent: "#29326e",
     bg: "rgba(41,50,110,0.08)",
     light: "rgba(41,50,110,0.04)",
   },
@@ -27,7 +27,7 @@ const STEP_COLORS = [
     light: "rgba(109,40,217,0.04)",
   },
   {
-    accent: "var(--primary-blue)",
+    accent: "#29326e",
     bg: "rgba(41,50,110,0.08)",
     light: "rgba(41,50,110,0.04)",
   },
@@ -48,17 +48,12 @@ export default function ProcessTimeline({
 
   return (
     <section
-      className="section-padding px-4 sm:px-6"
-      style={{
-        backgroundColor: isDark
-          ? "var(--primary-black)"
-          : "var(--primary-white)",
-      }}
+      className={`py-24 px-4 sm:px-6 relative ${isDark ? "bg-blue-950" : "bg-white"}`}
     >
       {/* Ambient glow for dark variant */}
       {isDark && (
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-[var(--primary-blue)] opacity-20 blur-[120px] rounded-full" />
+          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-800/20 blur-[120px] rounded-full" />
         </div>
       )}
 
@@ -67,38 +62,23 @@ export default function ProcessTimeline({
         <FadeInView className="mb-12 lg:mb-16 max-w-3xl">
           {section.eyebrow && (
             <span
-              className="type-eyebrow mb-3 block"
-              style={{
-                color: isDark ? "var(--primary-yellow)" : "var(--accent-blue)",
-                fontSize: "var(--text-base)",
-              }}
+              className={`text-base font-bold tracking-widest uppercase mb-3 block ${isDark ? "text-yellow-400" : "text-blue-700"}`}
             >
               {section.eyebrow}
             </span>
           )}
           <h2
-            style={{
-              fontFamily: "var(--font-oswald)",
-              fontWeight: 800,
-              fontSize: "clamp(2.25rem, 6vw, 3.5rem)",
-              lineHeight: 1,
-              letterSpacing: "var(--tracking-tight)",
-              color: isDark ? "var(--primary-white)" : "var(--primary-black)",
-              textTransform: "uppercase",
-            }}
+            className={`heading-font text-4xl sm:text-5xl lg:text-6xl ${isDark ? "text-white" : "text-[var(--primary-blue)]"}`}
             dangerouslySetInnerHTML={{
               __html: section.headline.replace(
                 /<em>(.*?)<\/em>/g,
-                '<span style="color:var(--primary-yellow)">$1</span>',
+                '<span style="color:#ffc114">$1</span>',
               ),
             }}
           />
           {section.description && (
             <p
-              className="type-lead mt-4"
-              style={{
-                color: isDark ? "rgba(255,255,255,0.6)" : "var(--muted-text)",
-              }}
+              className={`text-lg mt-4 leading-relaxed ${isDark ? "text-white/60" : "text-gray-500"}`}
             >
               {section.description}
             </p>
@@ -121,35 +101,24 @@ export default function ProcessTimeline({
               <FadeInView
                 key={i}
                 variants={fadeUp}
-                className="group relative bg-[var(--surface-card)] rounded-[var(--radius-xl)] p-7 flex flex-col gap-3 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
-                style={{
-                  boxShadow: isDark ? "none" : "var(--shadow-md)",
-                  backgroundColor: isDark
-                    ? "rgba(255,255,255,0.05)"
-                    : "var(--surface-card)",
-                  border: isDark
-                    ? "1px solid rgba(255,255,255,0.08)"
-                    : undefined,
-                  paddingTop: "3.5rem",
-                }}
+                className={`group relative rounded-3xl p-7 pt-14 flex flex-col gap-3 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden ${
+                  isDark
+                    ? "bg-white/[0.05] border border-white/[0.08]"
+                    : "bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+                }`}
               >
                 {/* Watermark number */}
                 <span
-                  className="absolute -right-2 -top-2 font-oswald font-extrabold leading-none pointer-events-none select-none"
-                  style={{
-                    fontSize: "10rem",
-                    color: isDark
-                      ? "rgba(255,255,255,0.04)"
-                      : "var(--primary-black)",
-                    opacity: isDark ? 1 : 0.06,
-                  }}
+                  className={`absolute -right-2 -top-2 font-oswald font-extrabold leading-none pointer-events-none select-none text-[10rem] ${
+                    isDark ? "text-white/[0.04]" : "text-blue-950/[0.06]"
+                  }`}
                 >
                   {step.number}
                 </span>
 
                 {/* Step badge */}
                 <div
-                  className="w-12 h-12 rounded-[var(--radius-md)] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 font-bold text-sm"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 font-bold text-sm"
                   style={{ backgroundColor: color.bg, color: color.accent }}
                 >
                   {step.number}
@@ -157,30 +126,14 @@ export default function ProcessTimeline({
 
                 {/* Title */}
                 <h3
-                  style={{
-                    fontFamily: "var(--font-oswald)",
-                    fontWeight: 700,
-                    fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
-                    letterSpacing: "var(--tracking-tight)",
-                    textTransform: "uppercase",
-                    lineHeight: 1.1,
-                    color: isDark
-                      ? "var(--primary-white)"
-                      : "var(--primary-black)",
-                  }}
+                  className={`font-oswald font-bold text-xl uppercase tracking-tight leading-tight ${isDark ? "text-white" : "text-blue-950"}`}
                 >
                   {step.title}
                 </h3>
 
                 {/* Description */}
                 <p
-                  style={{
-                    fontSize: "var(--text-sm)",
-                    lineHeight: "var(--leading-relaxed)",
-                    color: isDark
-                      ? "rgba(255,255,255,0.6)"
-                      : "var(--muted-text)",
-                  }}
+                  className={`text-sm leading-relaxed ${isDark ? "text-white/60" : "text-gray-500"}`}
                 >
                   {step.description}
                 </p>
@@ -192,42 +145,23 @@ export default function ProcessTimeline({
         {/* Testimonial */}
         {section.testimonial && section.testimonial.quote && (
           <FadeInView
-            className="mt-12 rounded-[var(--radius-xl)] p-6 md:p-8"
-            style={{
-              backgroundColor: isDark
-                ? "rgba(255,255,255,0.05)"
-                : "var(--secondary-white)",
-              borderLeft: `4px solid var(--primary-yellow)`,
-            }}
+            className={`mt-12 rounded-3xl p-6 md:p-8 border-l-4 border-yellow-400 ${
+              isDark ? "bg-white/[0.05]" : "bg-gray-50"
+            }`}
           >
             <p
-              className="text-base leading-relaxed italic md:text-lg"
-              style={{
-                color: isDark
-                  ? "rgba(255,255,255,0.8)"
-                  : "var(--primary-black)",
-              }}
+              className={`text-base leading-relaxed italic md:text-lg ${isDark ? "text-white/80" : "text-blue-950"}`}
             >
               &ldquo;{section.testimonial.quote}&rdquo;
             </p>
             {section.testimonial.author && (
               <p
-                className="mt-3 text-sm font-bold"
-                style={{
-                  color: isDark
-                    ? "var(--primary-white)"
-                    : "var(--primary-black)",
-                }}
+                className={`mt-3 text-sm font-bold ${isDark ? "text-white" : "text-blue-950"}`}
               >
                 — {section.testimonial.author}
                 {section.testimonial.role && (
                   <span
-                    className="font-normal"
-                    style={{
-                      color: isDark
-                        ? "rgba(255,255,255,0.5)"
-                        : "var(--muted-text)",
-                    }}
+                    className={`font-normal ${isDark ? "text-white/50" : "text-gray-500"}`}
                   >
                     , {section.testimonial.role}
                   </span>

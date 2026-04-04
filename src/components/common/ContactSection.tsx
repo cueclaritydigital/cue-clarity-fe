@@ -27,6 +27,24 @@ const WHO_OPTIONS = [
   "Others",
 ];
 
+const CONTACT_ITEMS = [
+  {
+    icon: <FiMail size={20} />,
+    label: "Write to us",
+    value: "info@cueclarity.com",
+  },
+  {
+    icon: <FiPhone size={20} />,
+    label: "Call us",
+    value: "+91 98765 43210",
+  },
+  {
+    icon: <FiMapPin size={20} />,
+    label: "Visit us",
+    value: "Navi Mumbai, Maharashtra, India-410209",
+  },
+];
+
 export default function ContactSection() {
   const [form, setForm] = useState({
     name: "",
@@ -78,322 +96,188 @@ export default function ContactSection() {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
     }
   }
+
   return (
-    <section className="section-padding px-4 sm:px-6 bg-[var(--primary-white)]">
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section className="relative py-24 px-4 sm:px-6 overflow-hidden bg-white">
+      {/* Background glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-100px] right-[-60px] w-[500px] h-[500px] bg-yellow-200/15 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-120px] left-[-80px] w-[400px] h-[400px] bg-blue-200/15 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* ── Left — intro ── */}
           <FadeInView variants={slideInLeft}>
-            {/* Eyebrow */}
-            <p
-              className="type-label mb-4 tracking-[0.2em] uppercase"
-              style={{ color: "var(--primary-yellow)" }}
-            >
+            <span className="text-yellow-500 text-base font-bold tracking-widest uppercase">
               Get in touch
-            </p>
+            </span>
 
-            <h2
-              style={{
-                fontFamily: "var(--font-oswald)",
-                fontWeight: 800,
-                fontSize: "clamp(2.25rem, 6vw, 3.75rem)",
-                color: "var(--primary-blue)",
-                textTransform: "uppercase",
-                lineHeight: 1,
-              }}
-            >
+            <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl heading-font text-[var(--primary-blue)]">
               Start Your <br />
-              Next Chapter
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-yellow)] to-orange-400">
+                Next Chapter
+              </span>
             </h2>
 
             {/* Accent bar */}
-            <div
-              className="mt-5 mb-7 h-1 w-16 rounded-full"
-              style={{ backgroundColor: "var(--primary-yellow)" }}
-            />
+            <div className="mt-5 mb-7 h-[3px] w-14 rounded-full bg-yellow-400" />
 
-            <p
-              className="type-lead mb-10 max-w-md"
-              style={{ color: "var(--muted-text)" }}
-            >
+            <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-md">
               Ready to find clarity in your next move? Our counsellors are here
               to help you navigate the noise.
             </p>
 
-            <div className="space-y-6">
-              {/* Email */}
-              <div className="flex items-center gap-5">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform hover:scale-105"
-                  style={{
-                    backgroundColor: "rgba(41,50,110,0.07)",
-                    color: "var(--primary-blue)",
-                  }}
-                >
-                  <FiMail className="w-5 h-5" />
+            <div className="space-y-5">
+              {CONTACT_ITEMS.map((item) => (
+                <div key={item.label} className="flex items-center gap-5 group">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-xs tracking-widest uppercase text-gray-400 font-medium">
+                      {item.label}
+                    </p>
+                    <p className="font-semibold text-lg text-blue-950">
+                      {item.value}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p
-                    className="type-label"
-                    style={{ color: "var(--primary-yellow)" }}
-                  >
-                    Write to us
-                  </p>
-                  <p
-                    className="font-bold text-lg"
-                    style={{ color: "var(--primary-blue)" }}
-                  >
-                    info@cueclarity.com
-                  </p>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center gap-5">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform hover:scale-105"
-                  style={{
-                    backgroundColor: "rgba(41,50,110,0.07)",
-                    color: "var(--primary-blue)",
-                  }}
-                >
-                  <FiPhone className="w-5 h-5" />
-                </div>
-                <div>
-                  <p
-                    className="type-label"
-                    style={{ color: "var(--primary-yellow)" }}
-                  >
-                    Call us
-                  </p>
-                  <p
-                    className="font-bold text-lg"
-                    style={{ color: "var(--primary-blue)" }}
-                  >
-                    +91 98765 43210
-                  </p>
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="flex items-center gap-5">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform hover:scale-105"
-                  style={{
-                    backgroundColor: "rgba(41,50,110,0.07)",
-                    color: "var(--primary-blue)",
-                  }}
-                >
-                  <FiMapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p
-                    className="type-label"
-                    style={{ color: "var(--primary-yellow)" }}
-                  >
-                    Visit us
-                  </p>
-                  <p
-                    className="font-bold text-lg"
-                    style={{ color: "var(--primary-blue)" }}
-                  >
-                    Navi Mumbai, Maharashtra, India-410209
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </FadeInView>
 
           {/* ── Right — form card ── */}
           <FadeInView variants={slideInRight}>
-            <div
-              className="p-8 sm:p-10 lg:p-12 rounded-[2.5rem]"
-              style={{
-                backgroundColor: "var(--surface-card)",
-                border: "1px solid var(--secondary-white)",
-                boxShadow: "var(--shadow-lg)",
-              }}
-            >
-              {/* Card header */}
-              <div className="mb-8">
-                <h3
-                  className="font-bold text-2xl mb-1"
-                  style={{
-                    fontFamily: "var(--font-oswald)",
-                    color: "var(--primary-blue)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.04em",
-                  }}
-                >
-                  Send us a message
-                </h3>
-                <p className="text-sm" style={{ color: "var(--muted-text)" }}>
-                  We'll get back to you within 24 hours.
-                </p>
-              </div>
+            <div className="group relative rounded-3xl border border-gray-100 bg-white/70 backdrop-blur-xl p-8 sm:p-10 lg:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500">
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-b from-yellow-100/30 to-transparent pointer-events-none" />
 
-              <form className="space-y-5" onSubmit={handleSubmit}>
-                {/* Row 1 — Name + Email */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <FieldWrap label="Full Name" htmlFor="about-name">
-                    <input
-                      id="about-name"
-                      name="name"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      placeholder="Enter your name"
-                      className="field-input"
-                      value={form.name}
-                      onChange={handleChange}
-                    />
-                  </FieldWrap>
-
-                  <FieldWrap label="Email" htmlFor="about-email">
-                    <input
-                      id="about-email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      placeholder="you@example.com"
-                      className="field-input"
-                      value={form.email}
-                      onChange={handleChange}
-                    />
-                  </FieldWrap>
+              <div className="relative">
+                {/* Card header */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-blue-950 tracking-tight mb-1">
+                    Send us a message
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    We&apos;ll get back to you within 24 hours.
+                  </p>
                 </div>
 
-                {/* Row 2 — Phone + Who are you */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <FieldWrap label="Phone Number" htmlFor="about-phone">
-                    <input
-                      id="about-phone"
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      placeholder="+91 00000 00000"
-                      className="field-input"
-                      value={form.phone}
-                      onChange={handleChange}
-                    />
-                  </FieldWrap>
-
-                  <FieldWrap label="I am a…" htmlFor="about-role">
-                    <div className="relative">
-                      <select
-                        id="about-role"
-                        name="role"
+                <form className="space-y-5" onSubmit={handleSubmit}>
+                  {/* Row 1 — Name + Email */}
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <FieldWrap label="Full Name" htmlFor="contact-name">
+                      <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
                         required
-                        value={form.role}
+                        autoComplete="name"
+                        placeholder="Enter your name"
+                        className="w-full rounded-lg px-4 py-3 text-sm bg-gray-50 border border-gray-200 text-blue-950 placeholder:text-gray-400 outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-900/10 transition-all duration-200"
+                        value={form.name}
                         onChange={handleChange}
-                        className="field-input appearance-none pr-10 cursor-pointer w-[90%] truncate"
-                        style={{ color: "var(--primary-black)" }}
-                      >
-                        <option
-                          value=""
-                          disabled
-                          style={{ color: "var(--muted-text)" }}
+                      />
+                    </FieldWrap>
+
+                    <FieldWrap label="Email" htmlFor="contact-email">
+                      <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        placeholder="you@example.com"
+                        className="w-full rounded-lg px-4 py-3 text-sm bg-gray-50 border border-gray-200 text-blue-950 placeholder:text-gray-400 outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-900/10 transition-all duration-200"
+                        value={form.email}
+                        onChange={handleChange}
+                      />
+                    </FieldWrap>
+                  </div>
+
+                  {/* Row 2 — Phone + Who are you */}
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <FieldWrap label="Phone Number" htmlFor="contact-phone">
+                      <input
+                        id="contact-phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        placeholder="+91 00000 00000"
+                        className="w-full rounded-lg px-4 py-3 text-sm bg-gray-50 border border-gray-200 text-blue-950 placeholder:text-gray-400 outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-900/10 transition-all duration-200"
+                        value={form.phone}
+                        onChange={handleChange}
+                      />
+                    </FieldWrap>
+
+                    <FieldWrap label="I am a…" htmlFor="contact-role">
+                      <div className="relative">
+                        <select
+                          id="contact-role"
+                          name="role"
+                          required
+                          value={form.role}
+                          onChange={handleChange}
+                          className="w-full rounded-lg px-4 py-3 text-sm bg-gray-50 border border-gray-200 text-blue-950 outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-900/10 transition-all duration-200 appearance-none pr-10 cursor-pointer truncate"
                         >
-                          — Select —
-                        </option>
-                        {WHO_OPTIONS.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
+                          <option value="" disabled className="text-gray-400">
+                            — Select —
                           </option>
-                        ))}
-                      </select>
-                      {/* Custom chevron */}
-                      <span
-                        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2"
-                        style={{ color: "var(--primary-blue)" }}
-                      >
-                        <FiChevronDown size={14} strokeWidth={1.8} />
-                      </span>
-                    </div>
+                          {WHO_OPTIONS.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-blue-900">
+                          <FiChevronDown size={14} strokeWidth={1.8} />
+                        </span>
+                      </div>
+                    </FieldWrap>
+                  </div>
+
+                  {/* Message */}
+                  <FieldWrap label="Your Message" htmlFor="contact-message">
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      required
+                      rows={4}
+                      placeholder="Tell us what you're looking for…"
+                      className="w-full rounded-lg px-4 py-3 text-sm bg-gray-50 border border-gray-200 text-blue-950 placeholder:text-gray-400 outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-900/10 transition-all duration-200 resize-none"
+                      value={form.message}
+                      onChange={handleChange}
+                    />
                   </FieldWrap>
-                </div>
 
-                {/* Message */}
-                <FieldWrap label="Your Message" htmlFor="about-message">
-                  <textarea
-                    id="about-message"
-                    name="message"
-                    required
-                    rows={4}
-                    placeholder="Tell us what you're looking for…"
-                    className="field-input resize-none"
-                    value={form.message}
-                    onChange={handleChange}
-                  />
-                </FieldWrap>
+                  {/* Status feedback */}
+                  {status === "success" && (
+                    <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium bg-green-50 text-green-700">
+                      <FiCheckCircle size={16} className="shrink-0" />
+                      Message sent! We&apos;ll get back to you within 24 hours.
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium bg-red-50 text-red-600">
+                      <FiAlertCircle size={16} className="shrink-0" />
+                      {errorMsg || "Failed to send. Please try again."}
+                    </div>
+                  )}
 
-                {/* Status feedback */}
-                {status === "success" && (
-                  <div
-                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium"
-                    style={{
-                      backgroundColor: "rgba(5,150,105,0.08)",
-                      color: "#059669",
-                    }}
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full py-4 rounded-xl bg-[var(--primary-blue)] text-white text-sm font-semibold uppercase tracking-widest hover:bg-[var(--accent-blue)] transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed mt-1"
                   >
-                    <FiCheckCircle size={16} className="shrink-0" />
-                    Message sent! We&apos;ll get back to you within 24 hours.
-                  </div>
-                )}
-                {status === "error" && (
-                  <div
-                    className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium"
-                    style={{
-                      backgroundColor: "rgba(220,38,38,0.08)",
-                      color: "#dc2626",
-                    }}
-                  >
-                    <FiAlertCircle size={16} className="shrink-0" />
-                    {errorMsg || "Failed to send. Please try again."}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="btn-primary w-full !py-4 uppercase tracking-widest text-sm mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {status === "loading" ? "Sending…" : "Send Message →"}
-                </button>
-              </form>
+                    {status === "loading" ? "Sending…" : "Send Message →"}
+                  </button>
+                </form>
+              </div>
             </div>
           </FadeInView>
         </div>
       </div>
-
-      {/* ── Scoped field styles ── */}
-      <style jsx>{`
-        .field-input {
-          width: 100%;
-          border-radius: 0.5rem;
-          padding: 0.75rem 1.1rem;
-          font-size: 0.875rem;
-          outline: none;
-          transition:
-            border-color 0.2s,
-            box-shadow 0.2s;
-          background-color: var(--primary-white);
-          border: 1.5px solid var(--secondary-white, #e8eaf0);
-          color: var(--primary-black);
-        }
-        .field-input::placeholder {
-          color: var(--muted-text);
-          opacity: 0.6;
-        }
-        .field-input:focus {
-          border-color: var(--primary-blue);
-          box-shadow: 0 0 0 3px rgba(41, 50, 110, 0.08);
-        }
-        select.field-input {
-          background-color: var(--primary-white);
-        }
-      `}</style>
     </section>
   );
 }
@@ -412,8 +296,7 @@ function FieldWrap({
     <div className="space-y-1.5">
       <label
         htmlFor={htmlFor}
-        className="type-label ml-1 block"
-        style={{ color: "var(--muted-text)" }}
+        className="text-xs font-medium tracking-wide text-gray-400 ml-1 block"
       >
         {label}
       </label>
