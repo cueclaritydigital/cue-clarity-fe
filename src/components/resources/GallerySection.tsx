@@ -1,10 +1,26 @@
-import Image from "next/image";
 import FadeInView from "@/components/animate/FadeInView";
-import StaggerInView from "@/components/animate/StaggerInView";
-import { fadeUp } from "@/lib/animations/variants";
-import { GALLERY_IMAGES, type GalleryImage } from "@/lib/data/resources";
+import { client } from "@/sanity/client";
+import GalleryGrid, { type SanityGalleryAlbum } from "./GalleryGrid";
 
-export default function GallerySection() {
+export default async function GallerySection() {
+  const query = `*[_type == "galleryAlbum" && isPublished == true] | order(order asc) {
+    _id,
+    title,
+    description,
+    "coverUrl": coverImage.asset->url,
+    "photos": photos[] {
+      _key,
+      "src": image.asset->url,
+      alt,
+      caption
+    }
+  }`;
+  const albums: SanityGalleryAlbum[] = await client.fetch(
+    query,
+    {},
+    { next: { revalidate: 60 } },
+  );
+
   return (
     <section
       id="gallery"
@@ -42,56 +58,8 @@ export default function GallerySection() {
           </div>
         </FadeInView>
 
-        {/* Gallery grid — CSS grid with span hints */}
-        <StaggerInView className="grid grid-cols-2 md:grid-cols-3 auto-rows-[220px] gap-3 md:gap-4">
-          {GALLERY_IMAGES.map((img, i) => (
-            <FadeInView
-              key={img.id}
-              variants={fadeUp}
-              className={buildSpanClass(img)}
-            >
-              <GalleryCard image={img} priority={i === 0} />
-            </FadeInView>
-          ))}
-        </StaggerInView>
+        <GalleryGrid albums={albums} />
       </div>
     </section>
-  );
-}
-
-/** Map span hints to Tailwind grid span classes */
-function buildSpanClass(img: GalleryImage): string {
-  if (img.span === "tall") return "row-span-2";
-  if (img.span === "wide") return "col-span-2";
-  return "";
-}
-
-function GalleryCard({
-  image,
-  priority,
-}: {
-  image: GalleryImage;
-  priority?: boolean;
-}) {
-  return (
-    <div className="group relative w-full h-full overflow-hidden rounded-2xl">
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        sizes="(min-width: 768px) 33vw, 50vw"
-        className="object-cover transition-all duration-700 grayscale-[60%] group-hover:grayscale-0 group-hover:scale-105"
-        loading={priority ? undefined : "lazy"}
-        priority={priority}
-      />
-
-      {/* Overlay — fades in on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-      {/* Caption */}
-      <p className="absolute bottom-0 left-0 right-0 px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-xs text-white/90 font-semibold leading-snug">
-        {image.alt}
-      </p>
-    </div>
   );
 }

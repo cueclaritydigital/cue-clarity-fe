@@ -6,7 +6,8 @@ import VideoInsights from "@/components/resources/VideoInsights";
 import GallerySection from "@/components/resources/GallerySection";
 import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
-import { RESOURCE_VIDEOS } from "@/lib/data/resources";
+import { client } from "@/sanity/client";
+import type { SanityResourceVideo } from "@/components/resources/VideoInsightsGrid";
 
 /* ── SEO Metadata ─────────────────────────────────────────────────── */
 const BASE_URL = "https://cueclarity.com";
@@ -115,26 +116,10 @@ const collectionPageSchema = {
   },
 };
 
-const videoSchemas = RESOURCE_VIDEOS.map((video) => ({
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  name: video.title,
-  description: video.subtitle,
-  thumbnailUrl: video.thumbnail,
-  uploadDate: "2025-01-01T00:00:00+05:30",
-  contentUrl: `https://www.youtube.com/watch?v=${video.youtubeId}`,
-  embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
-  duration: `PT${video.duration.replace(":", "M")}S`,
-  publisher: {
-    "@type": "Organization",
-    name: "CueClarity",
-    url: BASE_URL,
-    logo: {
-      "@type": "ImageObject",
-      url: `${BASE_URL}/logo.png`,
-    },
-  },
-}));
+const videoQuery = `*[_type == "resourceVideo" && isPublished == true] | order(order asc) {
+  _id, title, subtitle, youtubeId, duration,
+  "thumbnailUrl": thumbnail.asset->url
+}`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -156,7 +141,35 @@ const breadcrumbSchema = {
 };
 
 /* ── Page Component ───────────────────────────────────────────────── */
-export default function ResourcesPage() {
+export default async function ResourcesPage() {
+  const videos: SanityResourceVideo[] = await client.fetch(
+    videoQuery,
+    {},
+    { next: { revalidate: 60 } },
+  );
+
+  const videoSchemas = videos.map((video) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.subtitle,
+    thumbnailUrl:
+      video.thumbnailUrl ??
+      `https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg`,
+    uploadDate: "2025-01-01T00:00:00+05:30",
+    contentUrl: `https://www.youtube.com/watch?v=${video.youtubeId}`,
+    embedUrl: `https://www.youtube.com/embed/${video.youtubeId}`,
+    ...(video.duration && {
+      duration: `PT${video.duration.replace(":", "M")}S`,
+    }),
+    publisher: {
+      "@type": "Organization",
+      name: "CueClarity",
+      url: BASE_URL,
+      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
+    },
+  }));
+
   return (
     <>
       {/* JSON-LD Structured Data */}

@@ -25,10 +25,10 @@ function FlagItem({
         />
       </div>
       <div className="text-center">
-        <p className="text-white font-oswald font-bold leading-tight text-sm sm:text-[15px] tracking-[0.03em]">
+        <p className="text-gray-900 font-oswald font-bold leading-tight text-sm sm:text-[15px] tracking-[0.03em]">
           {name}
         </p>
-        <p className="text-white/45 text-[11px] mt-0.5 tracking-wide uppercase font-medium">
+        <p className="text-gray-400 text-[11px] mt-0.5 tracking-wide uppercase font-medium">
           {tag}
         </p>
       </div>
@@ -61,8 +61,8 @@ function FlagStrip({
       onTouchEnd={resume}
     >
       {/* fade edges */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-r from-blue-950 to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-l from-blue-950 to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 sm:w-32 bg-gradient-to-l from-white to-transparent" />
 
       <div
         className="flex gap-10 sm:gap-14 shrink-0 animate-marquee-left"
@@ -82,7 +82,7 @@ function FlagStrip({
 /* ─── Main exported section ─── */
 export default function CountryFlags({ section }: { section: FlagsSection }) {
   return (
-    <section className="py-24 overflow-hidden bg-blue-950">
+    <section className="py-24 overflow-hidden bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 mb-12">
         <FadeInView>
           {section.eyebrow && (
@@ -92,7 +92,7 @@ export default function CountryFlags({ section }: { section: FlagsSection }) {
           )}
           {section.headline && (
             <h2
-              className="heading-font text-4xl sm:text-5xl lg:text-6xl text-white mb-4"
+              className="heading-font text-4xl sm:text-5xl lg:text-6xl text-[var(--primary-blue)] mb-4"
               dangerouslySetInnerHTML={{
                 __html: section.headline.replace(
                   /<em>(.*?)<\/em>/g,
@@ -102,7 +102,7 @@ export default function CountryFlags({ section }: { section: FlagsSection }) {
             />
           )}
           {section.description && (
-            <p className="text-lg text-white/60 max-w-2xl leading-relaxed">
+            <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
               {section.description}
             </p>
           )}

@@ -30,11 +30,11 @@ export const structure = (S: StructureBuilder) =>
             .defaultOrdering([{ field: "order", direction: "asc" }]),
         ),
       S.listItem()
-        .title("Gallery")
+        .title("Gallery Albums")
         .icon(() => "🖼️")
         .child(
-          S.documentTypeList("galleryImage")
-            .title("Gallery Images")
+          S.documentTypeList("galleryAlbum")
+            .title("Gallery Albums")
             .defaultOrdering([{ field: "order", direction: "asc" }]),
         ),
       S.divider(),

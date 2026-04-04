@@ -1,15 +1,22 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
-import { FiPlay, FiClock, FiX, FiExternalLink } from "react-icons/fi";
+﻿import { FiExternalLink } from "react-icons/fi";
 import FadeInView from "@/components/animate/FadeInView";
-import StaggerInView from "@/components/animate/StaggerInView";
-import { fadeUp } from "@/lib/animations/variants";
-import { RESOURCE_VIDEOS, type ResourceVideo } from "@/lib/data/resources";
+import { client } from "@/sanity/client";
+import VideoInsightsGrid, { type SanityResourceVideo } from "./VideoInsightsGrid";
 
-export default function VideoInsights() {
-  const [playingId, setPlayingId] = useState<string | null>(null);
+const query = `*[_type == "resourceVideo" && isPublished == true] | order(order asc) {
+  _id,
+  title,
+  subtitle,
+  youtubeId,
+  duration,
+  category,
+  "thumbnailUrl": thumbnail.asset->url
+}`;
+
+export default async function VideoInsights() {
+  const videos: SanityResourceVideo[] = await client.fetch(query, {}, { next: { revalidate: 60 } });
+
+  if (!videos.length) return null;
 
   return (
     <section
@@ -49,19 +56,7 @@ export default function VideoInsights() {
           </div>
         </FadeInView>
 
-        {/* 2-col on md, 1-col on sm */}
-        <StaggerInView className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {RESOURCE_VIDEOS.map((video) => (
-            <FadeInView key={video.id} variants={fadeUp} className="h-full">
-              <VideoCard
-                video={video}
-                isPlaying={playingId === video.id}
-                onPlay={() => setPlayingId(video.id)}
-                onStop={() => setPlayingId(null)}
-              />
-            </FadeInView>
-          ))}
-        </StaggerInView>
+        <VideoInsightsGrid videos={videos} />
 
         {/* Mobile YT link */}
         <div className="md:hidden mt-8 text-center">
@@ -76,94 +71,5 @@ export default function VideoInsights() {
         </div>
       </div>
     </section>
-  );
-}
-
-function VideoCard({
-  video,
-  isPlaying,
-  onPlay,
-  onStop,
-}: {
-  video: ResourceVideo;
-  isPlaying: boolean;
-  onPlay: () => void;
-  onStop: () => void;
-}) {
-  return (
-    <article className="group rounded-2xl overflow-hidden h-full flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
-      {/* Video area */}
-      <div className="relative aspect-video bg-blue-950 shrink-0">
-        {isPlaying ? (
-          <>
-            <iframe
-              src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
-              title={video.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-              className="absolute inset-0 w-full h-full"
-            />
-            <button
-              onClick={onStop}
-              aria-label="Stop video"
-              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-blue-950/70 backdrop-blur-sm flex items-center justify-center text-white hover:bg-blue-950 transition-colors"
-            >
-              <FiX size={14} />
-            </button>
-          </>
-        ) : (
-          <>
-            <Image
-              src={video.thumbnail}
-              alt={`Video preview: ${video.title}`}
-              fill
-              loading="lazy"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent" />
-
-            {/* Category badge */}
-            <div className="absolute top-4 left-4">
-              <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-yellow-400 text-blue-950">
-                {video.category}
-              </span>
-            </div>
-
-            {/* Duration */}
-            <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
-              <FiClock size={11} className="text-white/65" />
-              <span className="text-white/65 text-[11px] font-medium">
-                {video.duration}
-              </span>
-            </div>
-
-            {/* Play button */}
-            <button
-              onClick={onPlay}
-              aria-label={`Play: ${video.title}`}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <span className="w-16 h-16 rounded-full flex items-center justify-center bg-yellow-400 shadow-[0_0_48px_rgba(255,193,20,0.35)] scale-90 group-hover:scale-100 transition-transform duration-300">
-                <FiPlay size={22} className="ml-1 text-blue-950" />
-              </span>
-            </button>
-          </>
-        )}
-      </div>
-
-      {/* Card footer */}
-      <div className="p-5 flex flex-col flex-1 bg-white/[0.04]">
-        <h3 className="heading-font text-white text-lg leading-snug">
-          {video.title}
-        </h3>
-        <p className="mt-2 flex-1 text-xs text-white/50 leading-relaxed">
-          {video.subtitle}
-        </p>
-      </div>
-    </article>
   );
 }
