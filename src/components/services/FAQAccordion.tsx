@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
 import type { FAQSection } from "@/lib/data/services";
 
 export default function FAQAccordion({ section }: { section: FAQSection }) {

@@ -4,6 +4,7 @@ import { ebookType } from "./ebook";
 import { galleryImageType } from "./galleryImage";
 import { resourceVideoType } from "./resourceVideo";
 import { testimonialType } from "./testimonial";
+import { videoTestimonialType } from "./videoTestimonial";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -12,5 +13,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     resourceVideoType,
     galleryImageType,
     testimonialType,
+    videoTestimonialType,
   ],
 };

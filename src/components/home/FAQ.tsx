@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
@@ -56,13 +55,13 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 bg-[var(--primary-white)] overflow-hidden">
+    <section className="relative py-24 px-4 sm:px-6 bg-[var(--primary-white)]">
       {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-blue-200/10 blur-[120px] rounded-full" />
-      </div>
+      </div> */}
 
-      <div className="max-w-6xl mx-auto relative z-10 flex flex-col lg:flex-row gap-16 lg:gap-24">
+      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
         {/* LEFT COLUMN */}
         <div className="w-full lg:w-1/3 lg:sticky lg:top-32 h-fit">
           <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">

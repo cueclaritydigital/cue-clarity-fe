@@ -49,4 +49,12 @@ export const structure = (S: StructureBuilder) =>
               { field: "order", direction: "asc" },
             ]),
         ),
+      S.listItem()
+        .title("Video Testimonials")
+        .icon(() => "🎬")
+        .child(
+          S.documentTypeList("videoTestimonial")
+            .title("Video Testimonials")
+            .defaultOrdering([{ field: "order", direction: "asc" }]),
+        ),
     ]);

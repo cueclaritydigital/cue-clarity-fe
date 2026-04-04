@@ -23,13 +23,13 @@ export type WrittenStory = {
 export const VIDEO_STORIES: VideoStory[] = [
   {
     id: "vs1",
-    title: "From Teaching to Tech: Neha's 90-Day Pivot",
+    title: "Best Career Counseling in India? Real Student Review | CueClarity",
     subtitle: "A science-backed assessment revealed a hidden product mindset.",
-    category: "Career Transition",
-    duration: "8:42",
+    category: "Student Testimonial",
+    duration: "0:38",
     thumbnail:
-      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773250202/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.png",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1",
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775311549/3_dunbvi.png",
+    videoUrl: "https://www.youtube.com/embed/w_WK5fQ43jA?autoplay=1",
   },
   {
     id: "vs2",
@@ -59,7 +59,8 @@ export const WRITTEN_STORIES: WrittenStory[] = [
     name: "Ananya Mehta",
     role: "Software Engineer → Product Manager",
     location: "Bangalore",
-    headline: "3 sessions. A crystal-clear roadmap. My dream PM role in 4 months.",
+    headline:
+      "3 sessions. A crystal-clear roadmap. My dream PM role in 4 months.",
     quote:
       "I had the skills but never knew how to position them. CueClarity's assessment revealed my true strengths and gave me a concrete plan I could actually follow. The whole process felt personalised — not generic advice.",
     initial: "A",
@@ -70,8 +71,7 @@ export const WRITTEN_STORIES: WrittenStory[] = [
     name: "Julian Banks",
     role: "Middle Manager → VP of Strategy",
     location: "Mumbai",
-    headline:
-      "The mentorship clarity alone is worth a lifetime of investment.",
+    headline: "The mentorship clarity alone is worth a lifetime of investment.",
     quote:
       "Navigating the pivot from middle management to a senior leadership role required more than new skills — it required a perspective shift. My CueClarity mentor gave me the exact roadmap and the confidence to ask for what I was worth.",
     initial: "J",
@@ -106,7 +106,8 @@ export const WRITTEN_STORIES: WrittenStory[] = [
     name: "Sanya Kapoor",
     role: "Class 12 Student → Architecture",
     location: "Mumbai",
-    headline: "One session shifted my parents' perspective — and my entire future.",
+    headline:
+      "One session shifted my parents' perspective — and my entire future.",
     quote:
       "My parents kept pushing engineering. One honest session with CueClarity helped me — and them — understand why architecture was where I would genuinely thrive. Now I'm in my second year at CEPT.",
     initial: "S",
