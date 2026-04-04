@@ -53,14 +53,14 @@ export default function HeroSuccessStories() {
               href={getWhatsAppURL("general", "success-stories-hero")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-xl bg-green-600 text-white hover:bg-green-700 transition-colors duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-xl bg-[var(--primary-yellow)] text-white hover:bg-[var(--accent-yellow)] transition-colors duration-300 w-full sm:w-auto"
             >
               <FaWhatsapp className="w-4 h-4" aria-hidden="true" />
               Start Your Journey
             </a>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center text-sm font-semibold px-7 py-3.5 rounded-xl border-2 border-blue-950 text-blue-950 hover:bg-blue-950 hover:text-white transition-all duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center text-sm font-semibold px-7 py-3.5 rounded-xl border-[1.5px] border-blue-950 text-blue-950 hover:bg-[var(--primary-blue)] hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
               Explore Services →
             </Link>
