@@ -119,7 +119,7 @@ export const siteNavigationSchema = {
       "@type": "SiteNavigationElement",
       position: 13,
       name: "Workforce Development",
-      url: "https://cueclarity.comwork-force-development",
+      url: "https://cueclarity.com/services/work-force-development",
     },
     // Programs
     {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/common/Navbar";
 import HeroSection from "@/components/home/HeroSection";
 import WhoWeHelp from "@/components/home/WhoWeHelp";
@@ -10,6 +11,30 @@ import RFQ from "@/components/common/RFQ";
 import FAQ from "@/components/home/FAQ";
 import Footer from "@/components/common/Footer";
 import AssessmentBanner from "@/components/home/AssessmentBanner";
+
+export const metadata: Metadata = {
+  title: "Career Counselling for Students & Professionals | CueClarity India",
+  description:
+    "Confused about your career? Get science-backed career counselling from India's trusted experts. Free discovery call for students (Class 8-12), graduates & professionals.",
+  alternates: {
+    canonical: "https://cueclarity.com",
+  },
+  openGraph: {
+    title: "Career Counselling for Students & Professionals | CueClarity India",
+    description:
+      "Confused about your career? Get science-backed career counselling from India's trusted experts. Free discovery call for students (Class 8-12), graduates & professionals.",
+    url: "https://cueclarity.com",
+    type: "website",
+    siteName: "CueClarity",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Career Counselling for Students & Professionals | CueClarity India",
+    description:
+      "Confused about your career? Get science-backed career counselling from India's trusted experts. Free discovery call for students (Class 8-12), graduates & professionals.",
+  },
+};
 
 export const dynamic = "force-static";
 

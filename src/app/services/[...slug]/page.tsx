@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import Breadcrumbs from "@/components/common/Breadcrumbs";
+import RelatedServices from "@/components/services/RelatedServices";
 import SectionRenderer from "@/components/services/SectionRenderer";
 import {
   getServicePage,
@@ -290,6 +292,16 @@ export default async function ServicePage({
       <Navbar />
       <main>
         <SectionRenderer sections={page.sections} />
+        {page.relatedServices && page.relatedServices.length > 0 && (
+          <RelatedServices services={page.relatedServices} />
+        )}
+        <Breadcrumbs
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Services", href: "/services/career-counselling" },
+            { name: page.title, href: `/services/${page.slug}` },
+          ]}
+        />
       </main>
       <Footer />
     </>

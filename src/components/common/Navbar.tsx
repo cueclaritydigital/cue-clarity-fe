@@ -118,7 +118,7 @@ const SERVICE_ITEMS: ServiceItem[] = [
   {
     id: "workforce-development",
     group: "Professional",
-    href: "work-force-development",
+    href: "/services/work-force-development",
     icon: <FiUsers size={16} />,
     label: "Workforce Development",
     desc: "Corporate upskilling & team progress",

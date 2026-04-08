@@ -107,11 +107,27 @@ export default function FrameworkGrid({
                 >
                   {pillar.title}
                 </h3>
-                <p
-                  className={`text-sm leading-relaxed ${isDark ? "text-white/60" : "text-gray-500"}`}
-                >
-                  {pillar.description}
-                </p>
+                {pillar.description && (
+                  <p
+                    className={`text-sm leading-relaxed ${isDark ? "text-white/60" : "text-gray-500"}`}
+                  >
+                    {pillar.description}
+                  </p>
+                )}
+                {pillar.points && pillar.points.length > 0 && (
+                  <ul
+                    className={`text-sm space-y-1.5 ${isDark ? "text-white/60" : "text-gray-500"}`}
+                  >
+                    {pillar.points.map((pt, j) => (
+                      <li key={j} className="flex items-start gap-2">
+                        <span
+                          className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${isDark ? "bg-yellow-400" : "bg-blue-950"}`}
+                        />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </FadeInView>
             );
           })}

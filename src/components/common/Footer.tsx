@@ -114,7 +114,20 @@ export default function Footer() {
               text="Industrial Training"
             />
             <FooterLink
-              href="work-force-development"
+              href="/services/students-8-9-10"
+              text="Students (Class 8–10)"
+            />
+            <FooterLink
+              href="/services/after-10th-12th"
+              text="After 10th & 12th"
+            />
+            <FooterLink href="/services/for-graduates" text="For Graduates" />
+            <FooterLink
+              href="/services/for-professionals"
+              text="For Professionals"
+            />
+            <FooterLink
+              href="/services/work-force-development"
               text="Workforce Development"
             />
           </div>

@@ -83,7 +83,7 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mt-3 hero-animate-fade-up"
               style={{ animationDelay: "0.5s" }}
             >
-              <span className="text-white/40 text-[10px] uppercase tracking-[0.15em] shrink-0">
+              <span className="text-white text-[10px] uppercase tracking-[0.15em] shrink-0">
                 Quick links
               </span>
               <div className="w-px h-3 bg-white/20 hidden sm:block" />

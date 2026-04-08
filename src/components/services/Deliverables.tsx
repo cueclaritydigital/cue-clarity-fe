@@ -17,7 +17,7 @@ export default function Deliverables({
         {/* HEADER */}
         <div className=" mb-20">
           {section.eyebrow && (
-            <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
+            <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">
               {section.eyebrow}
             </span>
           )}
@@ -43,7 +43,7 @@ export default function Deliverables({
           {/* LEFT — STICKY */}
           <div className="hidden lg:block">
             <div className="sticky top-28 space-y-6">
-              <p className="text-xs uppercase tracking-widest text-blue-700">
+              <p className="text-xs uppercase tracking-widest text-blue-700 font-semibold">
                 Your Outcome
               </p>
 
@@ -82,7 +82,7 @@ export default function Deliverables({
                   className="group will-change-transform transition-all duration-500"
                 >
                   {/* Label */}
-                  <p className="text-xs uppercase tracking-widest text-blue-700 mb-3">
+                  <p className="text-xs uppercase tracking-widest text-blue-700 mb-3 font-semibold">
                     Deliverable {String(i + 1).padStart(2, "00")}
                   </p>
 

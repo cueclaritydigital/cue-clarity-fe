@@ -31,7 +31,7 @@ export default function IconCards({ section }: { section: CardsSection }) {
         {(section.eyebrow || section.headline) && (
           <FadeInView className="mb-8 lg:mb-10 max-w-3xl">
             {section.eyebrow && (
-              <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
+              <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">
                 {section.eyebrow}
               </span>
             )}

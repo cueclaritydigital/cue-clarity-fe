@@ -15,7 +15,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
   const hasImage = !!section.image;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-950 via-[#5c65a8] to-[#fdfbed] pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 px-4 sm:px-6">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-950 via-[#5c65a8] to-[#fdfbed] pt-10 pb-20 md:pt-14 md:pb-28 lg:pt-16 lg:pb-32 px-4 sm:px-6">
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute inset-0 z-0"

@@ -23,7 +23,7 @@ export default function StatsRow({ section }: { section: StatsSection }) {
         {hasHeader && (
           <FadeInView className="mb-12 lg:mb-16 text-center">
             {section.eyebrow && (
-              <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
+              <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">
                 {section.eyebrow}
               </span>
             )}

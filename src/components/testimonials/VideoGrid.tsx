@@ -150,7 +150,7 @@ function VideoCard({
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/20 to-transparent" />
 
         {/* Category badge */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 z-2">
           <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-yellow-400 text-blue-950">
             {video.category}
           </span>
@@ -158,7 +158,7 @@ function VideoCard({
 
         {/* Duration badge */}
         {video.duration && (
-          <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
+          <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 z-2">
             <FiClock size={11} className="text-white/60" />
             <span className="font-medium text-white/60 text-[11px]">
               {video.duration}

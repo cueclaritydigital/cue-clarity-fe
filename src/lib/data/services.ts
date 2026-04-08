@@ -56,7 +56,7 @@ export interface ProcessSection {
   description?: string;
   variant?: "horizontal" | "vertical" | "dark" | "large-numbers";
   steps: { number: string; title: string; description: string }[];
-  testimonial?: { quote: string; author: string; role: string };
+  testimonial?: { quote: string; author?: string; role: string; name?: string };
 }
 
 export interface ComparisonSection {
@@ -115,7 +115,8 @@ export interface FrameworkSection {
     icon?: string;
     number?: string;
     title: string;
-    description: string;
+    description?: string;
+    points?: string[];
   }[];
   image?: string;
 }
@@ -154,12 +155,19 @@ export type ServiceSection =
   | DeliverableSection
   | FlagsSection;
 
+export interface RelatedServiceLink {
+  href: string;
+  title: string;
+  description: string;
+}
+
 export interface ServicePageData {
   slug: string;
   title: string;
   metaTitle: string;
   metaDescription: string;
   sections: ServiceSection[];
+  relatedServices?: RelatedServiceLink[];
 }
 
 // ── Shared CTA links ─────────────────────────────────────
@@ -193,9 +201,10 @@ const QUICK_LINKS_NO_ABROAD = [QUICK_LINK_CAREER];
 const careerCounselling: ServicePageData = {
   slug: "career-counselling",
   title: "Career Counselling",
-  metaTitle: "Career Counselling for Students & Pros | CueClarity",
+  metaTitle:
+    "Career Counselling India | Expert Guidance for Students & Professionals",
   metaDescription:
-    "Science-backed career counselling that transforms confusion into clarity. Personalized guidance for students, graduates, and working professionals across India.",
+    "Transform career confusion into clarity with psychometric assessments & 1-on-1 expert counselling. 5,000+ students guided. Book your free discovery call today.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -582,6 +591,32 @@ const careerCounselling: ServicePageData = {
         "The best time to get career clarity was 5 years ago. The second-best time is today.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/students-8-9-10",
+      title: "Students Class 8–10",
+      description:
+        "Help your child choose the right stream with science-backed psychometric guidance designed for Class 8, 9, and 10.",
+    },
+    {
+      href: "/services/after-10th-12th",
+      title: "After 10th & 12th",
+      description:
+        "Career strategy for Class 11–12 students — entrance exam alignment, degree selection, and profile building.",
+    },
+    {
+      href: "/services/for-graduates",
+      title: "For Graduates",
+      description:
+        "Job, MBA, or competitive exams? Get a data-backed decision framework designed for fresh graduates.",
+    },
+    {
+      href: "/services/for-professionals",
+      title: "For Professionals",
+      description:
+        "Career switch, upskilling, or leadership growth — expert guidance for working professionals in India.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -591,9 +626,10 @@ const careerCounselling: ServicePageData = {
 const students8910: ServicePageData = {
   slug: "students-8-9-10",
   title: "Stream Selector — Classes 8th–10th",
-  metaTitle: "Stream Selection Guidance Classes 8–10 | CueClarity",
+  metaTitle:
+    "Career Counselling for Class 8, 9, 10 Students | Stream Selection Guidance",
   metaDescription:
-    "Science-backed stream selection guidance for Classes 8, 9, and 10. Help your child choose Science, Commerce, or Arts with psychometric clarity — not guesswork.",
+    "Help your child choose the right stream — Science, Commerce, or Arts — with psychometric assessments. Expert career counselling for school students. Book now.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -911,6 +947,20 @@ const students8910: ServicePageData = {
         "Your child's stream decision shapes their college, career, and confidence for years. The greatest gift right now isn't pressure — it's clarity.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/career-counselling",
+      title: "Career Counselling Overview",
+      description:
+        "Explore CueClarity's full career counselling approach — from school students to working professionals.",
+    },
+    {
+      href: "/services/after-10th-12th",
+      title: "Next Step: After 10th & 12th",
+      description:
+        "Once the stream is selected, the next critical decision is degree and college. Start planning early.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -920,9 +970,10 @@ const students8910: ServicePageData = {
 const after10th12th: ServicePageData = {
   slug: "after-10th-12th",
   title: "Career Counselling After 10th & 12th",
-  metaTitle: "Career Counselling After 10th & 12th | CueClarity",
+  metaTitle:
+    "Career Guidance After 10th & 12th | Best Career Options | CueClarity",
   metaDescription:
-    "Career counselling for Class 11–12 students in India. Psychometric assessments, degree guidance, profile building, and personalised roadmaps for the right career path.",
+    "Confused after boards? Get expert career guidance for Class 11-12 students. JEE, NEET, or alternate paths — find the right career with data-backed counselling.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -1266,6 +1317,26 @@ const after10th12th: ServicePageData = {
         "The best investment you make in your child's education is not the tuition fee — it's the clarity on which direction to invest it in.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/students-8-9-10",
+      title: "Just Starting: Class 8–10",
+      description:
+        "For students who want to get ahead — choose the right stream before the pressure kicks in.",
+    },
+    {
+      href: "/services/for-graduates",
+      title: "After College: For Graduates",
+      description:
+        "Already graduated? Get expert career direction — job, MBA, or competitive exams mapped to your strengths.",
+    },
+    {
+      href: "/services/career-counselling",
+      title: "Full Career Counselling",
+      description:
+        "Explore CueClarity's complete career counselling approach for students, graduates, and professionals.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -1275,9 +1346,10 @@ const after10th12th: ServicePageData = {
 const forGraduates: ServicePageData = {
   slug: "for-graduates",
   title: "Career Counselling for Graduates",
-  metaTitle: "Career Counselling for Graduates | CueClarity",
+  metaTitle:
+    "Career Counselling for Graduates | Job, MBA or Govt Exams | CueClarity",
   metaDescription:
-    "Stop guessing your future — start designing it. CueClarity combines psychometric assessments, expert career strategy, and a personalised roadmap for graduates in India.",
+    "Stop guessing after graduation. Get personalized career direction — job vs MBA vs competitive exams. 5,000+ careers transformed. Free discovery call.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -1606,6 +1678,26 @@ const forGraduates: ServicePageData = {
         "The most expensive career mistake is spending years moving fast in the wrong direction. One hour of clarity can save you five years of correction.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/after-10th-12th",
+      title: "Career Guidance After 12th",
+      description:
+        "Explore how CueClarity helps Class 11–12 students make smarter degree and college decisions.",
+    },
+    {
+      href: "/services/for-professionals",
+      title: "For Working Professionals",
+      description:
+        "Already in a job? Get expert guidance for career transitions, upskilling, and leadership growth.",
+    },
+    {
+      href: "/services/career-counselling",
+      title: "Full Career Counselling",
+      description:
+        "Explore CueClarity's complete career counselling approach for students, graduates, and professionals.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -1615,9 +1707,10 @@ const forGraduates: ServicePageData = {
 const forProfessionals: ServicePageData = {
   slug: "for-professionals",
   title: "Career Counselling for Professionals",
-  metaTitle: "Career Counselling for Working Professionals | CueClarity",
+  metaTitle:
+    "Career Switch Counselling for Working Professionals | CueClarity India",
   metaDescription:
-    "Feeling stuck or ready to switch careers? CueClarity helps working professionals in India navigate transitions, skill gaps, and growth with expert career strategy.",
+    "Stuck in your career? Get expert guidance for mid-career transitions, upskilling & leadership growth. Trusted by 5,000+ professionals across India.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -1946,6 +2039,26 @@ const forProfessionals: ServicePageData = {
         "The professionals who move fastest aren't the ones who wait for the perfect moment — they're the ones who stopped waiting and started with a plan.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/for-graduates",
+      title: "For Graduates",
+      description:
+        "Just graduated? Get expert career direction before you start a path that doesn't fit your strengths.",
+    },
+    {
+      href: "/services/career-counselling",
+      title: "Full Career Counselling",
+      description:
+        "Explore CueClarity's complete career counselling framework for students, graduates, and professionals.",
+    },
+    {
+      href: "/services/work-force-development",
+      title: "Workforce Development",
+      description:
+        "Corporate upskilling and employee skill development programs for teams and organizations.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -1955,9 +2068,10 @@ const forProfessionals: ServicePageData = {
 const internationalEducation: ServicePageData = {
   slug: "international-education",
   title: "International Education",
-  metaTitle: "International Education Guidance | CueClarity",
+  metaTitle:
+    "Study Abroad Counselling India | University Guidance & Applications",
   metaDescription:
-    "Study abroad guidance for Indian students — university selection, profile building, visa strategy, and global career pathways. CueClarity makes your international dream achievable.",
+    "Plan your international education with zero-commission guidance. 15+ countries, personalised university shortlisting & application strategy. Book your free audit.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -2333,6 +2447,26 @@ const internationalEducation: ServicePageData = {
         "Studying abroad is a 30–80 lakh decision. The cost of getting it right is a consultation. The cost of getting it wrong is years.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/career-counselling",
+      title: "Career Counselling",
+      description:
+        "Align your international degree with a clear global career plan.",
+    },
+    {
+      href: "/services/for-graduates",
+      title: "For Graduates",
+      description:
+        "Returning from abroad? Get expert guidance on launching your career in India or globally.",
+    },
+    {
+      href: "/services/for-professionals",
+      title: "For Professionals",
+      description:
+        "Upskill abroad or transition your international experience into a leadership role.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -2700,6 +2834,26 @@ const beyondSchoolLife: ServicePageData = {
       quickLinks: QUICK_LINKS_ALL,
       quote:
         "Grades got her through school. Life skills will carry her through everything that comes after.",
+    },
+  ],
+  relatedServices: [
+    {
+      href: "/services/students-8-9-10",
+      title: "Students (Class 8–10)",
+      description:
+        "Combine life skills training with early stream selection guidance.",
+    },
+    {
+      href: "/services/after-10th-12th",
+      title: "After 10th & 12th",
+      description:
+        "Build the soft skills needed to thrive in college and beyond.",
+    },
+    {
+      href: "/services/mental-health",
+      title: "Emotional Wellness",
+      description:
+        "Strengthen emotional resilience alongside practical life skills.",
     },
   ],
 };
@@ -3112,6 +3266,26 @@ const emotionalWellness: ServicePageData = {
         "Taking care of your mind is not weakness. It is the most strategic investment you will ever make in yourself.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/career-counselling",
+      title: "Career Counselling",
+      description:
+        "Clear career direction reduces stress and builds lasting confidence.",
+    },
+    {
+      href: "/services/students-8-9-10",
+      title: "Students (Class 8–10)",
+      description:
+        "Help your child navigate academic pressure with the right support.",
+    },
+    {
+      href: "/services/beyond-school-life-and-skills",
+      title: "Life & Skills",
+      description:
+        "Build emotional resilience through practical life skills development.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -3512,6 +3686,26 @@ const khudKiKahani: ServicePageData = {
         "जब तक तुम अपनी कहानी खुद नहीं लिखोगे, कोई और लिख देगा — और वो तुम्हारी नहीं होगी।",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/beyond-school-life-and-skills",
+      title: "Life & Skills",
+      description:
+        "Build on self-discovery with practical life skills for the real world.",
+    },
+    {
+      href: "/services/mental-health",
+      title: "Emotional Wellness",
+      description:
+        "Your story deserves a healthy foundation — build emotional clarity too.",
+    },
+    {
+      href: "/services/career-counselling",
+      title: "Career Counselling",
+      description:
+        "Turn your personal narrative into a purposeful career direction.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -3521,9 +3715,10 @@ const khudKiKahani: ServicePageData = {
 const industrialTraining: ServicePageData = {
   slug: "industrial-training",
   title: "Industrial Training",
-  metaTitle: "Industrial Training Programs | CueClarity",
+  metaTitle:
+    "Industrial Training Programs for Students & Companies | CueClarity",
   metaDescription:
-    "Hands-on industrial training for students and professionals in India. Build real-world skills, live project experience, and career-ready expertise with CueClarity.",
+    "Bridge the skill gap with CueClarity's industrial training programs. Hands-on training for engineering students & corporate workforce. Enquire now.",
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -3648,6 +3843,12 @@ const industrialTraining: ServicePageData = {
             "Active industry practitioners review your work, provide expert feedback, and prepare you for technical interviews and real-world scenarios — including CV optimisation, LinkedIn positioning, and connection to our hiring network.",
         },
       ],
+      testimonial: {
+        quote:
+          "The training was nothing like a classroom. From week one I was building real prototypes, and by the end I had a portfolio that landed me three interview calls before graduation.",
+        name: "Arjun M.",
+        role: "BTech Graduate, now Embedded Systems Engineer",
+      },
     },
 
     /* ── 5. Feature list — domain expertise ──────────────── */
@@ -3890,6 +4091,26 @@ const industrialTraining: ServicePageData = {
         "A degree tells employers you completed a programme. A portfolio tells them what you can actually do. Industrial training is how you build one.",
     },
   ],
+  relatedServices: [
+    {
+      href: "/services/work-force-development",
+      title: "Workforce Development",
+      description:
+        "Scale from individual training to full organisational capability building.",
+    },
+    {
+      href: "/services/for-graduates",
+      title: "For Graduates",
+      description:
+        "Combine industrial training with expert career direction for fresh graduates.",
+    },
+    {
+      href: "/services/career-counselling",
+      title: "Career Counselling",
+      description:
+        "Know exactly which industry and role to target before you train.",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -3899,9 +4120,10 @@ const industrialTraining: ServicePageData = {
 const workforceDevelopment: ServicePageData = {
   slug: "work-force-development",
   title: "Workforce Development",
-  metaTitle: "Workforce Development & Competency Assessments | CueClarity",
+  metaTitle:
+    "Workforce Development & Employee Training Solutions | CueClarity India",
   metaDescription:
-    "Build future-ready individuals and teams with CueClarity's competency-based assessments. Data-backed career clarity for students, professionals, and organisations.",
+    "Upskill your workforce with customised development programs. Resource management, skill mapping & employee growth solutions for Indian companies.",
   sections: [
     /* ── 1. hero ─────────────────────────────────────────── */
     {
@@ -3911,7 +4133,7 @@ const workforceDevelopment: ServicePageData = {
       eyebrow: "Workforce Development",
       headline: "Measure What <em>Truly Matters</em>",
       description:
-        "Success is no longer defined by degrees alone. Real growth comes from understanding skills, behaviour, mindset, and potential — and acting on that clarity.",
+        "Degrees prove completion. Competency assessments prove capability. CueClarity's workforce development programmes help individuals and organisations replace guesswork with verified, data-backed clarity — so every career decision, hire, and promotion is grounded in evidence.",
       primaryCTA: {
         label: "Book an Assessment",
         href: "/contact",
@@ -3923,27 +4145,33 @@ const workforceDevelopment: ServicePageData = {
     {
       type: "questions",
       eyebrow: "Sounds Familiar?",
-      headline: "When Résumés Don't Tell the Full Story",
+      headline: "When Résumés Don't Tell the <em>Full Story</em>",
+      description:
+        "Whether you're an individual navigating career decisions or an organisation building high-performing teams — these gaps show up more often than you'd expect.",
       questions: [
         {
           icon: "FiAlertCircle",
-          text: "I have good marks — so why am I struggling to land the right role?",
+          text: "I have strong qualifications — so why am I struggling to land the right role?",
         },
         {
-          icon: "FiAlertCircle",
-          text: "I don't know which skills actually set me apart in my industry.",
+          icon: "FiHelpCircle",
+          text: "I don't know which skills genuinely set me apart in my industry.",
         },
         {
-          icon: "FiAlertCircle",
-          text: "We're hiring based on CVs but our new hires keep underperforming.",
+          icon: "FiUsers",
+          text: "We hire based on impressive CVs — but new hires keep underperforming.",
         },
         {
-          icon: "FiAlertCircle",
-          text: "I want to grow but I have no clear picture of my real strengths and gaps.",
+          icon: "FiTarget",
+          text: "I want to grow, but I have no clear picture of my real strengths and development gaps.",
         },
         {
-          icon: "FiAlertCircle",
-          text: "Our team has the experience on paper — but lacks performance under pressure.",
+          icon: "FiActivity",
+          text: "Our team has experience on paper — but lacks performance under actual pressure.",
+        },
+        {
+          icon: "FiTrendingUp",
+          text: "We build training programmes without data — and can't measure whether they actually work.",
         },
       ],
     },
@@ -3952,7 +4180,7 @@ const workforceDevelopment: ServicePageData = {
     {
       type: "comparison",
       eyebrow: "The Reality",
-      headline: "What Traditional Evaluation Misses",
+      headline: "What Traditional Evaluation <em>Misses</em>",
       description:
         "Résumés capture history — not potential. Competency-based assessments bridge the gap by evaluating individuals holistically.",
       left: {
@@ -3983,68 +4211,100 @@ const workforceDevelopment: ServicePageData = {
         "Better career decisions and stronger organisational outcomes — for individuals and teams alike.",
     },
 
-    /* ── 4. cards — for individuals ─────────────────────── */
+    /* ── 4. cards — who it's for ─────────────────────────── */
     {
       type: "cards",
-      eyebrow: "For Individuals",
-      headline: "Discover Your <em>True Potential</em>",
+      eyebrow: "Who It's For",
+      headline: "Designed for Every Stage of <em>Career Growth</em>",
       description:
-        "Whether you're a student, working professional, or aspiring leader — CueClarity helps you understand where you stand and where you can go, with data-backed clarity.",
-      variant: "icon",
+        "CueClarity's competency assessments serve individuals seeking clarity and organisations building capability — with equal depth.",
+      variant: "hover-dark",
       columns: 3,
       cards: [
         {
-          icon: "analytics",
-          title: "Deep Skills Analysis",
+          icon: "FiBookOpen",
+          title: "Students & Fresh Graduates",
           description:
-            "Uncover your competencies, strengths, and areas for improvement with assessments built for your career stage.",
+            "Understand your competency profile before entering the job market — so your first career move is informed, not impulsive.",
+          checklist: [
+            "Strengths vs. qualification gaps",
+            "Industry-readiness scoring",
+            "Career-stage assessment",
+          ],
         },
         {
-          icon: "psychology",
-          title: "Behavioural & Personality Insights",
+          icon: "FiBriefcase",
+          title: "Professionals & Leaders",
           description:
-            "Understand your patterns, communication style, and how they shape your performance at work.",
+            "Get objective data on your leadership style, behavioural patterns, and growth areas — the self-awareness that accelerates promotions.",
+          checklist: [
+            "Leadership & EQ assessment",
+            "Career transition mapping",
+            "Executive competency profiling",
+          ],
+          tags: ["Most Popular"],
         },
         {
-          icon: "map",
-          title: "Personalised Development Roadmap",
+          icon: "FiGrid",
+          title: "Organisations & HR Teams",
           description:
-            "Get a clear career direction and structured growth plan tailored to your goals — not a generic template.",
+            "Replace gut-feel hiring with validated competency screening. Map team capabilities, identify high-potentials, and build data-driven development programmes.",
+          checklist: [
+            "Pre-hire competency screening",
+            "Team skill gap analysis",
+            "Custom L&D roadmaps",
+          ],
         },
       ],
     },
 
-    /* ── 5. cards — ideal audiences ─────────────────────── */
+    /* ── 5. framework — assessment methodology ───────────── */
     {
-      type: "cards",
-      eyebrow: "Who It's For",
-      headline: "Ideal for Every Stage of Your Career",
-      variant: "bordered",
-      columns: 4,
-      cards: [
+      type: "framework",
+      eyebrow: "Our Methodology",
+      headline: "The CueClarity <em>Competency Framework</em>",
+      description:
+        "Every assessment is built on four interconnected dimensions — because career success depends on more than technical skill alone.",
+      pillars: [
         {
-          icon: "school",
-          title: "Students",
-          description:
-            "Exploring career options and finding the right direction before it's too late.",
+          icon: "FiCpu",
+          title: "Cognitive Ability",
+          points: [
+            "Logical and analytical reasoning",
+            "Numerical and verbal aptitude",
+            "Decision-making under ambiguity",
+            "Critical thinking and problem-solving",
+          ],
         },
         {
-          icon: "work",
-          title: "Professionals",
-          description:
-            "Planning career growth, transitions, or preparing for high-stakes interviews.",
+          icon: "FiHeart",
+          title: "Behavioural & Emotional",
+          points: [
+            "Big Five personality profiling",
+            "Emotional intelligence (EQ)",
+            "Communication and leadership style",
+            "Conflict management patterns",
+          ],
         },
         {
-          icon: "leaderboard",
-          title: "Leaders",
-          description:
-            "Aiming for next-level performance and deeper self-awareness to lead effectively.",
+          icon: "FiLayers",
+          title: "Domain Competencies",
+          points: [
+            "Role-specific skill validation",
+            "Industry knowledge assessment",
+            "Technical depth vs. breadth mapping",
+            "Certification-aligned benchmarking",
+          ],
         },
         {
-          icon: "rocket_launch",
-          title: "Entrepreneurs",
-          description:
-            "Building self-awareness to make better decisions and lead teams with confidence.",
+          icon: "FiTrendingUp",
+          title: "Growth & Adaptability",
+          points: [
+            "Learning agility measurement",
+            "Change readiness profiling",
+            "Career trajectory forecasting",
+            "Resilience and motivation mapping",
+          ],
         },
       ],
     },
@@ -4055,81 +4315,72 @@ const workforceDevelopment: ServicePageData = {
       eyebrow: "How It Works",
       headline: "From Assessment to <em>Actionable Clarity</em>",
       description:
-        "A streamlined four-step process designed for real-world application — not theory.",
-      variant: "horizontal",
+        "A structured four-step process designed for real-world application — not theory.",
+      variant: "large-numbers",
       steps: [
         {
           number: "01",
           title: "Select Your Assessment",
           description:
-            "Access 60+ ready-to-use assessments across skills, behaviour, and cognition — aligned to your role and goals.",
+            "Choose from 60+ ready-to-use assessments across skills, behaviour, and cognition — aligned to your role and goals. Organisations can customise for bulk deployment.",
         },
         {
           number: "02",
           title: "Choose Competencies",
           description:
-            "Pick from 250+ competencies mapped to industries, career stages, and growth objectives.",
+            "Pick from 250+ competencies mapped to industries, career stages, and growth objectives. Every assessment can be tailored to your specific context.",
         },
         {
           number: "03",
           title: "Customise & Evaluate",
           description:
-            "Add role-specific scenarios, audio/video responses, or descriptive questions to personalise the evaluation.",
+            "Add role-specific scenarios, audio/video responses, or descriptive questions to personalise the evaluation. The assessment adapts to you — not the other way around.",
         },
         {
           number: "04",
-          title: "AI-Powered Reports",
+          title: "AI-Powered Reports + Mentor Review",
           description:
-            "Receive structured reports highlighting strengths, gaps, suitability, and actionable development recommendations.",
+            "Receive structured reports highlighting strengths, gaps, role suitability, and actionable development recommendations — all reviewed with a CueClarity career mentor for real-world interpretation.",
         },
       ],
+      testimonial: {
+        quote:
+          "The assessment showed me exactly where I stood as a leader — and the mentor session turned those insights into a concrete 90-day growth plan. It was the most useful hour I've spent on my career.",
+        name: "Neha R.",
+        role: "Senior Manager, Bengaluru",
+      },
     },
 
-    /* ── 7. cards — assessment types ────────────────────── */
+    /* ── 7. deliverables — what you get ──────────────────── */
     {
-      type: "cards",
-      eyebrow: "Assessment Library",
-      headline: "A Comprehensive Library Across <em>Every Domain</em>",
-      description:
-        "Covering leadership, cognition, personality, communication, and industry-specific skills.",
-      variant: "hover-dark",
-      columns: 3,
-      cards: [
+      type: "deliverables",
+      eyebrow: "What You Receive",
+      headline: "Every Assessment Includes",
+      items: [
         {
-          icon: "military_tech",
-          title: "Leadership & Management",
+          title: "Comprehensive Competency Report",
           description:
-            "Evaluate leadership effectiveness, conflict management, and strategic decision-making.",
+            "A multi-dimensional breakdown of your strengths, skill gaps, and behavioural patterns — not a single score, but a complete capability profile.",
         },
         {
-          icon: "record_voice_over",
-          title: "Communication & Professional Skills",
+          title: "Role Suitability Scoring",
           description:
-            "Assess verbal and written communication, active listening, and workplace presence.",
+            "See how your competencies align to specific roles, industries, and career paths — data that replaces uncertainty with direction.",
         },
         {
-          icon: "biotech",
-          title: "Cognitive & Analytical",
+          title: "Personalised Development Roadmap",
           description:
-            "Measure logical reasoning, critical thinking, and numerical ability under real conditions.",
+            "A structured growth plan with priority areas, learning recommendations, and milestones — built around your results, not a template.",
         },
         {
-          icon: "mood",
-          title: "Personality & Behavioural",
+          title: "1-on-1 Mentor Review Session",
           description:
-            "Big 5 Personality, DISC Profiling, and Emotional Intelligence (EQ) assessments.",
+            "A career expert walks through your results, answers questions, and helps translate data into decisions you can act on immediately.",
         },
         {
-          icon: "diversity_3",
-          title: "Industry-Specific Assessments",
+          title: "Organisational Dashboard (for Teams)",
           description:
-            "Tailored evaluations for IT & Development, Finance, HR, Sales, and Operations roles.",
-        },
-        {
-          icon: "corporate_fare",
-          title: "Organisational Fit",
-          description:
-            "Measure cultural alignment, motivation, and team compatibility for stronger hiring decisions.",
+            "HR leaders receive aggregated team analytics, skill heatmaps, and L&D priority recommendations — all in a single executive view.",
         },
       ],
     },
@@ -4205,6 +4456,12 @@ const workforceDevelopment: ServicePageData = {
           label:
             "Individuals guided to career clarity with data-backed insights",
         },
+        {
+          value: "95",
+          suffix: "%",
+          label:
+            "Assessment participants report clearer career direction within 30 days",
+        },
       ],
     },
 
@@ -4212,7 +4469,7 @@ const workforceDevelopment: ServicePageData = {
     {
       type: "faq",
       eyebrow: "Common Questions",
-      headline: "Everything You Need to Know",
+      headline: "Workforce Development — <em>Your Questions Answered</em>",
       items: [
         {
           question:
@@ -4272,6 +4529,26 @@ const workforceDevelopment: ServicePageData = {
       quickLinks: QUICK_LINKS_ALL,
       quote:
         "Understanding myself through CueClarity's assessment changed the way I approach my career — it wasn't guesswork anymore.",
+    },
+  ],
+  relatedServices: [
+    {
+      href: "/services/industrial-training",
+      title: "Industrial Training",
+      description:
+        "Complement assessments with hands-on skill-building for your teams.",
+    },
+    {
+      href: "/services/for-professionals",
+      title: "For Professionals",
+      description:
+        "Individual career growth planning alongside team-level development.",
+    },
+    {
+      href: "/services/career-counselling",
+      title: "Career Counselling",
+      description:
+        "Pair workforce data with personalised career counselling for your employees.",
     },
   ],
 };

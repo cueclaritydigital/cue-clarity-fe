@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: { card: "summary_large_image" },
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "https://cueclarity.com/blog" },
 };
 
 export default function Blog() {
@@ -28,7 +28,7 @@ export default function Blog() {
       <Navbar />
       <FeaturedHero />
       {/* ── Main content + sidebar ── */}
-      <section className="py-24 px-4 sm:px-6 bg-[var(--primary-white)]">
+      <section className="py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-14">
             <PostGrid posts={nonFeatured} />

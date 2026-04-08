@@ -39,7 +39,7 @@ export default function PostGrid({ posts }: { posts: BlogPost[] }) {
                   </span>
                 </div>
 
-                <h3 className="heading-font text-blue-950 text-base sm:text-lg leading-snug mb-3 group-hover:text-[var(--primary-blue)] transition-colors">
+                <h3 className="heading-font text-blue-950 text-base sm:text-lg leading-snug mb-3 group-hover:text-yellow-500 transition-colors">
                   {post.title}
                 </h3>
 

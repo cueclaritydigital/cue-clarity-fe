@@ -7,7 +7,13 @@ export default function FeaturedHero() {
   const post = getFeaturedPost();
 
   return (
-    <section className="px-0 pt-0 lg:px-4 lg:pt-10 bg-[var(--primary-white)] lg:max-w-[1200px] mx-auto">
+    <div className="px-0 pt-0 pb-6 lg:pb-10 lg:px-4 lg:pt-10 bg-[var(--primary-white)] lg:max-w-[1200px] mx-auto">
+      {/* Background glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-80px] right-[-60px] w-[550px] h-[550px] bg-yellow-200/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-40px] left-[-40px] w-[400px] h-[400px] bg-blue-200/15 blur-[120px] rounded-full" />
+      </div>
+
       <FadeInView>
         <Link
           href={`/blog/${post.slug}`}
@@ -51,6 +57,6 @@ export default function FeaturedHero() {
           </div>
         </Link>
       </FadeInView>
-    </section>
+    </div>
   );
 }

@@ -251,7 +251,7 @@ export const SERVICES = [
     ),
   },
   {
-    href: "work-force-development",
+    href: "/services/work-force-development",
     title: "Workforce Development",
     tag: "Corporate",
     desc: "Corporate upskilling, employee skill development, process improvement, and team growth strategies.",

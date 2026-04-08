@@ -13,7 +13,7 @@ export default function FAQAccordion({ section }: { section: FAQSection }) {
         {/* LEFT COLUMN */}
         <div className="w-full lg:w-1/3 lg:sticky lg:top-32 h-fit">
           {section.eyebrow && (
-            <span className="text-blue-700 text-base font-bold tracking-widest uppercase mb-3 block">
+            <span className="text-yellow-500 text-base font-bold tracking-widest uppercase mb-3 block">
               {section.eyebrow}
             </span>
           )}

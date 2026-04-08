@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CATEGORIES, POPULAR_POSTS } from "@/lib/data/blog";
 import NewsletterForm from "@/components/common/NewsLetterFrom";
+import { getWhatsAppURL } from "@/lib/whatsapp";
 
 export default function BlogSidebar() {
   return (
@@ -47,7 +48,7 @@ export default function BlogSidebar() {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="text-sm font-bold leading-snug text-blue-950 group-hover:text-[var(--primary-blue)] transition-colors line-clamp-2">
+                <h4 className="text-sm font-bold leading-snug text-blue-950 group-hover:text-yellow-500 transition-colors line-clamp-2">
                   {p.title}
                 </h4>
                 <p className="text-xs mt-1 text-gray-400">{p.date}</p>
@@ -57,15 +58,32 @@ export default function BlogSidebar() {
         </div>
       </div>
 
-      {/* ── Newsletter CTA ── */}
-      <div className="p-6 sm:p-8 rounded-2xl bg-blue-950 shadow-[0_10px_40px_rgba(41,50,110,0.25)]">
-        <h3 className="font-extrabold text-xl mb-2 text-white">
-          Clarity Inbox
-        </h3>
-        <p className="text-sm mb-5 text-white/60">
-          Bi-weekly career insights, tips, and trends — straight to your inbox.
+      {/* ── Service CTA ── */}
+      <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-blue-950 to-blue-900 border border-yellow-400/20">
+        <p className="text-xs font-black uppercase tracking-widest text-yellow-400 mb-2">
+          Free Consultation
         </p>
-        <NewsletterForm compact />
+        <h3 className="font-extrabold text-lg text-white mb-2 leading-snug">
+          Still Confused About Your Career?
+        </h3>
+        <p className="text-sm text-white/60 mb-5">
+          Talk to a CueClarity expert — 15 minutes, zero pressure, and 100%
+          free.
+        </p>
+        <a
+          href={getWhatsAppURL("general")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-center py-3 rounded-xl font-extrabold text-sm bg-yellow-400 text-blue-950 hover:bg-yellow-300 transition-colors"
+        >
+          Book Free Clarity Call →
+        </a>
+        <Link
+          href="/services/career-counselling"
+          className="block text-center mt-3 text-xs text-white/50 hover:text-yellow-400 transition-colors"
+        >
+          Explore all career services
+        </Link>
       </div>
 
       {/* ── Tags ── */}

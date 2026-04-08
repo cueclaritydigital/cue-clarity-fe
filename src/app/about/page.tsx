@@ -14,10 +14,26 @@ import Footer from "@/components/common/Footer";
 
 export const dynamic = "force-static";
 
+const founderSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sunil Kumar Panda",
+  jobTitle: "Founder & Chief Career Strategist",
+  worksFor: {
+    "@type": "Organization",
+    name: "CueClarity",
+    url: "https://cueclarity.com",
+  },
+  url: "https://cueclarity.com/about",
+};
+
 export const metadata: Metadata = {
   title: "About CueClarity | Our Mission & Expert Team",
   description:
     "Learn how CueClarity empowers students, parents, and professionals with data-backed career counselling. Meet the team behind 2,000+ career transformations.",
+  alternates: {
+    canonical: "https://cueclarity.com/about",
+  },
   openGraph: {
     title: "About CueClarity — Our Mission",
     description:
@@ -28,6 +44,10 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderSchema) }}
+      />
       <Navbar />
       <HeroAbout />
       <OurStory />

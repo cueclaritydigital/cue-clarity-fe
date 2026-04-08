@@ -6,10 +6,28 @@ import WrittenStories from "@/components/testimonials/WrittenStories";
 import ContactSection from "@/components/common/ContactSection";
 import Footer from "@/components/common/Footer";
 
+const aggregateRatingSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "CueClarity",
+  url: "https://cueclarity.com",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    bestRating: "5",
+    worstRating: "1",
+    ratingCount: "2500",
+    reviewCount: "2500",
+  },
+};
+
 export const metadata: Metadata = {
-  title: "Success Stories | CueClarity — Real Career Transformations",
+  title: "Career Counselling Success Stories & Reviews | CueClarity India",
   description:
-    "Read real stories of students, parents, and professionals who transformed their careers with CueClarity's science-backed guidance. Watch video chronicles and written testimonials.",
+    "Read real transformation stories — students who found direction, professionals who switched careers. 5,000+ careers guided with 95% satisfaction.",
+  alternates: {
+    canonical: "https://cueclarity.com/testimonials",
+  },
   openGraph: {
     title: "CueClarity Success Stories — Real Results From Real People",
     description:
@@ -28,6 +46,12 @@ export const metadata: Metadata = {
 export default function SuccessStoriesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aggregateRatingSchema),
+        }}
+      />
       <Navbar />
       <HeroSuccessStories />
       <VideoStories />

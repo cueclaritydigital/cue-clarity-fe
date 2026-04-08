@@ -6,7 +6,14 @@ import {
   Manrope,
 } from "next/font/google";
 import "./globals.css";
-import { organizationSchema, siteNavigationSchema } from "@/lib/schema";
+import {
+  organizationSchema,
+  siteNavigationSchema,
+  localBusinessSchema,
+} from "@/lib/schema";
+import FloatingCTA from "@/components/common/FloatingCTA";
+import ExitIntentPopup from "@/components/common/ExitIntentPopup";
+import ScrollToTop from "@/components/common/ScrollToTop";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -101,6 +108,12 @@ export default function RootLayout({
             __html: JSON.stringify(siteNavigationSchema),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
       </head>
       <body
         className="font-[family-name:var(--font-jakarta)] antialiased"
@@ -110,7 +123,10 @@ export default function RootLayout({
           lineHeight: "var(--leading-normal)",
         }}
       >
+        <ScrollToTop />
         <main>{children}</main>
+        <FloatingCTA />
+        <ExitIntentPopup />
       </body>
     </html>
   );
