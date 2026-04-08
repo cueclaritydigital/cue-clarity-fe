@@ -166,6 +166,7 @@ export interface ServicePageData {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  keywords?: string[];
   sections: ServiceSection[];
   relatedServices?: RelatedServiceLink[];
 }
@@ -205,6 +206,18 @@ const careerCounselling: ServicePageData = {
     "Career Counselling India | Expert Guidance for Students & Professionals",
   metaDescription:
     "Transform career confusion into clarity with psychometric assessments & 1-on-1 expert counselling. 5,000+ students guided. Book your free discovery call today.",
+  keywords: [
+    "career counselling India",
+    "best career counsellor India",
+    "psychometric test India",
+    "career roadmap India",
+    "online career counselling India",
+    "career counselling Mumbai",
+    "career counselling Bangalore",
+    "career counselling Pune",
+    "career counselling Delhi",
+    "free career guidance India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -630,6 +643,16 @@ const students8910: ServicePageData = {
     "Career Counselling for Class 8, 9, 10 Students | Stream Selection Guidance",
   metaDescription:
     "Help your child choose the right stream — Science, Commerce, or Arts — with psychometric assessments. Expert career counselling for school students. Book now.",
+  keywords: [
+    "stream selection after 8th class India",
+    "stream selection class 9 10",
+    "science commerce arts stream guidance",
+    "psychometric test for school students India",
+    "career counselling class 8 9 10",
+    "career guidance for school students Mumbai",
+    "career guidance for school students Bangalore",
+    "stream selection test India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -974,6 +997,17 @@ const after10th12th: ServicePageData = {
     "Career Guidance After 10th & 12th | Best Career Options | CueClarity",
   metaDescription:
     "Confused after boards? Get expert career guidance for Class 11-12 students. JEE, NEET, or alternate paths — find the right career with data-backed counselling.",
+  keywords: [
+    "career after 10th India",
+    "career after 12th India",
+    "best career options after 12th",
+    "career roadmap after boards India",
+    "JEE NEET alternative careers",
+    "career guidance class 11 12 India",
+    "career counselling after 10th Mumbai",
+    "career counselling after 12th Bangalore",
+    "non-engineering career options India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -1350,6 +1384,16 @@ const forGraduates: ServicePageData = {
     "Career Counselling for Graduates | Job, MBA or Govt Exams | CueClarity",
   metaDescription:
     "Stop guessing after graduation. Get personalized career direction — job vs MBA vs competitive exams. 5,000+ careers transformed. Free discovery call.",
+  keywords: [
+    "career counselling for graduates India",
+    "job vs MBA guidance India",
+    "career roadmap after graduation",
+    "govt exams career guidance India",
+    "career counselling graduates Mumbai",
+    "career counselling graduates Bangalore",
+    "career direction after college India",
+    "psychometric test for graduates",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -1711,6 +1755,17 @@ const forProfessionals: ServicePageData = {
     "Career Switch Counselling for Working Professionals | CueClarity India",
   metaDescription:
     "Stuck in your career? Get expert guidance for mid-career transitions, upskilling & leadership growth. Trusted by 5,000+ professionals across India.",
+  keywords: [
+    "career switch counselling India",
+    "mid-career transition India",
+    "career counselling working professionals",
+    "career counselling professionals Mumbai",
+    "career counselling professionals Bangalore",
+    "upskilling career guidance India",
+    "career roadmap professionals India",
+    "leadership career counselling India",
+    "career break re-entry India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -2072,6 +2127,16 @@ const internationalEducation: ServicePageData = {
     "Study Abroad Counselling India | University Guidance & Applications",
   metaDescription:
     "Plan your international education with zero-commission guidance. 15+ countries, personalised university shortlisting & application strategy. Book your free audit.",
+  keywords: [
+    "study abroad counselling India",
+    "international education consultant India",
+    "university admission guidance India",
+    "study abroad Mumbai",
+    "study abroad Bangalore",
+    "study abroad Pune",
+    "zero commission study abroad India",
+    "overseas education counsellor India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -2479,6 +2544,15 @@ const beyondSchoolLife: ServicePageData = {
   metaTitle: "Life Skills for Students & Young Adults | CueClarity",
   metaDescription:
     "Build emotional resilience, communication, financial literacy, and leadership skills beyond academics. CueClarity's life skills programme gives young Indians the tools to thrive.",
+  keywords: [
+    "life skills program for students India",
+    "life skills training young adults India",
+    "emotional resilience program India",
+    "financial literacy for students India",
+    "life skills Mumbai",
+    "life skills Bangalore",
+    "beyond academics career readiness India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -2868,6 +2942,15 @@ const emotionalWellness: ServicePageData = {
   metaTitle: "Mental Health & Emotional Wellness Support | CueClarity",
   metaDescription:
     "Expert emotional wellness support for students, professionals, and families in India. Build resilience, manage anxiety, and thrive with CueClarity's structured guidance.",
+  keywords: [
+    "mental health support students India",
+    "emotional wellness counselling India",
+    "career anxiety counselling India",
+    "student mental health Mumbai",
+    "student mental health Bangalore",
+    "burnout career counselling India",
+    "emotional resilience guidance India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -3298,6 +3381,15 @@ const khudKiKahani: ServicePageData = {
   metaTitle: "Khud Ki Kahani | CueClarity",
   metaDescription:
     "Khud Ki Kahani — CueClarity's storytelling workshop helps students find identity, build confidence, and write their own story. For schools, colleges, and institutions across India.",
+  keywords: [
+    "Khud Ki Kahani workshop India",
+    "storytelling workshop students India",
+    "student identity program India",
+    "confidence building workshop India",
+    "school college storytelling India",
+    "career identity workshop Mumbai",
+    "career identity workshop Bangalore",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -3719,6 +3811,15 @@ const industrialTraining: ServicePageData = {
     "Industrial Training Programs for Students & Companies | CueClarity",
   metaDescription:
     "Bridge the skill gap with CueClarity's industrial training programs. Hands-on training for engineering students & corporate workforce. Enquire now.",
+  keywords: [
+    "industrial training programs India",
+    "engineering internship training India",
+    "corporate training program India",
+    "industrial training Mumbai",
+    "industrial training Bangalore",
+    "skill gap training India",
+    "hands-on industry training students India",
+  ],
   sections: [
     /* ── 1. Hero ─────────────────────────────────────────── */
     {
@@ -4124,6 +4225,16 @@ const workforceDevelopment: ServicePageData = {
     "Workforce Development & Employee Training Solutions | CueClarity India",
   metaDescription:
     "Upskill your workforce with customised development programs. Resource management, skill mapping & employee growth solutions for Indian companies.",
+  keywords: [
+    "workforce development India",
+    "employee training solutions India",
+    "competency assessment India",
+    "skill mapping corporate India",
+    "workforce development Mumbai",
+    "workforce development Bangalore",
+    "employee upskilling program India",
+    "corporate career development India",
+  ],
   sections: [
     /* ── 1. hero ─────────────────────────────────────────── */
     {

@@ -39,6 +39,11 @@ export const metadata: Metadata = {
     "online career counselling India",
     "college career readiness",
     "professional career coaching",
+    "career roadmap program India",
+    "career assessment Mumbai",
+    "career assessment Bangalore",
+    "career assessment Pune",
+    "psychometric test India",
   ],
   openGraph: {
     title: "Career Assessment Programs & Webinars | CueClarity",
@@ -46,15 +51,34 @@ export const metadata: Metadata = {
       "Science-backed career assessments, expert counselling programs, and transformative webinars. Find your clarity path with CueClarity.",
     type: "website",
     url: "https://cueclarity.com/programs",
+    siteName: "CueClarity",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dcudnuu04/image/upload/v1774113768/Gemini_Generated_Image_x5p1efx5p1efx5p1_ecqkqq.webp",
+        width: 1200,
+        height: 630,
+        alt: "CueClarity career assessment program session with students exploring career paths",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Career Assessment Programs & Webinars | CueClarity",
     description:
       "Science-backed career assessments and expert counselling for students, parents, and professionals.",
+    images: [
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1774113768/Gemini_Generated_Image_x5p1efx5p1efx5p1_ecqkqq.webp",
+    ],
   },
   alternates: {
     canonical: "https://cueclarity.com/programs",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
 };
 

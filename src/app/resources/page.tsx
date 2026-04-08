@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "CueClarity free resources",
     "career clarity playbook",
     "best career counselling blog India",
+    "career resources Mumbai",
+    "career resources Bangalore",
+    "career resources Pune",
+    "career resources Delhi",
   ],
   alternates: {
     canonical: `${BASE_URL}/resources`,

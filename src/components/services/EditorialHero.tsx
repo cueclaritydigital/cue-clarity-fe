@@ -63,7 +63,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src={section.image!}
-                  alt={section.eyebrow}
+                  alt={`${section.eyebrow} — ${section.headline.replace(/<[^>]*>/g, "")} | CueClarity India`}
                   width={600}
                   height={400}
                   className="w-full h-auto object-cover"
@@ -139,7 +139,7 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src={section.image!}
-                alt={section.eyebrow}
+                alt={`${section.eyebrow} — ${section.headline.replace(/<[^>]*>/g, "")} | CueClarity India`}
                 width={600}
                 height={480}
                 className="w-full h-auto object-cover"

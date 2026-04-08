@@ -67,6 +67,7 @@ export async function generateMetadata({
   return {
     title: page.metaTitle,
     description: page.metaDescription,
+    ...(page.keywords && { keywords: page.keywords }),
     alternates: {
       canonical: pageUrl,
     },

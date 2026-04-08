@@ -3,9 +3,14 @@
 // Every CTA on the site calls getWhatsAppURL() so the number, message template,
 // and UTM strategy stay consistent site-wide.
 
-const WHATSAPP_NUMBER = '918652222525'; // country code, no "+"
+const WHATSAPP_NUMBER = "918652222525"; // country code, no "+"
 
-type Segment = 'student' | 'parent' | 'professional' | 'institution' | 'general';
+type Segment =
+  | "student"
+  | "parent"
+  | "professional"
+  | "institution"
+  | "general";
 
 const MESSAGE_TEMPLATES: Record<Segment, string> = {
   student:
@@ -26,11 +31,10 @@ const MESSAGE_TEMPLATES: Record<Segment, string> = {
  * @param utm      – optional UTM source tag appended to the message
  */
 export function getWhatsAppURL(
-  segment: Segment = 'general',
+  segment: Segment = "general",
   utm?: string,
 ): string {
   let text = MESSAGE_TEMPLATES[segment];
-  if (utm) text += ` [${utm}]`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 

@@ -97,7 +97,7 @@ export default function FeatureList({
               <div className="relative rounded-2xl overflow-hidden">
                 <Image
                   src={section.image!}
-                  alt={section.eyebrow}
+                  alt={`${section.eyebrow} — ${section.headline.replace(/<[^>]*>/g, "")} | CueClarity India`}
                   width={480}
                   height={560}
                   className="w-full h-auto object-cover rounded-2xl"

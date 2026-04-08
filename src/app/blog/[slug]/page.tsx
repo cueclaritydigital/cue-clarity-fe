@@ -19,24 +19,71 @@ export function generateStaticParams() {
 /* ── Dynamic metadata ── */
 type Props = { params: Promise<{ slug: string }> };
 
+const CATEGORY_KEYWORDS: Record<string, string[]> = {
+  "Career Planning": [
+    "career planning India",
+    "career roadmap",
+    "career guidance India",
+    "career counselling tips",
+  ],
+  "Study Abroad": [
+    "study abroad India",
+    "international education",
+    "university abroad guidance",
+    "study abroad counselling",
+  ],
+  Assessment: [
+    "psychometric test India",
+    "career aptitude test",
+    "career assessment India",
+    "stream selection test",
+  ],
+  "For Parents": [
+    "career counselling for parents India",
+    "stream selection for child",
+    "parent career guidance",
+  ],
+  Trends: ["career trends India", "future careers India", "emerging careers"],
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  const categoryKeywords = CATEGORY_KEYWORDS[post.category] ?? [
+    "career counselling India",
+    "career guidance",
+  ];
+
   return {
     title: `${post.title} | CueClarity Blog`,
     description: post.excerpt,
+    keywords: [...categoryKeywords, post.category.toLowerCase(), "CueClarity"],
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `https://cueclarity.com/blog/${post.slug}`,
+      siteName: "CueClarity",
+      locale: "en_IN",
       images: [
         { url: post.image, width: 1200, height: 630, alt: post.imageAlt },
       ],
     },
-    twitter: { card: "summary_large_image" },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
     alternates: { canonical: `https://cueclarity.com/blog/${post.slug}` },
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   };
 }
 

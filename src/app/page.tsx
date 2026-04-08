@@ -16,6 +16,21 @@ export const metadata: Metadata = {
   title: "Career Counselling for Students & Professionals | CueClarity India",
   description:
     "Confused about your career? Get science-backed career counselling from India's trusted experts. Free discovery call for students (Class 8-12), graduates & professionals.",
+  keywords: [
+    "career counselling India",
+    "career guidance online",
+    "psychometric test India",
+    "career roadmap for students",
+    "stream selection guidance",
+    "career aptitude test India",
+    "free career guidance India",
+    "online career counselling India",
+    "career counselling Mumbai",
+    "career counselling Bangalore",
+    "career counselling Pune",
+    "career counselling Delhi",
+    "best career counsellor India",
+  ],
   alternates: {
     canonical: "https://cueclarity.com",
   },
@@ -27,12 +42,30 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "CueClarity",
     locale: "en_IN",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225984/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety_eri1bm.webp",
+        width: 1200,
+        height: 630,
+        alt: "CueClarity — Expert Career Counselling for Students & Professionals in India",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Career Counselling for Students & Professionals | CueClarity India",
     description:
       "Confused about your career? Get science-backed career counselling from India's trusted experts. Free discovery call for students (Class 8-12), graduates & professionals.",
+    images: [
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225984/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety_eri1bm.webp",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
 };
 

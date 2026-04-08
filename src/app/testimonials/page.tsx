@@ -25,6 +25,17 @@ export const metadata: Metadata = {
   title: "Career Counselling Success Stories & Reviews | CueClarity India",
   description:
     "Read real transformation stories — students who found direction, professionals who switched careers. 5,000+ careers guided with 95% satisfaction.",
+  keywords: [
+    "career counselling reviews India",
+    "career counselling success stories",
+    "student career transformation India",
+    "career guidance testimonials",
+    "CueClarity reviews",
+    "career counselling results Mumbai",
+    "career counselling results Bangalore",
+    "psychometric test success stories",
+    "stream selection success India",
+  ],
   alternates: {
     canonical: "https://cueclarity.com/testimonials",
   },
@@ -32,14 +43,33 @@ export const metadata: Metadata = {
     title: "CueClarity Success Stories — Real Results From Real People",
     description:
       "5,000+ careers transformed. Hear and read authentic stories from students, parents, and professionals who found clarity with CueClarity.",
+    url: "https://cueclarity.com/testimonials",
+    type: "website",
+    siteName: "CueClarity",
+    locale: "en_IN",
     images: [
       {
         url: "https://res.cloudinary.com/dcudnuu04/image/upload/v1773250202/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.png",
         width: 1200,
         height: 630,
-        alt: "CueClarity Success Stories",
+        alt: "CueClarity Success Stories — Students and Professionals Celebrating Career Clarity",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CueClarity Success Stories — Real Results From Real People",
+    description:
+      "5,000+ careers transformed. Authentic stories from students, parents, and professionals who found clarity with CueClarity.",
+    images: [
+      "https://res.cloudinary.com/dcudnuu04/image/upload/v1773250202/Gemini_Generated_Image_mug0mfmug0mfmug0_ns8ety.png",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
 };
 

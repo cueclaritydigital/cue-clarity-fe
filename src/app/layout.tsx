@@ -64,6 +64,15 @@ export const metadata: Metadata = {
     "international education",
     "career assessment",
     "psychometric test",
+    "career roadmap",
+    "stream selection",
+    "career counselling India",
+    "online career counselling",
+    "career guidance India",
+    "career counselling Mumbai",
+    "career counselling Bangalore",
+    "career counselling Pune",
+    "career counselling Delhi",
   ],
   metadataBase: new URL("https://cueclarity.com"),
   openGraph: {
@@ -72,6 +81,7 @@ export const metadata: Metadata = {
       "Expert career counselling that transforms uncertainty into clarity.",
     type: "website",
     siteName: "CueClarity",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
@@ -82,6 +92,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
 };
 

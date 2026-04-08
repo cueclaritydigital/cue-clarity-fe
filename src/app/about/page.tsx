@@ -31,13 +31,50 @@ export const metadata: Metadata = {
   title: "About CueClarity | Our Mission & Expert Team",
   description:
     "Learn how CueClarity empowers students, parents, and professionals with data-backed career counselling. Meet the team behind 2,000+ career transformations.",
+  keywords: [
+    "about CueClarity",
+    "career counselling experts India",
+    "career guidance mission",
+    "CueClarity founder",
+    "trusted career counselling India",
+    "career counselling team Mumbai",
+    "career counselling team Bangalore",
+    "best career counsellors India",
+  ],
   alternates: {
     canonical: "https://cueclarity.com/about",
   },
   openGraph: {
-    title: "About CueClarity — Our Mission",
+    title: "About CueClarity — Our Mission & Expert Team",
     description:
-      "Data-backed career counselling transforming 2,000+ lives and counting.",
+      "Data-backed career counselling transforming 2,000+ lives. Meet the expert team dedicated to your career clarity.",
+    url: "https://cueclarity.com/about",
+    type: "website",
+    siteName: "CueClarity",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225982/Gemini_Generated_Image_fdp1q8fdp1q8fdp1_fded7r_mitxjm.webp",
+        width: 1200,
+        height: 630,
+        alt: "CueClarity team in a career counselling workshop with students",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About CueClarity — Our Mission & Expert Team",
+    description:
+      "Data-backed career counselling transforming 2,000+ lives. Meet the expert team dedicated to your career clarity.",
+    images: [
+      "https://res.cloudinary.com/dy7okgtgd/image/upload/v1775225982/Gemini_Generated_Image_fdp1q8fdp1q8fdp1_fded7r_mitxjm.webp",
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
 };
 
