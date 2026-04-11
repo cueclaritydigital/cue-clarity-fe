@@ -75,9 +75,9 @@ export default function HeroResources() {
             </Link>
             <Link
               href="#videos"
-              className="border-2 rounded-full border-blue-950 text-blue-950 text-base lg:text-sm px-8 py-4 lg:py-3 w-full sm:w-auto text-center font-bold transition-all duration-200 hover:-translate-y-px hover:shadow-[0_6px_24px_rgba(41,50,110,0.15)]"
+              className="inline-flex items-center justify-center text-sm font-semibold px-7 py-3.5 rounded-xl border-[1.5px] border-blue-950 text-blue-950 hover:bg-[var(--primary-blue)] hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
-              Watch Career Videos
+              Watch Career Videos →
             </Link>
           </div>
         </FadeInView>

@@ -43,15 +43,18 @@ export default function HeroAbout() {
           </p>
 
           {/* Stats row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-14">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <p className="text-3xl lg:text-4xl font-extrabold tracking-tight text-blue-950">
-                  {s.value}
-                </p>
-                <p className="text-xs font-medium mt-1.5 text-gray-400 uppercase tracking-wide">
-                  {s.label}
-                </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-12">
+            {STATS.map((m) => (
+              <div
+                key={m.label}
+                className="flex flex-col px-4 py-4 rounded-2xl bg-gray-50/80 border border-gray-100"
+              >
+                <span className="text-2xl font-extrabold tracking-tight text-blue-950 leading-none">
+                  {m.value}
+                </span>
+                <span className="text-[11px] font-medium mt-1.5 leading-snug text-gray-500">
+                  {m.label}
+                </span>
               </div>
             ))}
           </div>

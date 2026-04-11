@@ -6,6 +6,8 @@ import BlogSidebar from "@/components/blog/BlogSidebar";
 import Footer from "@/components/common/Footer";
 import { POSTS } from "@/lib/data/blog";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Blog & Insights | CueClarity — Career Guidance Articles",
   description:

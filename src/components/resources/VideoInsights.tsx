@@ -1,7 +1,9 @@
 ﻿import { FiExternalLink } from "react-icons/fi";
 import FadeInView from "@/components/animate/FadeInView";
 import { client } from "@/sanity/client";
-import VideoInsightsGrid, { type SanityResourceVideo } from "./VideoInsightsGrid";
+import VideoInsightsGrid, {
+  type SanityResourceVideo,
+} from "./VideoInsightsGrid";
 
 const query = `*[_type == "resourceVideo" && isPublished == true] | order(order asc) {
   _id,
@@ -14,7 +16,11 @@ const query = `*[_type == "resourceVideo" && isPublished == true] | order(order 
 }`;
 
 export default async function VideoInsights() {
-  const videos: SanityResourceVideo[] = await client.fetch(query, {}, { next: { revalidate: 60 } });
+  const videos: SanityResourceVideo[] = await client.fetch(
+    query,
+    {},
+    { next: { revalidate: false } },
+  );
 
   if (!videos.length) return null;
 

@@ -18,7 +18,7 @@ export default async function GallerySection() {
   const albums: SanityGalleryAlbum[] = await client.fetch(
     query,
     {},
-    { next: { revalidate: 60 } },
+    { next: { revalidate: false } },
   );
 
   return (

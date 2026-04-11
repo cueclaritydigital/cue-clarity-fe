@@ -10,7 +10,8 @@ import FloatingShare from "@/components/blog/FloatingShare";
 import Footer from "@/components/common/Footer";
 
 /* ── Static params for build-time generation ── */
-export const dynamicParams = true;
+export const dynamic = "force-static";
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));

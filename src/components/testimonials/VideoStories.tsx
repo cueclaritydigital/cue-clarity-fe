@@ -16,7 +16,7 @@ export default async function VideoStories() {
   const videos: SanityVideoTestimonial[] = await client.fetch(
     query,
     {},
-    { next: { revalidate: 60 } },
+    { next: { revalidate: false } },
   );
 
   if (!videos.length) return null;

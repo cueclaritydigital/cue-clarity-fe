@@ -21,6 +21,8 @@ const aggregateRatingSchema = {
   },
 };
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Career Counselling Success Stories & Reviews | CueClarity India",
   description:

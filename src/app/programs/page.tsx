@@ -21,6 +21,8 @@ const FAQ = lazy(() => import("@/components/home/FAQ"));
 const RFQ = lazy(() => import("@/components/common/RFQ"));
 const Footer = lazy(() => import("@/components/common/Footer"));
 
+export const dynamic = "force-static";
+
 /* ── SEO Metadata ─────────────────────────────────────────────────── */
 export const metadata: Metadata = {
   title: "Career Assessment Programs & Webinars",

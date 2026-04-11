@@ -9,6 +9,8 @@ import Footer from "@/components/common/Footer";
 import { client } from "@/sanity/client";
 import type { SanityResourceVideo } from "@/components/resources/VideoInsightsGrid";
 
+export const dynamic = "force-static";
+
 /* ── SEO Metadata ─────────────────────────────────────────────────── */
 const BASE_URL = "https://cueclarity.com";
 
@@ -149,7 +151,7 @@ export default async function ResourcesPage() {
   const videos: SanityResourceVideo[] = await client.fetch(
     videoQuery,
     {},
-    { next: { revalidate: 60 } },
+    { next: { revalidate: false } },
   );
 
   const videoSchemas = videos.map((video) => ({
