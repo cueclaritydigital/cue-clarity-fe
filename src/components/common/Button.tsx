@@ -1,5 +1,5 @@
-// "use client";
+"use client";
 
-// export default function Button({ children, className }) {
-//   <button className="className">{children}</button>;
-// }
+export default function Button({ children, className }) {
+  <button className="className">{children}</button>;
+}
