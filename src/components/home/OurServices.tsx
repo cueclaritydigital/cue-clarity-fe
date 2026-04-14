@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 import { SERVICES, FEATURED_SERVICE } from "../../lib/data/ourservices";
+import { CTA } from "@/analytics/CTA";
 
 /* ── Service data — matches Navbar order ───────────────────────────── */
 
@@ -35,8 +36,14 @@ export default function OurServices() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {/* FEATURED CARD (col-span 2) */}
-          <Link
+
+          <CTA
             href={FEATURED_SERVICE.href}
+            event="cta_click"
+            eventData={{
+              source: "our_services",
+              cta_name: "Get Started",
+            }}
             className="group relative bg-white rounded-2xl lg:rounded-3xl p-8 lg:p-10 md:col-span-2 lg:col-span-2 overflow-hidden flex flex-col justify-between gap-8 hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,0.18)]"
           >
             {/* Hover yellow glow wash */}
@@ -83,15 +90,20 @@ export default function OurServices() {
                 className="group-hover:translate-x-1 transition-transform"
               />
             </div>
-          </Link>
+          </CTA>
 
           {/* 6 STANDARD CARDS */}
           {SERVICES.map((s, i) => {
             const isLast = i === SERVICES.length - 1;
             return (
-              <Link
+              <CTA
                 key={s.title}
                 href={s.href}
+                event="cta_click"
+                eventData={{
+                  source: "our_services",
+                  cta_name: s.title,
+                }}
                 className={`group relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-7 overflow-hidden flex flex-col gap-4 hover:-translate-y-1  transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.12)]${
                   isLast ? " lg:col-span-2" : ""
                 }`}
@@ -101,12 +113,10 @@ export default function OurServices() {
                   className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-[45px] bg-yellow-400"
                   style={{ transform: "translate(35%, -35%)" }}
                 />
-
                 {/* Decorative SVG bottom-right */}
                 <div className="absolute bottom-3 right-3 w-20 h-20 opacity-[0.10] group-hover:opacity-[0.14] text-blue-950 pointer-events-none transition-all duration-300">
                   {s.svg}
                 </div>
-
                 <div className="relative z-10 flex items-center justify-between">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 bg-blue-950/[0.07] group-hover:bg-blue-950/[0.14] text-blue-950">
                     <div className="w-5 h-5">{s.svg}</div>
@@ -115,7 +125,6 @@ export default function OurServices() {
                     {s.tag}
                   </span>
                 </div>
-
                 <h3
                   className="relative z-10 font-oswald font-bold uppercase tracking-tight text-blue-950 transition-colors duration-300"
                   style={{
@@ -125,16 +134,14 @@ export default function OurServices() {
                 >
                   {s.title}
                 </h3>
-
                 <p className="relative z-10 text-gray-500 text-sm leading-relaxed transition-colors duration-300">
                   {s.desc}
                 </p>
-
                 <div className="relative z-10 mt-auto flex items-center gap-1.5 font-bold text-sm group-hover:gap-2.5 transition-all duration-300 text-blue-950">
                   Learn More
                   <FiArrowRight size={13} />
                 </div>
-              </Link>
+              </CTA>
             );
           })}
         </div>

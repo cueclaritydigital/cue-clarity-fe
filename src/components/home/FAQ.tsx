@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
+import { CTA } from "@/analytics/CTA";
 
 export default function FAQ() {
   const faqs = [
@@ -75,7 +76,12 @@ export default function FAQ() {
             Can&apos;t find the answer you&apos;re looking for? Reach out to our
             team and we&apos;ll be happy to help clarify our process.
           </p>
-          <a
+          <CTA
+            external
+            event="whatsapp_click"
+            eventData={{
+              source: "FAQ",
+            }}
             href={getWhatsAppURL("general", "faq")}
             target="_blank"
             rel="noopener noreferrer"
@@ -83,7 +89,7 @@ export default function FAQ() {
           >
             <FaWhatsapp className="w-4 h-4" />
             Ask Us on WhatsApp
-          </a>
+          </CTA>
         </div>
 
         {/* RIGHT COLUMN */}

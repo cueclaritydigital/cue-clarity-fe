@@ -14,6 +14,7 @@ import {
 import FloatingCTA from "@/components/common/FloatingCTA";
 import ExitIntentPopup from "@/components/common/ExitIntentPopup";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import { PageTracker } from "@/analytics/PageTracker";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -136,6 +137,7 @@ export default function RootLayout({
           lineHeight: "var(--leading-normal)",
         }}
       >
+        <PageTracker />
         <ScrollToTop />
         <main>{children}</main>
         <FloatingCTA />

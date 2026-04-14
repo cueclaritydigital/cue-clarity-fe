@@ -9,6 +9,7 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
 import type { CTASection } from "@/lib/data/services";
+import { CTA } from "@/analytics/CTA";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   FiBriefcase,
@@ -82,17 +83,22 @@ export default function EditorialCTA({ section }: { section: CTASection }) {
               section.quickLinks!.map((link) => {
                 const Icon = ICON_MAP[link.icon];
                 return (
-                  <a
+                  <CTA
                     key={link.label}
                     href={link.href}
-                    target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
+                    target={link.external ? "_blank" : undefined}
+                    external
+                    event="whatsapp_click"
+                    eventData={{
+                      source: "service_RFQ",
+                    }}
                     className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 rounded-full transition-all duration-200 hover:bg-white/10 bg-white/5 backdrop-blur-sm"
                   >
                     {Icon && <Icon size={13} />}
                     {link.label}
                     <FiArrowRight size={13} className="ml-1" />
-                  </a>
+                  </CTA>
                 );
               })}
           </div>

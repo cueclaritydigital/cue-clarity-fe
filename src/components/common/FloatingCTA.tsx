@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { FiMessageCircle, FiX } from "react-icons/fi";
 import { getWhatsAppURL } from "@/lib/whatsapp";
+import { CTA } from "@/analytics/CTA";
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);
@@ -35,11 +36,15 @@ export default function FloatingCTA() {
         </button>
       </div>
 
-      {/* WhatsApp button */}
-      <a
+      <CTA
         href={getWhatsAppURL("general", "floating-cta")}
         target="_blank"
         rel="noopener noreferrer"
+        external
+        event="whatsapp_click"
+        eventData={{
+          source: "floating_button",
+        }}
         className="group flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:bg-green-600 hover:shadow-[0_6px_28px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-105"
         aria-label="Chat on WhatsApp"
       >
@@ -47,7 +52,7 @@ export default function FloatingCTA() {
           size={26}
           className="group-hover:scale-110 transition-transform"
         />
-      </a>
+      </CTA>
     </div>
   );
 }

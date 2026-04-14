@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { FiZap, FiX } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
+import { CTA } from "@/analytics/CTA";
 
 export default function AssessmentBanner() {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,15 +52,21 @@ export default function AssessmentBanner() {
           </div>
         </div>
 
-        <a
+        <a></a>
+        <CTA
           href={getWhatsAppURL("general", "assessment-banner")}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-950 px-6 py-3 rounded-full font-bold text-sm shadow-[0_6px_24px_rgba(255,193,20,0.4)] hover:bg-yellow-300 transition-all duration-200"
+          external
+          event="whatsapp_click"
+          eventData={{
+            source: "assesment_bottom_popup",
+          }}
         >
           <FaWhatsapp size={16} aria-hidden="true" />
           Chat Now — It&apos;s Free
-        </a>
+        </CTA>
       </div>
     </div>
   );

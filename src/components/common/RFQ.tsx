@@ -1,6 +1,7 @@
 import { FiCheckCircle } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
+import { CTA } from "@/analytics/CTA";
 
 export default function RFQ() {
   return (
@@ -31,15 +32,20 @@ export default function RFQ() {
 
         {/* WhatsApp CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <a
+          <CTA
             href={getWhatsAppURL("general", "rfq")}
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
+            external
+            event="whatsapp_click"
+            eventData={{
+              source: "RFQ",
+            }}
             className="inline-flex items-center justify-center gap-2.5 bg-yellow-400 text-blue-950 px-10 py-4 rounded-full font-bold text-base tracking-wide hover:bg-yellow-300 transition-all duration-200 hover:-translate-y-px shadow-[0_6px_24px_rgba(255,193,20,0.4)] w-full sm:w-auto"
           >
             <FaWhatsapp size={20} />
             Chat With Us — It&apos;s Free
-          </a>
+          </CTA>
         </div>
 
         {/* Trust micro-copy */}

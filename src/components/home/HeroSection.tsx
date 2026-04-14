@@ -12,6 +12,8 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
 import "./HeroSection.css";
+import { Button } from "../common/Button";
+import { CTA } from "@/analytics/CTA";
 
 export default function HeroSection() {
   return (
@@ -61,21 +63,29 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto justify-center lg:justify-start mt-2 px-2 sm:px-0 hero-animate-fade-up"
               style={{ animationDelay: "0.35s" }}
             >
-              <a
+              <CTA
                 href={getWhatsAppURL("general", "hero")}
-                target="_blank"
-                rel="noopener noreferrer"
+                external
+                event="whatsapp_click"
+                eventData={{
+                  source: "hero",
+                }}
                 className="inline-flex items-center justify-center gap-2 bg-yellow-400 text-blue-950 px-8 py-4 lg:py-3.5 rounded-full font-bold text-sm tracking-wide hover:bg-yellow-300 transition-all duration-200 hover:-translate-y-px shadow-[0_6px_24px_rgba(255,193,20,0.4)] w-full sm:w-auto"
               >
                 <FaWhatsapp size={18} />
                 Chat With Us — It&apos;s Free
-              </a>
-              <Link
+              </CTA>
+              <CTA
                 href="/services"
+                event="cta_click"
+                eventData={{
+                  source: "hero",
+                  cta_name: "Explore Services",
+                }}
                 className="inline-flex items-center justify-center gap-2 bg-transparent text-white px-8 py-4 lg:py-3.5 rounded-full font-semibold text-sm border-[1.5px] border-white/60 hover:bg-white/10 hover:border-white transition-all duration-200 w-full sm:w-auto text-center"
               >
                 Explore Services →
-              </Link>
+              </CTA>
             </div>
 
             {/* Quick-jump strip */}
@@ -88,26 +98,38 @@ export default function HeroSection() {
               </span>
               <div className="w-px h-3 bg-white/20 hidden sm:block" />
               <div className="flex items-center gap-2">
-                <a
+                <CTA
                   href="https://cueclarity.edumilestones.com/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  external
+                  event="cta_click"
+                  eventData={{
+                    source: "hero",
+                    cta_name: "Career Assessment",
+                  }}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-950 hover:text-blue-800 bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-amber-50"
                 >
                   <FiBriefcase size={12} />
                   Career Assessment
                   <FiArrowRight size={10} className="opacity-60" />
-                </a>
-                <a
+                </CTA>
+                <CTA
                   href="https://cueclarity.edumilestones.com/abroad-studies/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  external
+                  event="cta_click"
+                  eventData={{
+                    source: "hero",
+                    cta_name: "Study Abroad",
+                  }}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-950 hover:text-blue-800 bg-[var(--primary-white)] px-4 py-2 rounded-full transition-all duration-200 hover:bg-amber-50"
                 >
                   <FiGlobe size={12} />
                   Study Abroad
                   <FiArrowRight size={10} className="opacity-60" />
-                </a>
+                </CTA>
               </div>
             </div>
           </div>
