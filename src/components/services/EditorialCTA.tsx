@@ -70,15 +70,20 @@ export default function EditorialCTA({ section }: { section: CTASection }) {
           {/* 1 quick link → WhatsApp + pill side by side */}
           {/* 2 quick links → WhatsApp alone, then pills row below */}
           <div className="flex flex-col gap-3">
-            <a
+            <CTA
               href={getWhatsAppURL("general", "service-cta")}
               target="_blank"
               rel="noopener noreferrer"
+              external
+              event="whatsapp_click"
+              eventData={{
+                source: "services_rfq",
+              }}
               className="inline-flex items-center justify-center gap-2 text-base font-semibold px-10 h-11 rounded-full bg-[var(--primary-yellow)] text-white  transition-colors duration-300 group w-full"
             >
               <FaWhatsapp size={20} />
               {section.primaryCTA.label}
-            </a>
+            </CTA>
             {(section.quickLinks?.length ?? 0) === 1 &&
               section.quickLinks!.map((link) => {
                 const Icon = ICON_MAP[link.icon];
@@ -89,9 +94,10 @@ export default function EditorialCTA({ section }: { section: CTASection }) {
                     rel={link.external ? "noopener noreferrer" : undefined}
                     target={link.external ? "_blank" : undefined}
                     external
-                    event="whatsapp_click"
+                    event="cta_click"
                     eventData={{
                       source: "service_RFQ",
+                      cta_name: link.label,
                     }}
                     className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 rounded-full transition-all duration-200 hover:bg-white/10 bg-white/5 backdrop-blur-sm"
                   >
@@ -108,17 +114,23 @@ export default function EditorialCTA({ section }: { section: CTASection }) {
               {section.quickLinks!.map((link) => {
                 const Icon = ICON_MAP[link.icon];
                 return (
-                  <a
+                  <CTA
                     key={link.label}
                     href={link.href}
-                    target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 rounded-full transition-all duration-200 hover:bg-white/10 bg-white/5 backdrop-blur-sm"
+                    target={link.external ? "_blank" : undefined}
+                    external
+                    event="cta_click"
+                    eventData={{
+                      source: "service_RFQ",
+                      cta_name: link.label,
+                    }}
+                    className="w-full flex items-center justify-center gap-1.5 h-11 text-xs font-semibold text-white/70 hover:text-white border border-white/20 hover:border-white/40 px-5 rounded-full transition-all duration-200 hover:bg-white/10 bg-white/5 backdrop-blur-sm"
                   >
                     {Icon && <Icon size={13} />}
                     {link.label}
                     <FiArrowRight size={13} className="ml-1" />
-                  </a>
+                  </CTA>
                 );
               })}
             </div>

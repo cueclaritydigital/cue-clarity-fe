@@ -5,6 +5,7 @@ import { slideInRight } from "@/lib/animations/variants";
 import { FaWhatsapp } from "react-icons/fa";
 import { getWhatsAppURL } from "@/lib/whatsapp";
 import { METRICS } from "@/lib/data/success-stories";
+import { CTA } from "@/analytics/CTA";
 
 export default function HeroSuccessStories() {
   return (
@@ -49,21 +50,31 @@ export default function HeroSuccessStories() {
 
           {/* CTA row */}
           <div className="flex flex-col sm:flex-row gap-3.5 mt-10">
-            <a
+            <CTA
               href={getWhatsAppURL("general", "success-stories-hero")}
               target="_blank"
               rel="noopener noreferrer"
+              external
+              event="whatsapp_click"
+              eventData={{
+                source: "testimonial_hero",
+              }}
               className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-xl bg-[var(--primary-yellow)] text-white hover:bg-[var(--accent-yellow)] transition-colors duration-300 w-full sm:w-auto"
             >
               <FaWhatsapp className="w-4 h-4" aria-hidden="true" />
               Start Your Journey
-            </a>
-            <Link
+            </CTA>
+            <CTA
               href="/services"
+              event="cta_click"
+              eventData={{
+                source: "testimonial_hero",
+                cta_name: "Study Abroad",
+              }}
               className="inline-flex items-center justify-center text-sm font-semibold px-7 py-3.5 rounded-xl border-[1.5px] border-blue-950 text-blue-950 hover:bg-[var(--primary-blue)] hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
               Explore Services →
-            </Link>
+            </CTA>
           </div>
 
           {/* Quick-stat pills */}

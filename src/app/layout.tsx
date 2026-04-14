@@ -15,6 +15,7 @@ import FloatingCTA from "@/components/common/FloatingCTA";
 import ExitIntentPopup from "@/components/common/ExitIntentPopup";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { PageTracker } from "@/analytics/PageTracker";
+import Script from "next/script";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -128,6 +129,22 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessSchema),
           }}
         />
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id=GTM-T3WF2SK9'+dl;
+              f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-T3WF2SK9');
+            `,
+          }}
+        />
       </head>
       <body
         className="font-[family-name:var(--font-jakarta)] antialiased"
@@ -137,6 +154,14 @@ export default function RootLayout({
           lineHeight: "var(--leading-normal)",
         }}
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-T3WF2SK9"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <PageTracker />
         <ScrollToTop />
         <main>{children}</main>

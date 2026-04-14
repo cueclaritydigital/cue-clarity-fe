@@ -10,6 +10,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 import { getWhatsAppURL } from "@/lib/whatsapp";
 import type { HeroSection } from "@/lib/data/services";
 import FadeInView from "@/components/animate/FadeInView";
+import { CTA } from "@/analytics/CTA";
 
 export default function EditorialHero({ section }: { section: HeroSection }) {
   const hasImage = !!section.image;
@@ -83,30 +84,41 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
                   : "flex-col"
               }`}
             >
-              <a
+              <CTA
                 href={getWhatsAppURL("general", "service-hero")}
                 target="_blank"
                 rel="noopener noreferrer"
+                external
+                event="whatsapp_click"
+                eventData={{
+                  source: "services_hero",
+                }}
                 className="flex flex-1 items-center justify-center gap-2 text-sm font-semibold px-7 h-11 w-full rounded-xl bg-[var(--primary-yellow)] text-white hover:bg-[var(--accent-yellow)] transition-colors duration-300"
               >
                 <FaWhatsapp className="w-4 h-4" />
                 {section.primaryCTA.label}
-              </a>
+              </CTA>
               {(section.quickLinks?.length ?? 0) === 1 &&
                 section.quickLinks!.map((link) => {
                   const Icon = ICON_MAP[link.icon];
                   return (
-                    <a
+                    <CTA
                       key={link.label}
                       href={link.href}
+                      external
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
                       className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-sm font-semibold text-[var(--primary-blue)]  px-4 rounded-full transition-all duration-200 hover:bg-white bg-[var(--primary-white)] backdrop-blur-sm"
+                      event="cta_click"
+                      eventData={{
+                        source: "services_hero",
+                        cta_name: link.label,
+                      }}
                     >
                       {Icon && <Icon size={13} />}
                       {link.label}
                       <FiArrowRight size={13} className="ml-1" />
-                    </a>
+                    </CTA>
                   );
                 })}
             </div>
@@ -115,17 +127,23 @@ export default function EditorialHero({ section }: { section: HeroSection }) {
                 {section.quickLinks!.map((link) => {
                   const Icon = ICON_MAP[link.icon];
                   return (
-                    <a
+                    <CTA
                       key={link.label}
+                      external
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
                       className="flex-1 inline-flex items-center justify-center gap-1.5 h-11 text-sm font-semibold text-[var(--primary-blue)]  px-4 rounded-full transition-all duration-200 hover:bg-white bg-[var(--primary-white)] backdrop-blur-sm"
+                      event="cta_click"
+                      eventData={{
+                        source: "services_hero",
+                        cta_name: link.label,
+                      }}
                     >
                       {Icon && <Icon size={13} />}
                       {link.label}
                       <FiArrowRight size={13} className="ml-1" />
-                    </a>
+                    </CTA>
                   );
                 })}
               </div>
