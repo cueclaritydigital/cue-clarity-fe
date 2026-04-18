@@ -12,6 +12,7 @@ import {
   FiFacebook,
 } from "react-icons/fi";
 import NewsletterForm from "./NewsLetterFrom";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -22,13 +23,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block w-fit">
-              <Image
-                src="https://cueclarity.com/wp-content/uploads/2025/05/cropped-Artboard-1-copy-5@3x-scaled-1.png"
-                alt="Cue Clarity Logo"
-                width={150}
-                height={38}
-                className="h-9 w-auto brightness-0 invert opacity-90"
-              />
+              <Logo />
             </Link>
             <p className="text-[var(--primary-white)]/50 text-sm leading-relaxed max-w-[300px]">
               Empowering students and professionals to stop guessing and start
@@ -36,27 +31,7 @@ export default function Footer() {
               world.
             </p>
 
-            {/* stat pills */}
-            {/* <div className="flex flex-wrap gap-3 mt-1">
-              {[
-                ["500+", "students placed"],
-                ["15+", "countries"],
-                ["98%", "satisfaction"],
-              ].map(([num, label]) => (
-                <div
-                  key={num}
-                  className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5"
-                >
-                  <span className="text-[var(--primary-yellow)] font-bold text-sm">
-                    {num}
-                  </span>
-                  <span className="text-[var(--primary-white)]/40 text-xs">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div> */}
-
+        
             {/* socials */}
             <div className="flex items-center gap-3 mt-2">
               <SocialLink
