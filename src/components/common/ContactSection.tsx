@@ -32,16 +32,19 @@ const CONTACT_ITEMS = [
     icon: <FiMail size={20} />,
     label: "Write to us",
     value: "info@cueclarity.com",
+    href: 'mailto:info@cueclarity.com'
   },
   {
     icon: <FiPhone size={20} />,
     label: "Call us",
-    value: "+91 98765 43210",
+    value: "+91 8652222525",
+    href: 'tel:+918652222525'
   },
   {
     icon: <FiMapPin size={20} />,
     label: "Visit us",
     value: "Navi Mumbai, Maharashtra, India-410209",
+    href: ''
   },
 ];
 
@@ -66,29 +69,31 @@ export default function ContactSection() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
+  // UPDATED: Now points to your internal Next.js API route
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrorMsg("");
+    
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          subject: `New Contact Form Submission — ${form.name}`,
-          from_name: "Cue Clarity Website",
-          replyto: form.email,
           name: form.name,
           email: form.email,
           phone: form.phone || "—",
-          "I am a": form.role || "—",
+          role: form.role || "—",
           message: form.message,
         }),
       });
+      
       const data = await res.json();
-      if (!data.success)
+      
+      if (!data.success) {
         throw new Error(data.message || "Something went wrong.");
+      }
+      
       setStatus("success");
       setForm({ name: "", email: "", phone: "", role: "", message: "" });
     } catch (err) {
@@ -130,7 +135,7 @@ export default function ContactSection() {
 
             <div className="space-y-5">
               {CONTACT_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-center gap-5 group">
+                <a key={item.label} className="flex items-center gap-5 group cursor-pointer" href={item.href}>
                   <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
@@ -142,8 +147,9 @@ export default function ContactSection() {
                       {item.value}
                     </p>
                   </div>
-                </div>
+                </a>
               ))}
+              
             </div>
           </FadeInView>
 
